@@ -22,7 +22,7 @@ export default function OurStory() {
           {/* Main Image */}
           <div className="relative w-full h-full rounded-[24px] overflow-hidden bg-zinc-200">
             <Image 
-              src="/home/ourstory-img1.webp" 
+              src="/home/ourstory-img1.png" 
               alt="Lumina blind in a calm bedroom"
               fill
               className="object-cover"

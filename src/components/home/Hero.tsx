@@ -7,7 +7,7 @@ export default function Hero() {
       {/* Background image & gradient overlay */}
       <div className="absolute inset-0 z-0">
         <Image 
-          src="/home/hero-img1.webp" 
+          src="/home/hero-img1.png" 
           alt="Minimal room with window" 
           fill 
           className="object-cover opacity-25"
@@ -108,7 +108,7 @@ export default function Hero() {
         <div className="relative w-full aspect-[4/5] max-w-[480px] lg:max-w-[592px] mx-auto lg:ml-auto mt-2 lg:mt-0 order-2 lg:order-2">
           <div className="relative w-full h-full rounded-[24px] overflow-hidden shadow-[0_25px_50px_-12px_rgba(19,23,32,0.1)]">
             <Image
-              src="/home/hero-img1.webp"
+              src="/home/hero-img1.png"
               alt="Lumina blackout blind in bedroom"
               fill
               className="object-cover"
