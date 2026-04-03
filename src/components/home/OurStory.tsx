@@ -22,7 +22,7 @@ export default function OurStory() {
           {/* Main Image */}
           <div className="relative w-full h-full rounded-[24px] overflow-hidden bg-zinc-200">
             <Image 
-              src="/home/ourstory-img2.jpg" 
+              src="/home/ourstory-img1.webp" 
               alt="Lumina blind in a calm bedroom"
               fill
               className="object-cover"
@@ -31,16 +31,16 @@ export default function OurStory() {
           </div>
 
           {/* Overlay Swatch Image */}
-          <div className="absolute -bottom-5 -right-4 lg:-right-8 w-[120px] lg:w-[160px] h-[150px] lg:h-[208px] bg-white border-4 border-[#f9fafb] rounded-[16px] p-1 shadow-[0_20px_25px_-5px_rgba(0,0,0,0.1),0_8px_10px_-6px_rgba(0,0,0,0.1)] z-10 hidden sm:block">
+          {/* <div className="absolute -bottom-5 -right-4 lg:-right-8 w-[120px] lg:w-[160px] h-[150px] lg:h-[208px] bg-white border-4 border-[#f9fafb] rounded-[16px] p-1 shadow-[0_20px_25px_-5px_rgba(0,0,0,0.1),0_8px_10px_-6px_rgba(0,0,0,0.1)] z-10 hidden sm:block">
             <div className="relative w-full h-full rounded-[12px] overflow-hidden bg-zinc-300">
               <Image 
-                src="/home/ourstory-img1.jpg" 
+                src="/home/hero-img1.webp" 
                 alt="Close up of the blind fabric" 
                 fill 
                 className="object-cover"
               />
             </div>
-          </div>
+          </div> */}
         </div>
 
         {/* Right Column - Text Content */}
@@ -65,8 +65,7 @@ export default function OurStory() {
               spent three years building something better.
             </p>
             <p>
-              Today, our blinds are trusted in over 40,000 homes across Europe — from
-              new parents in Helsinki to night-shift nurses in London. Every blind is made
+              Today, our blinds are trusted in over 40,000 homes — Every blind is made
               to your exact measurements, ships within three days, and installs without a
               single drill hole.
             </p>
@@ -92,7 +91,7 @@ export default function OurStory() {
                 40,000+
               </span>
               <span className="font-sans font-normal text-[#657186] text-[14px] leading-[20px]">
-                Homes across Europe
+                Homes across USA
               </span>
             </div>
 

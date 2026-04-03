@@ -109,9 +109,9 @@ export default function ProductWhyLumina() {
         </div>
 
         {/* Premium Craftsmanship Banner */}
-        <div className="relative w-full h-[320px] rounded-[24px] overflow-hidden mt-6">
+        <div className="relative w-full h-[360px] rounded-[24px] overflow-hidden mt-6">
           <Image 
-            src="/product/premium-craftmanship.jpg"
+            src="/home/craftsmanship-bg.webp"
             alt="Premium craftsmanship banner"
             fill
             className="object-cover"
@@ -121,7 +121,7 @@ export default function ProductWhyLumina() {
           
           <div className="absolute inset-0 flex flex-col justify-center items-center p-6 text-center z-10">
             <h3 className="font-playfair font-medium text-white text-[32px] md:text-[36px] mb-2 leading-tight">
-              Proudly made in Europe
+              Proudly made in Texas
             </h3>
             <p className="font-sans text-[14px] text-white/70 max-w-md leading-relaxed">
               Designed and manufactured with care, quality, and

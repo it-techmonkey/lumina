@@ -99,7 +99,7 @@ export default function MeasuringGuide() {
           
           <div className="relative w-full h-full rounded-[24px] overflow-hidden shadow-[0_20px_25px_-5px_rgba(0,0,0,0.1),0_8px_10px_-6px_rgba(0,0,0,0.1)] bg-zinc-200">
             <Image 
-              src="/home/measuring-guide-img.jpg" 
+              src="/home/measuring-guide-img.webp" 
               alt="Measuring a window" 
               fill 
               className="object-cover"

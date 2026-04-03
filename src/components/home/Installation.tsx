@@ -76,7 +76,7 @@ export default function Installation() {
         {/* Bottom Banner Image Area */}
         <div className="relative w-full h-[320px] rounded-3xl overflow-hidden flex flex-col items-center justify-center">
           <Image
-            src="/home/installation-img.jpg"
+            src="/home/craftsmanship-bg.webp"
             alt="Clean Scandinavian bedroom with window"
             fill
             className="object-cover pointer-events-none"

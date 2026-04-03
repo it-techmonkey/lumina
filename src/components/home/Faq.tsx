@@ -28,7 +28,7 @@ export default function Faq() {
     },
     {
       question: "How long does delivery take?",
-      answer: "We cut and ship every blind within 3 business days. Standard delivery to most European countries takes 2–5 business days after dispatch. Express options are available at checkout."
+      answer: "We cut and ship every blind within 3 business days. Standard delivery to most US states takes 2–5 business days after dispatch. Express options are available at checkout."
     },
     {
       question: "What's your returns policy?",

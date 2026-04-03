@@ -109,7 +109,7 @@ export default function ValueProps() {
         </div>
 
         {/* Large Image / Testimonial Section */}
-        <div className="relative w-full h-[384px] rounded-[24px] overflow-hidden mt-4 shadow-md bg-zinc-200">
+        {/* <div className="relative w-full h-[384px] rounded-[24px] overflow-hidden mt-4 shadow-md bg-zinc-200">
           <Image 
             src="/home/valueProp1.jpg" 
             alt="Bright Scandinavian living room" 
@@ -117,10 +117,8 @@ export default function ValueProps() {
             className="object-cover"
           />
           
-          {/* Gradient Overlay */}
           <div className="absolute inset-0 bg-gradient-to-r from-[#131720]/80 via-[#131720]/40 to-transparent flex items-center px-8 lg:px-[64px]">
             
-            {/* Testimonial Blockquote */}
             <div className="flex flex-col gap-[12px] max-w-[384px]">
               <h4 className="font-playfair font-normal italic text-white text-[28px] lg:text-[30px] leading-[36px]">
                 "The best sleep I've had in years."
@@ -131,7 +129,7 @@ export default function ValueProps() {
             </div>
             
           </div>
-        </div>
+        </div> */}
 
       </div>
     </section>

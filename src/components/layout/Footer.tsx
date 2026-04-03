@@ -11,7 +11,7 @@ const Footer = () => {
         </h2>
         
         <p className="font-sans text-[14px] leading-[20px] text-white/60 text-center max-w-[384px] mb-8">
-          Join 40,000+ customers across Europe who trust Lumina 
+          Join 40,000+ customers who trust Lumina 
           <br className="hidden sm:block" />
           for the perfect night's sleep.
         </p>
@@ -66,7 +66,7 @@ const Footer = () => {
       {/* Bottom Copyright Section */}
       <div className="w-full border-t border-white/10 py-5 px-6 flex justify-center">
         <p className="font-sans text-[12px] leading-[16px] text-white/40 text-center">
-          &copy; 2026 Lumina. All rights reserved. &middot; Made in Europe.
+          &copy; 2026 Lumina. All rights reserved. &middot; Made in Texas.
         </p>
       </div>
     </footer>

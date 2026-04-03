@@ -32,10 +32,11 @@ export default function ProductFeatures() {
 
           <div className="relative w-full h-[300px] md:h-full opacity-60 order-1 md:order-2">      
             <Image 
-              src="/product/sleep-struggle.jpg" 
+              src="/product/sleep-struggle.webp" 
               alt="Person struggling to sleep with light"
               fill
               className="object-cover object-right"
+              sizes="(max-width: 768px) 100vw, 50vw"
             />
             {/* Gradient Overlay */}
             <div className="absolute inset-0 bg-gradient-to-r from-[#131720] via-transparent to-transparent hidden md:block" />
@@ -58,11 +59,13 @@ export default function ProductFeatures() {
           {/* Card 1 */}
           <div className="bg-[#f9fafb] rounded-[16px] overflow-hidden flex flex-col">
             <div className="relative w-full aspect-[4/3] md:h-[298px]">
-              <Image 
-                src="/product/100-blackout.jpg" 
-                alt="100% Blackout"
-                fill
-                className="object-cover"
+              <video 
+                src="/product/blackout.mp4" 
+                autoPlay
+                loop
+                muted
+                playsInline
+                className="object-cover w-full h-full"
               />
             </div>
             <div className="p-6 flex flex-col gap-2">
@@ -77,7 +80,7 @@ export default function ProductFeatures() {
           <div className="bg-[#f9fafb] rounded-[16px] overflow-hidden flex flex-col">
             <div className="relative w-full aspect-[4/3] md:h-[298px]">
               <Image 
-                src="/product/no-drill-install.jpg" 
+                src="/home/measuring-guide-img.webp" 
                 alt="No-Drill Install"
                 fill
                 className="object-cover"
@@ -95,7 +98,7 @@ export default function ProductFeatures() {
           <div className="bg-[#f9fafb] rounded-[16px] overflow-hidden flex flex-col">
             <div className="relative w-full aspect-[4/3] md:h-[298px]">
               <Image 
-                src="/product/energy-efficient.jpg" 
+                src="/product/energy-efficient.webp" 
                 alt="Energy Efficient"
                 fill
                 className="object-cover"
