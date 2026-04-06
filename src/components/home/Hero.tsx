@@ -1,5 +1,6 @@
 import Image from 'next/image';
 import Link from 'next/link';
+import SmartVideo from '../common/SmartVideo';
 
 export default function Hero() {
   return (
@@ -107,13 +108,13 @@ export default function Hero() {
         {/* Right Column - Image */}
         <div className="relative w-full aspect-[4/5] max-w-[480px] lg:max-w-[592px] mx-auto lg:ml-auto mt-2 lg:mt-0 order-2 lg:order-2">
           <div className="relative w-full h-full rounded-[24px] overflow-hidden shadow-[0_25px_50px_-12px_rgba(19,23,32,0.1)]">
-            <Image
-              src="/home/hero-img1.png"
-              alt="Lumina blackout blind in bedroom"
-              fill
-              className="object-cover"
-              priority
-              sizes="(max-width: 768px) 100vw, 50vw"
+            <SmartVideo
+              src="/product/blackout.mp4"
+              posterSrc="/product/gallery-1.webp"
+              posterAlt="Blackout blind over a bedroom window"
+              eager
+              preload="metadata"
+              priorityPoster
             />
           </div>
 

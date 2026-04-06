@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
+import SmartVideo from "../common/SmartVideo";
 
 export default function ProductFeatures() {
   return (
@@ -59,13 +60,12 @@ export default function ProductFeatures() {
           {/* Card 1 */}
           <div className="bg-[#f9fafb] rounded-[16px] overflow-hidden flex flex-col">
             <div className="relative w-full aspect-[4/3] md:h-[298px]">
-              <video 
-                src="/product/blackout.mp4" 
-                autoPlay
-                loop
-                muted
-                playsInline
-                className="object-cover w-full h-full"
+              <SmartVideo
+                src="/product/blackout.mp4"
+                posterSrc="/product/gallery-2.webp"
+                posterAlt="Blackout blind fully covering a bedroom window"
+                preload="metadata"
+                rootMargin="300px"
               />
             </div>
             <div className="p-6 flex flex-col gap-2">
