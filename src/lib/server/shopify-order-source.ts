@@ -1,4 +1,4 @@
-const SOURCE_SITE = 'blackout-blinds';
+const SOURCE_SITE = 'lumina';
 const SOURCE_TAG = `source:${SOURCE_SITE}`;
 
 type ShopifyNoteAttribute = {

@@ -56,7 +56,7 @@ function StarIcon({ className }: { className?: string }) {
 
 export default function Reviews() {
   return (
-    <section className="bg-[#f9fafb] py-16 md:py-24 px-6 relative w-full">
+    <section id="reviews" className="bg-[#f9fafb] py-16 md:py-24 px-6 relative w-full">
       <div className="max-w-[1280px] mx-auto flex flex-col gap-10 md:gap-14">
         {/* Header container */}
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 w-full">

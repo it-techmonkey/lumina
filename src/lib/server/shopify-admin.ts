@@ -1,4 +1,6 @@
-// Shopify Admin API configuration (server-side only)
+// Shopify Admin API configuration (server-side only).
+// Customer/order PII reads are intentionally not exposed here. The app stores
+// paid order details from Shopify webhooks instead of querying Shopify account data.
 
 export const shopifyConfig = {
   storeDomain: process.env.SHOPIFY_STORE_DOMAIN || '',

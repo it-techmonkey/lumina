@@ -2,6 +2,70 @@ import { NextResponse } from 'next/server';
 import { prisma } from '@/lib/server/database';
 import { orderMatchesSource } from '@/lib/server/shopify-order-source';
 
+type ShopifyLineItemProperty = {
+  name?: string | null;
+  value?: string | number | boolean | null;
+};
+
+type ShopifyLineItem = {
+  id?: string | number | null;
+  title?: string | null;
+  name?: string | null;
+  quantity?: number | null;
+  price?: string | number | null;
+  sku?: string | null;
+  properties?: ShopifyLineItemProperty[] | null;
+};
+
+function normalizePropertyValue(value: ShopifyLineItemProperty['value']): string {
+  if (value === null || value === undefined) {
+    return '';
+  }
+
+  return String(value);
+}
+
+function normalizeLineItemProperties(properties: ShopifyLineItem['properties']) {
+  if (!Array.isArray(properties)) {
+    return [];
+  }
+
+  return properties
+    .filter((property) => property?.name)
+    .map((property) => ({
+      name: property.name || '',
+      value: normalizePropertyValue(property.value),
+    }));
+}
+
+function buildLineItemConfiguration(properties: ReturnType<typeof normalizeLineItemProperties>) {
+  return Object.fromEntries(
+    properties
+      .filter((property) => property.name && !property.name.startsWith('_'))
+      .map((property) => [property.name, property.value])
+  );
+}
+
+function normalizeLineItems(lineItems: unknown) {
+  if (!Array.isArray(lineItems)) {
+    return [];
+  }
+
+  return lineItems.map((lineItem: ShopifyLineItem) => {
+    const properties = normalizeLineItemProperties(lineItem.properties);
+
+    return {
+      id: lineItem.id ? String(lineItem.id) : null,
+      title: lineItem.title || lineItem.name || 'Configured blind',
+      quantity: lineItem.quantity || 1,
+      price: lineItem.price ? String(lineItem.price) : '0',
+      sku: lineItem.sku || null,
+      properties,
+      configuration: buildLineItemConfiguration(properties),
+    };
+  });
+}
+
 export async function POST(request: Request) {
   try {
     const order = await request.json();
@@ -24,12 +88,15 @@ export async function POST(request: Request) {
     });
 
     const orderData = {
+      shopifyOrderId: String(order.id),
       status: 'CONFIRMED' as const,
-      customerEmail: order.email || order.customer?.email || null,
+      customerEmail: (order.email || order.customer?.email || '').trim().toLowerCase() || null,
       customerName: order.customer
         ? `${order.customer.first_name || ''} ${order.customer.last_name || ''}`.trim()
         : null,
       shippingAddress: order.shipping_address || null,
+      lineItems: normalizeLineItems(order.line_items),
+      currencyCode: order.currency || null,
       subtotal: parseFloat(order.subtotal_price) || 0,
       tax: parseFloat(order.total_tax) || 0,
       shipping: order.shipping_lines?.[0]

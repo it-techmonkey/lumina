@@ -7,13 +7,11 @@ This guide covers what needs to be configured in Shopify and in deployment for `
 - `blackout-blinds` uses the same Shopify store as `Yournextblinds`.
 - `blackout-blinds` should have its own Headless storefront entry in Shopify because it runs on a different domain.
 - `blackout-blinds` should also use its own Shopify Market if you want a separate market/catalog setup from `Yournextblinds`.
-- `blackout-blinds` uses the same pricing data and can use the same Postgres database.
+- `blackout-blinds` should use its own database and pricing data.
 - Orders are separated by Shopify source tagging:
-  - `source:blackout-blinds`
+  - `source:lumina`
   - `source:yournextblinds`
-- Signed-in customer carts are separated in the shared database:
-  - `blackout-blinds:<email>`
-  - `yournextblinds:<email>`
+- Signed-in customer carts live in each app's own database.
 
 ## Important Limitation
 
@@ -40,7 +38,7 @@ This does not mean creating a separate Shopify store.
 Recommended structure:
 
 - Keep one Shopify store
-- Keep one shared pricing database
+- Keep one database per app
 - Create one Headless storefront for `Yournextblinds`
 - Create one Headless storefront for `blackout-blinds`
 - Create one Shopify Market for `Yournextblinds`
@@ -137,13 +135,13 @@ Operationally, the blackout site is already designed as a single-product storefr
 
 The apps now tag draft orders automatically:
 
-- `blackout-blinds` adds `source:blackout-blinds`
+- `blackout-blinds` adds `source:lumina`
 - `Yournextblinds` adds `source:yournextblinds`
 
 Recommended Shopify admin setup:
 
 1. Open `Orders` in Shopify admin.
-2. Create a saved view filtered by `tag:source:blackout-blinds`.
+2. Create a saved view filtered by `tag:source:lumina`.
 3. Create a saved view filtered by `tag:source:yournextblinds`.
 4. Use those views for fulfillment, support, and reporting.
 
@@ -224,30 +222,26 @@ SHOPIFY_CUSTOMER_ACCOUNT_CLIENT_SECRET=
 
 Notes:
 
-- `DATABASE_URL` can point to the same Postgres database used by `Yournextblinds`
+- `DATABASE_URL` should point to the blackout app's own Postgres database
 - `APP_URL` and `NEXT_PUBLIC_APP_URL` should use the blackout production domain
 - `SHOPIFY_STORE_DOMAIN` stays the same because the Shopify store is shared
 - the Storefront token and customer account client credentials should come from the blackout Headless storefront setup
 - the Admin API token can stay the same because it belongs to the shared store
 
-## Shared Database Guidance
+## Separate Database Guidance
 
-Using the same DB is fine with the current codebase, with these expectations:
-
-- pricing tables are shared
-- order tracking data is shared
-- customer carts are logically separated by app prefix
+Each app should use its own database.
 
 Recommended:
 
-- use the same database for both apps
+- keep the database URLs separate in deployment and local environments
 - keep regular backups before launch
-- avoid manually editing `CustomerCart.customerEmail` values unless you preserve the site prefix
+- treat cart, pricing, and order data as app-local
 
 Caution:
 
-- if you created blackout customer carts before cart namespacing was added, those legacy plain-email rows will not be picked up automatically by blackout
-- if you want to preserve those older carts, do a one-time migration to `blackout-blinds:<email>`
+- if you migrate existing cart data from a shared database, copy the rows into the target app's database first
+- do not reuse the old shared-database customer-email prefixing scheme after migration
 
 ## Deployment Checklist
 
@@ -264,8 +258,8 @@ Caution:
 11. Test add to cart.
 12. Test checkout creation.
 13. Complete one real or test order.
-14. Confirm the order in Shopify has tag `source:blackout-blinds`.
-15. Confirm the order appears in the `tag:source:blackout-blinds` saved view.
+14. Confirm the order in Shopify has tag `source:lumina`.
+15. Confirm the order appears in the `tag:source:lumina` saved view.
 16. Confirm the order does not get processed by the `Yournextblinds` blackout-filtered webhook path.
 
 ## Quick Verification

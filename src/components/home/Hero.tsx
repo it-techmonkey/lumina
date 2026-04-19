@@ -81,7 +81,7 @@ export default function Hero() {
               Shop The Blind
             </Link>
             <Link 
-              href="/measuring" 
+              href="/guide/lumina_honeycomb_measuring_guide.pdf" 
               className="border border-[#dbe0e6] text-[#131720] font-sans font-medium text-sm text-center px-[32px] py-[16px] rounded-full hover:bg-white transition-colors"
             >
               How to Measure

@@ -14,17 +14,9 @@ function cartItemKey(item: SerializedCartItem): string {
   return `${product?.slug || 'unknown'}::${JSON.stringify(item.configuration || {})}`;
 }
 
-const CART_SCOPE = 'blackout-blinds';
-
-function getScopedCustomerEmail(customerEmail: string): string {
-  return `${CART_SCOPE}:${customerEmail.trim().toLowerCase()}`;
-}
-
 export async function getCustomerCart(customerEmail: string): Promise<SerializedCartItem[]> {
-  const scopedCustomerEmail = getScopedCustomerEmail(customerEmail);
-
   const cart = await prisma.customerCart.findUnique({
-    where: { customerEmail: scopedCustomerEmail },
+    where: { customerEmail: customerEmail.trim().toLowerCase() },
     select: { items: true },
   });
 
@@ -36,13 +28,13 @@ export async function saveCustomerCart(
   customerEmail: string,
   items: SerializedCartItem[]
 ): Promise<SerializedCartItem[]> {
-  const scopedCustomerEmail = getScopedCustomerEmail(customerEmail);
+  const normalizedCustomerEmail = customerEmail.trim().toLowerCase();
 
   await prisma.customerCart.upsert({
-    where: { customerEmail: scopedCustomerEmail },
+    where: { customerEmail: normalizedCustomerEmail },
     update: { items: items as unknown as Prisma.InputJsonValue },
     create: {
-      customerEmail: scopedCustomerEmail,
+      customerEmail: normalizedCustomerEmail,
       items: items as unknown as Prisma.InputJsonValue,
     },
   });

@@ -7,19 +7,19 @@ export const BLIND_COLOR_OPTIONS: PriceOption[] = [
     id: 'white',
     name: 'White',
     price: 0,
-    hex: '#f2efe9',
+    hex: '#ffffff',
   },
   {
     id: 'cream',
     name: 'Cream',
     price: 0,
-    hex: '#b8afa6',
+    hex: '#fffdd0',
   },
   {
     id: 'anthracite',
     name: 'Anthracite',
     price: 0,
-    hex: '#2c2925',
+    hex: '#36454f',
   },
 ];
 
@@ -28,13 +28,13 @@ export const FRAME_COLOR_OPTIONS: PriceOption[] = [
     id: 'white',
     name: 'White',
     price: 0,
-    hex: '#f5f2ee',
+    hex: '#ffffff',
   },
   {
     id: 'graphite',
     name: 'Graphite',
     price: 0,
-    hex: '#4a4845',
+    hex: '#53565b',
   },
 ];
 

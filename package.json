@@ -13,8 +13,10 @@
     "db:studio": "prisma studio"
   },
   "dependencies": {
+    "@clerk/nextjs": "^7.2.3",
     "@prisma/adapter-pg": "^7.5.0",
     "@prisma/client": "^7.5.0",
+    "google-auth-library": "^9.15.1",
     "next": "^16.0.8",
     "pg": "^8.20.0",
     "react": "^19.2.1",

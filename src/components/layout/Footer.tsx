@@ -1,6 +1,31 @@
+"use client";
+
 import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 
 const Footer = () => {
+  const pathname = usePathname();
+
+  const handleScroll = (e: React.MouseEvent<HTMLAnchorElement>) => {
+    const href = e.currentTarget.getAttribute('href');
+    if (pathname === '/' && href?.startsWith('/#')) {
+      const targetId = href.replace('/#', '');
+      const elem = document.getElementById(targetId);
+      if (elem) {
+        e.preventDefault();
+        elem.scrollIntoView({ behavior: 'smooth' });
+        window.history.pushState(null, '', href);
+      }
+    }
+  };
+
+  const navItems = [
+    { label: 'The Blind', href: '/products' },
+    { label: 'Measuring', href: '/guide/lumina_honeycomb_measuring_guide.pdf' },
+    { label: 'Reviews', href: '/#reviews' },
+    { label: 'FAQ', href: '/#faq' },
+  ];
+
   return (
     <footer className="bg-[#131720] flex flex-col items-center w-full mt-auto">
       {/* Top CTA Section */}
@@ -35,13 +60,14 @@ const Footer = () => {
 
         {/* Links */}
         <nav className="flex flex-wrap justify-center gap-x-6 gap-y-2">
-          {['The Blind', 'Measuring', 'Installation', 'Reviews', 'FAQ'].map((item) => (
+          {navItems.map((item) => (
             <Link 
-              key={item}
-              href={`/${item.toLowerCase().replace(' ', '-')}`} 
+              key={item.label}
+              href={item.href}
+              onClick={handleScroll}
               className="font-sans text-[14px] leading-[20px] text-white/60 hover:text-white transition-colors"
             >
-              {item}
+              {item.label}
             </Link>
           ))}
         </nav>

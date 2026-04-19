@@ -29,9 +29,9 @@ export default function ProductInfo({ product }: ProductInfoProps) {
     height: 0,
     widthUnit: "inches",
     heightUnit: "inches",
-    blindColor: "white",
-    frameColor: "white",
-    openingDirection: "left-right",
+    blindColor: null,
+    frameColor: null,
+    openingDirection: null,
   });
 
   useEffect(() => {
@@ -364,7 +364,15 @@ export default function ProductInfo({ product }: ProductInfoProps) {
       <div className="flex flex-col gap-3 mt-6">
         <button
           onClick={handleAddToCart}
-          disabled={isAddingToCart || !pricingLoaded || config.width <= 0 || config.height <= 0}
+          disabled={
+            isAddingToCart ||
+            !pricingLoaded ||
+            config.width <= 0 ||
+            config.height <= 0 ||
+            !config.blindColor ||
+            !config.frameColor ||
+            !config.openingDirection
+          }
           className="bg-[#131720] hover:bg-black disabled:bg-[#9aa3af] transition-colors w-full rounded-full py-4 text-white font-medium flex items-center justify-center gap-2"
         >
           <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">

@@ -41,7 +41,7 @@ export default function Faq() {
   };
 
   return (
-    <section className="bg-[#eaedf0] py-16 md:py-24 px-6 relative w-full">
+    <section id="faq" className="bg-[#eaedf0] py-16 md:py-24 px-6 relative w-full">
       <div className="max-w-[768px] mx-auto flex flex-col gap-8 md:gap-12 w-full">
         
         {/* Header */}
@@ -106,10 +106,10 @@ export default function Faq() {
             Our team replies within a few hours, Monday to Friday.
           </p>
           <a
-            href="mailto:hello@lumina.com"
+            href="mailto:info@luminablackoutblinds.com"
             className="bg-[#131720] text-[#f9fafb] font-[family-name:var(--font-dm-sans)] font-medium text-sm leading-5 px-6 py-3 rounded-full hover:bg-black transition-colors"
           >
-            hello@lumina.com
+            info@luminablackoutblinds.com
           </a>
         </div>
 

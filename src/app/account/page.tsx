@@ -1,14 +1,40 @@
-import { redirect } from 'next/navigation';
+import { auth, clerkClient } from '@clerk/nextjs/server';
+import AccountClient from '@/components/account/AccountClient';
+import { getAccountOrdersByEmail } from '@/lib/server/account-orders';
 
-const SHOPIFY_ACCOUNT_DOMAIN =
-  process.env.NEXT_PUBLIC_SHOPIFY_ACCOUNT_DOMAIN ||
-  process.env.NEXT_PUBLIC_SHOPIFY_STORE_DOMAIN?.replace(/^orders\./, 'account.') ||
-  '';
+export default async function AccountPage() {
+  const { isAuthenticated, redirectToSignIn, userId } = await auth();
 
-export default function AccountPage() {
-  if (!SHOPIFY_ACCOUNT_DOMAIN) {
-    redirect('/');
+  if (!isAuthenticated || !userId) {
+    return redirectToSignIn({ returnBackUrl: '/account' });
   }
 
-  redirect(`/api/auth/shopify/login?return_to=${encodeURIComponent(`https://${SHOPIFY_ACCOUNT_DOMAIN}`)}`);
+  const client = await clerkClient();
+  const user = await client.users.getUser(userId);
+  const primaryEmailAddress =
+    user.primaryEmailAddress?.emailAddress ?? user.emailAddresses[0]?.emailAddress ?? null;
+  const orderProfile = primaryEmailAddress
+    ? await getAccountOrdersByEmail(primaryEmailAddress)
+    : {
+        firstName: null,
+        lastName: null,
+        defaultAddress: null,
+        recentOrders: [],
+      };
+
+  const customer = {
+    firstName: user.firstName || orderProfile.firstName || null,
+    lastName: user.lastName || orderProfile.lastName || null,
+    email: primaryEmailAddress || 'No email on file',
+    phone: user.primaryPhoneNumber?.phoneNumber || null,
+  };
+
+  return (
+    <AccountClient
+      customer={customer}
+      orders={orderProfile.recentOrders}
+      defaultAddress={orderProfile.defaultAddress}
+      shouldSetupPassword={false}
+    />
+  );
 }
