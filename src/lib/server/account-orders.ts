@@ -125,6 +125,19 @@ function normalizeMoneyValue(value: string | number): string {
   return typeof value === 'number' ? value.toString() : value;
 }
 
+function mapOrderRow(order: AccountOrderRow): AccountOrderSummary {
+  return {
+    id: order.id,
+    name: order.orderNumber,
+    createdAt: normalizeDate(order.createdAt),
+    financialStatus: mapFinancialStatus(order.status),
+    fulfillmentStatus: mapFulfillmentStatus(order.status),
+    totalPrice: normalizeMoneyValue(order.total),
+    currencyCode: order.currencyCode || 'GBP',
+    lineItems: normalizeLineItems(order.lineItems),
+  };
+}
+
 function mapFinancialStatus(status: string): string | null {
   switch (status) {
     case 'REFUNDED':
@@ -199,15 +212,51 @@ export async function getAccountOrdersByEmail(email: string): Promise<AccountOrd
   return {
     ...splitCustomerName(latestNamedOrder?.customerName),
     defaultAddress: latestAddressOrder ? normalizeAddress(latestAddressOrder.shippingAddress) : null,
-    recentOrders: orders.map((order) => ({
-      id: order.id,
-      name: order.orderNumber,
-      createdAt: normalizeDate(order.createdAt),
-      financialStatus: mapFinancialStatus(order.status),
-      fulfillmentStatus: mapFulfillmentStatus(order.status),
-      totalPrice: normalizeMoneyValue(order.total),
-      currencyCode: order.currencyCode || 'GBP',
-      lineItems: normalizeLineItems(order.lineItems),
-    })),
+    recentOrders: orders.map(mapOrderRow),
   };
+}
+
+export async function getAccountOrderByShopifyOrderId(
+  shopifyOrderId: string
+): Promise<AccountOrderSummary | null> {
+  const normalizedShopifyOrderId = shopifyOrderId.trim();
+
+  if (!normalizedShopifyOrderId) {
+    return null;
+  }
+
+  const columns = await getOrderTableColumns();
+  if (!hasOrderColumn(columns, 'shopifyOrderId')) {
+    return null;
+  }
+
+  const lineItemsSelect = hasOrderColumn(columns, 'lineItems')
+    ? '"lineItems"'
+    : 'NULL::jsonb AS "lineItems"';
+  const currencyCodeSelect = hasOrderColumn(columns, 'currencyCode')
+    ? 'COALESCE("currencyCode", \'GBP\') AS "currencyCode"'
+    : '\'GBP\'::text AS "currencyCode"';
+
+  const orders = await prisma.$queryRawUnsafe<AccountOrderRow[]>(
+    `
+      SELECT
+        "id",
+        "orderNumber",
+        "status",
+        "customerName",
+        "shippingAddress",
+        ${lineItemsSelect},
+        ${currencyCodeSelect},
+        "total",
+        "createdAt"
+      FROM "Order"
+      WHERE "shopifyOrderId" = $1
+      ORDER BY "createdAt" DESC
+      LIMIT 1
+    `,
+    normalizedShopifyOrderId
+  );
+
+  const order = orders[0];
+  return order ? mapOrderRow(order) : null;
 }

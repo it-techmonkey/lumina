@@ -214,71 +214,6 @@ export interface ApiProduct {
   tags: ApiTag[];
 }
 
-export interface ApiProductsResponse {
-  success: boolean;
-  data: ApiProduct[];
-  pagination?: {
-    page: number;
-    limit: number;
-    total: number;
-    totalPages: number;
-    hasNextPage: boolean;
-    hasPreviousPage: boolean;
-  };
-}
-
-export interface ApiProductResponse {
-  success: boolean;
-  data: ApiProduct;
-}
-
-export interface ApiCategoriesResponse {
-  success: boolean;
-  data: Array<{
-    id: string;
-    slug: string;
-    name: string;
-    description: string | null;
-    productCount: number;
-  }>;
-}
-
-export interface ApiTagsResponse {
-  success: boolean;
-  data: ApiTag[];
-}
-
-// ============================================
-// Constants
-// ============================================
-
-export const DEFAULT_PRODUCT_FEATURES: ProductFeatures = {
-  hasSize: true,
-  hasHeadrail: false,
-  hasHeadrailColour: false,
-  hasInstallationMethod: false,
-  hasControlOption: false,
-  hasStacking: false,
-  hasControlSide: false,
-  hasBottomChain: false,
-  hasBracketType: false,
-  hasChainColor: false,
-  hasWrappedCassette: false,
-  hasCassetteMatchingBar: false,
-  hasMotorization: false,
-  hasBlindColor: false,
-  hasFrameColor: false,
-  hasOpeningDirection: false,
-  hasBottomBar: false,
-  hasRollStyle: false,
-  hasPvcFabric: false,
-  hasRollerCassette: false,
-};
-
-export const DEFAULT_ESTIMATED_DELIVERY = '22 December 2025';
-export const DEFAULT_RATING = 5;
-export const DEFAULT_REVIEW_COUNT = 0;
-
 // ============================================
 // Pricing Types
 // ============================================
@@ -293,11 +228,6 @@ export interface HeightBand {
   id: string;
   mm: number;
   inches: number;
-}
-
-export interface SizeBands {
-  widthBands: WidthBand[];
-  heightBands: HeightBand[];
 }
 
 export interface PriceBandMatrix {
@@ -325,19 +255,6 @@ export interface PricingRequest {
   }[];
 }
 
-export interface PricingResponse {
-  dimensionPrice: number;
-  customizationPrices: {
-    category: string;
-    optionId: string;
-    name: string;
-    price: number;
-  }[];
-  totalPrice: number;
-  widthBand: { mm: number; inches: number };
-  heightBand: { mm: number; inches: number };
-}
-
 export interface PriceValidationResponse {
   valid: boolean;
   calculatedPrice: number;
@@ -355,12 +272,6 @@ export interface CheckoutItemRequest {
   quantity: number;
   submittedPrice: number;
   configuration: Record<string, string | undefined>;
-}
-
-export interface CheckoutRequest {
-  items: CheckoutItemRequest[];
-  customerEmail?: string;
-  note?: string;
 }
 
 export interface CheckoutResponse {

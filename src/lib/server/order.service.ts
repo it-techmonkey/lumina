@@ -2,6 +2,7 @@ import { calculateProductPrice, type PricingRequest } from './pricing.service';
 import { getAdminApiUrl, getAdminHeaders, validateShopifyConfig } from './shopify-admin';
 import { getCachedProduct } from './product-cache';
 import { SOURCE_SITE, SOURCE_TAG } from './shopify-order-source';
+import { getAccountOrderByShopifyOrderId, type AccountOrderSummary } from './account-orders';
 
 // ============================================
 // Types
@@ -297,6 +298,7 @@ export async function getDraftOrderStatus(draftOrderId: string): Promise<{
   invoiceUrl: string;
   totalPrice: string;
   createdAt: string;
+  localOrder: AccountOrderSummary | null;
 }> {
   validateShopifyConfig();
 
@@ -315,14 +317,22 @@ export async function getDraftOrderStatus(draftOrderId: string): Promise<{
 
   const data = await response.json();
   const draftOrder = data.draft_order;
+  const orderId =
+    typeof draftOrder.order_id === 'string' || typeof draftOrder.order_id === 'number'
+      ? String(draftOrder.order_id)
+      : typeof draftOrder.order_id?.id === 'string' || typeof draftOrder.order_id?.id === 'number'
+        ? String(draftOrder.order_id.id)
+        : null;
+  const localOrder = orderId ? await getAccountOrderByShopifyOrderId(orderId) : null;
 
   return {
     id: draftOrder.id.toString(),
     status: draftOrder.status,
-    orderId: draftOrder.order_id?.id ? String(draftOrder.order_id.id) : null,
+    orderId,
     orderName: draftOrder.name || null,
     invoiceUrl: draftOrder.invoice_url,
     totalPrice: draftOrder.total_price,
     createdAt: draftOrder.created_at,
+    localOrder,
   };
 }

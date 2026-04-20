@@ -448,23 +448,6 @@ async function getMinimumPrices(): Promise<Record<string, number>> {
 }
 
 /**
- * Fetch all products from Shopify, merged with backend minimum prices.
- * This is the primary product fetch function.
- */
-export async function fetchShopifyProductsMerged(
-  searchQuery?: string
-): Promise<ApiProduct[]> {
-  const [sfProducts, minimumPrices] = await Promise.all([
-    fetchAllShopifyProducts(searchQuery),
-    getMinimumPrices(),
-  ]);
-
-  return sfProducts.map((sfProduct) =>
-    mapStorefrontProduct(sfProduct, minimumPrices)
-  );
-}
-
-/**
  * Fetch a single product from Shopify by handle, merged with backend price.
  */
 export async function fetchShopifyProductByHandleMerged(
@@ -478,28 +461,5 @@ export async function fetchShopifyProductByHandleMerged(
   if (!sfProduct) return null;
 
   return mapStorefrontProduct(sfProduct, minimumPrices);
-}
-
-/**
- * Fetch collections from Shopify, mapped to the Category type used in the frontend.
- */
-export async function fetchShopifyCollectionsMapped(): Promise<
-  Array<{
-    id: string;
-    slug: string;
-    name: string;
-    description: string | null;
-    productCount: number;
-  }>
-> {
-  const collections = await fetchShopifyCollections();
-
-  return collections.map((col) => ({
-    id: col.id,
-    slug: col.handle,
-    name: col.title,
-    description: col.description,
-    productCount: 0, // Count is determined from product data
-  }));
 }
 

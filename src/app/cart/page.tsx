@@ -15,6 +15,8 @@ import {
 } from "@/data/customizations";
 import type { CheckoutItemRequest } from "@/types";
 
+const CHECKOUT_STATE_PREFIX = "checkout:";
+
 function formatConfiguration(config: CheckoutItemRequest["configuration"], width: number, height: number, unit: string) {
   const parts = [`${width}×${height}${unit}`];
 
@@ -60,6 +62,21 @@ export default function CartPage() {
       }));
 
       const result = await createCheckout(items, customer?.email || undefined);
+      try {
+        window.sessionStorage.setItem(
+          `${CHECKOUT_STATE_PREFIX}${result.draftOrderId}`,
+          JSON.stringify({
+            draftOrderId: result.draftOrderId,
+            checkoutUrl: result.checkoutUrl,
+            lineItems: result.lineItems,
+            subtotal: result.subtotal,
+            currencyCode: cart.items[0]?.product.currency || "USD",
+            createdAt: new Date().toISOString(),
+          })
+        );
+      } catch (storageError) {
+        console.error("Could not cache checkout snapshot:", storageError);
+      }
       window.open(result.checkoutUrl, "_blank", "noopener,noreferrer");
       router.push(
         `/checkout/confirmation?draftOrderId=${encodeURIComponent(result.draftOrderId)}&checkoutUrl=${encodeURIComponent(result.checkoutUrl)}`

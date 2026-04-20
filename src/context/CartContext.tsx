@@ -31,6 +31,16 @@ interface SerializableCartItem extends Omit<CartItem, 'addedAt'> {
   addedAt: string;
 }
 
+const calculateTotals = (items: CartItem[]) => ({
+  total: items.reduce((sum, item) => sum + item.product.price * item.quantity, 0),
+  itemCount: items.reduce((sum, item) => sum + item.quantity, 0),
+});
+
+const buildCartState = (items: CartItem[]) => {
+  const { total, itemCount } = calculateTotals(items);
+  return { items, total, itemCount };
+};
+
 export const CartProvider = ({ children }: CartProviderProps) => {
   const router = useRouter();
   const { customer, isLoading } = useAuth();
@@ -40,11 +50,6 @@ export const CartProvider = ({ children }: CartProviderProps) => {
     items: [],
     total: 0,
     itemCount: 0,
-  });
-
-  const calculateTotals = (items: CartItem[]) => ({
-    total: items.reduce((sum, item) => sum + item.product.price * item.quantity, 0),
-    itemCount: items.reduce((sum, item) => sum + item.quantity, 0),
   });
 
   const toSerializableItems = (items: CartItem[]): SerializableCartItem[] =>
@@ -60,8 +65,7 @@ export const CartProvider = ({ children }: CartProviderProps) => {
     }));
 
   const applyCartItems = (items: CartItem[]) => {
-    const { total, itemCount } = calculateTotals(items);
-    setCart({ items, total, itemCount });
+    setCart(buildCartState(items));
   };
 
   // Load local cart for guests, and merge local cart into account cart on login.
@@ -90,7 +94,7 @@ export const CartProvider = ({ children }: CartProviderProps) => {
 
     if (!customer?.email) {
       lastSyncedCustomerRef.current = null;
-      applyCartItems(loadLocalCart());
+      setCart(buildCartState(loadLocalCart()));
       hasInitializedRef.current = true;
       return;
     }
@@ -122,7 +126,7 @@ export const CartProvider = ({ children }: CartProviderProps) => {
           if (mergeRes.ok) {
             const payload = (await mergeRes.json()) as CartApiResponse;
             const mergedItems = fromSerializableItems(payload.data?.items || []);
-            applyCartItems(mergedItems);
+            setCart(buildCartState(mergedItems));
             localStorage.removeItem(CART_STORAGE_KEY);
             lastSyncedCustomerRef.current = customer.email;
             hasInitializedRef.current = true;
@@ -130,11 +134,11 @@ export const CartProvider = ({ children }: CartProviderProps) => {
           }
         }
 
-        applyCartItems(serverItems.length > 0 ? serverItems : localItems);
+        setCart(buildCartState(serverItems.length > 0 ? serverItems : localItems));
         lastSyncedCustomerRef.current = customer.email;
       } catch (error) {
         console.error('Cart sync error:', error);
-        applyCartItems(localItems);
+        setCart(buildCartState(localItems));
       } finally {
         hasInitializedRef.current = true;
       }

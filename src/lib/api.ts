@@ -5,7 +5,6 @@ import {
   PriceBandMatrix,
   PriceValidationResponse,
   PricingRequest,
-  PricingResponse,
 } from '@/types';
 
 function getApiBaseUrl(): string {
@@ -44,14 +43,6 @@ export async function fetchPriceMatrix(handle: string): Promise<PriceBandMatrix>
 
 export async function fetchCustomizationPricing(): Promise<CustomizationPricing[]> {
   const response = await apiFetch<ApiResponse<CustomizationPricing[]>>('/api/pricing/customizations');
-  return response.data;
-}
-
-export async function calculatePriceFromBackend(request: PricingRequest): Promise<PricingResponse> {
-  const response = await apiFetch<ApiResponse<PricingResponse>>('/api/pricing/calculate', {
-    method: 'POST',
-    body: JSON.stringify(request),
-  });
   return response.data;
 }
 
