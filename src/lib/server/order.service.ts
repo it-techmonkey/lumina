@@ -65,7 +65,7 @@ interface ShopifyDraftOrderLineItem {
 }
 
 const variantIdByHandleCache = new Map<string, number | null>();
-const DRAFT_ORDER_CURRENCY = 'GBP';
+const DRAFT_ORDER_CURRENCY = 'USD';
 
 // ============================================
 // Helper Functions
