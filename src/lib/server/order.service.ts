@@ -57,16 +57,15 @@ export interface CreateCheckoutResponse {
 
 interface ShopifyDraftOrderLineItem {
   quantity: number;
-  properties: { name: string; value: string }[];
-  variant_id?: number;
-  original_unit_price?: string;
+  customAttributes: { key: string; value: string }[];
+  variantId?: string;
+  priceOverride?: { amount: string; currencyCode: string };
   title?: string;
-  price?: string;
-  requires_shipping?: boolean;
-  taxable?: boolean;
+  originalUnitPriceWithCurrency?: { amount: string; currencyCode: string };
 }
 
 const variantIdByHandleCache = new Map<string, number | null>();
+const DRAFT_ORDER_CURRENCY = 'GBP';
 
 // ============================================
 // Helper Functions
@@ -108,17 +107,17 @@ function configToCustomizations(config: CheckoutItemRequest['configuration']): P
 function buildLineItemProperties(
   item: CheckoutItemRequest,
   calculatedPrice: number
-): { name: string; value: string }[] {
-  const properties: { name: string; value: string }[] = [];
+): { key: string; value: string }[] {
+  const properties: { key: string; value: string }[] = [];
 
-  properties.push({ name: 'Width', value: `${item.widthInches} inches` });
-  properties.push({ name: 'Height', value: `${item.heightInches} inches` });
+  properties.push({ key: 'Width', value: `${item.widthInches} inches` });
+  properties.push({ key: 'Height', value: `${item.heightInches} inches` });
 
   if (item.configuration.roomType) {
-    properties.push({ name: 'Room Type', value: item.configuration.roomType });
+    properties.push({ key: 'Room Type', value: item.configuration.roomType });
   }
   if (item.configuration.blindName) {
-    properties.push({ name: 'Blind Name', value: item.configuration.blindName });
+    properties.push({ key: 'Blind Name', value: item.configuration.blindName });
   }
 
   const labelMap: Record<string, string> = {
@@ -144,11 +143,11 @@ function buildLineItemProperties(
   for (const [key, label] of Object.entries(labelMap)) {
     const value = item.configuration[key];
     if (value && value !== 'none') {
-      properties.push({ name: label, value });
+      properties.push({ key: label, value });
     }
   }
 
-  properties.push({ name: '_calculatedPrice', value: calculatedPrice.toFixed(2) });
+  properties.push({ key: '_calculatedPrice', value: calculatedPrice.toFixed(2) });
 
   return properties;
 }
@@ -260,23 +259,27 @@ export async function createCheckout(request: CreateCheckoutRequest): Promise<Cr
     const lineItemTitle = `${productTitle} – ${item.widthInches}" × ${item.heightInches}"`;
 
     const variantId = await getPrimaryVariantIdByHandle(item.handle);
-    const properties = buildLineItemProperties(item, itemPrice);
+    const customAttributes = buildLineItemProperties(item, itemPrice);
 
     if (variantId) {
       lineItems.push({
-        variant_id: variantId,
-        original_unit_price: itemPrice.toFixed(2),
+        variantId: `gid://shopify/ProductVariant/${variantId}`,
+        priceOverride: {
+          amount: itemPrice.toFixed(2),
+          currencyCode: DRAFT_ORDER_CURRENCY,
+        },
         quantity: item.quantity,
-        properties,
+        customAttributes,
       });
     } else {
       lineItems.push({
         title: lineItemTitle,
-        price: itemPrice.toFixed(2),
         quantity: item.quantity,
-        requires_shipping: true,
-        taxable: true,
-        properties,
+        originalUnitPriceWithCurrency: {
+          amount: itemPrice.toFixed(2),
+          currencyCode: DRAFT_ORDER_CURRENCY,
+        },
+        customAttributes,
       });
     }
 
@@ -290,48 +293,78 @@ export async function createCheckout(request: CreateCheckoutRequest): Promise<Cr
     subtotal += itemPrice * item.quantity;
   }
 
-  const draftOrderPayload: Record<string, unknown> = {
-    draft_order: {
-      line_items: lineItems,
-      use_customer_default_address: true,
-      note: request.note || '',
-      ...(request.customerEmail && { email: request.customerEmail }),
-    },
-  };
+  const mutation = `
+    mutation DraftOrderCreate($input: DraftOrderInput!) {
+      draftOrderCreate(input: $input) {
+        draftOrder {
+          id
+          invoiceUrl
+        }
+        userErrors {
+          field
+          message
+        }
+      }
+    }
+  `;
 
-  const url = getAdminApiUrl('/draft_orders.json');
-  const response = await fetch(url, {
+  const response = await fetch(getAdminApiUrl('/graphql.json'), {
     method: 'POST',
     headers: getAdminHeaders(),
-    body: JSON.stringify(draftOrderPayload),
+    body: JSON.stringify({
+      query: mutation,
+      variables: {
+        input: {
+          lineItems,
+          useCustomerDefaultAddress: true,
+          note: request.note || '',
+          ...(request.customerEmail && { email: request.customerEmail }),
+          presentmentCurrencyCode: DRAFT_ORDER_CURRENCY,
+        },
+      },
+    }),
     cache: 'no-store',
   });
 
   if (!response.ok) {
-    const status = response.status;
     const errorBody = await response.text();
-
-    if (status === 401) {
+    if (response.status === 401) {
       throw new CheckoutError('Shopify authentication failed. Check SHOPIFY_ADMIN_ACCESS_TOKEN.', 500);
     }
-    if (status === 422) {
-      throw new CheckoutError(`Shopify rejected the draft order: ${errorBody}`, 422);
-    }
-    if (status === 429) {
+    if (response.status === 429) {
       throw new CheckoutError('Shopify rate limit exceeded. Please try again in a moment.', 429);
     }
     throw new CheckoutError(`Failed to create checkout: ${errorBody}`, 500);
   }
 
-  const data = await response.json();
-  const draftOrder = data.draft_order;
+  const data = await response.json() as {
+    data?: {
+      draftOrderCreate?: {
+        draftOrder?: { id: string; invoiceUrl: string | null } | null;
+        userErrors?: Array<{ field?: string[] | null; message: string }>;
+      };
+    };
+    errors?: Array<{ message: string }>;
+  };
 
-  if (!draftOrder || !draftOrder.invoice_url) {
+  if (data.errors?.length) {
+    throw new CheckoutError(`Failed to create checkout: ${data.errors[0]?.message || 'Unknown GraphQL error'}`, 500);
+  }
+
+  const draftOrderCreate = data.data?.draftOrderCreate;
+  const userErrors = draftOrderCreate?.userErrors || [];
+  if (userErrors.length > 0) {
+    const message = userErrors.map((error) => error.message).join('; ');
+    throw new CheckoutError(`Shopify rejected the draft order: ${message}`, 422);
+  }
+
+  const draftOrder = draftOrderCreate?.draftOrder;
+  if (!draftOrder || !draftOrder.invoiceUrl) {
     throw new CheckoutError('Failed to create Shopify draft order: no invoice URL returned', 500);
   }
 
   return {
-    checkoutUrl: draftOrder.invoice_url,
+    checkoutUrl: draftOrder.invoiceUrl,
     draftOrderId: draftOrder.id.toString(),
     lineItems: responseLineItems,
     subtotal,
