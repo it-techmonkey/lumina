@@ -1,5 +1,6 @@
 "use client";
 
+import { useState } from 'react';
 import Link from 'next/link';
 import { useCart } from '@/context/CartContext';
 import { usePathname } from 'next/navigation';
@@ -7,6 +8,7 @@ import { usePathname } from 'next/navigation';
 const Header = () => {
   const { cart } = useCart();
   const pathname = usePathname();
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   const handleScroll = (e: React.MouseEvent<HTMLAnchorElement>) => {
     const href = e.currentTarget.getAttribute('href');
@@ -23,7 +25,33 @@ const Header = () => {
 
   return (
     <header className="w-full flex justify-center sticky top-0 z-50 bg-white shadow-sm px-4 md:px-6">
-      <div className="w-full max-w-[1280px] flex items-center justify-between py-4">
+      <div className="w-full max-w-[1280px] flex items-center justify-between py-4 relative">
+        <button
+          type="button"
+          aria-label="Toggle menu"
+          aria-expanded={mobileMenuOpen}
+          onClick={() => setMobileMenuOpen((prev) => !prev)}
+          className="lg:hidden inline-flex items-center justify-center w-9 h-9 rounded-lg text-[#303848] hover:bg-[#f3f5f8] transition-colors duration-200"
+        >
+          <span className="relative w-5 h-5">
+            <span
+              className={`absolute left-0 top-[4px] w-5 h-[1.75px] rounded-full bg-current transition-transform duration-300 ease-out ${
+                mobileMenuOpen ? 'translate-y-[6px] rotate-45' : ''
+              }`}
+            />
+            <span
+              className={`absolute left-0 top-[10px] w-5 h-[1.75px] rounded-full bg-current transition-all duration-250 ease-out ${
+                mobileMenuOpen ? 'opacity-0 scale-x-50' : 'opacity-100 scale-x-100'
+              }`}
+            />
+            <span
+              className={`absolute left-0 top-[16px] w-5 h-[1.75px] rounded-full bg-current transition-transform duration-300 ease-out ${
+                mobileMenuOpen ? '-translate-y-[6px] -rotate-45' : ''
+              }`}
+            />
+          </span>
+        </button>
+
         {/* Logo */}
         <Link href="/" className="flex flex-col items-start leading-none shrink-0" aria-label="Home">
           <span className="font-playfair text-[#131720] text-[20px] font-normal tracking-[-0.5px]">
@@ -85,6 +113,65 @@ const Header = () => {
               <circle cx="12" cy="7" r="4"></circle>
             </svg>
           </Link>
+        </div>
+
+        <div
+          className={`absolute top-full left-0 right-0 lg:hidden z-50 origin-top transition-all duration-300 ease-out ${
+            mobileMenuOpen
+              ? 'opacity-100 translate-y-0 pointer-events-auto'
+              : 'opacity-0 -translate-y-2 pointer-events-none'
+          }`}
+        >
+          <nav className="mt-2 bg-white/98 backdrop-blur border border-[#eaedf0] rounded-2xl shadow-[0_14px_34px_rgba(19,23,32,0.12)] py-3 px-2 overflow-hidden">
+            <div className="flex flex-col">
+              <Link
+                href="/products"
+                onClick={() => setMobileMenuOpen(false)}
+                className={`px-4 py-2.5 rounded-xl font-sans font-medium text-[14px] text-[#657186] hover:text-[#131720] hover:bg-[#f7f8fa] transition-all duration-250 ${
+                  mobileMenuOpen ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-1'
+                }`}
+                style={{ transitionDelay: mobileMenuOpen ? '40ms' : '0ms' }}
+              >
+                The Blind
+              </Link>
+              <Link
+                href="/guide/lumina_honeycomb_measuring_guide.pdf"
+                onClick={() => setMobileMenuOpen(false)}
+                className={`px-4 py-2.5 rounded-xl font-sans font-medium text-[14px] text-[#657186] hover:text-[#131720] hover:bg-[#f7f8fa] transition-all duration-250 ${
+                  mobileMenuOpen ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-1'
+                }`}
+                style={{ transitionDelay: mobileMenuOpen ? '80ms' : '0ms' }}
+              >
+                Measuring
+              </Link>
+              <Link
+                href="/#reviews"
+                onClick={(e) => {
+                  handleScroll(e);
+                  setMobileMenuOpen(false);
+                }}
+                className={`px-4 py-2.5 rounded-xl font-sans font-medium text-[14px] text-[#657186] hover:text-[#131720] hover:bg-[#f7f8fa] transition-all duration-250 ${
+                  mobileMenuOpen ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-1'
+                }`}
+                style={{ transitionDelay: mobileMenuOpen ? '120ms' : '0ms' }}
+              >
+                Reviews
+              </Link>
+              <Link
+                href="/#faq"
+                onClick={(e) => {
+                  handleScroll(e);
+                  setMobileMenuOpen(false);
+                }}
+                className={`px-4 py-2.5 rounded-xl font-sans font-medium text-[14px] text-[#657186] hover:text-[#131720] hover:bg-[#f7f8fa] transition-all duration-250 ${
+                  mobileMenuOpen ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-1'
+                }`}
+                style={{ transitionDelay: mobileMenuOpen ? '160ms' : '0ms' }}
+              >
+                FAQ
+              </Link>
+            </div>
+          </nav>
         </div>
       </div>
     </header>
