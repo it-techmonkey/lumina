@@ -1,5 +1,4 @@
 import { NextResponse } from 'next/server';
-import { prisma } from '@/lib/server/database';
 
 export async function POST(request: Request) {
   try {
@@ -10,19 +9,6 @@ export async function POST(request: Request) {
     }
 
     console.log(`Webhook: Order cancelled #${order.order_number} (Shopify ID: ${order.id})`);
-
-    const orderNumber = `BLACKOUT-SHOP-${order.order_number || order.id}`;
-    const existingOrder = await prisma.order.findUnique({
-      where: { orderNumber },
-    });
-
-    if (existingOrder) {
-      await prisma.order.update({
-        where: { orderNumber },
-        data: { status: 'CANCELLED' },
-      });
-      console.log(`  Order ${orderNumber} marked as cancelled`);
-    }
 
     return NextResponse.json({ success: true });
   } catch (error: unknown) {

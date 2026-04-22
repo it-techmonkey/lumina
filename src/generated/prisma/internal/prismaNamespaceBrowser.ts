@@ -57,7 +57,6 @@ export const ModelName = {
   PriceCell: 'PriceCell',
   CustomizationOption: 'CustomizationOption',
   CustomizationPricing: 'CustomizationPricing',
-  Order: 'Order',
   CustomerCart: 'CustomerCart'
 } as const
 
@@ -150,27 +149,6 @@ export const CustomizationPricingScalarFieldEnum = {
 export type CustomizationPricingScalarFieldEnum = (typeof CustomizationPricingScalarFieldEnum)[keyof typeof CustomizationPricingScalarFieldEnum]
 
 
-export const OrderScalarFieldEnum = {
-  id: 'id',
-  orderNumber: 'orderNumber',
-  shopifyOrderId: 'shopifyOrderId',
-  status: 'status',
-  customerEmail: 'customerEmail',
-  customerName: 'customerName',
-  shippingAddress: 'shippingAddress',
-  lineItems: 'lineItems',
-  currencyCode: 'currencyCode',
-  subtotal: 'subtotal',
-  tax: 'tax',
-  shipping: 'shipping',
-  total: 'total',
-  createdAt: 'createdAt',
-  updatedAt: 'updatedAt'
-} as const
-
-export type OrderScalarFieldEnum = (typeof OrderScalarFieldEnum)[keyof typeof OrderScalarFieldEnum]
-
-
 export const CustomerCartScalarFieldEnum = {
   id: 'id',
   customerEmail: 'customerEmail',
@@ -188,14 +166,6 @@ export const SortOrder = {
 } as const
 
 export type SortOrder = (typeof SortOrder)[keyof typeof SortOrder]
-
-
-export const NullableJsonNullValueInput = {
-  DbNull: DbNull,
-  JsonNull: JsonNull
-} as const
-
-export type NullableJsonNullValueInput = (typeof NullableJsonNullValueInput)[keyof typeof NullableJsonNullValueInput]
 
 
 export const JsonNullValueInput = {

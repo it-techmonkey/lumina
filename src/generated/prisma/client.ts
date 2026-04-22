@@ -72,11 +72,6 @@ export type CustomizationOption = Prisma.CustomizationOptionModel
  */
 export type CustomizationPricing = Prisma.CustomizationPricingModel
 /**
- * Model Order
- * 
- */
-export type Order = Prisma.OrderModel
-/**
  * Model CustomerCart
  * 
  */
