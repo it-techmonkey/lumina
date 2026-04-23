@@ -113,8 +113,7 @@ export default function PrivacyPolicyPage() {
         <p className="text-gray-700 leading-relaxed">
           Lumina operates this store and website, including all related information, content,
           features, tools, products and services, in order to provide you, the customer, with a
-          curated shopping experience (the &ldquo;Services&rdquo;). Lumina is powered by Shopify,
-          which enables us to provide the Services to you. This Privacy Policy describes how we
+          curated shopping experience (the &ldquo;Services&rdquo;). This Privacy Policy describes how we
           collect, use, and disclose your personal information when you visit, use, or make a
           purchase or other transaction using the Services or otherwise communicate with us. If
           there is a conflict between our Terms of Service and this Privacy Policy, this Privacy
