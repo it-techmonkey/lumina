@@ -5,6 +5,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useCart } from "@/context/CartContext";
+import { getComparePriceData } from "@/lib/compare-price";
 import { createCheckout, formatPriceWithCurrency } from "@/lib/api";
 import { getTotalInches } from "@/lib/pricing";
 import {
@@ -27,14 +28,12 @@ function formatConfiguration(config: CheckoutItemRequest["configuration"], width
 export default function CartPage() {
   const router = useRouter();
   const { cart, removeFromCart, updateQuantity, clearCart, syncAccountCart } = useCart();
-  const [customerEmail, setCustomerEmail] = useState<string | null>(null);
   const [isCheckingOut, setIsCheckingOut] = useState(false);
   const [checkoutError, setCheckoutError] = useState<string | null>(null);
 
   useEffect(() => {
     syncAccountCart()
-      .then((email) => setCustomerEmail(email))
-      .catch(() => setCustomerEmail(null));
+      .catch(() => null);
   }, [syncAccountCart]);
 
   const handleCheckout = async () => {
@@ -64,7 +63,7 @@ export default function CartPage() {
         },
       }));
 
-      const result = await createCheckout(items, customerEmail || undefined);
+      const result = await createCheckout(items);
       window.open(result.checkoutUrl, "_blank", "noopener,noreferrer");
       clearCart();
       router.replace("/");
@@ -152,8 +151,16 @@ export default function CartPage() {
                             {formatConfiguration(configuration, item.configuration.width, item.configuration.height, unit)}
                           </p>
                         </div>
-                        <div className="font-sans font-medium text-[#131720] text-[16px]">
-                          {formatPriceWithCurrency(item.product.price * item.quantity, item.product.currency)}
+                        <div className="flex flex-col items-end gap-1">
+                          <div className="font-sans font-medium text-[#131720] text-[16px]">
+                            {formatPriceWithCurrency(item.product.price * item.quantity, item.product.currency)}
+                          </div>
+                          <div className="font-sans text-[13px] text-[#9aa3af] line-through">
+                            {formatPriceWithCurrency(
+                              getComparePriceData(item.product.price).compareAtPrice * item.quantity,
+                              item.product.currency
+                            )}
+                          </div>
                         </div>
                       </div>
 
@@ -210,8 +217,8 @@ export default function CartPage() {
                   </svg>
                 </div>
                 <div className="flex flex-col">
-                  <span className="font-sans font-medium text-[13px] text-[#131720]">5-Year Warranty</span>
-                  <span className="font-sans text-[12px] text-[#657186]">Built to last</span>
+                  <span className="font-sans font-medium text-[13px] text-[#131720]">1 Year Guarantee</span>
+                  <span className="font-sans text-[12px] text-[#657186]">Manufacturer backed cover</span>
                 </div>
               </div>
               <div className="bg-[#eaedf0]/50 rounded-[16px] p-4 flex items-center gap-4">
@@ -290,7 +297,7 @@ export default function CartPage() {
                   <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
                   <circle cx="12" cy="10" r="3"></circle>
                 </svg>
-                Ships within 3-5 business days.
+                Delivered within 14-18 working days.
               </div>
             </div>
           </div>

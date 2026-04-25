@@ -66,7 +66,7 @@ export default function OurStory() {
             </p>
             <p>
               Today, our blinds are trusted in over 40,000 homes — Every blind is made
-              to your exact measurements, ships within three days, and installs without a
+              to your exact measurements, is delivered within 14-18 working days, and installs without a
               single drill hole.
             </p>
           </div>

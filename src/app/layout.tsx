@@ -3,6 +3,7 @@ import { Lora, Manrope } from "next/font/google";
 import "./globals.css";
 import Header from "../components/layout/Header";
 import Footer from "../components/layout/Footer";
+import TopBar from "../components/layout/TopBar";
 import { AuthProvider } from "@/context/AuthContext";
 import { CartProvider } from "@/context/CartContext";
 
@@ -44,6 +45,7 @@ export default function RootLayout({
       <body className="min-h-full flex flex-col font-sans" suppressHydrationWarning>
         <AuthProvider>
           <CartProvider>
+            <TopBar />
             <Header />
             <main className="flex-1 flex flex-col content-stretch">
               {children}

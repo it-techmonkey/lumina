@@ -286,3 +286,9 @@ export interface CheckoutResponse {
   }[];
   subtotal: number;
 }
+
+export interface NewsletterSubscriptionResult {
+  code: string;
+  email: string;
+  message: string;
+}

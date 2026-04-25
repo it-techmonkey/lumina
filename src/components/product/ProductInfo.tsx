@@ -1,9 +1,9 @@
 "use client";
 
 import { useEffect, useMemo, useState } from "react";
-import ProductAccordion from "./ProductAccordion";
 import { useCart } from "@/context/CartContext";
 import { calculateTotalPrice, configToCustomizations, getTotalInches } from "@/lib/pricing";
+import { getComparePriceData } from "@/lib/compare-price";
 import { fetchCustomizationPricing, fetchPriceMatrix, formatPriceWithCurrency, validateCartPrice } from "@/lib/api";
 import {
   BLIND_COLOR_OPTIONS,
@@ -103,6 +103,8 @@ export default function ProductInfo({ product }: ProductInfoProps) {
     product.price,
     selectedCustomizations,
   ]);
+
+  const comparePrice = useMemo(() => getComparePriceData(totalPrice).compareAtPrice, [totalPrice]);
 
   const sizeRanges = useMemo(() => {
     if (!priceMatrix || priceMatrix.widthBands.length === 0 || priceMatrix.heightBands.length === 0) {
@@ -231,18 +233,23 @@ export default function ProductInfo({ product }: ProductInfoProps) {
         <div className="flex flex-col text-sm">
           <span className="font-sans text-[#657186]">Estimated Delivery</span>
           <span className="font-sans font-semibold text-[#131720]">
-            {product.estimatedDelivery || "12 Working Days"}
+            {product.estimatedDelivery || "14-18 Working Days"}
           </span>
         </div>
       </div>
 
       {/* Price */}
-      <div className="flex items-end gap-2 pt-2">
-        <span className="font-playfair font-medium text-[36px] text-[#131720] leading-none">
-          {formatPriceWithCurrency(totalPrice, product.currency)}
-        </span>
+      <div className="flex flex-col gap-2 pt-2">
+        <div className="flex items-end gap-3 flex-wrap">
+          <span className="font-playfair font-medium text-[36px] text-[#131720] leading-none">
+            {formatPriceWithCurrency(totalPrice, product.currency)}
+          </span>
+          <span className="font-sans text-[18px] text-[#8c95a4] leading-none line-through pb-1">
+            {formatPriceWithCurrency(comparePrice, product.currency)}
+          </span>
+        </div>
         <span className="font-sans text-[#657186] text-[14px]">
-          incl. VAT · free shipping
+          Sale price · incl. VAT · free shipping
         </span>
       </div>
 
@@ -381,9 +388,6 @@ export default function ProductInfo({ product }: ProductInfoProps) {
           </svg>
           {isAddingToCart ? "Adding..." : "Add to Cart"}
         </button>
-        <span className="text-center text-xs text-[#657186]">
-          Free returns within 60 days · 5-year warranty
-        </span>
       </div>
 
       {/* Guarantee Grid */}
@@ -394,8 +398,8 @@ export default function ProductInfo({ product }: ProductInfoProps) {
               <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
             </svg>
           </div>
-          <span className="font-semibold text-xs text-[#131720]">5-Year Warranty</span>
-          <span className="text-xs text-[#657186]">Manufacturer backed guarantee</span>
+          <span className="font-semibold text-xs text-[#131720]">1 Year Guarantee</span>
+          <span className="text-xs text-[#657186]">Manufacturer backed cover</span>
         </div>
         <div className="flex flex-col items-center text-center gap-2">
           <div className="bg-[#eaedf0] rounded-full w-10 h-10 flex items-center justify-center mb-1">
@@ -419,9 +423,9 @@ export default function ProductInfo({ product }: ProductInfoProps) {
         </div>
       </div>
 
-      <div id="product-details" className="border-t border-[#dbe0e6]">
+      {/* <div id="product-details" className="border-t border-[#dbe0e6]">
         <ProductAccordion items={product.accordionItems} />
-      </div>
+      </div> */}
     </div>
   );
 }

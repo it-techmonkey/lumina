@@ -98,7 +98,10 @@ export function sanitizeReturnTo(value: string | null | undefined): string {
 
   try {
     const url = new URL(value);
-    if (url.origin === getAppBaseUrl() || url.hostname === getCustomerAccountDomain()) {
+    if (
+      url.origin === getAppBaseUrl() ||
+      url.hostname === getCustomerAccountDomain()
+    ) {
       return value;
     }
   } catch {

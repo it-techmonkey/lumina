@@ -5,6 +5,7 @@ import MeasuringGuide from "../components/home/MeasuringGuide";
 import Installation from "../components/home/Installation";
 import Reviews from "../components/home/Reviews";
 import Faq from "../components/home/Faq";
+import SubscribeOffer from "../components/home/SubscribeOffer";
 
 export default function Home() {
   return (
@@ -15,6 +16,7 @@ export default function Home() {
       <MeasuringGuide />
       <Installation />
       <Reviews />
+      <SubscribeOffer />
       <Faq />
     </div>
   );

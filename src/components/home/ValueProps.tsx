@@ -44,7 +44,7 @@ const features = [
   },
   {
     title: 'Quick Delivery',
-    description: 'Made to order and shipped within 3 business days. Straight to your door.',
+    description: 'Made to order and delivered within 14-18 working days. Straight to your door.',
     icon: (
         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-[#131720]">
           <rect x="1" y="3" width="15" height="13"></rect>
@@ -55,8 +55,8 @@ const features = [
     )
   },
   {
-    title: '5-Year Warranty',
-    description: 'We stand behind every blind we make. If anything goes wrong, we\'ll make it right.',
+    title: '1 Year Guarantee',
+    description: 'Every blind is backed by a 1 year manufacturer\'s guarantee for added peace of mind.',
     icon: (
         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-[#131720]">
           <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>

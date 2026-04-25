@@ -27,7 +27,7 @@ const Footer = () => {
   ];
 
   return (
-    <footer className="bg-[#131720] flex flex-col items-center w-full mt-auto">
+    <footer className="bg-[#000] flex flex-col items-center w-full mt-auto">
       {/* Top CTA Section */}
       <div className="w-full border-b border-white/10 flex flex-col items-center pt-20 pb-[81px] px-6">
         <h2 className="font-playfair text-[#f9fafb] text-[48px] leading-none text-center flex flex-col sm:flex-row sm:gap-2 mb-4">

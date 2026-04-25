@@ -315,8 +315,10 @@ export async function createCheckout(request: CreateCheckoutRequest): Promise<Cr
       variables: {
         input: {
           lineItems,
-          useCustomerDefaultAddress: true,
+          useCustomerDefaultAddress: false,
           note: request.note || '',
+          allowDiscountCodesInCheckout: true,
+          acceptAutomaticDiscounts: true,
           ...(request.customerEmail && { email: request.customerEmail }),
           presentmentCurrencyCode: DRAFT_ORDER_CURRENCY,
         },
