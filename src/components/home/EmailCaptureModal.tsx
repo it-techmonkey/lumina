@@ -3,7 +3,6 @@
 import { useEffect, useState } from "react";
 import type { NewsletterSubscriptionResult } from "@/types";
 
-const STORAGE_KEY = "lumina_email_modal_seen";
 const DELAY_MS = 3000;
 
 const BENEFITS = [
@@ -40,15 +39,12 @@ export default function EmailCaptureModal() {
   const [copiedCode, setCopiedCode] = useState(false);
 
   useEffect(() => {
-    if (typeof window === "undefined") return;
-    if (localStorage.getItem(STORAGE_KEY)) return;
     const id = window.setTimeout(() => setVisible(true), DELAY_MS);
     return () => window.clearTimeout(id);
   }, []);
 
   const dismiss = () => {
     setVisible(false);
-    localStorage.setItem(STORAGE_KEY, "1");
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -67,7 +63,6 @@ export default function EmailCaptureModal() {
       }
       setSuccessData(json.data);
       setEmail("");
-      localStorage.setItem(STORAGE_KEY, "1");
     } catch (err) {
       setErrorMessage(err instanceof Error ? err.message : "Unable to subscribe right now.");
     } finally {
@@ -88,9 +83,8 @@ export default function EmailCaptureModal() {
   return (
     <div className="fixed inset-0 z-50 flex" role="dialog" aria-modal="true" aria-label="Get 10% off your first order">
 
-      {/* ── Left panel: image ── */}
+      {/* Left panel: image */}
       <div className="relative hidden md:block md:w-[55%]">
-        {/* Background image */}
         <div
           className="absolute inset-0"
           style={{
@@ -99,18 +93,14 @@ export default function EmailCaptureModal() {
             backgroundPosition: "center",
           }}
         />
-        {/* Overlay: dark on the right edge to blend into the form panel */}
-        <div className="absolute inset-0 bg-black/60" />
-        <div className="absolute inset-0 bg-linear-to-r from-transparent from-black/100 to-black/30" />
+        <div className="absolute inset-0 bg-black/30" />
+        <div className="absolute inset-0 bg-linear-to-r from-black/60 to-black/30" />
 
-        {/* Content sits at the bottom */}
         <div className="absolute inset-0 flex flex-col justify-between p-12 z-10">
-          {/* Top: wordmark */}
           <span className="font-sans text-[20px] font-semibold tracking-[0.25em] uppercase text-white/80">
             Lumina
           </span>
 
-          {/* Bottom: headline + benefits */}
           <div className="flex flex-col gap-6">
             <div className="flex flex-col gap-3">
               <div className="inline-flex w-fit items-center gap-2 rounded-full border border-white/15 bg-white/8 px-3 py-1">
@@ -143,9 +133,8 @@ export default function EmailCaptureModal() {
         </div>
       </div>
 
-      {/* ── Right panel: form ── */}
+      {/* Right panel: form */}
       <div className="flex w-full md:w-[45%] flex-col bg-black">
-        {/* Close */}
         <div className="flex justify-end p-6">
           <button
             type="button"
@@ -161,9 +150,8 @@ export default function EmailCaptureModal() {
 
         <div className="flex flex-1 flex-col justify-center px-10 pb-14 pt-0 lg:px-14">
           {!successData ? (
-            <div className="flex flex-col gap-8 max-w-[360px]">
+            <div className="flex flex-col gap-8 max-w-90">
 
-              {/* Offer callout */}
               <div className="flex flex-col gap-1">
                 <p className="font-sans text-[10px] font-semibold uppercase tracking-[0.18em] text-white/50">
                   Exclusive welcome offer
@@ -208,7 +196,7 @@ export default function EmailCaptureModal() {
               </p>
             </div>
           ) : (
-            <div className="flex flex-col gap-7 max-w-[360px]">
+            <div className="flex flex-col gap-7 max-w-90">
               <div className="flex h-10 w-10 items-center justify-center rounded-full border border-emerald-500/25 bg-emerald-500/10">
                 <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#4ade80" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
                   <polyline points="20 6 9 17 4 12" />

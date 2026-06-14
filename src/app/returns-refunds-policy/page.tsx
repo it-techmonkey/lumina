@@ -13,7 +13,7 @@ const sections = [
       <p>
         Please check your Lumina blind carefully as soon as it is delivered. If you believe your
         item has been damaged in transit or has a manufacturing fault, contact us within{' '}
-        <strong>3 working days</strong> of delivery.
+        <strong>3 business days</strong> of delivery so we can resolve it quickly.
       </p>
     ),
   },
@@ -27,7 +27,7 @@ const sections = [
         </a>{' '}
         with your order number, delivery details, and a clear explanation of the issue. Please
         include photographs where possible so we can review the problem quickly. We aim to respond
-        within <strong>1 working day</strong>, and always within <strong>3 working days</strong>.
+        within <strong>1 business day</strong>, and always within <strong>3 business days</strong>.
       </p>
     ),
   },
@@ -67,7 +67,7 @@ const sections = [
       <p>
         Where a replacement is approved, we will provide a like-for-like replacement for the
         affected made-to-measure blind. Replacement orders must match the original order details,
-        including measurements, colours, fabric, controls, and other selected specifications.
+        including measurements, colors, fabric, controls, and other selected specifications.
       </p>
     ),
   },
@@ -85,7 +85,7 @@ const sections = [
     content: (
       <p>
         Because Lumina blinds are made to your chosen measurements and specifications, orders cannot
-        usually be changed or cancelled once production has started. Please check all measurements
+        usually be changed or canceled once production has started. Please check all measurements
         and options carefully before placing your order.
       </p>
     ),
@@ -113,10 +113,10 @@ const sections = [
     ),
   },
   {
-    title: 'Manufacturer\'s Guarantee',
+    title: "Manufacturer's Guarantee",
     content: (
       <p>
-        Lumina blinds include a <strong>1 year manufacturer&apos;s guarantee</strong> against
+        Lumina blinds include a <strong>1-year manufacturer&apos;s guarantee</strong> against
         confirmed manufacturing faults. This does not cover normal wear and tear, accidental damage,
         misuse, incorrect installation, alterations, fading from prolonged sunlight exposure, or use
         in unsuitable conditions.
@@ -143,10 +143,10 @@ export default function ReturnsRefundsPolicyPage() {
           <h1 className="text-4xl font-semibold font-playfair mb-4">
             Returns &amp; Refunds Policy
           </h1>
-          <p className="text-sm text-gray-500 mb-6">Last updated: May 22, 2026</p>
+          <p className="text-sm text-gray-500 mb-6">Last updated: June 13, 2026</p>
           <p className="text-gray-700 leading-relaxed">
             At Lumina, every blackout blind is made to measure for your window and checked before
-            dispatch. This policy explains what happens if your order arrives damaged, appears
+            shipment. This policy explains what happens if your order arrives damaged, appears
             faulty, needs inspection, or cannot be fulfilled.
           </p>
         </div>
@@ -169,7 +169,7 @@ export default function ReturnsRefundsPolicyPage() {
             <a href="mailto:info@luminablackoutblinds.com" className="underline">
               info@luminablackoutblinds.com
             </a>
-            . We aim to respond within 1-3 working days.
+            . We aim to respond within 1–3 business days.
           </p>
         </div>
       </div>
