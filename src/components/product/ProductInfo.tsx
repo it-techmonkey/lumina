@@ -27,6 +27,25 @@ import OpeningDirectionGuideModal from "@/components/product/OpeningDirectionGui
 import GuaranteeBadges from "@/components/product/GuaranteeBadges";
 
 const PROMO_CODE = "FINAL15";
+const INCH_FRACTIONS = [
+  "0",
+  "1/16",
+  "1/8",
+  "3/16",
+  "1/4",
+  "5/16",
+  "3/8",
+  "7/16",
+  "1/2",
+  "9/16",
+  "5/8",
+  "11/16",
+  "3/4",
+  "13/16",
+  "7/8",
+  "15/16",
+];
+const MILLIMETRES = Array.from({ length: 10 }, (_, value) => String(value));
 
 interface ProductInfoProps {
   product: Product;
@@ -319,13 +338,20 @@ export default function ProductInfo({ product, initialReviewsData }: ProductInfo
     const errors: Partial<Record<CustomizationField, string>> = {};
 
     if (product.features.hasSize) {
-      if (!config.width || !config.height) {
+      const widthInches = getTotalInches(config.width, config.widthFraction, config.widthUnit);
+      const heightInches = getTotalInches(config.height, config.heightFraction, config.heightUnit);
+      const minWidthInches = sizeRanges?.minWidth ?? 20;
+      const maxWidthInches = sizeRanges?.maxWidth ?? 157;
+      const minHeightInches = sizeRanges?.minHeight ?? 20;
+      const maxHeightInches = sizeRanges?.maxHeight ?? 118;
+
+      if (widthInches <= 0 || heightInches <= 0) {
         errors.size = "Please enter your window width and height.";
       } else if (
-        config.width < widthLimits.min ||
-        config.width > widthLimits.max ||
-        config.height < heightLimits.min ||
-        config.height > heightLimits.max
+        widthInches < minWidthInches ||
+        widthInches > maxWidthInches ||
+        heightInches < minHeightInches ||
+        heightInches > maxHeightInches
       ) {
         errors.size = `Width must be ${widthLimits.min}-${widthLimits.max} ${unit} and height ${heightLimits.min}-${heightLimits.max} ${unit}.`;
       }
@@ -507,64 +533,82 @@ export default function ProductInfo({ product, initialReviewsData }: ProductInfo
         </div>
       </div>
 
-      {/* Measure */}
+      {/* Size */}
       <div
         ref={sizeSectionRef}
         className={`flex flex-col gap-4 mt-6 scroll-mt-28 ${fieldErrors.size ? "rounded-xl border border-[#dc2626] bg-[#fef2f2] p-4" : ""}`}
       >
-        <div className="flex items-center justify-between">
-          <span className="font-sans font-semibold text-[14px] text-[#131720]">
-            Measure your window
+        <div className="flex flex-wrap items-center justify-between gap-3">
+          <span className="font-sans font-semibold text-[16px] text-[#131720]">
+            Choose your size
           </span>
-          <div className="flex border border-[#dbe0e6] rounded-lg p-0.5 bg-white">
+          <div className="flex rounded-lg bg-[#f3f5f7] p-1" role="group" aria-label="Measurement unit">
             <button
-              onClick={() => updateMeasurementUnit("cm")}
-              className={`px-3 py-1 rounded-md text-xs font-medium transition-colors ${unit === "cm" ? "bg-[#131720] text-white" : "text-[#657186]"}`}
+              type="button"
+              onClick={() => updateMeasurementUnit("in")}
+              className={`rounded-md px-3 py-1.5 text-xs font-medium transition-colors ${unit === "in" ? "bg-white text-[#131720] shadow-sm" : "text-[#657186] hover:text-[#131720]"}`}
             >
-              cm
+              Inches
             </button>
             <button
-              onClick={() => updateMeasurementUnit("in")}
-              className={`px-3 py-1 rounded-md text-xs font-medium transition-colors ${unit === "in" ? "bg-[#131720] text-white" : "text-[#657186]"}`}
+              type="button"
+              onClick={() => updateMeasurementUnit("cm")}
+              className={`rounded-md px-3 py-1.5 text-xs font-medium transition-colors ${unit === "cm" ? "bg-white text-[#131720] shadow-sm" : "text-[#657186] hover:text-[#131720]"}`}
             >
-              in
+              Centimeters
             </button>
           </div>
         </div>
 
-        <div className="grid grid-cols-2 gap-3 mt-2">
-          <div className="flex flex-col gap-1.5">
-            <label className="text-xs text-[#657186]">Width ({unit})</label>
-            <input
-              type="number"
-              min={widthLimits.min}
-              max={widthLimits.max}
-              value={config.width || ""}
-              onChange={(e) => {
-                setConfig((prev) => ({ ...prev, width: Number(e.target.value) || 0 }));
-                clearFieldError("size");
-              }}
-              placeholder={widthLimits.placeholder}
-              aria-invalid={Boolean(fieldErrors.size)}
-              className={`border bg-[#f9fafb] rounded-xl px-3 py-2.5 text-sm text-[#131720] outline-none ${fieldErrors.size ? "border-[#dc2626] focus:border-[#dc2626]" : "border-[#dbe0e6] focus:border-[#131720]"}`}
-            />
-          </div>
-          <div className="flex flex-col gap-1.5">
-            <label className="text-xs text-[#657186]">Height ({unit})</label>
-            <input
-              type="number"
-              min={heightLimits.min}
-              max={heightLimits.max}
-              value={config.height || ""}
-              onChange={(e) => {
-                setConfig((prev) => ({ ...prev, height: Number(e.target.value) || 0 }));
-                clearFieldError("size");
-              }}
-              placeholder={heightLimits.placeholder}
-              aria-invalid={Boolean(fieldErrors.size)}
-              className={`border bg-[#f9fafb] rounded-xl px-3 py-2.5 text-sm text-[#131720] outline-none ${fieldErrors.size ? "border-[#dc2626] focus:border-[#dc2626]" : "border-[#dbe0e6] focus:border-[#131720]"}`}
-            />
-          </div>
+        <div className="grid grid-cols-1 gap-3 sm:gap-4">
+          {([
+            { name: "Width", value: config.width, fraction: config.widthFraction, limits: widthLimits, onValueChange: (width: number) => setConfig((prev) => ({ ...prev, width })), onFractionChange: (widthFraction: string) => setConfig((prev) => ({ ...prev, widthFraction })) },
+            { name: "Height", value: config.height, fraction: config.heightFraction, limits: heightLimits, onValueChange: (height: number) => setConfig((prev) => ({ ...prev, height })), onFractionChange: (heightFraction: string) => setConfig((prev) => ({ ...prev, heightFraction })) },
+          ] as const).map((dimension) => (
+            <div key={dimension.name} className="grid grid-cols-1 items-center gap-2 sm:grid-cols-[112px_minmax(0,1fr)_minmax(0,1fr)] sm:gap-3">
+              <label className="font-sans text-[15px] font-medium text-[#131720]" htmlFor={`product-${dimension.name.toLowerCase()}`}>
+                {dimension.name}
+              </label>
+              <div className={`rounded-xl border bg-white px-3 py-2.5 transition-colors focus-within:border-[#131720] ${fieldErrors.size ? "border-[#dc2626]" : "border-[#dbe0e6]"}`}>
+                <span className="block text-[11px] font-medium uppercase tracking-wide text-[#8c95a4]">
+                  {unit === "in" ? "Inches" : "Centimeters"}
+                </span>
+                <input
+                  id={`product-${dimension.name.toLowerCase()}`}
+                  type="number"
+                  min={dimension.limits.min}
+                  max={dimension.limits.max}
+                  value={dimension.value || ""}
+                  onChange={(event) => {
+                    dimension.onValueChange(Number(event.target.value) || 0);
+                    clearFieldError("size");
+                  }}
+                  placeholder={dimension.limits.placeholder}
+                  aria-invalid={Boolean(fieldErrors.size)}
+                  className="mt-0.5 w-full appearance-none bg-transparent text-[18px] leading-6 text-[#131720] outline-none placeholder:text-[#8c95a4]"
+                />
+              </div>
+              <div className={`rounded-xl border bg-white px-3 py-2.5 transition-colors focus-within:border-[#131720] ${fieldErrors.size ? "border-[#dc2626]" : "border-[#dbe0e6]"}`}>
+                <label className="block text-[11px] font-medium uppercase tracking-wide text-[#8c95a4]" htmlFor={`product-${dimension.name.toLowerCase()}-precision`}>
+                  {unit === "in" ? "Sixteenths" : "Millimeters"}
+                </label>
+                <select
+                  id={`product-${dimension.name.toLowerCase()}-precision`}
+                  value={dimension.fraction}
+                  onChange={(event) => {
+                    dimension.onFractionChange(event.target.value);
+                    clearFieldError("size");
+                  }}
+                  aria-label={`${dimension.name} ${unit === "in" ? "sixteenths" : "millimeters"}`}
+                  className="mt-0.5 w-full appearance-none bg-transparent text-[18px] leading-6 text-[#131720] outline-none"
+                >
+                  {(unit === "in" ? INCH_FRACTIONS : MILLIMETRES).map((value) => (
+                    <option key={value} value={value}>{unit === "in" ? value : `${value} mm`}</option>
+                  ))}
+                </select>
+              </div>
+            </div>
+          ))}
         </div>
 
         {fieldErrors.size ? (
