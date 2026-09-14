@@ -539,21 +539,21 @@ export default function ProductInfo({ product, initialReviewsData }: ProductInfo
         className={`flex flex-col gap-4 mt-6 scroll-mt-28 ${fieldErrors.size ? "rounded-xl border border-[#dc2626] bg-[#fef2f2] p-4" : ""}`}
       >
         <div className="flex flex-wrap items-center justify-between gap-3">
-          <span className="font-sans font-semibold text-[16px] text-[#131720]">
-            Choose your size
+          <span className="font-sans font-semibold text-[14px] text-[#131720]">
+            Measure your window
           </span>
-          <div className="flex rounded-lg bg-[#f3f5f7] p-1" role="group" aria-label="Measurement unit">
+          <div className="flex rounded-lg border border-[#dbe0e6] bg-white p-0.5" role="group" aria-label="Measurement unit">
             <button
               type="button"
               onClick={() => updateMeasurementUnit("in")}
-              className={`rounded-md px-3 py-1.5 text-xs font-medium transition-colors ${unit === "in" ? "bg-white text-[#131720] shadow-sm" : "text-[#657186] hover:text-[#131720]"}`}
+              className={`rounded-md px-3 py-1 text-xs font-medium transition-colors ${unit === "in" ? "bg-[#131720] text-white" : "text-[#657186] hover:text-[#131720]"}`}
             >
               Inches
             </button>
             <button
               type="button"
               onClick={() => updateMeasurementUnit("cm")}
-              className={`rounded-md px-3 py-1.5 text-xs font-medium transition-colors ${unit === "cm" ? "bg-white text-[#131720] shadow-sm" : "text-[#657186] hover:text-[#131720]"}`}
+              className={`rounded-md px-3 py-1 text-xs font-medium transition-colors ${unit === "cm" ? "bg-[#131720] text-white" : "text-[#657186] hover:text-[#131720]"}`}
             >
               Centimeters
             </button>
@@ -566,11 +566,11 @@ export default function ProductInfo({ product, initialReviewsData }: ProductInfo
             { name: "Height", value: config.height, fraction: config.heightFraction, limits: heightLimits, onValueChange: (height: number) => setConfig((prev) => ({ ...prev, height })), onFractionChange: (heightFraction: string) => setConfig((prev) => ({ ...prev, heightFraction })) },
           ] as const).map((dimension) => (
             <div key={dimension.name} className="grid grid-cols-1 items-center gap-2 sm:grid-cols-[112px_minmax(0,1fr)_minmax(0,1fr)] sm:gap-3">
-              <label className="font-sans text-[15px] font-medium text-[#131720]" htmlFor={`product-${dimension.name.toLowerCase()}`}>
+              <label className="font-sans text-sm text-[#657186]" htmlFor={`product-${dimension.name.toLowerCase()}`}>
                 {dimension.name}
               </label>
-              <div className={`rounded-xl border bg-white px-3 py-2.5 transition-colors focus-within:border-[#131720] ${fieldErrors.size ? "border-[#dc2626]" : "border-[#dbe0e6]"}`}>
-                <span className="block text-[11px] font-medium uppercase tracking-wide text-[#8c95a4]">
+              <div className={`rounded-xl border bg-[#f9fafb] px-3 py-2.5 transition-colors focus-within:border-[#131720] ${fieldErrors.size ? "border-[#dc2626]" : "border-[#dbe0e6]"}`}>
+                <span className="block text-xs text-[#657186]">
                   {unit === "in" ? "Inches" : "Centimeters"}
                 </span>
                 <input
@@ -585,11 +585,11 @@ export default function ProductInfo({ product, initialReviewsData }: ProductInfo
                   }}
                   placeholder={dimension.limits.placeholder}
                   aria-invalid={Boolean(fieldErrors.size)}
-                  className="mt-0.5 w-full appearance-none bg-transparent text-[18px] leading-6 text-[#131720] outline-none placeholder:text-[#8c95a4]"
+                  className="mt-0.5 w-full appearance-none bg-transparent text-sm text-[#131720] outline-none placeholder:text-[#8c95a4]"
                 />
               </div>
-              <div className={`rounded-xl border bg-white px-3 py-2.5 transition-colors focus-within:border-[#131720] ${fieldErrors.size ? "border-[#dc2626]" : "border-[#dbe0e6]"}`}>
-                <label className="block text-[11px] font-medium uppercase tracking-wide text-[#8c95a4]" htmlFor={`product-${dimension.name.toLowerCase()}-precision`}>
+              <div className={`rounded-xl border bg-[#f9fafb] px-3 py-2.5 transition-colors focus-within:border-[#131720] ${fieldErrors.size ? "border-[#dc2626]" : "border-[#dbe0e6]"}`}>
+                <label className="block text-xs text-[#657186]" htmlFor={`product-${dimension.name.toLowerCase()}-precision`}>
                   {unit === "in" ? "Sixteenths" : "Millimeters"}
                 </label>
                 <select
@@ -600,7 +600,7 @@ export default function ProductInfo({ product, initialReviewsData }: ProductInfo
                     clearFieldError("size");
                   }}
                   aria-label={`${dimension.name} ${unit === "in" ? "sixteenths" : "millimeters"}`}
-                  className="mt-0.5 w-full appearance-none bg-transparent text-[18px] leading-6 text-[#131720] outline-none"
+                  className="mt-0.5 w-full appearance-none bg-transparent text-sm text-[#131720] outline-none"
                 >
                   {(unit === "in" ? INCH_FRACTIONS : MILLIMETRES).map((value) => (
                     <option key={value} value={value}>{unit === "in" ? value : `${value} mm`}</option>
