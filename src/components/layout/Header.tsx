@@ -7,7 +7,7 @@ import { usePathname } from 'next/navigation';
 import { BLACKOUT_PRODUCT_PATH, FITTING_GUIDE_PATH, MEASURING_GUIDE_PATH } from '@/lib/product-routes';
 
 const Header = () => {
-  const { cart } = useCart();
+  const { cart, openCart } = useCart();
   const pathname = usePathname();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
@@ -98,7 +98,12 @@ const Header = () => {
 
         {/* Icons (Account & Cart) */}
         <div className="flex shrink-0 items-center justify-end gap-5 text-white/80">
-          <Link href="/cart" aria-label="Cart" className="hover:text-white transition-colors relative">
+          <button
+            type="button"
+            onClick={openCart}
+            aria-label="Open cart"
+            className="hover:text-white transition-colors relative"
+          >
             <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
               <circle cx="9" cy="21" r="1"></circle>
               <circle cx="20" cy="21" r="1"></circle>
@@ -109,7 +114,7 @@ const Header = () => {
                 {cart.itemCount > 99 ? '99+' : cart.itemCount}
               </span>
             )}
-          </Link>
+          </button>
           <Link
             href="/account"
             aria-label="Account"

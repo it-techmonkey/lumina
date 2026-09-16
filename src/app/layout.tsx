@@ -10,6 +10,7 @@ import MetaPixelPageView from "@/components/analytics/MetaPixelPageView";
 import ShopifyAnalytics from "@/components/analytics/ShopifyAnalytics";
 import { AuthProvider } from "@/context/AuthContext";
 import { CartProvider } from "@/context/CartContext";
+import CartDrawer from "@/components/cart/CartDrawer";
 
 const manrope = Manrope({
   variable: "--font-manrope",
@@ -93,6 +94,7 @@ export default function RootLayout({
               {children}
             </main>
             <Footer />
+            <CartDrawer />
           </CartProvider>
         </AuthProvider>
       </body>
