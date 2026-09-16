@@ -4,9 +4,14 @@ import Image from "next/image";
 import { useEffect, useMemo, useRef, useState } from "react";
 import SaleCountdown from "@/components/common/SaleCountdown";
 import { useCart } from "@/context/CartContext";
+import { useCheckout } from "@/hooks/useCheckout";
 import { calculateTotalPrice, configToCustomizations, getTotalInches } from "@/lib/pricing";
 import { getComparePriceData } from "@/lib/compare-price";
 import { fetchCustomizationPricing, fetchPriceMatrix, formatPriceWithCurrency, validateCartPrice } from "@/lib/api";
+import { cartItemToCheckoutRequest } from "@/lib/checkout";
+import { trackClarityInitiateCheckout } from "@/lib/clarity";
+import { trackInitiateCheckout } from "@/lib/meta-pixel";
+import { trackStoreCheckoutInitiated } from "@/lib/store-events";
 import { getReviewSummary } from "@/data/reviews";
 import {
   BLIND_COLOR_OPTIONS,
@@ -14,6 +19,7 @@ import {
   OPENING_DIRECTION_OPTIONS,
 } from "@/data/customizations";
 import type {
+  CartItem,
   CustomizationPricing,
   PriceBandMatrix,
   Product,
@@ -90,6 +96,8 @@ const FIELD_ORDER: CustomizationField[] = ["size", "blindColor", "frameColor", "
 
 export default function ProductInfo({ product, initialReviewsData }: ProductInfoProps) {
   const { addToCart } = useCart();
+  const { checkout, isCheckingOut: isBuyingNow, checkoutError: buyNowError } = useCheckout();
+  const [isPreparingBuyNow, setIsPreparingBuyNow] = useState(false);
   const addToCartRef = useRef<HTMLButtonElement>(null);
   const sizeSectionRef = useRef<HTMLDivElement>(null);
   const blindColorSectionRef = useRef<HTMLDivElement>(null);
@@ -372,7 +380,9 @@ export default function ProductInfo({ product, initialReviewsData }: ProductInfo
     return errors;
   };
 
-  const isAddToCartDisabled = isAddingToCart || !pricingLoaded;
+  const isActionInProgress = isAddingToCart || isPreparingBuyNow || isBuyingNow;
+  const isAddToCartDisabled = isActionInProgress || !pricingLoaded;
+  const isBuyNowDisabled = isActionInProgress || !pricingLoaded;
 
   const handleAddToCart = async () => {
     if (isAddToCartDisabled) return;
@@ -425,6 +435,61 @@ export default function ProductInfo({ product, initialReviewsData }: ProductInfo
     } finally {
       setIsAddingToCart(false);
     }
+  };
+
+  const handleBuyNow = async () => {
+    if (isBuyNowDisabled) return;
+
+    const errors = validateConfiguration();
+    setFieldErrors(errors);
+
+    const firstInvalidField = FIELD_ORDER.find((field) => errors[field]);
+    if (firstInvalidField) {
+      const section = sectionRefs[firstInvalidField].current;
+      if (section) {
+        section.scrollIntoView({ behavior: "smooth", block: "center" });
+        section.querySelector<HTMLElement>("input, button")?.focus({ preventScroll: true });
+      }
+      return;
+    }
+
+    setIsPreparingBuyNow(true);
+
+    let finalPrice = totalPrice;
+    try {
+      const widthInches = getTotalInches(config.width, config.widthFraction, config.widthUnit);
+      const heightInches = getTotalInches(config.height, config.heightFraction, config.heightUnit);
+
+      const validation = await validateCartPrice(
+        {
+          handle: product.slug,
+          widthInches,
+          heightInches,
+          customizations: selectedCustomizations,
+        },
+        totalPrice
+      );
+
+      finalPrice = validation.valid ? totalPrice : validation.calculatedPrice;
+    } catch (error) {
+      console.error("Price validation failed:", error);
+    } finally {
+      setIsPreparingBuyNow(false);
+    }
+
+    const adHocItem: CartItem = {
+      id: `${product.id}-buy-now`,
+      product: { ...product, price: finalPrice },
+      configuration: config,
+      quantity: 1,
+      addedAt: new Date(),
+    };
+
+    trackClarityInitiateCheckout([adHocItem]);
+    trackInitiateCheckout([adHocItem], product.currency);
+    trackStoreCheckoutInitiated([adHocItem], finalPrice);
+
+    await checkout([cartItemToCheckoutRequest(adHocItem)]);
   };
 
   const deliveryRange = useMemo(() => {
@@ -743,20 +808,35 @@ export default function ProductInfo({ product, initialReviewsData }: ProductInfo
           </span>
           <span className="font-sans text-[12px] font-medium text-[#4051b5]">Learn More</span>
         </button>
-        <button
-          ref={addToCartRef}
-          type="button"
-          onClick={handleAddToCart}
-          disabled={isAddToCartDisabled}
-          className="bg-[#131720] hover:bg-black disabled:bg-[#9aa3af] disabled:cursor-not-allowed transition-colors w-full rounded-full py-4 text-white font-medium flex items-center justify-center gap-2"
-        >
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-            <circle cx="9" cy="21" r="1"></circle>
-            <circle cx="20" cy="21" r="1"></circle>
-            <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
-          </svg>
-          {isAddingToCart ? "Adding..." : "Add to Cart"}
-        </button>
+        {buyNowError && (
+          <div className="rounded-2xl border border-red-200 bg-red-50 px-4 py-3 text-sm text-red-700">
+            {buyNowError}
+          </div>
+        )}
+        <div className="grid grid-cols-2 gap-3">
+          <button
+            ref={addToCartRef}
+            type="button"
+            onClick={handleAddToCart}
+            disabled={isAddToCartDisabled}
+            className="bg-white hover:bg-[#f9fafb] disabled:bg-[#f3f4f6] disabled:text-[#9aa3af] disabled:cursor-not-allowed transition-colors w-full rounded-full py-4 text-[#131720] font-medium border border-[#131720] flex items-center justify-center gap-2"
+          >
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+              <circle cx="9" cy="21" r="1"></circle>
+              <circle cx="20" cy="21" r="1"></circle>
+              <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
+            </svg>
+            {isAddingToCart ? "Adding..." : "Add to Cart"}
+          </button>
+          <button
+            type="button"
+            onClick={handleBuyNow}
+            disabled={isBuyNowDisabled}
+            className="bg-[#131720] hover:bg-black disabled:bg-[#9aa3af] disabled:cursor-not-allowed transition-colors w-full rounded-full py-4 text-white font-medium flex items-center justify-center gap-2"
+          >
+            {isPreparingBuyNow || isBuyingNow ? "Processing..." : "Buy Now"}
+          </button>
+        </div>
         <div className="rounded-2xl border border-[#dbe0e6] bg-[#f9fafb] px-4 py-3 w-fit self-center mt-2">
           <Image
             src="/payment-badge.png"
@@ -836,14 +916,24 @@ export default function ProductInfo({ product, initialReviewsData }: ProductInfo
               </span>
             </div>
           </div>
-          <button
-            type="button"
-            onClick={handleAddToCart}
-            disabled={isAddToCartDisabled}
-            className="shrink-0 rounded-full bg-[#131720] px-6 py-3 font-sans text-[14px] font-medium text-white transition-colors hover:bg-black disabled:cursor-not-allowed disabled:bg-[#9aa3af]"
-          >
-            {isAddingToCart ? "Adding..." : "Add to Cart"}
-          </button>
+          <div className="flex shrink-0 items-center gap-2">
+            <button
+              type="button"
+              onClick={handleAddToCart}
+              disabled={isAddToCartDisabled}
+              className="hidden sm:inline-flex shrink-0 rounded-full border border-[#131720] bg-white px-5 py-3 font-sans text-[14px] font-medium text-[#131720] transition-colors hover:bg-[#f9fafb] disabled:cursor-not-allowed disabled:text-[#9aa3af] disabled:border-[#dbe0e6]"
+            >
+              {isAddingToCart ? "Adding..." : "Add to Cart"}
+            </button>
+            <button
+              type="button"
+              onClick={handleBuyNow}
+              disabled={isBuyNowDisabled}
+              className="shrink-0 rounded-full bg-[#131720] px-6 py-3 font-sans text-[14px] font-medium text-white transition-colors hover:bg-black disabled:cursor-not-allowed disabled:bg-[#9aa3af]"
+            >
+              {isPreparingBuyNow || isBuyingNow ? "Processing..." : "Buy Now"}
+            </button>
+          </div>
         </div>
       </div>
 

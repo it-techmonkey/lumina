@@ -192,6 +192,10 @@ export interface CartContextType {
   ) => void;
   updateQuantity: (itemId: string, quantity: number) => void;
   clearCart: () => void;
+  markCheckoutPending: (draftOrderId: string) => void;
+  isCartOpen: boolean;
+  openCart: () => void;
+  closeCart: () => void;
 }
 
 // ============================================

@@ -1,7 +1,6 @@
 'use client';
 
 import React, { createContext, useContext, useState, useEffect, ReactNode, useRef } from 'react';
-import { useRouter } from 'next/navigation';
 import { Product, ProductConfiguration, Cart, CartItem, CartContextType } from '@/types';
 import { trackClarityAddToCart } from '@/lib/clarity';
 import { trackAddToCart } from '@/lib/meta-pixel';
@@ -23,6 +22,13 @@ interface CartProviderProps {
 }
 
 const CART_STORAGE_KEY = 'cart';
+const PENDING_CHECKOUT_KEY = 'pendingCheckout';
+const PENDING_CHECKOUT_MAX_AGE_MS = 30 * 24 * 60 * 60 * 1000; // 30 days
+
+interface PendingCheckout {
+  draftOrderId: string;
+  createdAt: string;
+}
 
 interface SerializableCartItem extends Omit<CartItem, 'addedAt'> {
   addedAt: string;
@@ -65,9 +71,9 @@ const getInitialCartState = (): Cart => {
 };
 
 export const CartProvider = ({ children }: CartProviderProps) => {
-  const router = useRouter();
   const hasInitializedRef = useRef(false);
   const [cart, setCart] = useState<Cart>(getInitialCartState);
+  const [isCartOpen, setIsCartOpen] = useState(false);
 
   const applyCartItems = (items: CartItem[]) => {
     setCart(buildCartState(items));
@@ -75,6 +81,41 @@ export const CartProvider = ({ children }: CartProviderProps) => {
 
   useEffect(() => {
     hasInitializedRef.current = true;
+  }, []);
+
+  useEffect(() => {
+    let pending: PendingCheckout;
+    try {
+      const raw = localStorage.getItem(PENDING_CHECKOUT_KEY);
+      if (!raw) return;
+      pending = JSON.parse(raw);
+    } catch {
+      return;
+    }
+
+    if (!pending?.draftOrderId || !pending.createdAt) {
+      localStorage.removeItem(PENDING_CHECKOUT_KEY);
+      return;
+    }
+
+    const ageMs = Date.now() - new Date(pending.createdAt).getTime();
+    if (!Number.isFinite(ageMs) || ageMs > PENDING_CHECKOUT_MAX_AGE_MS) {
+      localStorage.removeItem(PENDING_CHECKOUT_KEY);
+      return;
+    }
+
+    fetch(`/api/orders/checkout-status?draftOrderId=${encodeURIComponent(pending.draftOrderId)}`)
+      .then((res) => (res.ok ? res.json() : null))
+      .then((data: { purchased?: boolean } | null) => {
+        if (data?.purchased) {
+          setCart({ items: [], total: 0, itemCount: 0 });
+          localStorage.removeItem(CART_STORAGE_KEY);
+          localStorage.removeItem(PENDING_CHECKOUT_KEY);
+        }
+      })
+      .catch(() => {
+        // Leave the pending record and cart untouched; re-checked on next load.
+      });
   }, []);
 
   useEffect(() => {
@@ -102,7 +143,7 @@ export const CartProvider = ({ children }: CartProviderProps) => {
     trackAddToCart(product);
     trackShopifyAddToCart(product);
     trackStoreAddToCart(product, configuration);
-    router.push('/cart');
+    setIsCartOpen(true);
   };
 
   const removeFromCart = (itemId: string) => {
@@ -151,6 +192,18 @@ export const CartProvider = ({ children }: CartProviderProps) => {
     localStorage.removeItem(CART_STORAGE_KEY);
   };
 
+  const markCheckoutPending = (draftOrderId: string) => {
+    try {
+      const pending: PendingCheckout = { draftOrderId, createdAt: new Date().toISOString() };
+      localStorage.setItem(PENDING_CHECKOUT_KEY, JSON.stringify(pending));
+    } catch {
+      // Storage unavailable (private browsing, etc.) — checkout still proceeds.
+    }
+  };
+
+  const openCart = () => setIsCartOpen(true);
+  const closeCart = () => setIsCartOpen(false);
+
   return (
     <CartContext.Provider
       value={{
@@ -160,6 +213,10 @@ export const CartProvider = ({ children }: CartProviderProps) => {
         updateCartItemConfiguration,
         updateQuantity,
         clearCart,
+        markCheckoutPending,
+        isCartOpen,
+        openCart,
+        closeCart,
       }}
     >
       {children}

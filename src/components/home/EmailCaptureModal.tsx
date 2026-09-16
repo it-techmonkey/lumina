@@ -5,6 +5,9 @@ import type { NewsletterSubscriptionResult } from "@/types";
 import GuaranteeBadges from "@/components/product/GuaranteeBadges";
 
 const DELAY_MS = 3000;
+const DISMISS_COOLDOWN_MS = 15 * 60 * 1000; // 15 minutes
+const STORAGE_KEY_SUBSCRIBED = "discountModalSubscribedAt";
+const STORAGE_KEY_DISMISSED = "discountModalDismissedAt";
 
 const BENEFITS = [
   {
@@ -40,12 +43,21 @@ export default function EmailCaptureModal() {
   const [copiedCode, setCopiedCode] = useState(false);
 
   useEffect(() => {
+    try {
+      if (localStorage.getItem(STORAGE_KEY_SUBSCRIBED)) return;
+      const dismissedAt = localStorage.getItem(STORAGE_KEY_DISMISSED);
+      if (dismissedAt && Date.now() - Number(dismissedAt) < DISMISS_COOLDOWN_MS) return;
+    } catch {}
+
     const id = window.setTimeout(() => setVisible(true), DELAY_MS);
     return () => window.clearTimeout(id);
   }, []);
 
   const dismiss = () => {
     setVisible(false);
+    try {
+      localStorage.setItem(STORAGE_KEY_DISMISSED, String(Date.now()));
+    } catch {}
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -64,6 +76,9 @@ export default function EmailCaptureModal() {
       }
       setSuccessData(json.data);
       setEmail("");
+      try {
+        localStorage.setItem(STORAGE_KEY_SUBSCRIBED, String(Date.now()));
+      } catch {}
     } catch (err) {
       setErrorMessage(err instanceof Error ? err.message : "Unable to subscribe right now.");
     } finally {
