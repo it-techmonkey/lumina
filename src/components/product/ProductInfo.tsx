@@ -3,6 +3,8 @@
 import Image from "next/image";
 import { useEffect, useMemo, useRef, useState } from "react";
 import SaleCountdown from "@/components/common/SaleCountdown";
+import { PumpkinIcon } from "@/components/common/HalloweenDecor";
+import { SEASONAL_SALE } from "@/lib/seasonal-theme";
 import { useCart } from "@/context/CartContext";
 import { useCheckout } from "@/hooks/useCheckout";
 import { calculateTotalPrice, configToCustomizations, getTotalInches } from "@/lib/pricing";
@@ -30,6 +32,8 @@ import OpeningDirectionGuideModal from "@/components/product/OpeningDirectionGui
 import GuaranteeBadges from "@/components/product/GuaranteeBadges";
 
 const PROMO_CODE = "FINAL15";
+const SALE_BADGE = SEASONAL_SALE ? "bg-orange-500 text-[#131720]" : "bg-[#131720] text-white";
+const BUY_NOW_COLORS = SEASONAL_SALE ? "bg-orange-500 hover:bg-orange-400 text-[#131720]" : "bg-[#131720] hover:bg-black text-white";
 const INCH_FRACTIONS = [
   "0",
   "1/16",
@@ -551,14 +555,14 @@ export default function ProductInfo({ product, initialReviewsData }: ProductInfo
           <span className="font-sans text-[18px] text-[#8c95a4] leading-none line-through pb-1">
             {formatPriceWithCurrency(comparePrice, product.currency)}
           </span>
-          <span className="inline-flex items-center rounded-full bg-[#131720] px-2.5 py-1 text-[12px] font-semibold text-white leading-none mb-1">
+          <span className={`inline-flex items-center rounded-full px-2.5 py-1 text-[12px] font-semibold leading-none mb-1 ${SALE_BADGE}`}>
             {upliftPercent}% off
           </span>
         </div>
         <div className="flex items-center justify-between gap-3 flex-wrap">
           <div className="flex items-center gap-3 flex-wrap">
             <p className="font-sans text-[#657186] text-[13px]">
-              Sale price · free shipping
+              {SEASONAL_SALE ? SEASONAL_SALE.saleName : "Sale"} price · free shipping
             </p>
             <span className="inline-flex items-center gap-1.5 font-sans text-[13px] text-[#657186]">
               <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
@@ -585,15 +589,16 @@ export default function ProductInfo({ product, initialReviewsData }: ProductInfo
                 You save <span className="font-semibold text-white">{formatPriceWithCurrency(savings, product.currency)}</span> on this order
               </span>
             </div>
-            <span className="shrink-0 rounded-full bg-white/15 px-2.5 py-0.5 font-sans text-[11px] font-bold text-white tracking-wide">
+            <span className={`shrink-0 rounded-full px-2.5 py-0.5 font-sans text-[11px] font-bold tracking-wide ${SEASONAL_SALE ? "bg-orange-500 text-[#131720]" : "bg-white/15 text-white"}`}>
               {upliftPercent}% OFF
             </span>
           </div>
 
           {/* Promo code row */}
           <div className="flex items-center justify-between gap-4 border-t border-white/10 bg-[#131720] px-4 py-3">
-            <span className="font-sans text-[13px] text-white/80">
-              Extra 15% off with code
+            <span className="flex items-center gap-2 font-sans text-[13px] text-white/80">
+              {SEASONAL_SALE && <PumpkinIcon className="shrink-0 text-orange-400" size={15} />}
+              {SEASONAL_SALE ? SEASONAL_SALE.promoCodeLabel : "Extra 15% off with code"}
             </span>
             <button
               type="button"
@@ -859,7 +864,7 @@ export default function ProductInfo({ product, initialReviewsData }: ProductInfo
             type="button"
             onClick={handleBuyNow}
             disabled={isBuyNowDisabled}
-            className="bg-[#131720] hover:bg-black disabled:bg-[#9aa3af] disabled:cursor-not-allowed transition-colors w-full rounded-full py-4 text-white font-medium flex items-center justify-center gap-2"
+            className={`disabled:bg-[#9aa3af] disabled:text-white disabled:cursor-not-allowed transition-colors w-full rounded-full py-4 font-medium flex items-center justify-center gap-2 ${BUY_NOW_COLORS}`}
           >
             {isPreparingBuyNow || isBuyingNow ? "Processing..." : "Buy Now"}
           </button>
@@ -938,7 +943,7 @@ export default function ProductInfo({ product, initialReviewsData }: ProductInfo
               <span className="font-sans text-[16px] text-[#8c95a4] line-through">
                 {formatPriceWithCurrency(comparePrice, product.currency)}
               </span>
-              <span className="rounded-full bg-[#131720] px-2 py-0.5 font-sans text-[12px] font-semibold text-white">
+              <span className={`rounded-full px-2 py-0.5 font-sans text-[12px] font-semibold ${SALE_BADGE}`}>
                 {upliftPercent}% off
               </span>
             </div>
@@ -956,7 +961,7 @@ export default function ProductInfo({ product, initialReviewsData }: ProductInfo
               type="button"
               onClick={handleBuyNow}
               disabled={isBuyNowDisabled}
-              className="shrink-0 rounded-full bg-[#131720] px-6 py-3 font-sans text-[14px] font-medium text-white transition-colors hover:bg-black disabled:cursor-not-allowed disabled:bg-[#9aa3af]"
+              className={`shrink-0 rounded-full px-6 py-3 font-sans text-[14px] font-medium transition-colors disabled:cursor-not-allowed disabled:bg-[#9aa3af] disabled:text-white ${BUY_NOW_COLORS}`}
             >
               {isPreparingBuyNow || isBuyingNow ? "Processing..." : "Buy Now"}
             </button>

@@ -2,8 +2,10 @@
 
 import { useState } from "react";
 import SaleCountdown from "@/components/common/SaleCountdown";
+import { PumpkinIcon } from "@/components/common/HalloweenDecor";
+import { SEASONAL_SALE } from "@/lib/seasonal-theme";
 
-const OFFER_TEXT = "Our Biggest Sale | Up to 60% Off + Extra 15% with Code FINAL15 | Ends in";
+const OFFER_TEXT = `${SEASONAL_SALE ? SEASONAL_SALE.saleName : "Our Biggest Sale"} | Up to 60% Off + Extra 15% with Code FINAL15`;
 const OFFER_CODE = "FINAL15";
 
 export default function TopBar() {
@@ -20,9 +22,10 @@ export default function TopBar() {
   };
 
   return (
-    <div className="w-full bg-[#000] border-b border-white/10">
+    <div className={`w-full border-b ${SEASONAL_SALE ? "bg-[#1a0d02] border-orange-500/30" : "bg-[#000] border-white/10"}`}>
       <div className="mx-auto flex min-h-10 max-w-[1280px] flex-col items-center justify-center gap-2 px-4 py-2 text-center sm:flex-row sm:gap-3">
         <p className="font-sans text-[11px] font-medium uppercase tracking-[0.08em] text-white sm:text-[12px] md:text-[13px] flex items-center gap-2 flex-wrap justify-center">
+          {SEASONAL_SALE && <PumpkinIcon className="shrink-0 text-orange-400" />}
           <span>{OFFER_TEXT}</span>
           <SaleCountdown variant="topbar" />
         </p>
