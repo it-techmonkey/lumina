@@ -3,6 +3,9 @@
 import { useEffect, useState } from "react";
 import type { NewsletterSubscriptionResult } from "@/types";
 import GuaranteeBadges from "@/components/product/GuaranteeBadges";
+import { SEASONAL_SALE } from "@/lib/seasonal-theme";
+
+const ACCENT_DOT = SEASONAL_SALE ? "bg-orange-400" : "bg-emerald-400";
 
 const DELAY_MS = 3000;
 const DISMISS_COOLDOWN_MS = 15 * 60 * 1000; // 15 minutes
@@ -120,8 +123,8 @@ export default function EmailCaptureModal() {
           <div className="flex flex-col gap-6">
             <div className="flex flex-col gap-3">
               <div className="inline-flex w-fit items-center gap-2 rounded-full border border-white/15 bg-white/8 px-3 py-1">
-                <span className="h-1.5 w-1.5 rounded-full bg-emerald-400 shrink-0" />
-                <span className="font-sans text-[10px] font-semibold uppercase tracking-[0.14em] text-white/50">Limited Offer</span>
+                <span className={`h-1.5 w-1.5 rounded-full shrink-0 ${ACCENT_DOT}`} />
+                <span className="font-sans text-[10px] font-semibold uppercase tracking-[0.14em] text-white/50">{SEASONAL_SALE ? SEASONAL_SALE.offerLabel : "Limited Offer"}</span>
               </div>
               <h2 className="font-playfair text-[40px] font-medium leading-[1.1] text-white">
                 Sleep better.<br />
@@ -139,7 +142,7 @@ export default function EmailCaptureModal() {
             <div className="grid grid-cols-2 gap-x-6 gap-y-4">
               {BENEFITS.map((b) => (
                 <div key={b.title} className="flex items-start gap-2.5">
-                  <div className="mt-1 h-1.5 w-1.5 shrink-0 rounded-full bg-emerald-400" />
+                  <div className={`mt-1 h-1.5 w-1.5 shrink-0 rounded-full ${ACCENT_DOT}`} />
                   <div>
                     <p className="font-sans text-[12px] font-semibold text-white/80 leading-5">{b.title}</p>
                     <p className="font-sans text-[11px] text-white/35 leading-4 mt-0.5">{b.description}</p>
@@ -172,7 +175,7 @@ export default function EmailCaptureModal() {
 
               <div className="flex flex-col gap-1">
                 <p className="font-sans text-[10px] font-semibold uppercase tracking-[0.18em] text-white/50">
-                  Exclusive welcome offer
+                  {SEASONAL_SALE ? SEASONAL_SALE.welcomeEyebrow : "Exclusive welcome offer"}
                 </p>
                 <div className="flex items-end gap-3 mt-1">
                   <span className="font-playfair text-[64px] font-medium leading-none text-white">10%</span>
@@ -199,7 +202,7 @@ export default function EmailCaptureModal() {
                 <button
                   type="submit"
                   disabled={isSubmitting}
-                  className="w-full rounded-xl bg-white py-3.5 font-sans text-[14px] font-semibold text-black transition-colors hover:bg-white/90 disabled:opacity-40 disabled:cursor-not-allowed"
+                  className={`w-full rounded-xl py-3.5 font-sans text-[14px] font-semibold text-black transition-colors disabled:opacity-40 disabled:cursor-not-allowed ${SEASONAL_SALE ? "bg-orange-500 hover:bg-orange-400" : "bg-white hover:bg-white/90"}`}
                 >
                   {isSubmitting ? "Submitting…" : "Claim My 10% Off"}
                 </button>

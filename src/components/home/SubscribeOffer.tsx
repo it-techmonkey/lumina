@@ -2,6 +2,7 @@
 
 import { useState } from 'react';
 import type { NewsletterSubscriptionResult } from '@/types';
+import { SEASONAL_SALE } from '@/lib/seasonal-theme';
 
 interface ApiResponse<T> {
   success: boolean;
@@ -81,7 +82,7 @@ export default function SubscribeOffer() {
                   Email Updates
                 </p>
                 <h2 className="font-playfair font-medium text-[#f9fafb] text-[36px] md:text-[48px] leading-tight md:leading-[48px]">
-                  Subscribe for 10% off.
+                  {SEASONAL_SALE ? SEASONAL_SALE.subscribeHeading : 'Subscribe for 10% off.'}
                 </h2>
                 <p className="font-sans text-white/58 text-[15px] leading-7 max-w-[420px]">
                   Product updates, measuring guidance, and a 10% code for your first order.
