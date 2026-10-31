@@ -1,0 +1,265 @@
+<div class="lumina-editable-section {% if section.settings.background != blank %}lumina-background-override{% endif %} lumina-width-{{ section.settings.content_width }}" style="--section-background:{{ section.settings.background }};padding-top:{{ section.settings.spacing_top }}px;padding-bottom:{{ section.settings.spacing_bottom }}px"><section class="bg-[#eaedf0] py-16 md:py-24 px-6 relative w-full"><div class="max-w-[1280px] mx-auto flex flex-col items-center gap-10 md:gap-14"><div class="flex flex-col items-center gap-4 max-w-[672px] w-full text-center"><p class="font-[family-name:var(--font-dm-sans)] font-medium text-[#4051b5] text-xs tracking-[1.2px] uppercase">{{ section.settings.content_0 | escape }}</p><h2 class="font-[family-name:var(--font-playfair)] text-4xl md:text-[48px] leading-tight md:leading-[48px] text-[#131720]">{{ section.settings.heading_0 }}</h2><p class="font-[family-name:var(--font-dm-sans)] font-normal text-[#657186] text-base leading-6">{{ section.settings.content_1 | escape }}</p></div><div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5 w-full">{% for block in section.blocks %}{% case block.type %}{% when 'step_0' %}<div class="bg-[#f9fafb] flex flex-col gap-2 items-start justify-start p-7 pb-12 relative rounded-2xl overflow-hidden" {{ block.shopify_attributes }}><div class="bg-[#131720] flex items-center justify-center rounded-full size-9 mb-1 shrink-0 z-10"><span class="font-[family-name:var(--font-playfair)] font-semibold text-[#f9fafb] text-sm leading-5">{{ block.settings.content_0 | escape }}</span></div><h3 class="font-[family-name:var(--font-playfair)] font-medium text-[#131720] text-lg leading-7 z-10">{{ block.settings.content_1 | escape }}</h3><p class="font-[family-name:var(--font-dm-sans)] font-normal text-[#657186] text-sm leading-[22.75px] z-10">{{ block.settings.content_2 | escape }}</p><div class="absolute right-7 top-11 -translate-y-1/2 flex items-center justify-center pointer-events-none select-none"><span class="font-[family-name:var(--font-playfair)] font-bold text-[48px] leading-[48px] text-[#131720]/5">{{ block.settings.content_3 | escape }}</span></div></div>{% when 'step_1' %}<div class="bg-[#f9fafb] flex flex-col gap-2 items-start justify-start p-7 pb-12 relative rounded-2xl overflow-hidden" {{ block.shopify_attributes }}><div class="bg-[#131720] flex items-center justify-center rounded-full size-9 mb-1 shrink-0 z-10"><span class="font-[family-name:var(--font-playfair)] font-semibold text-[#f9fafb] text-sm leading-5">{{ block.settings.content_0 | escape }}</span></div><h3 class="font-[family-name:var(--font-playfair)] font-medium text-[#131720] text-lg leading-7 z-10">{{ block.settings.content_1 | escape }}</h3><p class="font-[family-name:var(--font-dm-sans)] font-normal text-[#657186] text-sm leading-[22.75px] z-10">{{ block.settings.content_2 | escape }}</p><div class="absolute right-7 top-11 -translate-y-1/2 flex items-center justify-center pointer-events-none select-none"><span class="font-[family-name:var(--font-playfair)] font-bold text-[48px] leading-[48px] text-[#131720]/5">{{ block.settings.content_3 | escape }}</span></div></div>{% when 'step_2' %}<div class="bg-[#f9fafb] flex flex-col gap-2 items-start justify-start p-7 pb-12 relative rounded-2xl overflow-hidden" {{ block.shopify_attributes }}><div class="bg-[#131720] flex items-center justify-center rounded-full size-9 mb-1 shrink-0 z-10"><span class="font-[family-name:var(--font-playfair)] font-semibold text-[#f9fafb] text-sm leading-5">{{ block.settings.content_0 | escape }}</span></div><h3 class="font-[family-name:var(--font-playfair)] font-medium text-[#131720] text-lg leading-7 z-10">{{ block.settings.content_1 | escape }}</h3><p class="font-[family-name:var(--font-dm-sans)] font-normal text-[#657186] text-sm leading-[22.75px] z-10">{{ block.settings.content_2 | escape }}</p><div class="absolute right-7 top-11 -translate-y-1/2 flex items-center justify-center pointer-events-none select-none"><span class="font-[family-name:var(--font-playfair)] font-bold text-[48px] leading-[48px] text-[#131720]/5">{{ block.settings.content_3 | escape }}</span></div></div>{% when 'step_3' %}<div class="bg-[#f9fafb] flex flex-col gap-2 items-start justify-start p-7 pb-12 relative rounded-2xl overflow-hidden" {{ block.shopify_attributes }}><div class="bg-[#131720] flex items-center justify-center rounded-full size-9 mb-1 shrink-0 z-10"><span class="font-[family-name:var(--font-playfair)] font-semibold text-[#f9fafb] text-sm leading-5">{{ block.settings.content_0 | escape }}</span></div><h3 class="font-[family-name:var(--font-playfair)] font-medium text-[#131720] text-lg leading-7 z-10">{{ block.settings.content_1 | escape }}</h3><p class="font-[family-name:var(--font-dm-sans)] font-normal text-[#657186] text-sm leading-[22.75px] z-10">{{ block.settings.content_2 | escape }}</p><div class="absolute right-7 top-11 -translate-y-1/2 flex items-center justify-center pointer-events-none select-none"><span class="font-[family-name:var(--font-playfair)] font-bold text-[48px] leading-[48px] text-[#131720]/5">{{ block.settings.content_3 | escape }}</span></div></div>{% endcase %}{% endfor %}</div><div class="relative w-full h-[320px] rounded-3xl overflow-hidden flex flex-col items-center justify-center">{% if section.settings.content_4 != blank %}<img width="1600" height="1200" class="object-cover pointer-events-none" src="{{ section.settings.content_4 | image_url: width: 2000 }}" alt="{{ section.settings.content_5 | escape }}" loading="lazy" style="position:absolute;inset:0;width:100%;height:100%">{% else %}<img width="1600" height="1200" class="object-cover pointer-events-none" src="{{ 'home-craftsmanship-bg.webp' | asset_url }}" alt="{{ section.settings.content_5 | escape }}" loading="lazy" style="position:absolute;inset:0;width:100%;height:100%">{% endif %}<div class="absolute inset-0 bg-[#131720]/40 flex flex-col justify-center items-center px-6 z-10 text-center"><h3 class="font-[family-name:var(--font-playfair)] font-medium italic text-white text-3xl md:text-4xl leading-tight md:leading-10 mb-2">{{ section.settings.content_2 | escape }}</h3><p class="font-[family-name:var(--font-dm-sans)] font-normal text-white/75 text-sm md:text-base leading-5">{{ section.settings.content_3 | escape }}</p></div></div></div></section>
+</div>
+
+{% schema %}
+{
+  "name": "Installation",
+  "settings": [
+    {
+      "type": "html",
+      "id": "heading_0",
+      "label": "Heading 1",
+      "default": "<span class=\"font-medium\">Installed in </span><span class=\"italic font-normal\">three minutes</span>"
+    },
+    {
+      "type": "text",
+      "id": "content_0",
+      "label": "Installation",
+      "default": "Installation"
+    },
+    {
+      "type": "text",
+      "id": "content_1",
+      "label": "No drills. No screws. No wall damage. Our ten",
+      "default": "No drills. No screws. No wall damage. Our tension-mount system works in any standard window recess."
+    },
+    {
+      "type": "text",
+      "id": "content_2",
+      "label": "Heading",
+      "default": "No tools. No damage."
+    },
+    {
+      "type": "text",
+      "id": "content_3",
+      "label": "Works in any standard window recess, 5–80mm d",
+      "default": "Works in any standard window recess, 5–80mm deep."
+    },
+    {
+      "type": "image_picker",
+      "id": "content_4",
+      "label": "Image"
+    },
+    {
+      "type": "text",
+      "id": "content_5",
+      "label": "Image description",
+      "default": "Clean Scandinavian bedroom with window"
+    },
+    {
+      "type": "header",
+      "content": "Layout"
+    },
+    {
+      "type": "range",
+      "id": "spacing_top",
+      "label": "Extra top spacing",
+      "min": 0,
+      "max": 120,
+      "step": 4,
+      "unit": "px",
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "spacing_bottom",
+      "label": "Extra bottom spacing",
+      "min": 0,
+      "max": 120,
+      "step": 4,
+      "unit": "px",
+      "default": 0
+    },
+    {
+      "type": "color",
+      "id": "background",
+      "label": "Section background override"
+    },
+    {
+      "type": "select",
+      "id": "content_width",
+      "label": "Content width",
+      "default": "original",
+      "options": [
+        {
+          "value": "original",
+          "label": "Original design"
+        },
+        {
+          "value": "narrow",
+          "label": "Narrow"
+        },
+        {
+          "value": "wide",
+          "label": "Wide"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Installation",
+      "blocks": [
+        {
+          "type": "step_0",
+          "settings": {
+            "content_0": "1",
+            "content_1": "Unbox & unroll",
+            "content_2": "Remove the blind from its tube. It unrolls flat in seconds.",
+            "content_3": "1"
+          }
+        },
+        {
+          "type": "step_1",
+          "settings": {
+            "content_0": "2",
+            "content_1": "Extend the tension bar",
+            "content_2": "Twist and pull both end caps outward until the bar spans your window width.",
+            "content_3": "2"
+          }
+        },
+        {
+          "type": "step_2",
+          "settings": {
+            "content_0": "3",
+            "content_1": "Press & click",
+            "content_2": "Push both ends firmly into the window recess until you feel them click into place. The spring tension holds it secure.",
+            "content_3": "3"
+          }
+        },
+        {
+          "type": "step_3",
+          "settings": {
+            "content_0": "4",
+            "content_1": "Done",
+            "content_2": "Pull down to close, push back up to let light in. That's it — no instructions booklet required.",
+            "content_3": "4"
+          }
+        }
+      ]
+    }
+  ],
+  "blocks": [
+    {
+      "type": "step_0",
+      "name": "Unbox & unroll",
+      "settings": [
+        {
+          "type": "text",
+          "id": "content_0",
+          "label": "1",
+          "default": "1"
+        },
+        {
+          "type": "text",
+          "id": "content_1",
+          "label": "Heading",
+          "default": "Unbox & unroll"
+        },
+        {
+          "type": "text",
+          "id": "content_2",
+          "label": "Remove the blind from its tube. It unrolls fl",
+          "default": "Remove the blind from its tube. It unrolls flat in seconds."
+        },
+        {
+          "type": "text",
+          "id": "content_3",
+          "label": "1",
+          "default": "1"
+        }
+      ]
+    },
+    {
+      "type": "step_1",
+      "name": "Extend the tension bar",
+      "settings": [
+        {
+          "type": "text",
+          "id": "content_0",
+          "label": "2",
+          "default": "2"
+        },
+        {
+          "type": "text",
+          "id": "content_1",
+          "label": "Heading",
+          "default": "Extend the tension bar"
+        },
+        {
+          "type": "text",
+          "id": "content_2",
+          "label": "Twist and pull both end caps outward until th",
+          "default": "Twist and pull both end caps outward until the bar spans your window width."
+        },
+        {
+          "type": "text",
+          "id": "content_3",
+          "label": "2",
+          "default": "2"
+        }
+      ]
+    },
+    {
+      "type": "step_2",
+      "name": "Press & click",
+      "settings": [
+        {
+          "type": "text",
+          "id": "content_0",
+          "label": "3",
+          "default": "3"
+        },
+        {
+          "type": "text",
+          "id": "content_1",
+          "label": "Heading",
+          "default": "Press & click"
+        },
+        {
+          "type": "textarea",
+          "id": "content_2",
+          "label": "Push both ends firmly into the window recess ",
+          "default": "Push both ends firmly into the window recess until you feel them click into place. The spring tension holds it secure."
+        },
+        {
+          "type": "text",
+          "id": "content_3",
+          "label": "3",
+          "default": "3"
+        }
+      ]
+    },
+    {
+      "type": "step_3",
+      "name": "Done",
+      "settings": [
+        {
+          "type": "text",
+          "id": "content_0",
+          "label": "4",
+          "default": "4"
+        },
+        {
+          "type": "text",
+          "id": "content_1",
+          "label": "Heading",
+          "default": "Done"
+        },
+        {
+          "type": "text",
+          "id": "content_2",
+          "label": "Pull down to close, push back up to let light",
+          "default": "Pull down to close, push back up to let light in. That's it — no instructions booklet required."
+        },
+        {
+          "type": "text",
+          "id": "content_3",
+          "label": "4",
+          "default": "4"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,4 @@
+tools/node_modules/
+.local/
+theme/.shopify/
+theme/*.zip

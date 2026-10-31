@@ -1,0 +1,307 @@
+<div class="lumina-editable-section {% if section.settings.background != blank %}lumina-background-override{% endif %} lumina-width-{{ section.settings.content_width }}" style="--section-background:{{ section.settings.background }};padding-top:{{ section.settings.spacing_top }}px;padding-bottom:{{ section.settings.spacing_bottom }}px"><div class="w-full bg-white text-black"><div class="max-w-4xl mx-auto px-6 py-16"><div class="mb-10"><h1 class="text-4xl font-semibold font-playfair mb-6">{{ section.settings.content_0 | escape }}</h1><p class="text-gray-700 leading-relaxed">{{ section.settings.content_1 | escape }}</p></div><div class="divide-y divide-gray-200">{% for block in section.blocks %}{% case block.type %}{% when 'policy_0' %}<div class="py-8" {{ block.shopify_attributes }}><h2 class="text-xl font-semibold mb-4">{{ block.settings.content_0 | escape }}</h2><div class="text-gray-700 leading-relaxed [&amp;_p+p]:mt-3 [&amp;_p+ul]:mt-3 [&amp;_ul+p]:mt-3 [&amp;_ul]:mt-3 [&amp;_ul]:list-disc [&amp;_ul]:space-y-2 [&amp;_ul]:pl-5"><p>{{ block.settings.content_1 | escape }} <strong>{{ block.settings.content_2 | escape }}</strong>{{ block.settings.content_3 | escape }}</p></div></div>{% when 'policy_1' %}<div class="py-8" {{ block.shopify_attributes }}><h2 class="text-xl font-semibold mb-4">{{ block.settings.content_0 | escape }}</h2><div class="text-gray-700 leading-relaxed [&amp;_p+p]:mt-3 [&amp;_p+ul]:mt-3 [&amp;_ul+p]:mt-3 [&amp;_ul]:mt-3 [&amp;_ul]:list-disc [&amp;_ul]:space-y-2 [&amp;_ul]:pl-5"><p>{{ block.settings.content_1 | escape }}</p></div></div>{% when 'policy_2' %}<div class="py-8" {{ block.shopify_attributes }}><h2 class="text-xl font-semibold mb-4">{{ block.settings.content_0 | escape }}</h2><div class="text-gray-700 leading-relaxed [&amp;_p+p]:mt-3 [&amp;_p+ul]:mt-3 [&amp;_ul+p]:mt-3 [&amp;_ul]:mt-3 [&amp;_ul]:list-disc [&amp;_ul]:space-y-2 [&amp;_ul]:pl-5"><p>{{ block.settings.content_1 | escape }}</p></div></div>{% when 'policy_3' %}<div class="py-8" {{ block.shopify_attributes }}><h2 class="text-xl font-semibold mb-4">{{ block.settings.content_0 | escape }}</h2><div class="text-gray-700 leading-relaxed [&amp;_p+p]:mt-3 [&amp;_p+ul]:mt-3 [&amp;_ul+p]:mt-3 [&amp;_ul]:mt-3 [&amp;_ul]:list-disc [&amp;_ul]:space-y-2 [&amp;_ul]:pl-5"><p>{{ block.settings.content_1 | escape }}</p></div></div>{% when 'policy_4' %}<div class="py-8" {{ block.shopify_attributes }}><h2 class="text-xl font-semibold mb-4">{{ block.settings.content_0 | escape }}</h2><div class="text-gray-700 leading-relaxed [&amp;_p+p]:mt-3 [&amp;_p+ul]:mt-3 [&amp;_ul+p]:mt-3 [&amp;_ul]:mt-3 [&amp;_ul]:list-disc [&amp;_ul]:space-y-2 [&amp;_ul]:pl-5"><p>{{ block.settings.content_1 | escape }} <a href="{% if block.settings.content_4 != blank %}{{ block.settings.content_4 }}{% else %}mailto:info@luminablackoutblinds.com{% endif %}" class="underline">{{ block.settings.content_2 | escape }}</a>{{ block.settings.content_3 | escape }}</p></div></div>{% when 'policy_5' %}<div class="py-8" {{ block.shopify_attributes }}><h2 class="text-xl font-semibold mb-4">{{ block.settings.content_0 | escape }}</h2><div class="text-gray-700 leading-relaxed [&amp;_p+p]:mt-3 [&amp;_p+ul]:mt-3 [&amp;_ul+p]:mt-3 [&amp;_ul]:mt-3 [&amp;_ul]:list-disc [&amp;_ul]:space-y-2 [&amp;_ul]:pl-5"><p>{{ block.settings.content_1 | escape }}</p></div></div>{% when 'policy_6' %}<div class="mt-10 pt-8 border-t border-gray-200" {{ block.shopify_attributes }}><h2 class="text-xl font-semibold mb-4">{{ block.settings.content_0 | escape }}</h2><p class="text-gray-700 leading-relaxed">{{ block.settings.content_1 | escape }} <a href="{% if block.settings.content_4 != blank %}{{ block.settings.content_4 }}{% else %}mailto:info@luminablackoutblinds.com{% endif %}" class="underline">{{ block.settings.content_2 | escape }}</a>{{ block.settings.content_3 | escape }}</p></div>{% endcase %}{% endfor %}</div></div></div>
+</div>
+
+{% schema %}
+{
+  "name": "Shipping Policy",
+  "settings": [
+    {
+      "type": "text",
+      "id": "content_0",
+      "label": "Heading",
+      "default": "Shipping Policy"
+    },
+    {
+      "type": "textarea",
+      "id": "content_1",
+      "label": "At Lumina, we want your made-to-measure black",
+      "default": "At Lumina, we want your made-to-measure blackout blind to arrive clearly, carefully, and without surprises. Lumina currently serves customers in the United States only. This policy explains how production, dispatch, delivery, and tracking work after you place an order."
+    },
+    {
+      "type": "header",
+      "content": "Layout"
+    },
+    {
+      "type": "range",
+      "id": "spacing_top",
+      "label": "Extra top spacing",
+      "min": 0,
+      "max": 120,
+      "step": 4,
+      "unit": "px",
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "spacing_bottom",
+      "label": "Extra bottom spacing",
+      "min": 0,
+      "max": 120,
+      "step": 4,
+      "unit": "px",
+      "default": 0
+    },
+    {
+      "type": "color",
+      "id": "background",
+      "label": "Section background override"
+    },
+    {
+      "type": "select",
+      "id": "content_width",
+      "label": "Content width",
+      "default": "original",
+      "options": [
+        {
+          "value": "original",
+          "label": "Original design"
+        },
+        {
+          "value": "narrow",
+          "label": "Narrow"
+        },
+        {
+          "value": "wide",
+          "label": "Wide"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Shipping Policy",
+      "blocks": [
+        {
+          "type": "policy_0",
+          "settings": {
+            "content_0": "Order Processing Time",
+            "content_1": "Every Lumina blind is made to order, so your product enters production after your order is confirmed. Unless a different estimate is shown on the product page or in your order communications, orders are usually delivered within",
+            "content_2": "7-11 business days",
+            "content_3": ". Once your blind has been completed and handed to the courier, we will send a shipping confirmation email with tracking details."
+          }
+        },
+        {
+          "type": "policy_1",
+          "settings": {
+            "content_0": "Shipping Times",
+            "content_1": "Lumina currently ships within the United States only. The 7-11 working day estimate includes the time needed to make your blind, dispatch it, and deliver it to your address."
+          }
+        },
+        {
+          "type": "policy_2",
+          "settings": {
+            "content_0": "Free Shipping",
+            "content_1": "Lumina offers free shipping on all orders, with no minimum spend required."
+          }
+        },
+        {
+          "type": "policy_3",
+          "settings": {
+            "content_0": "US-Only Shipping",
+            "content_1": "Because Lumina only operates in the USA, all orders must be placed with a valid US shipping address. We do not support international freight forwarding, cross-border delivery, or non-US billing-to-shipping arrangements at this time."
+          }
+        },
+        {
+          "type": "policy_4",
+          "settings": {
+            "content_0": "Tracking Your Order",
+            "content_1": "As soon as your order ships, we will email your tracking number so you can follow the delivery progress. If you believe your order should already have shipped and you have not received a confirmation email, please contact us at",
+            "content_2": "info@luminablackoutblinds.com",
+            "content_3": ". Including your order number will help us look into it faster."
+          }
+        },
+        {
+          "type": "policy_5",
+          "settings": {
+            "content_0": "Shipping Restrictions",
+            "content_1": "We are currently unable to ship to PO boxes, military addresses, or addresses outside the United States. Please use a valid US residential or business address at checkout."
+          }
+        },
+        {
+          "type": "policy_6",
+          "settings": {
+            "content_0": "Need Help?",
+            "content_1": "If you have any questions about shipping or an order in progress, email us at",
+            "content_2": "info@luminablackoutblinds.com",
+            "content_3": ". Our team will be happy to help."
+          }
+        }
+      ]
+    }
+  ],
+  "blocks": [
+    {
+      "type": "policy_0",
+      "name": "Order Processing TimeEve",
+      "settings": [
+        {
+          "type": "text",
+          "id": "content_0",
+          "label": "Heading",
+          "default": "Order Processing Time"
+        },
+        {
+          "type": "textarea",
+          "id": "content_1",
+          "label": "Every Lumina blind is made to order, so your ",
+          "default": "Every Lumina blind is made to order, so your product enters production after your order is confirmed. Unless a different estimate is shown on the product page or in your order communications, orders are usually delivered within"
+        },
+        {
+          "type": "text",
+          "id": "content_2",
+          "label": "7-11 business days",
+          "default": "7-11 business days"
+        },
+        {
+          "type": "textarea",
+          "id": "content_3",
+          "label": ". Once your blind has been completed and hand",
+          "default": ". Once your blind has been completed and handed to the courier, we will send a shipping confirmation email with tracking details."
+        }
+      ]
+    },
+    {
+      "type": "policy_1",
+      "name": "Shipping TimesLumina cur",
+      "settings": [
+        {
+          "type": "text",
+          "id": "content_0",
+          "label": "Heading",
+          "default": "Shipping Times"
+        },
+        {
+          "type": "textarea",
+          "id": "content_1",
+          "label": "Lumina currently ships within the United Stat",
+          "default": "Lumina currently ships within the United States only. The 7-11 working day estimate includes the time needed to make your blind, dispatch it, and deliver it to your address."
+        }
+      ]
+    },
+    {
+      "type": "policy_2",
+      "name": "Free ShippingLumina offe",
+      "settings": [
+        {
+          "type": "text",
+          "id": "content_0",
+          "label": "Heading",
+          "default": "Free Shipping"
+        },
+        {
+          "type": "text",
+          "id": "content_1",
+          "label": "Lumina offers free shipping on all orders, wi",
+          "default": "Lumina offers free shipping on all orders, with no minimum spend required."
+        }
+      ]
+    },
+    {
+      "type": "policy_3",
+      "name": "US-Only ShippingBecause ",
+      "settings": [
+        {
+          "type": "text",
+          "id": "content_0",
+          "label": "Heading",
+          "default": "US-Only Shipping"
+        },
+        {
+          "type": "textarea",
+          "id": "content_1",
+          "label": "Because Lumina only operates in the USA, all ",
+          "default": "Because Lumina only operates in the USA, all orders must be placed with a valid US shipping address. We do not support international freight forwarding, cross-border delivery, or non-US billing-to-shipping arrangements at this time."
+        }
+      ]
+    },
+    {
+      "type": "policy_4",
+      "name": "Tracking Your OrderAs so",
+      "settings": [
+        {
+          "type": "text",
+          "id": "content_0",
+          "label": "Heading",
+          "default": "Tracking Your Order"
+        },
+        {
+          "type": "textarea",
+          "id": "content_1",
+          "label": "As soon as your order ships, we will email yo",
+          "default": "As soon as your order ships, we will email your tracking number so you can follow the delivery progress. If you believe your order should already have shipped and you have not received a confirmation email, please contact us at"
+        },
+        {
+          "type": "text",
+          "id": "content_2",
+          "label": "info@luminablackoutblinds.com",
+          "default": "info@luminablackoutblinds.com"
+        },
+        {
+          "type": "text",
+          "id": "content_3",
+          "label": ". Including your order number will help us lo",
+          "default": ". Including your order number will help us look into it faster."
+        },
+        {
+          "type": "url",
+          "id": "content_4",
+          "label": "Link destination"
+        }
+      ]
+    },
+    {
+      "type": "policy_5",
+      "name": "Shipping RestrictionsWe ",
+      "settings": [
+        {
+          "type": "text",
+          "id": "content_0",
+          "label": "Heading",
+          "default": "Shipping Restrictions"
+        },
+        {
+          "type": "textarea",
+          "id": "content_1",
+          "label": "We are currently unable to ship to PO boxes, ",
+          "default": "We are currently unable to ship to PO boxes, military addresses, or addresses outside the United States. Please use a valid US residential or business address at checkout."
+        }
+      ]
+    },
+    {
+      "type": "policy_6",
+      "name": "Need Help?If you have an",
+      "settings": [
+        {
+          "type": "text",
+          "id": "content_0",
+          "label": "Heading",
+          "default": "Need Help?"
+        },
+        {
+          "type": "text",
+          "id": "content_1",
+          "label": "If you have any questions about shipping or a",
+          "default": "If you have any questions about shipping or an order in progress, email us at"
+        },
+        {
+          "type": "text",
+          "id": "content_2",
+          "label": "info@luminablackoutblinds.com",
+          "default": "info@luminablackoutblinds.com"
+        },
+        {
+          "type": "text",
+          "id": "content_3",
+          "label": ". Our team will be happy to help.",
+          "default": ". Our team will be happy to help."
+        },
+        {
+          "type": "url",
+          "id": "content_4",
+          "label": "Link destination"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,1261 @@
+<div class="lumina-editable-section {% if section.settings.background != blank %}lumina-background-override{% endif %} lumina-width-{{ section.settings.content_width }}" style="--section-background:{{ section.settings.background }};padding-top:{{ section.settings.spacing_top }}px;padding-bottom:{{ section.settings.spacing_bottom }}px"><div class="w-full bg-white text-black"><div class="max-w-4xl mx-auto px-6 py-16"><div class="mb-10"><h1 class="text-4xl font-semibold font-playfair mb-6">{{ section.settings.content_0 | escape }}</h1><p class="text-gray-700 leading-relaxed">{{ section.settings.content_1 | escape }} <strong>{{ section.settings.content_2 | escape }}</strong>{{ section.settings.content_3 | escape }}</p></div><div class="divide-y divide-gray-200">{% for block in section.blocks %}{% case block.type %}{% when 'policy_0' %}<div class="py-8" {{ block.shopify_attributes }}><h2 class="text-xl font-semibold mb-4">{{ block.settings.content_0 | escape }}</h2><div class="text-gray-700 leading-relaxed [&amp;_p+p]:mt-3 [&amp;_p+ul]:mt-3 [&amp;_ul]:mt-3 [&amp;_ul]:list-disc [&amp;_ul]:space-y-2 [&amp;_ul]:pl-5"><p>{{ block.settings.content_1 | escape }}</p><p>{{ block.settings.content_2 | escape }}</p><p>{{ block.settings.content_3 | escape }}</p></div></div>{% when 'policy_1' %}<div class="py-8" {{ block.shopify_attributes }}><h2 class="text-xl font-semibold mb-4">{{ block.settings.content_0 | escape }}</h2><div class="text-gray-700 leading-relaxed [&amp;_p+p]:mt-3 [&amp;_p+ul]:mt-3 [&amp;_ul]:mt-3 [&amp;_ul]:list-disc [&amp;_ul]:space-y-2 [&amp;_ul]:pl-5"><p>{{ block.settings.content_1 | escape }}</p><p>{{ block.settings.content_2 | escape }}</p><p>{{ block.settings.content_3 | escape }}</p></div></div>{% when 'policy_2' %}<div class="py-8" {{ block.shopify_attributes }}><h2 class="text-xl font-semibold mb-4">{{ block.settings.content_0 | escape }}</h2><div class="text-gray-700 leading-relaxed [&amp;_p+p]:mt-3 [&amp;_p+ul]:mt-3 [&amp;_ul]:mt-3 [&amp;_ul]:list-disc [&amp;_ul]:space-y-2 [&amp;_ul]:pl-5"><p>{{ block.settings.content_1 | escape }}</p><p>{{ block.settings.content_2 | escape }} <strong>{{ block.settings.content_3 | escape }}</strong>{{ block.settings.content_4 | escape }}</p></div></div>{% when 'policy_3' %}<div class="py-8" {{ block.shopify_attributes }}><h2 class="text-xl font-semibold mb-4">{{ block.settings.content_0 | escape }}</h2><div class="text-gray-700 leading-relaxed [&amp;_p+p]:mt-3 [&amp;_p+ul]:mt-3 [&amp;_ul]:mt-3 [&amp;_ul]:list-disc [&amp;_ul]:space-y-2 [&amp;_ul]:pl-5"><p>{{ block.settings.content_1 | escape }} <strong>{{ block.settings.content_2 | escape }}</strong></p></div></div>{% when 'policy_4' %}<div class="py-8" {{ block.shopify_attributes }}><h2 class="text-xl font-semibold mb-4">{{ block.settings.content_0 | escape }}</h2><div class="text-gray-700 leading-relaxed [&amp;_p+p]:mt-3 [&amp;_p+ul]:mt-3 [&amp;_ul]:mt-3 [&amp;_ul]:list-disc [&amp;_ul]:space-y-2 [&amp;_ul]:pl-5"><p>{{ block.settings.content_1 | escape }}</p></div></div>{% when 'policy_5' %}<div class="py-8" {{ block.shopify_attributes }}><h2 class="text-xl font-semibold mb-4">{{ block.settings.content_0 | escape }}</h2><div class="text-gray-700 leading-relaxed [&amp;_p+p]:mt-3 [&amp;_p+ul]:mt-3 [&amp;_ul]:mt-3 [&amp;_ul]:list-disc [&amp;_ul]:space-y-2 [&amp;_ul]:pl-5"><p>{{ block.settings.content_1 | escape }} <strong>{{ block.settings.content_2 | escape }}</strong>{{ block.settings.content_3 | escape }}</p></div></div>{% when 'policy_6' %}<div class="py-8" {{ block.shopify_attributes }}><h2 class="text-xl font-semibold mb-4">{{ block.settings.content_0 | escape }}</h2><div class="text-gray-700 leading-relaxed [&amp;_p+p]:mt-3 [&amp;_p+ul]:mt-3 [&amp;_ul]:mt-3 [&amp;_ul]:list-disc [&amp;_ul]:space-y-2 [&amp;_ul]:pl-5"><p>{{ block.settings.content_1 | escape }}</p><p>{{ block.settings.content_2 | escape }}</p><p>{{ block.settings.content_3 | escape }}</p><p>{{ block.settings.content_4 | escape }}</p><ul><li>{{ block.settings.content_5 | escape }}</li><li>{{ block.settings.content_6 | escape }}</li><li>{{ block.settings.content_7 | escape }}</li><li>{{ block.settings.content_8 | escape }}</li><li>{{ block.settings.content_9 | escape }}</li></ul></div></div>{% when 'policy_7' %}<div class="py-8" {{ block.shopify_attributes }}><h2 class="text-xl font-semibold mb-4">{{ block.settings.content_0 | escape }}</h2><div class="text-gray-700 leading-relaxed [&amp;_p+p]:mt-3 [&amp;_p+ul]:mt-3 [&amp;_ul]:mt-3 [&amp;_ul]:list-disc [&amp;_ul]:space-y-2 [&amp;_ul]:pl-5"><p>{{ block.settings.content_1 | escape }} <strong>{{ block.settings.content_2 | escape }}</strong>{{ block.settings.content_3 | escape }}</p><p>{{ block.settings.content_4 | escape }}</p><p>{{ block.settings.content_5 | escape }}</p><p>{{ block.settings.content_6 | escape }}</p><p>{{ block.settings.content_7 | escape }}</p><p>{{ block.settings.content_8 | escape }}</p></div></div>{% when 'policy_8' %}<div class="py-8" {{ block.shopify_attributes }}><h2 class="text-xl font-semibold mb-4">{{ block.settings.content_0 | escape }}</h2><div class="text-gray-700 leading-relaxed [&amp;_p+p]:mt-3 [&amp;_p+ul]:mt-3 [&amp;_ul]:mt-3 [&amp;_ul]:list-disc [&amp;_ul]:space-y-2 [&amp;_ul]:pl-5"><p>{{ block.settings.content_1 | escape }}</p><p>{{ block.settings.content_2 | escape }}</p><ul><li>{{ block.settings.content_3 | escape }}</li><li>{{ block.settings.content_4 | escape }}</li><li>{{ block.settings.content_5 | escape }}</li><li>{{ block.settings.content_6 | escape }}</li><li>{{ block.settings.content_7 | escape }}</li></ul></div></div>{% when 'policy_9' %}<div class="py-8" {{ block.shopify_attributes }}><h2 class="text-xl font-semibold mb-4">{{ block.settings.content_0 | escape }}</h2><div class="text-gray-700 leading-relaxed [&amp;_p+p]:mt-3 [&amp;_p+ul]:mt-3 [&amp;_ul]:mt-3 [&amp;_ul]:list-disc [&amp;_ul]:space-y-2 [&amp;_ul]:pl-5"><p>{{ block.settings.content_1 | escape }} <strong>{{ block.settings.content_2 | escape }}</strong> {{ block.settings.content_3 | escape }}</p></div></div>{% when 'policy_10' %}<div class="py-8" {{ block.shopify_attributes }}><h2 class="text-xl font-semibold mb-4">{{ block.settings.content_0 | escape }}</h2><div class="text-gray-700 leading-relaxed [&amp;_p+p]:mt-3 [&amp;_p+ul]:mt-3 [&amp;_ul]:mt-3 [&amp;_ul]:list-disc [&amp;_ul]:space-y-2 [&amp;_ul]:pl-5"><p>{{ block.settings.content_1 | escape }}</p><p>{{ block.settings.content_2 | escape }}</p></div></div>{% when 'policy_11' %}<div class="py-8" {{ block.shopify_attributes }}><h2 class="text-xl font-semibold mb-4">{{ block.settings.content_0 | escape }}</h2><div class="text-gray-700 leading-relaxed [&amp;_p+p]:mt-3 [&amp;_p+ul]:mt-3 [&amp;_ul]:mt-3 [&amp;_ul]:list-disc [&amp;_ul]:space-y-2 [&amp;_ul]:pl-5"><p>{{ block.settings.content_1 | escape }}</p><p>{{ block.settings.content_2 | escape }}</p></div></div>{% when 'policy_12' %}<div class="py-8" {{ block.shopify_attributes }}><h2 class="text-xl font-semibold mb-4">{{ block.settings.content_0 | escape }}</h2><div class="text-gray-700 leading-relaxed [&amp;_p+p]:mt-3 [&amp;_p+ul]:mt-3 [&amp;_ul]:mt-3 [&amp;_ul]:list-disc [&amp;_ul]:space-y-2 [&amp;_ul]:pl-5"><p>{{ block.settings.content_1 | escape }}</p><p>{{ block.settings.content_2 | escape }}</p></div></div>{% when 'policy_13' %}<div class="py-8" {{ block.shopify_attributes }}><h2 class="text-xl font-semibold mb-4">{{ block.settings.content_0 | escape }}</h2><div class="text-gray-700 leading-relaxed [&amp;_p+p]:mt-3 [&amp;_p+ul]:mt-3 [&amp;_ul]:mt-3 [&amp;_ul]:list-disc [&amp;_ul]:space-y-2 [&amp;_ul]:pl-5"><p>{{ block.settings.content_1 | escape }}</p><p>{{ block.settings.content_2 | escape }}</p></div></div>{% when 'policy_14' %}<div class="py-8" {{ block.shopify_attributes }}><h2 class="text-xl font-semibold mb-4">{{ block.settings.content_0 | escape }}</h2><div class="text-gray-700 leading-relaxed [&amp;_p+p]:mt-3 [&amp;_p+ul]:mt-3 [&amp;_ul]:mt-3 [&amp;_ul]:list-disc [&amp;_ul]:space-y-2 [&amp;_ul]:pl-5"><p>{{ block.settings.content_1 | escape }}</p><p>{{ block.settings.content_2 | escape }}</p><p>{{ block.settings.content_3 | escape }}</p></div></div>{% when 'policy_15' %}<div class="py-8" {{ block.shopify_attributes }}><h2 class="text-xl font-semibold mb-4">{{ block.settings.content_0 | escape }}</h2><div class="text-gray-700 leading-relaxed [&amp;_p+p]:mt-3 [&amp;_p+ul]:mt-3 [&amp;_ul]:mt-3 [&amp;_ul]:list-disc [&amp;_ul]:space-y-2 [&amp;_ul]:pl-5"><p>{{ block.settings.content_1 | escape }}</p><p>{{ block.settings.content_2 | escape }}</p><p>{{ block.settings.content_3 | escape }}</p></div></div>{% when 'policy_16' %}<div class="py-8" {{ block.shopify_attributes }}><h2 class="text-xl font-semibold mb-4">{{ block.settings.content_0 | escape }}</h2><div class="text-gray-700 leading-relaxed [&amp;_p+p]:mt-3 [&amp;_p+ul]:mt-3 [&amp;_ul]:mt-3 [&amp;_ul]:list-disc [&amp;_ul]:space-y-2 [&amp;_ul]:pl-5"><p>{{ block.settings.content_1 | escape }}</p><p>{{ block.settings.content_2 | escape }}</p></div></div>{% when 'policy_17' %}<div class="py-8" {{ block.shopify_attributes }}><h2 class="text-xl font-semibold mb-4">{{ block.settings.content_0 | escape }}</h2><div class="text-gray-700 leading-relaxed [&amp;_p+p]:mt-3 [&amp;_p+ul]:mt-3 [&amp;_ul]:mt-3 [&amp;_ul]:list-disc [&amp;_ul]:space-y-2 [&amp;_ul]:pl-5"><p>{{ block.settings.content_1 | escape }}</p></div></div>{% when 'policy_18' %}<div class="py-8" {{ block.shopify_attributes }}><h2 class="text-xl font-semibold mb-4">{{ block.settings.content_0 | escape }}</h2><div class="text-gray-700 leading-relaxed [&amp;_p+p]:mt-3 [&amp;_p+ul]:mt-3 [&amp;_ul]:mt-3 [&amp;_ul]:list-disc [&amp;_ul]:space-y-2 [&amp;_ul]:pl-5"><p>{{ block.settings.content_1 | escape }}</p></div></div>{% when 'policy_19' %}<div class="py-8" {{ block.shopify_attributes }}><h2 class="text-xl font-semibold mb-4">{{ block.settings.content_0 | escape }}</h2><div class="text-gray-700 leading-relaxed [&amp;_p+p]:mt-3 [&amp;_p+ul]:mt-3 [&amp;_ul]:mt-3 [&amp;_ul]:list-disc [&amp;_ul]:space-y-2 [&amp;_ul]:pl-5"><p>{{ block.settings.content_1 | escape }}</p><p>{{ block.settings.content_2 | escape }}</p></div></div>{% when 'policy_20' %}<div class="py-8" {{ block.shopify_attributes }}><h2 class="text-xl font-semibold mb-4">{{ block.settings.content_0 | escape }}</h2><div class="text-gray-700 leading-relaxed [&amp;_p+p]:mt-3 [&amp;_p+ul]:mt-3 [&amp;_ul]:mt-3 [&amp;_ul]:list-disc [&amp;_ul]:space-y-2 [&amp;_ul]:pl-5"><p>{{ block.settings.content_1 | escape }}</p><p>{{ block.settings.content_2 | escape }}</p></div></div>{% when 'policy_21' %}<div class="py-8" {{ block.shopify_attributes }}><h2 class="text-xl font-semibold mb-4">{{ block.settings.content_0 | escape }}</h2><div class="text-gray-700 leading-relaxed [&amp;_p+p]:mt-3 [&amp;_p+ul]:mt-3 [&amp;_ul]:mt-3 [&amp;_ul]:list-disc [&amp;_ul]:space-y-2 [&amp;_ul]:pl-5"><p>{{ block.settings.content_1 | escape }}</p><ul><li>{{ block.settings.content_2 | escape }}</li><li>{{ block.settings.content_3 | escape }}</li><li>{{ block.settings.content_4 | escape }}</li><li>{{ block.settings.content_5 | escape }}</li><li>{{ block.settings.content_6 | escape }}</li><li>{{ block.settings.content_7 | escape }}</li></ul><p>{{ block.settings.content_8 | escape }}</p></div></div>{% when 'policy_22' %}<div class="py-8" {{ block.shopify_attributes }}><h2 class="text-xl font-semibold mb-4">{{ block.settings.content_0 | escape }}</h2><div class="text-gray-700 leading-relaxed [&amp;_p+p]:mt-3 [&amp;_p+ul]:mt-3 [&amp;_ul]:mt-3 [&amp;_ul]:list-disc [&amp;_ul]:space-y-2 [&amp;_ul]:pl-5"><p>{{ block.settings.content_1 | escape }}</p></div></div>{% when 'policy_23' %}<div class="py-8" {{ block.shopify_attributes }}><h2 class="text-xl font-semibold mb-4">{{ block.settings.content_0 | escape }}</h2><div class="text-gray-700 leading-relaxed [&amp;_p+p]:mt-3 [&amp;_p+ul]:mt-3 [&amp;_ul]:mt-3 [&amp;_ul]:list-disc [&amp;_ul]:space-y-2 [&amp;_ul]:pl-5"><p>{{ block.settings.content_1 | escape }}</p><p>{{ block.settings.content_2 | escape }}</p></div></div>{% when 'policy_24' %}<div class="py-8" {{ block.shopify_attributes }}><h2 class="text-xl font-semibold mb-4">{{ block.settings.content_0 | escape }}</h2><div class="text-gray-700 leading-relaxed [&amp;_p+p]:mt-3 [&amp;_p+ul]:mt-3 [&amp;_ul]:mt-3 [&amp;_ul]:list-disc [&amp;_ul]:space-y-2 [&amp;_ul]:pl-5"><p>{{ block.settings.content_1 | escape }}</p></div></div>{% when 'policy_25' %}<div class="py-8" {{ block.shopify_attributes }}><h2 class="text-xl font-semibold mb-4">{{ block.settings.content_0 | escape }}</h2><div class="text-gray-700 leading-relaxed [&amp;_p+p]:mt-3 [&amp;_p+ul]:mt-3 [&amp;_ul]:mt-3 [&amp;_ul]:list-disc [&amp;_ul]:space-y-2 [&amp;_ul]:pl-5"><p>{{ block.settings.content_1 | escape }}</p></div></div>{% when 'policy_26' %}<div class="py-8" {{ block.shopify_attributes }}><h2 class="text-xl font-semibold mb-4">{{ block.settings.content_0 | escape }}</h2><div class="text-gray-700 leading-relaxed [&amp;_p+p]:mt-3 [&amp;_p+ul]:mt-3 [&amp;_ul]:mt-3 [&amp;_ul]:list-disc [&amp;_ul]:space-y-2 [&amp;_ul]:pl-5"><p>{{ block.settings.content_1 | escape }}</p><p>{{ block.settings.content_2 | escape }}</p></div></div>{% when 'policy_27' %}<div class="py-8" {{ block.shopify_attributes }}><h2 class="text-xl font-semibold mb-4">{{ block.settings.content_0 | escape }}</h2><div class="text-gray-700 leading-relaxed [&amp;_p+p]:mt-3 [&amp;_p+ul]:mt-3 [&amp;_ul]:mt-3 [&amp;_ul]:list-disc [&amp;_ul]:space-y-2 [&amp;_ul]:pl-5"><p>{{ block.settings.content_1 | escape }}</p></div></div>{% when 'policy_28' %}<div class="py-8" {{ block.shopify_attributes }}><h2 class="text-xl font-semibold mb-4">{{ block.settings.content_0 | escape }}</h2><div class="text-gray-700 leading-relaxed [&amp;_p+p]:mt-3 [&amp;_p+ul]:mt-3 [&amp;_ul]:mt-3 [&amp;_ul]:list-disc [&amp;_ul]:space-y-2 [&amp;_ul]:pl-5"><p>{{ block.settings.content_1 | escape }}</p></div></div>{% when 'policy_29' %}<div class="py-8" {{ block.shopify_attributes }}><h2 class="text-xl font-semibold mb-4">{{ block.settings.content_0 | escape }}</h2><div class="text-gray-700 leading-relaxed [&amp;_p+p]:mt-3 [&amp;_p+ul]:mt-3 [&amp;_ul]:mt-3 [&amp;_ul]:list-disc [&amp;_ul]:space-y-2 [&amp;_ul]:pl-5"><p>{{ block.settings.content_1 | escape }}</p></div></div>{% when 'policy_30' %}<div class="py-8" {{ block.shopify_attributes }}><h2 class="text-xl font-semibold mb-4">{{ block.settings.content_0 | escape }}</h2><div class="text-gray-700 leading-relaxed [&amp;_p+p]:mt-3 [&amp;_p+ul]:mt-3 [&amp;_ul]:mt-3 [&amp;_ul]:list-disc [&amp;_ul]:space-y-2 [&amp;_ul]:pl-5"><p>{{ block.settings.content_1 | escape }}</p></div></div>{% endcase %}{% endfor %}</div><div class="mt-10 pt-8 border-t border-gray-200"><p class="text-gray-700 leading-relaxed">{{ section.settings.content_4 | escape }} <a href="{% if section.settings.content_7 != blank %}{{ section.settings.content_7 }}{% else %}mailto:info@luminablackoutblinds.com{% endif %}" class="underline">{{ section.settings.content_5 | escape }}</a> {{ section.settings.content_6 | escape }}</p></div></div></div>
+</div>
+
+{% schema %}
+{
+  "name": "Terms Of Service",
+  "settings": [
+    {
+      "type": "text",
+      "id": "content_0",
+      "label": "Heading",
+      "default": "Terms & Conditions"
+    },
+    {
+      "type": "text",
+      "id": "content_1",
+      "label": "Lumina is a trading name of",
+      "default": "Lumina is a trading name of"
+    },
+    {
+      "type": "text",
+      "id": "content_2",
+      "label": "Online Blinds Express Ltd",
+      "default": "Online Blinds Express Ltd"
+    },
+    {
+      "type": "textarea",
+      "id": "content_3",
+      "label": ". Using our Lumina Blackout Blinds website is",
+      "default": ". Using our Lumina Blackout Blinds website is maintained for your personal use and viewing. Please read our Terms & Conditions carefully before using our website or placing an order. By accessing this website, purchasing from us, or installing our products, you agree to these Terms & Conditions and our Privacy Policy. Lumina is powered by Shopify, which helps us provide the online store and related services. We reserve the right to change the Terms & Conditions at any time. We advise you to review the Terms & Conditions on a regular basis. Accessing and using this website after such changes have been posted constitutes acceptance by you of these conditions."
+    },
+    {
+      "type": "text",
+      "id": "content_4",
+      "label": "Should you have any questions about these Ter",
+      "default": "Should you have any questions about these Terms & Conditions, please contact us at"
+    },
+    {
+      "type": "text",
+      "id": "content_5",
+      "label": "info@luminablackoutblinds.com",
+      "default": "info@luminablackoutblinds.com"
+    },
+    {
+      "type": "text",
+      "id": "content_6",
+      "label": "or write to us at Carlinghow Mills, UNIT C2, ",
+      "default": "or write to us at Carlinghow Mills, UNIT C2, Batley, ENG, WF17 8LL, GB."
+    },
+    {
+      "type": "url",
+      "id": "content_7",
+      "label": "Link destination"
+    },
+    {
+      "type": "header",
+      "content": "Layout"
+    },
+    {
+      "type": "range",
+      "id": "spacing_top",
+      "label": "Extra top spacing",
+      "min": 0,
+      "max": 120,
+      "step": 4,
+      "unit": "px",
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "spacing_bottom",
+      "label": "Extra bottom spacing",
+      "min": 0,
+      "max": 120,
+      "step": 4,
+      "unit": "px",
+      "default": 0
+    },
+    {
+      "type": "color",
+      "id": "background",
+      "label": "Section background override"
+    },
+    {
+      "type": "select",
+      "id": "content_width",
+      "label": "Content width",
+      "default": "original",
+      "options": [
+        {
+          "value": "original",
+          "label": "Original design"
+        },
+        {
+          "value": "narrow",
+          "label": "Narrow"
+        },
+        {
+          "value": "wide",
+          "label": "Wide"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Terms Of Service",
+      "blocks": [
+        {
+          "type": "policy_0",
+          "settings": {
+            "content_0": "Access and Account",
+            "content_1": "By using this website or placing an order, you confirm that you are at least the age of majority in your state, province, or country of residence, or that you have permission from a parent or guardian to use the website and purchase from us.",
+            "content_2": "When you use our website or place an order, you may need to provide information such as your name, email address, billing details, payment details, and shipping address. You confirm that the information you provide is accurate, current, and complete, and that you have the right to provide it.",
+            "content_3": "If you create or access an account, you are responsible for keeping your login details secure and for all activity carried out through your account. You must not transfer, sell, assign, or license your account to another person."
+          }
+        },
+        {
+          "type": "policy_1",
+          "settings": {
+            "content_0": "Product",
+            "content_1": "Product images are for illustration purposes only. Actual fabric colours and shades may vary slightly due to screen settings, lighting, and photography. We aim to manufacture the blinds as close as possible to the illustrations provided. As all our blinds are uniquely handcrafted, we do not compromise on quality, and all our products are manufactured to a high-quality standard.",
+            "content_2": "We make every reasonable effort to display products, colours, textures, dimensions, descriptions, prices, and availability accurately. However, colours and shading may appear differently depending on screen settings, device type, browser, and lighting conditions. Minor handcrafted variations may also occur.",
+            "content_3": "Product details, imagery, pricing, promotions, delivery information, and availability may be corrected or updated if an error, inaccuracy, or omission is identified."
+          }
+        },
+        {
+          "type": "policy_2",
+          "settings": {
+            "content_0": "Measurements",
+            "content_1": "The goods that you order are manufactured according to the measurements you provide. It is vital that you take the correct measurements of your window. If you are unsure, please visit our Measuring & Fitting guide on our website for further information, or contact us by email for guidance on how to take the required measurements accurately.",
+            "content_2": "Please ensure that before placing your order online you check the product details and measurements of the goods.",
+            "content_3": "We cannot accept returns or refund the money if you have given us incorrect measurements",
+            "content_4": ", as we will not be able to resell the goods — they are made to measure and bespoke."
+          }
+        },
+        {
+          "type": "policy_3",
+          "settings": {
+            "content_0": "Made to Measure Products",
+            "content_1": "Once the product is made to your precise requirements, it is only suitable for you and therefore cannot be cancelled or returned. It is important to check the product you want and the size you require.",
+            "content_2": "Double check your order to ensure that the products ordered and measurements taken are correct."
+          }
+        },
+        {
+          "type": "policy_4",
+          "settings": {
+            "content_0": "Fabric",
+            "content_1": "Our fabrics are made from raw materials into high quality with different shades and variations. The colour on fabrics is dyed, therefore shades can be slightly different per batch. The print design of some pattern fabrics may not show the full range of colours or pattern design on the sample. If you are unsure about the fabrics, please contact us via email at info@luminablackoutblinds.com for further information."
+          }
+        },
+        {
+          "type": "policy_5",
+          "settings": {
+            "content_0": "Tolerance",
+            "content_1": "The fabric will be cut by our high-class team within a variance of",
+            "content_2": "+/- 4mm",
+            "content_3": ". Please be aware that if the sizes are within this tolerance limit, we will not replace the order and you will not be entitled to reject the goods."
+          }
+        },
+        {
+          "type": "policy_6",
+          "settings": {
+            "content_0": "Price & Payment",
+            "content_1": "A contract is formed once we send an order confirmation email to the address provided. The price displayed on the website at the time we receive your order applies. Prices are subject to change at any time. We take payment from you at the time you place your order using the payment details supplied by you during the checkout process.",
+            "content_2": "If a product is listed with an incorrect price or affected by a material pricing, availability, or system error, we may contact you to agree an alternative or cancel the order and issue a refund.",
+            "content_3": "Discount codes and promotions must be applied at checkout and cannot be added after an order has been placed.",
+            "content_4": "Information that we need to process your order:",
+            "content_5": "Full name",
+            "content_6": "Contact number",
+            "content_7": "Address / postcode",
+            "content_8": "Email address",
+            "content_9": "Debit / credit card details"
+          }
+        },
+        {
+          "type": "policy_7",
+          "settings": {
+            "content_0": "Delivery",
+            "content_1": "Every Lumina blind is made to order. Unless a different estimate is shown on the product page or in your order communications, orders are usually delivered within",
+            "content_2": "7-11 working days",
+            "content_3": ". This includes the time needed to make your blind, dispatch it, and deliver it to your address.",
+            "content_4": "Lumina currently ships within the United States only and offers free shipping on all orders. Orders must be placed with a valid US residential or business shipping address. We are currently unable to ship to PO boxes, military addresses, or addresses outside the United States.",
+            "content_5": "Once your order has been completed and handed to the courier, we will send a shipping confirmation email with tracking details so you can follow the delivery progress.",
+            "content_6": "Delivery timeframes are estimates only and are not guaranteed. We will make reasonable efforts to manufacture, dispatch, and deliver your order within the timeframes shown on our website or in order communications.",
+            "content_7": "Some deliveries may require a signature. If the packaging appears damaged when it arrives, please sign for it as damaged where the courier allows and contact us as soon as possible.",
+            "content_8": "If delivery cannot be completed after repeated courier attempts, re-delivery charges may apply. Items returned to us by the courier may be held for a limited period before disposal."
+          }
+        },
+        {
+          "type": "policy_8",
+          "settings": {
+            "content_0": "1 Year Guarantee",
+            "content_1": "Lumina offers a 1 year manufacturer's guarantee on manufacturing faults. We will inspect the product and, if the issue can be resolved, we will repair it. If not, we will replace the product with a brand new one.",
+            "content_2": "This guarantee does not cover:",
+            "content_3": "Fair wear and tear.",
+            "content_4": "Misuse, accidental damage, pet damage, or alterations.",
+            "content_5": "Fading caused by prolonged exposure to sunlight.",
+            "content_6": "Incorrect installation or failure to follow fitting guidance.",
+            "content_7": "Products used in commercial, non-domestic, or unsuitable environments."
+          }
+        },
+        {
+          "type": "policy_9",
+          "settings": {
+            "content_0": "Defective and Damaged Goods",
+            "content_1": "Lumina products go through a quality check process before dispatch. If you do experience any problems, please email us at info@luminablackoutblinds.com. You will have",
+            "content_2": "3 working days",
+            "content_3": "from receipt of your product to report any defective or damaged goods due to manufacturing, or damage caused during the delivery process. For any issues regarding the product, we will need photos so our management team can investigate. We may also ask for the product to be returned to us for inspection. Any queries will be dealt with in a highly professional and prompt manner."
+          }
+        },
+        {
+          "type": "policy_10",
+          "settings": {
+            "content_0": "Fault Inspections",
+            "content_1": "Where a blind needs to be returned for inspection after a fault claim, it should be returned in its original packaging wherever possible and in line with the instructions we provide.",
+            "content_2": "If a returned blind is inspected and no manufacturing fault is found, we may charge the cost of returning the item to you."
+          }
+        },
+        {
+          "type": "policy_11",
+          "settings": {
+            "content_0": "Cancellations and Returns",
+            "content_1": "Orders cannot usually be cancelled or changed once they have entered the manufacturing process, because each Lumina blind is made to your chosen measurements and specifications.",
+            "content_2": "If an item is discontinued or unavailable before production begins, we may offer a suitable alternative or issue a full refund."
+          }
+        },
+        {
+          "type": "policy_12",
+          "settings": {
+            "content_0": "Limitation of Liability",
+            "content_1": "To the fullest extent permitted by law, Lumina will not be liable for indirect, incidental, special, punitive, or consequential loss, damage, cost, or expense arising from use of the website, use of our services, delays in delivery, or use or installation of our products.",
+            "content_2": "Our total liability for any claim relating to an order will not exceed the amount paid for the goods in that order, except where liability cannot legally be limited or excluded."
+          }
+        },
+        {
+          "type": "policy_13",
+          "settings": {
+            "content_0": "Privacy and Data Protection",
+            "content_1": "We are committed to protecting your privacy. Personal information collected through this website is handled in accordance with our Privacy Policy.",
+            "content_2": "We may share personal information with Shopify, payment providers, couriers, fulfilment partners, and other service providers where needed to operate the website, process payment, fulfil your order, provide support, or as otherwise described in our Privacy Policy."
+          }
+        },
+        {
+          "type": "policy_14",
+          "settings": {
+            "content_0": "Condensation Disclaimer",
+            "content_1": "Blinds and other window coverings may reduce airflow between a room and the window glass. In some environments, including rooms with high humidity, temperature differences, limited ventilation, or existing window seal issues, condensation may form on glass, frames, or surrounding surfaces.",
+            "content_2": "Condensation is an environmental condition and is not caused by a defect in the blind itself. Installing a blind may increase the likelihood of condensation by limiting air circulation near the window surface.",
+            "content_3": "Lumina is not liable for condensation, moisture build-up, water damage, staining, deterioration, mould, mildew, insulated glass unit issues, or secondary damage caused by excess indoor humidity. It is the property owner's responsibility to maintain suitable humidity levels, ventilation, and window condition."
+          }
+        },
+        {
+          "type": "policy_15",
+          "settings": {
+            "content_0": "Website Use and Intellectual Property",
+            "content_1": "You may use this website for lawful personal or household purposes only. You must not misuse the website, interfere with its operation, attempt unauthorised access, or use it in a way that infringes the rights of others.",
+            "content_2": "The website, including its text, images, graphics, video, audio, trademarks, branding, product reviews, layout, design, and arrangement, is owned by Lumina, its affiliates, or its licensors and is protected by applicable intellectual property laws.",
+            "content_3": "You must not reproduce, distribute, modify, publicly display, republish, download, store, transmit, or create derivative works from website materials without our prior written consent, except as permitted by law."
+          }
+        },
+        {
+          "type": "policy_16",
+          "settings": {
+            "content_0": "Third-Party Links and Services",
+            "content_1": "Our website may contain links, embedded features, payment tools, or other services provided by third parties, including Shopify and its affiliates. We are not responsible for the content, accuracy, availability, or practices of third-party websites or services.",
+            "content_2": "If you access third-party websites or use third-party services, you do so at your own risk and should review their policies and terms before engaging with them."
+          }
+        },
+        {
+          "type": "policy_17",
+          "settings": {
+            "content_0": "Relationship with Shopify",
+            "content_1": "Lumina is powered by Shopify, which enables us to provide the online store and related services. Any sale or purchase made through this website is made directly with Lumina, and Shopify is not responsible for products purchased from us, order fulfilment, or any injury, loss, or damage relating to those purchases."
+          }
+        },
+        {
+          "type": "policy_18",
+          "settings": {
+            "content_0": "Manufacturing & Distribution",
+            "content_1": "Our products are manufactured and distributed globally through our production facilities located in Texas (USA), Leeds (United Kingdom), and Guangzhou (China). These facilities support our international supply chain and enable the efficient fulfilment of customer orders across North America, Europe, Asia, and other global markets. Company reserves the right to manufacture, source, and distribute products from any of its facilities or approved partners as required to meet operational and customer requirements."
+          }
+        },
+        {
+          "type": "policy_19",
+          "settings": {
+            "content_0": "Optional Tools",
+            "content_1": "We may provide access to customer tools or features offered by third parties. These tools are provided on an \"as is\" and \"as available\" basis, and we do not control or monitor every aspect of those tools.",
+            "content_2": "Your use of optional third-party tools is at your own risk, and you should make sure you understand and agree to the relevant third party's terms before using them. Any new features added to the website will also be subject to these Terms & Conditions."
+          }
+        },
+        {
+          "type": "policy_20",
+          "settings": {
+            "content_0": "Feedback",
+            "content_1": "If you submit reviews, suggestions, ideas, proposals, photographs, comments, or other feedback, you grant us a worldwide, royalty-free, transferable licence to use, reproduce, modify, publish, distribute, and display that feedback for business, marketing, product improvement, and website purposes.",
+            "content_2": "You confirm that you own or have the necessary rights to submit any feedback you provide, and that the feedback will not violate the rights of any third party or breach these Terms & Conditions."
+          }
+        },
+        {
+          "type": "policy_21",
+          "settings": {
+            "content_0": "Prohibited Uses",
+            "content_1": "You must not use the website or services:",
+            "content_2": "For any unlawful, fraudulent, abusive, or malicious purpose.",
+            "content_3": "To infringe intellectual property, privacy, or other rights.",
+            "content_4": "To submit false, misleading, offensive, defamatory, or harmful content.",
+            "content_5": "To upload or transmit viruses, malware, or other harmful code.",
+            "content_6": "To scrape, harvest, collect, or track personal information without permission.",
+            "content_7": "To interfere with, bypass, or circumvent security or access controls.",
+            "content_8": "We may suspend, disable, or terminate access if we believe any part of these Terms & Conditions has been breached."
+          }
+        },
+        {
+          "type": "policy_22",
+          "settings": {
+            "content_0": "Agents",
+            "content_1": "If you use, allow, or enable any autonomous or semi-autonomous software, bot, crawler, or agent to access or interact with the website, it must identify itself truthfully and must not conceal, misrepresent, overload, or misuse its access. We may restrict or block agent access at any time."
+          }
+        },
+        {
+          "type": "policy_23",
+          "settings": {
+            "content_0": "Termination",
+            "content_1": "We may terminate this agreement or restrict access to the website or services at any time where we consider it necessary, including where these Terms & Conditions have been breached.",
+            "content_2": "Any terms that by their nature should continue after termination will remain in effect, including provisions relating to intellectual property, feedback, limitation of liability, indemnification, privacy, governing law, and payment obligations."
+          }
+        },
+        {
+          "type": "policy_24",
+          "settings": {
+            "content_0": "Indemnification",
+            "content_1": "You agree to indemnify and hold harmless Lumina, Shopify, and our affiliates, partners, officers, directors, employees, agents, contractors, licensors, and service providers from losses, damages, liabilities, costs, or claims arising from your breach of these Terms & Conditions, your violation of law, your misuse of the website, or your infringement of third-party rights."
+          }
+        },
+        {
+          "type": "policy_25",
+          "settings": {
+            "content_0": "Severability",
+            "content_1": "If any provision of these Terms & Conditions is found to be unlawful, void, or unenforceable, that provision will be enforceable to the fullest extent permitted by law and the unenforceable part will be treated as severed. The remaining provisions will continue in full force."
+          }
+        },
+        {
+          "type": "policy_26",
+          "settings": {
+            "content_0": "Waiver and Entire Agreement",
+            "content_1": "If we do not exercise or enforce a right or provision of these Terms & Conditions, that does not mean we waive that right or provision.",
+            "content_2": "These Terms & Conditions, together with any policies posted on this website, form the entire agreement between you and Lumina regarding your use of the website and services."
+          }
+        },
+        {
+          "type": "policy_27",
+          "settings": {
+            "content_0": "Assignment",
+            "content_1": "You may not transfer or assign your rights or obligations under these Terms & Conditions without our prior written consent. We may transfer, assign, or delegate these Terms and our rights or obligations without notice where permitted by law."
+          }
+        },
+        {
+          "type": "policy_28",
+          "settings": {
+            "content_0": "Changes to These Terms",
+            "content_1": "You can review the most current version of these Terms & Conditions on this page. We reserve the right to update, change, or replace any part of these Terms by posting changes to the website. Continued use of the website after changes are posted means you accept those changes."
+          }
+        },
+        {
+          "type": "policy_29",
+          "settings": {
+            "content_0": "Governing Law",
+            "content_1": "These Terms & Conditions and any separate agreements through which we provide products or services are governed by applicable law in the jurisdiction where Lumina operates, unless mandatory consumer protection laws in your location provide otherwise."
+          }
+        },
+        {
+          "type": "policy_30",
+          "settings": {
+            "content_0": "Disclaimer",
+            "content_1": "Lumina will take every care and precaution to ensure that the contents and information published on this website are accurate and up to date. Unfortunately, we cannot guarantee the accuracy of contents or information contained in its pages, and any person using information contained in them does so entirely at their own risk. Except where expressly stated by Lumina, the website, services, and products are provided as available and without warranties or conditions of any kind to the fullest extent permitted by law. Please verify the accuracy of any information before acting upon it. We reserve the right to change information at any time without notice."
+          }
+        }
+      ]
+    }
+  ],
+  "blocks": [
+    {
+      "type": "policy_0",
+      "name": "Access and AccountBy usi",
+      "settings": [
+        {
+          "type": "text",
+          "id": "content_0",
+          "label": "Heading",
+          "default": "Access and Account"
+        },
+        {
+          "type": "textarea",
+          "id": "content_1",
+          "label": "By using this website or placing an order, yo",
+          "default": "By using this website or placing an order, you confirm that you are at least the age of majority in your state, province, or country of residence, or that you have permission from a parent or guardian to use the website and purchase from us."
+        },
+        {
+          "type": "textarea",
+          "id": "content_2",
+          "label": "When you use our website or place an order, y",
+          "default": "When you use our website or place an order, you may need to provide information such as your name, email address, billing details, payment details, and shipping address. You confirm that the information you provide is accurate, current, and complete, and that you have the right to provide it."
+        },
+        {
+          "type": "textarea",
+          "id": "content_3",
+          "label": "If you create or access an account, you are r",
+          "default": "If you create or access an account, you are responsible for keeping your login details secure and for all activity carried out through your account. You must not transfer, sell, assign, or license your account to another person."
+        }
+      ]
+    },
+    {
+      "type": "policy_1",
+      "name": "ProductProduct images ar",
+      "settings": [
+        {
+          "type": "text",
+          "id": "content_0",
+          "label": "Heading",
+          "default": "Product"
+        },
+        {
+          "type": "textarea",
+          "id": "content_1",
+          "label": "Product images are for illustration purposes ",
+          "default": "Product images are for illustration purposes only. Actual fabric colours and shades may vary slightly due to screen settings, lighting, and photography. We aim to manufacture the blinds as close as possible to the illustrations provided. As all our blinds are uniquely handcrafted, we do not compromise on quality, and all our products are manufactured to a high-quality standard."
+        },
+        {
+          "type": "textarea",
+          "id": "content_2",
+          "label": "We make every reasonable effort to display pr",
+          "default": "We make every reasonable effort to display products, colours, textures, dimensions, descriptions, prices, and availability accurately. However, colours and shading may appear differently depending on screen settings, device type, browser, and lighting conditions. Minor handcrafted variations may also occur."
+        },
+        {
+          "type": "textarea",
+          "id": "content_3",
+          "label": "Product details, imagery, pricing, promotions",
+          "default": "Product details, imagery, pricing, promotions, delivery information, and availability may be corrected or updated if an error, inaccuracy, or omission is identified."
+        }
+      ]
+    },
+    {
+      "type": "policy_2",
+      "name": "MeasurementsThe goods th",
+      "settings": [
+        {
+          "type": "text",
+          "id": "content_0",
+          "label": "Heading",
+          "default": "Measurements"
+        },
+        {
+          "type": "textarea",
+          "id": "content_1",
+          "label": "The goods that you order are manufactured acc",
+          "default": "The goods that you order are manufactured according to the measurements you provide. It is vital that you take the correct measurements of your window. If you are unsure, please visit our Measuring & Fitting guide on our website for further information, or contact us by email for guidance on how to take the required measurements accurately."
+        },
+        {
+          "type": "textarea",
+          "id": "content_2",
+          "label": "Please ensure that before placing your order ",
+          "default": "Please ensure that before placing your order online you check the product details and measurements of the goods."
+        },
+        {
+          "type": "text",
+          "id": "content_3",
+          "label": "We cannot accept returns or refund the money ",
+          "default": "We cannot accept returns or refund the money if you have given us incorrect measurements"
+        },
+        {
+          "type": "text",
+          "id": "content_4",
+          "label": ", as we will not be able to resell the goods ",
+          "default": ", as we will not be able to resell the goods — they are made to measure and bespoke."
+        }
+      ]
+    },
+    {
+      "type": "policy_3",
+      "name": "Made to Measure Products",
+      "settings": [
+        {
+          "type": "text",
+          "id": "content_0",
+          "label": "Heading",
+          "default": "Made to Measure Products"
+        },
+        {
+          "type": "textarea",
+          "id": "content_1",
+          "label": "Once the product is made to your precise requ",
+          "default": "Once the product is made to your precise requirements, it is only suitable for you and therefore cannot be cancelled or returned. It is important to check the product you want and the size you require."
+        },
+        {
+          "type": "text",
+          "id": "content_2",
+          "label": "Double check your order to ensure that the pr",
+          "default": "Double check your order to ensure that the products ordered and measurements taken are correct."
+        }
+      ]
+    },
+    {
+      "type": "policy_4",
+      "name": "FabricOur fabrics are ma",
+      "settings": [
+        {
+          "type": "text",
+          "id": "content_0",
+          "label": "Heading",
+          "default": "Fabric"
+        },
+        {
+          "type": "textarea",
+          "id": "content_1",
+          "label": "Our fabrics are made from raw materials into ",
+          "default": "Our fabrics are made from raw materials into high quality with different shades and variations. The colour on fabrics is dyed, therefore shades can be slightly different per batch. The print design of some pattern fabrics may not show the full range of colours or pattern design on the sample. If you are unsure about the fabrics, please contact us via email at info@luminablackoutblinds.com for further information."
+        }
+      ]
+    },
+    {
+      "type": "policy_5",
+      "name": "ToleranceThe fabric will",
+      "settings": [
+        {
+          "type": "text",
+          "id": "content_0",
+          "label": "Heading",
+          "default": "Tolerance"
+        },
+        {
+          "type": "text",
+          "id": "content_1",
+          "label": "The fabric will be cut by our high-class team",
+          "default": "The fabric will be cut by our high-class team within a variance of"
+        },
+        {
+          "type": "text",
+          "id": "content_2",
+          "label": "+/- 4mm",
+          "default": "+/- 4mm"
+        },
+        {
+          "type": "textarea",
+          "id": "content_3",
+          "label": ". Please be aware that if the sizes are withi",
+          "default": ". Please be aware that if the sizes are within this tolerance limit, we will not replace the order and you will not be entitled to reject the goods."
+        }
+      ]
+    },
+    {
+      "type": "policy_6",
+      "name": "Price & PaymentA contrac",
+      "settings": [
+        {
+          "type": "text",
+          "id": "content_0",
+          "label": "Heading",
+          "default": "Price & Payment"
+        },
+        {
+          "type": "textarea",
+          "id": "content_1",
+          "label": "A contract is formed once we send an order co",
+          "default": "A contract is formed once we send an order confirmation email to the address provided. The price displayed on the website at the time we receive your order applies. Prices are subject to change at any time. We take payment from you at the time you place your order using the payment details supplied by you during the checkout process."
+        },
+        {
+          "type": "textarea",
+          "id": "content_2",
+          "label": "If a product is listed with an incorrect pric",
+          "default": "If a product is listed with an incorrect price or affected by a material pricing, availability, or system error, we may contact you to agree an alternative or cancel the order and issue a refund."
+        },
+        {
+          "type": "textarea",
+          "id": "content_3",
+          "label": "Discount codes and promotions must be applied",
+          "default": "Discount codes and promotions must be applied at checkout and cannot be added after an order has been placed."
+        },
+        {
+          "type": "text",
+          "id": "content_4",
+          "label": "Information that we need to process your orde",
+          "default": "Information that we need to process your order:"
+        },
+        {
+          "type": "text",
+          "id": "content_5",
+          "label": "Full name",
+          "default": "Full name"
+        },
+        {
+          "type": "text",
+          "id": "content_6",
+          "label": "Contact number",
+          "default": "Contact number"
+        },
+        {
+          "type": "text",
+          "id": "content_7",
+          "label": "Address / postcode",
+          "default": "Address / postcode"
+        },
+        {
+          "type": "text",
+          "id": "content_8",
+          "label": "Email address",
+          "default": "Email address"
+        },
+        {
+          "type": "text",
+          "id": "content_9",
+          "label": "Debit / credit card details",
+          "default": "Debit / credit card details"
+        }
+      ]
+    },
+    {
+      "type": "policy_7",
+      "name": "DeliveryEvery Lumina bli",
+      "settings": [
+        {
+          "type": "text",
+          "id": "content_0",
+          "label": "Heading",
+          "default": "Delivery"
+        },
+        {
+          "type": "textarea",
+          "id": "content_1",
+          "label": "Every Lumina blind is made to order. Unless a",
+          "default": "Every Lumina blind is made to order. Unless a different estimate is shown on the product page or in your order communications, orders are usually delivered within"
+        },
+        {
+          "type": "text",
+          "id": "content_2",
+          "label": "7-11 working days",
+          "default": "7-11 working days"
+        },
+        {
+          "type": "text",
+          "id": "content_3",
+          "label": ". This includes the time needed to make your ",
+          "default": ". This includes the time needed to make your blind, dispatch it, and deliver it to your address."
+        },
+        {
+          "type": "textarea",
+          "id": "content_4",
+          "label": "Lumina currently ships within the United Stat",
+          "default": "Lumina currently ships within the United States only and offers free shipping on all orders. Orders must be placed with a valid US residential or business shipping address. We are currently unable to ship to PO boxes, military addresses, or addresses outside the United States."
+        },
+        {
+          "type": "textarea",
+          "id": "content_5",
+          "label": "Once your order has been completed and handed",
+          "default": "Once your order has been completed and handed to the courier, we will send a shipping confirmation email with tracking details so you can follow the delivery progress."
+        },
+        {
+          "type": "textarea",
+          "id": "content_6",
+          "label": "Delivery timeframes are estimates only and ar",
+          "default": "Delivery timeframes are estimates only and are not guaranteed. We will make reasonable efforts to manufacture, dispatch, and deliver your order within the timeframes shown on our website or in order communications."
+        },
+        {
+          "type": "textarea",
+          "id": "content_7",
+          "label": "Some deliveries may require a signature. If t",
+          "default": "Some deliveries may require a signature. If the packaging appears damaged when it arrives, please sign for it as damaged where the courier allows and contact us as soon as possible."
+        },
+        {
+          "type": "textarea",
+          "id": "content_8",
+          "label": "If delivery cannot be completed after repeate",
+          "default": "If delivery cannot be completed after repeated courier attempts, re-delivery charges may apply. Items returned to us by the courier may be held for a limited period before disposal."
+        }
+      ]
+    },
+    {
+      "type": "policy_8",
+      "name": "1 Year GuaranteeLumina o",
+      "settings": [
+        {
+          "type": "text",
+          "id": "content_0",
+          "label": "Heading",
+          "default": "1 Year Guarantee"
+        },
+        {
+          "type": "textarea",
+          "id": "content_1",
+          "label": "Lumina offers a 1 year manufacturer's guarant",
+          "default": "Lumina offers a 1 year manufacturer's guarantee on manufacturing faults. We will inspect the product and, if the issue can be resolved, we will repair it. If not, we will replace the product with a brand new one."
+        },
+        {
+          "type": "text",
+          "id": "content_2",
+          "label": "This guarantee does not cover:",
+          "default": "This guarantee does not cover:"
+        },
+        {
+          "type": "text",
+          "id": "content_3",
+          "label": "Fair wear and tear.",
+          "default": "Fair wear and tear."
+        },
+        {
+          "type": "text",
+          "id": "content_4",
+          "label": "Misuse, accidental damage, pet damage, or alt",
+          "default": "Misuse, accidental damage, pet damage, or alterations."
+        },
+        {
+          "type": "text",
+          "id": "content_5",
+          "label": "Fading caused by prolonged exposure to sunlig",
+          "default": "Fading caused by prolonged exposure to sunlight."
+        },
+        {
+          "type": "text",
+          "id": "content_6",
+          "label": "Incorrect installation or failure to follow f",
+          "default": "Incorrect installation or failure to follow fitting guidance."
+        },
+        {
+          "type": "text",
+          "id": "content_7",
+          "label": "Products used in commercial, non-domestic, or",
+          "default": "Products used in commercial, non-domestic, or unsuitable environments."
+        }
+      ]
+    },
+    {
+      "type": "policy_9",
+      "name": "Defective and Damaged Go",
+      "settings": [
+        {
+          "type": "text",
+          "id": "content_0",
+          "label": "Heading",
+          "default": "Defective and Damaged Goods"
+        },
+        {
+          "type": "textarea",
+          "id": "content_1",
+          "label": "Lumina products go through a quality check pr",
+          "default": "Lumina products go through a quality check process before dispatch. If you do experience any problems, please email us at info@luminablackoutblinds.com. You will have"
+        },
+        {
+          "type": "text",
+          "id": "content_2",
+          "label": "3 working days",
+          "default": "3 working days"
+        },
+        {
+          "type": "textarea",
+          "id": "content_3",
+          "label": "from receipt of your product to report any de",
+          "default": "from receipt of your product to report any defective or damaged goods due to manufacturing, or damage caused during the delivery process. For any issues regarding the product, we will need photos so our management team can investigate. We may also ask for the product to be returned to us for inspection. Any queries will be dealt with in a highly professional and prompt manner."
+        }
+      ]
+    },
+    {
+      "type": "policy_10",
+      "name": "Fault InspectionsWhere a",
+      "settings": [
+        {
+          "type": "text",
+          "id": "content_0",
+          "label": "Heading",
+          "default": "Fault Inspections"
+        },
+        {
+          "type": "textarea",
+          "id": "content_1",
+          "label": "Where a blind needs to be returned for inspec",
+          "default": "Where a blind needs to be returned for inspection after a fault claim, it should be returned in its original packaging wherever possible and in line with the instructions we provide."
+        },
+        {
+          "type": "textarea",
+          "id": "content_2",
+          "label": "If a returned blind is inspected and no manuf",
+          "default": "If a returned blind is inspected and no manufacturing fault is found, we may charge the cost of returning the item to you."
+        }
+      ]
+    },
+    {
+      "type": "policy_11",
+      "name": "Cancellations and Return",
+      "settings": [
+        {
+          "type": "text",
+          "id": "content_0",
+          "label": "Heading",
+          "default": "Cancellations and Returns"
+        },
+        {
+          "type": "textarea",
+          "id": "content_1",
+          "label": "Orders cannot usually be cancelled or changed",
+          "default": "Orders cannot usually be cancelled or changed once they have entered the manufacturing process, because each Lumina blind is made to your chosen measurements and specifications."
+        },
+        {
+          "type": "textarea",
+          "id": "content_2",
+          "label": "If an item is discontinued or unavailable bef",
+          "default": "If an item is discontinued or unavailable before production begins, we may offer a suitable alternative or issue a full refund."
+        }
+      ]
+    },
+    {
+      "type": "policy_12",
+      "name": "Limitation of LiabilityT",
+      "settings": [
+        {
+          "type": "text",
+          "id": "content_0",
+          "label": "Heading",
+          "default": "Limitation of Liability"
+        },
+        {
+          "type": "textarea",
+          "id": "content_1",
+          "label": "To the fullest extent permitted by law, Lumin",
+          "default": "To the fullest extent permitted by law, Lumina will not be liable for indirect, incidental, special, punitive, or consequential loss, damage, cost, or expense arising from use of the website, use of our services, delays in delivery, or use or installation of our products."
+        },
+        {
+          "type": "textarea",
+          "id": "content_2",
+          "label": "Our total liability for any claim relating to",
+          "default": "Our total liability for any claim relating to an order will not exceed the amount paid for the goods in that order, except where liability cannot legally be limited or excluded."
+        }
+      ]
+    },
+    {
+      "type": "policy_13",
+      "name": "Privacy and Data Protect",
+      "settings": [
+        {
+          "type": "text",
+          "id": "content_0",
+          "label": "Heading",
+          "default": "Privacy and Data Protection"
+        },
+        {
+          "type": "textarea",
+          "id": "content_1",
+          "label": "We are committed to protecting your privacy. ",
+          "default": "We are committed to protecting your privacy. Personal information collected through this website is handled in accordance with our Privacy Policy."
+        },
+        {
+          "type": "textarea",
+          "id": "content_2",
+          "label": "We may share personal information with Shopif",
+          "default": "We may share personal information with Shopify, payment providers, couriers, fulfilment partners, and other service providers where needed to operate the website, process payment, fulfil your order, provide support, or as otherwise described in our Privacy Policy."
+        }
+      ]
+    },
+    {
+      "type": "policy_14",
+      "name": "Condensation DisclaimerB",
+      "settings": [
+        {
+          "type": "text",
+          "id": "content_0",
+          "label": "Heading",
+          "default": "Condensation Disclaimer"
+        },
+        {
+          "type": "textarea",
+          "id": "content_1",
+          "label": "Blinds and other window coverings may reduce ",
+          "default": "Blinds and other window coverings may reduce airflow between a room and the window glass. In some environments, including rooms with high humidity, temperature differences, limited ventilation, or existing window seal issues, condensation may form on glass, frames, or surrounding surfaces."
+        },
+        {
+          "type": "textarea",
+          "id": "content_2",
+          "label": "Condensation is an environmental condition an",
+          "default": "Condensation is an environmental condition and is not caused by a defect in the blind itself. Installing a blind may increase the likelihood of condensation by limiting air circulation near the window surface."
+        },
+        {
+          "type": "textarea",
+          "id": "content_3",
+          "label": "Lumina is not liable for condensation, moistu",
+          "default": "Lumina is not liable for condensation, moisture build-up, water damage, staining, deterioration, mould, mildew, insulated glass unit issues, or secondary damage caused by excess indoor humidity. It is the property owner's responsibility to maintain suitable humidity levels, ventilation, and window condition."
+        }
+      ]
+    },
+    {
+      "type": "policy_15",
+      "name": "Website Use and Intellec",
+      "settings": [
+        {
+          "type": "text",
+          "id": "content_0",
+          "label": "Heading",
+          "default": "Website Use and Intellectual Property"
+        },
+        {
+          "type": "textarea",
+          "id": "content_1",
+          "label": "You may use this website for lawful personal ",
+          "default": "You may use this website for lawful personal or household purposes only. You must not misuse the website, interfere with its operation, attempt unauthorised access, or use it in a way that infringes the rights of others."
+        },
+        {
+          "type": "textarea",
+          "id": "content_2",
+          "label": "The website, including its text, images, grap",
+          "default": "The website, including its text, images, graphics, video, audio, trademarks, branding, product reviews, layout, design, and arrangement, is owned by Lumina, its affiliates, or its licensors and is protected by applicable intellectual property laws."
+        },
+        {
+          "type": "textarea",
+          "id": "content_3",
+          "label": "You must not reproduce, distribute, modify, p",
+          "default": "You must not reproduce, distribute, modify, publicly display, republish, download, store, transmit, or create derivative works from website materials without our prior written consent, except as permitted by law."
+        }
+      ]
+    },
+    {
+      "type": "policy_16",
+      "name": "Third-Party Links and Se",
+      "settings": [
+        {
+          "type": "text",
+          "id": "content_0",
+          "label": "Heading",
+          "default": "Third-Party Links and Services"
+        },
+        {
+          "type": "textarea",
+          "id": "content_1",
+          "label": "Our website may contain links, embedded featu",
+          "default": "Our website may contain links, embedded features, payment tools, or other services provided by third parties, including Shopify and its affiliates. We are not responsible for the content, accuracy, availability, or practices of third-party websites or services."
+        },
+        {
+          "type": "textarea",
+          "id": "content_2",
+          "label": "If you access third-party websites or use thi",
+          "default": "If you access third-party websites or use third-party services, you do so at your own risk and should review their policies and terms before engaging with them."
+        }
+      ]
+    },
+    {
+      "type": "policy_17",
+      "name": "Relationship with Shopif",
+      "settings": [
+        {
+          "type": "text",
+          "id": "content_0",
+          "label": "Heading",
+          "default": "Relationship with Shopify"
+        },
+        {
+          "type": "textarea",
+          "id": "content_1",
+          "label": "Lumina is powered by Shopify, which enables u",
+          "default": "Lumina is powered by Shopify, which enables us to provide the online store and related services. Any sale or purchase made through this website is made directly with Lumina, and Shopify is not responsible for products purchased from us, order fulfilment, or any injury, loss, or damage relating to those purchases."
+        }
+      ]
+    },
+    {
+      "type": "policy_18",
+      "name": "Manufacturing & Distribu",
+      "settings": [
+        {
+          "type": "text",
+          "id": "content_0",
+          "label": "Heading",
+          "default": "Manufacturing & Distribution"
+        },
+        {
+          "type": "textarea",
+          "id": "content_1",
+          "label": "Our products are manufactured and distributed",
+          "default": "Our products are manufactured and distributed globally through our production facilities located in Texas (USA), Leeds (United Kingdom), and Guangzhou (China). These facilities support our international supply chain and enable the efficient fulfilment of customer orders across North America, Europe, Asia, and other global markets. Company reserves the right to manufacture, source, and distribute products from any of its facilities or approved partners as required to meet operational and customer requirements."
+        }
+      ]
+    },
+    {
+      "type": "policy_19",
+      "name": "Optional ToolsWe may pro",
+      "settings": [
+        {
+          "type": "text",
+          "id": "content_0",
+          "label": "Heading",
+          "default": "Optional Tools"
+        },
+        {
+          "type": "textarea",
+          "id": "content_1",
+          "label": "We may provide access to customer tools or fe",
+          "default": "We may provide access to customer tools or features offered by third parties. These tools are provided on an \"as is\" and \"as available\" basis, and we do not control or monitor every aspect of those tools."
+        },
+        {
+          "type": "textarea",
+          "id": "content_2",
+          "label": "Your use of optional third-party tools is at ",
+          "default": "Your use of optional third-party tools is at your own risk, and you should make sure you understand and agree to the relevant third party's terms before using them. Any new features added to the website will also be subject to these Terms & Conditions."
+        }
+      ]
+    },
+    {
+      "type": "policy_20",
+      "name": "FeedbackIf you submit re",
+      "settings": [
+        {
+          "type": "text",
+          "id": "content_0",
+          "label": "Heading",
+          "default": "Feedback"
+        },
+        {
+          "type": "textarea",
+          "id": "content_1",
+          "label": "If you submit reviews, suggestions, ideas, pr",
+          "default": "If you submit reviews, suggestions, ideas, proposals, photographs, comments, or other feedback, you grant us a worldwide, royalty-free, transferable licence to use, reproduce, modify, publish, distribute, and display that feedback for business, marketing, product improvement, and website purposes."
+        },
+        {
+          "type": "textarea",
+          "id": "content_2",
+          "label": "You confirm that you own or have the necessar",
+          "default": "You confirm that you own or have the necessary rights to submit any feedback you provide, and that the feedback will not violate the rights of any third party or breach these Terms & Conditions."
+        }
+      ]
+    },
+    {
+      "type": "policy_21",
+      "name": "Prohibited UsesYou must ",
+      "settings": [
+        {
+          "type": "text",
+          "id": "content_0",
+          "label": "Heading",
+          "default": "Prohibited Uses"
+        },
+        {
+          "type": "text",
+          "id": "content_1",
+          "label": "You must not use the website or services:",
+          "default": "You must not use the website or services:"
+        },
+        {
+          "type": "text",
+          "id": "content_2",
+          "label": "For any unlawful, fraudulent, abusive, or mal",
+          "default": "For any unlawful, fraudulent, abusive, or malicious purpose."
+        },
+        {
+          "type": "text",
+          "id": "content_3",
+          "label": "To infringe intellectual property, privacy, o",
+          "default": "To infringe intellectual property, privacy, or other rights."
+        },
+        {
+          "type": "text",
+          "id": "content_4",
+          "label": "To submit false, misleading, offensive, defam",
+          "default": "To submit false, misleading, offensive, defamatory, or harmful content."
+        },
+        {
+          "type": "text",
+          "id": "content_5",
+          "label": "To upload or transmit viruses, malware, or ot",
+          "default": "To upload or transmit viruses, malware, or other harmful code."
+        },
+        {
+          "type": "text",
+          "id": "content_6",
+          "label": "To scrape, harvest, collect, or track persona",
+          "default": "To scrape, harvest, collect, or track personal information without permission."
+        },
+        {
+          "type": "text",
+          "id": "content_7",
+          "label": "To interfere with, bypass, or circumvent secu",
+          "default": "To interfere with, bypass, or circumvent security or access controls."
+        },
+        {
+          "type": "textarea",
+          "id": "content_8",
+          "label": "We may suspend, disable, or terminate access ",
+          "default": "We may suspend, disable, or terminate access if we believe any part of these Terms & Conditions has been breached."
+        }
+      ]
+    },
+    {
+      "type": "policy_22",
+      "name": "AgentsIf you use, allow,",
+      "settings": [
+        {
+          "type": "text",
+          "id": "content_0",
+          "label": "Heading",
+          "default": "Agents"
+        },
+        {
+          "type": "textarea",
+          "id": "content_1",
+          "label": "If you use, allow, or enable any autonomous o",
+          "default": "If you use, allow, or enable any autonomous or semi-autonomous software, bot, crawler, or agent to access or interact with the website, it must identify itself truthfully and must not conceal, misrepresent, overload, or misuse its access. We may restrict or block agent access at any time."
+        }
+      ]
+    },
+    {
+      "type": "policy_23",
+      "name": "TerminationWe may termin",
+      "settings": [
+        {
+          "type": "text",
+          "id": "content_0",
+          "label": "Heading",
+          "default": "Termination"
+        },
+        {
+          "type": "textarea",
+          "id": "content_1",
+          "label": "We may terminate this agreement or restrict a",
+          "default": "We may terminate this agreement or restrict access to the website or services at any time where we consider it necessary, including where these Terms & Conditions have been breached."
+        },
+        {
+          "type": "textarea",
+          "id": "content_2",
+          "label": "Any terms that by their nature should continu",
+          "default": "Any terms that by their nature should continue after termination will remain in effect, including provisions relating to intellectual property, feedback, limitation of liability, indemnification, privacy, governing law, and payment obligations."
+        }
+      ]
+    },
+    {
+      "type": "policy_24",
+      "name": "IndemnificationYou agree",
+      "settings": [
+        {
+          "type": "text",
+          "id": "content_0",
+          "label": "Heading",
+          "default": "Indemnification"
+        },
+        {
+          "type": "textarea",
+          "id": "content_1",
+          "label": "You agree to indemnify and hold harmless Lumi",
+          "default": "You agree to indemnify and hold harmless Lumina, Shopify, and our affiliates, partners, officers, directors, employees, agents, contractors, licensors, and service providers from losses, damages, liabilities, costs, or claims arising from your breach of these Terms & Conditions, your violation of law, your misuse of the website, or your infringement of third-party rights."
+        }
+      ]
+    },
+    {
+      "type": "policy_25",
+      "name": "SeverabilityIf any provi",
+      "settings": [
+        {
+          "type": "text",
+          "id": "content_0",
+          "label": "Heading",
+          "default": "Severability"
+        },
+        {
+          "type": "textarea",
+          "id": "content_1",
+          "label": "If any provision of these Terms & Conditions ",
+          "default": "If any provision of these Terms & Conditions is found to be unlawful, void, or unenforceable, that provision will be enforceable to the fullest extent permitted by law and the unenforceable part will be treated as severed. The remaining provisions will continue in full force."
+        }
+      ]
+    },
+    {
+      "type": "policy_26",
+      "name": "Waiver and Entire Agreem",
+      "settings": [
+        {
+          "type": "text",
+          "id": "content_0",
+          "label": "Heading",
+          "default": "Waiver and Entire Agreement"
+        },
+        {
+          "type": "textarea",
+          "id": "content_1",
+          "label": "If we do not exercise or enforce a right or p",
+          "default": "If we do not exercise or enforce a right or provision of these Terms & Conditions, that does not mean we waive that right or provision."
+        },
+        {
+          "type": "textarea",
+          "id": "content_2",
+          "label": "These Terms & Conditions, together with any p",
+          "default": "These Terms & Conditions, together with any policies posted on this website, form the entire agreement between you and Lumina regarding your use of the website and services."
+        }
+      ]
+    },
+    {
+      "type": "policy_27",
+      "name": "AssignmentYou may not tr",
+      "settings": [
+        {
+          "type": "text",
+          "id": "content_0",
+          "label": "Heading",
+          "default": "Assignment"
+        },
+        {
+          "type": "textarea",
+          "id": "content_1",
+          "label": "You may not transfer or assign your rights or",
+          "default": "You may not transfer or assign your rights or obligations under these Terms & Conditions without our prior written consent. We may transfer, assign, or delegate these Terms and our rights or obligations without notice where permitted by law."
+        }
+      ]
+    },
+    {
+      "type": "policy_28",
+      "name": "Changes to These TermsYo",
+      "settings": [
+        {
+          "type": "text",
+          "id": "content_0",
+          "label": "Heading",
+          "default": "Changes to These Terms"
+        },
+        {
+          "type": "textarea",
+          "id": "content_1",
+          "label": "You can review the most current version of th",
+          "default": "You can review the most current version of these Terms & Conditions on this page. We reserve the right to update, change, or replace any part of these Terms by posting changes to the website. Continued use of the website after changes are posted means you accept those changes."
+        }
+      ]
+    },
+    {
+      "type": "policy_29",
+      "name": "Governing LawThese Terms",
+      "settings": [
+        {
+          "type": "text",
+          "id": "content_0",
+          "label": "Heading",
+          "default": "Governing Law"
+        },
+        {
+          "type": "textarea",
+          "id": "content_1",
+          "label": "These Terms & Conditions and any separate agr",
+          "default": "These Terms & Conditions and any separate agreements through which we provide products or services are governed by applicable law in the jurisdiction where Lumina operates, unless mandatory consumer protection laws in your location provide otherwise."
+        }
+      ]
+    },
+    {
+      "type": "policy_30",
+      "name": "DisclaimerLumina will ta",
+      "settings": [
+        {
+          "type": "text",
+          "id": "content_0",
+          "label": "Heading",
+          "default": "Disclaimer"
+        },
+        {
+          "type": "textarea",
+          "id": "content_1",
+          "label": "Lumina will take every care and precaution to",
+          "default": "Lumina will take every care and precaution to ensure that the contents and information published on this website are accurate and up to date. Unfortunately, we cannot guarantee the accuracy of contents or information contained in its pages, and any person using information contained in them does so entirely at their own risk. Except where expressly stated by Lumina, the website, services, and products are provided as available and without warranties or conditions of any kind to the fullest extent permitted by law. Please verify the accuracy of any information before acting upon it. We reserve the right to change information at any time without notice."
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

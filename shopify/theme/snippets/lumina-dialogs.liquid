@@ -1,0 +1,11 @@
+<dialog id="LuminaGallery" class="lumina-dialog" aria-label="Product image">
+  <button type="button" class="lumina-dialog-close" data-dialog-close aria-label="Close image">×</button>
+  <img src="{{ 'product-gallery-1.webp' | asset_url }}" width="1000" height="1250" alt="Lumina blackout blind" data-lightbox-image loading="lazy">
+  <button type="button" class="lumina-lightbox-prev" data-lightbox-step="-1" aria-label="Previous full-size image">‹</button>
+  <button type="button" class="lumina-lightbox-next" data-lightbox-step="1" aria-label="Next full-size image">›</button>
+</dialog>
+<dialog id="LuminaDirection" class="lumina-dialog" aria-labelledby="LuminaDirectionTitle">
+  <button type="button" class="lumina-dialog-close" data-dialog-close aria-label="Close opening direction guide">×</button>
+  <div class="lumina-dialog-inner"><h2 id="LuminaDirectionTitle">Opening direction guide</h2><img src="{{ 'product-openingDirGuide.webp' | asset_url }}" width="800" height="800" loading="lazy" alt="Left to right, right to left, top down and split blind opening directions"></div>
+</dialog>
+

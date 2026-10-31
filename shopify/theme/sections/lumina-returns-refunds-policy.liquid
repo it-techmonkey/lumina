@@ -1,0 +1,526 @@
+<div class="lumina-editable-section {% if section.settings.background != blank %}lumina-background-override{% endif %} lumina-width-{{ section.settings.content_width }}" style="--section-background:{{ section.settings.background }};padding-top:{{ section.settings.spacing_top }}px;padding-bottom:{{ section.settings.spacing_bottom }}px"><div class="w-full bg-white text-black"><div class="max-w-4xl mx-auto px-6 py-16"><div class="mb-10"><h1 class="text-4xl font-semibold font-playfair mb-4">{{ section.settings.content_0 | escape }}</h1><p class="text-sm text-gray-500 mb-6">{{ section.settings.content_1 | escape }}</p><p class="text-gray-700 leading-relaxed">{{ section.settings.content_2 | escape }}</p></div><div class="divide-y divide-gray-200">{% for block in section.blocks %}{% case block.type %}{% when 'policy_0' %}<div class="py-8" {{ block.shopify_attributes }}><h2 class="text-xl font-semibold mb-4">{{ block.settings.content_0 | escape }}</h2><div class="text-gray-700 leading-relaxed [&amp;_p+p]:mt-3 [&amp;_p+ul]:mt-3 [&amp;_ul+p]:mt-3 [&amp;_ul]:mt-3 [&amp;_ul]:list-disc [&amp;_ul]:space-y-2 [&amp;_ul]:pl-5"><p>{{ block.settings.content_1 | escape }} <strong>{{ block.settings.content_2 | escape }}</strong> {{ block.settings.content_3 | escape }}</p></div></div>{% when 'policy_1' %}<div class="py-8" {{ block.shopify_attributes }}><h2 class="text-xl font-semibold mb-4">{{ block.settings.content_0 | escape }}</h2><div class="text-gray-700 leading-relaxed [&amp;_p+p]:mt-3 [&amp;_p+ul]:mt-3 [&amp;_ul+p]:mt-3 [&amp;_ul]:mt-3 [&amp;_ul]:list-disc [&amp;_ul]:space-y-2 [&amp;_ul]:pl-5"><p>{{ block.settings.content_1 | escape }} <a href="{% if block.settings.content_7 != blank %}{{ block.settings.content_7 }}{% else %}mailto:info@luminablackoutblinds.com{% endif %}" class="underline">{{ block.settings.content_2 | escape }}</a> {{ block.settings.content_3 | escape }} <strong>{{ block.settings.content_4 | escape }}</strong>{{ block.settings.content_5 | escape }} <strong>{{ block.settings.content_6 | escape }}</strong>.</p></div></div>{% when 'policy_2' %}<div class="py-8" {{ block.shopify_attributes }}><h2 class="text-xl font-semibold mb-4">{{ block.settings.content_0 | escape }}</h2><div class="text-gray-700 leading-relaxed [&amp;_p+p]:mt-3 [&amp;_p+ul]:mt-3 [&amp;_ul+p]:mt-3 [&amp;_ul]:mt-3 [&amp;_ul]:list-disc [&amp;_ul]:space-y-2 [&amp;_ul]:pl-5"><p>{{ block.settings.content_1 | escape }}</p></div></div>{% when 'policy_3' %}<div class="py-8" {{ block.shopify_attributes }}><h2 class="text-xl font-semibold mb-4">{{ block.settings.content_0 | escape }}</h2><div class="text-gray-700 leading-relaxed [&amp;_p+p]:mt-3 [&amp;_p+ul]:mt-3 [&amp;_ul+p]:mt-3 [&amp;_ul]:mt-3 [&amp;_ul]:list-disc [&amp;_ul]:space-y-2 [&amp;_ul]:pl-5"><p>{{ block.settings.content_1 | escape }}</p></div></div>{% when 'policy_4' %}<div class="py-8" {{ block.shopify_attributes }}><h2 class="text-xl font-semibold mb-4">{{ block.settings.content_0 | escape }}</h2><div class="text-gray-700 leading-relaxed [&amp;_p+p]:mt-3 [&amp;_p+ul]:mt-3 [&amp;_ul+p]:mt-3 [&amp;_ul]:mt-3 [&amp;_ul]:list-disc [&amp;_ul]:space-y-2 [&amp;_ul]:pl-5"><p>{{ block.settings.content_1 | escape }}</p></div></div>{% when 'policy_5' %}<div class="py-8" {{ block.shopify_attributes }}><h2 class="text-xl font-semibold mb-4">{{ block.settings.content_0 | escape }}</h2><div class="text-gray-700 leading-relaxed [&amp;_p+p]:mt-3 [&amp;_p+ul]:mt-3 [&amp;_ul+p]:mt-3 [&amp;_ul]:mt-3 [&amp;_ul]:list-disc [&amp;_ul]:space-y-2 [&amp;_ul]:pl-5"><p>{{ block.settings.content_1 | escape }}</p></div></div>{% when 'policy_6' %}<div class="py-8" {{ block.shopify_attributes }}><h2 class="text-xl font-semibold mb-4">{{ block.settings.content_0 | escape }}</h2><div class="text-gray-700 leading-relaxed [&amp;_p+p]:mt-3 [&amp;_p+ul]:mt-3 [&amp;_ul+p]:mt-3 [&amp;_ul]:mt-3 [&amp;_ul]:list-disc [&amp;_ul]:space-y-2 [&amp;_ul]:pl-5"><p>{{ block.settings.content_1 | escape }} <strong>{{ block.settings.content_2 | escape }}</strong> {{ block.settings.content_3 | escape }}</p></div></div>{% when 'policy_7' %}<div class="py-8" {{ block.shopify_attributes }}><h2 class="text-xl font-semibold mb-4">{{ block.settings.content_0 | escape }}</h2><div class="text-gray-700 leading-relaxed [&amp;_p+p]:mt-3 [&amp;_p+ul]:mt-3 [&amp;_ul+p]:mt-3 [&amp;_ul]:mt-3 [&amp;_ul]:list-disc [&amp;_ul]:space-y-2 [&amp;_ul]:pl-5"><p>{{ block.settings.content_1 | escape }}</p></div></div>{% when 'policy_8' %}<div class="py-8" {{ block.shopify_attributes }}><h2 class="text-xl font-semibold mb-4">{{ block.settings.content_0 | escape }}</h2><div class="text-gray-700 leading-relaxed [&amp;_p+p]:mt-3 [&amp;_p+ul]:mt-3 [&amp;_ul+p]:mt-3 [&amp;_ul]:mt-3 [&amp;_ul]:list-disc [&amp;_ul]:space-y-2 [&amp;_ul]:pl-5"><p>{{ block.settings.content_1 | escape }}</p></div></div>{% when 'policy_9' %}<div class="py-8" {{ block.shopify_attributes }}><h2 class="text-xl font-semibold mb-4">{{ block.settings.content_0 | escape }}</h2><div class="text-gray-700 leading-relaxed [&amp;_p+p]:mt-3 [&amp;_p+ul]:mt-3 [&amp;_ul+p]:mt-3 [&amp;_ul]:mt-3 [&amp;_ul]:list-disc [&amp;_ul]:space-y-2 [&amp;_ul]:pl-5"><p>{{ block.settings.content_1 | escape }}</p></div></div>{% when 'policy_10' %}<div class="py-8" {{ block.shopify_attributes }}><h2 class="text-xl font-semibold mb-4">{{ block.settings.content_0 | escape }}</h2><div class="text-gray-700 leading-relaxed [&amp;_p+p]:mt-3 [&amp;_p+ul]:mt-3 [&amp;_ul+p]:mt-3 [&amp;_ul]:mt-3 [&amp;_ul]:list-disc [&amp;_ul]:space-y-2 [&amp;_ul]:pl-5"><p>{{ block.settings.content_1 | escape }} <strong>{{ block.settings.content_2 | escape }}</strong> {{ block.settings.content_3 | escape }}</p></div></div>{% when 'policy_11' %}<div class="py-8" {{ block.shopify_attributes }}><h2 class="text-xl font-semibold mb-4">{{ block.settings.content_0 | escape }}</h2><div class="text-gray-700 leading-relaxed [&amp;_p+p]:mt-3 [&amp;_p+ul]:mt-3 [&amp;_ul+p]:mt-3 [&amp;_ul]:mt-3 [&amp;_ul]:list-disc [&amp;_ul]:space-y-2 [&amp;_ul]:pl-5"><p>{{ block.settings.content_1 | escape }} <strong>{{ block.settings.content_2 | escape }}</strong>{{ block.settings.content_3 | escape }}</p></div></div>{% when 'policy_12' %}<div class="mt-10 pt-8 border-t border-gray-200" {{ block.shopify_attributes }}><h2 class="text-xl font-semibold mb-4">{{ block.settings.content_0 | escape }}</h2><p class="text-gray-700 leading-relaxed">{{ block.settings.content_1 | escape }} <a href="{% if block.settings.content_4 != blank %}{{ block.settings.content_4 }}{% else %}mailto:info@luminablackoutblinds.com{% endif %}" class="underline">{{ block.settings.content_2 | escape }}</a>{{ block.settings.content_3 | escape }}</p></div>{% endcase %}{% endfor %}</div></div></div>
+</div>
+
+{% schema %}
+{
+  "name": "Returns Refunds Policy",
+  "settings": [
+    {
+      "type": "text",
+      "id": "content_0",
+      "label": "Heading",
+      "default": "Returns & Refunds Policy"
+    },
+    {
+      "type": "text",
+      "id": "content_1",
+      "label": "Last updated: June 13, 2026",
+      "default": "Last updated: June 13, 2026"
+    },
+    {
+      "type": "textarea",
+      "id": "content_2",
+      "label": "At Lumina, every blackout blind is made to me",
+      "default": "At Lumina, every blackout blind is made to measure for your window and checked before shipment. This policy explains what happens if your order arrives damaged, appears faulty, needs inspection, or cannot be fulfilled."
+    },
+    {
+      "type": "header",
+      "content": "Layout"
+    },
+    {
+      "type": "range",
+      "id": "spacing_top",
+      "label": "Extra top spacing",
+      "min": 0,
+      "max": 120,
+      "step": 4,
+      "unit": "px",
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "spacing_bottom",
+      "label": "Extra bottom spacing",
+      "min": 0,
+      "max": 120,
+      "step": 4,
+      "unit": "px",
+      "default": 0
+    },
+    {
+      "type": "color",
+      "id": "background",
+      "label": "Section background override"
+    },
+    {
+      "type": "select",
+      "id": "content_width",
+      "label": "Content width",
+      "default": "original",
+      "options": [
+        {
+          "value": "original",
+          "label": "Original design"
+        },
+        {
+          "value": "narrow",
+          "label": "Narrow"
+        },
+        {
+          "value": "wide",
+          "label": "Wide"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Returns Refunds Policy",
+      "blocks": [
+        {
+          "type": "policy_0",
+          "settings": {
+            "content_0": "Damaged or Faulty Orders",
+            "content_1": "Please check your Lumina blind carefully as soon as it is delivered. If you believe your item has been damaged in transit or has a manufacturing fault, contact us within",
+            "content_2": "3 business days",
+            "content_3": "of delivery so we can resolve it quickly."
+          }
+        },
+        {
+          "type": "policy_1",
+          "settings": {
+            "content_0": "How to Contact Us",
+            "content_1": "Email us at",
+            "content_2": "info@luminablackoutblinds.com",
+            "content_3": "with your order number, delivery details, and a clear explanation of the issue. Please include photographs where possible so we can review the problem quickly. We aim to respond within",
+            "content_4": "1 business day",
+            "content_5": ", and always within",
+            "content_6": "3 business days"
+          }
+        },
+        {
+          "type": "policy_2",
+          "settings": {
+            "content_0": "Before Installing Your Blind",
+            "content_1": "If you are reporting damage or a possible fault, please do not fit, alter, or install the blind until we have reviewed your claim. Installation may affect our ability to assess whether the issue was caused during manufacturing, delivery, or fitting."
+          }
+        },
+        {
+          "type": "policy_3",
+          "settings": {
+            "content_0": "Packaging",
+            "content_1": "Please keep the original packaging until you have inspected your order. If an item needs to be returned for inspection and the original packaging is no longer available, replacement packaging may be required and additional charges may apply."
+          }
+        },
+        {
+          "type": "policy_4",
+          "settings": {
+            "content_0": "Inspection and Outcome",
+            "content_1": "We may ask for photographs, further information, or for the product to be returned before confirming the next step. If our review confirms a manufacturing fault or delivery damage, we will arrange a suitable resolution."
+          }
+        },
+        {
+          "type": "policy_5",
+          "settings": {
+            "content_0": "Replacements",
+            "content_1": "Where a replacement is approved, we will provide a like-for-like replacement for the affected made-to-measure blind. Replacement orders must match the original order details, including measurements, colors, fabric, controls, and other selected specifications."
+          }
+        },
+        {
+          "type": "policy_6",
+          "settings": {
+            "content_0": "Returns of Faulty Items",
+            "content_1": "If we ask you to return an item for inspection or replacement, it must be returned within",
+            "content_2": "30 days",
+            "content_3": "of return approval and in line with the instructions we provide."
+          }
+        },
+        {
+          "type": "policy_7",
+          "settings": {
+            "content_0": "Cancellations and Changes",
+            "content_1": "Because Lumina blinds are made to your chosen measurements and specifications, orders cannot usually be changed or canceled once production has started. Please check all measurements and options carefully before placing your order."
+          }
+        },
+        {
+          "type": "policy_8",
+          "settings": {
+            "content_0": "Refunds",
+            "content_1": "If we are unable to manufacture your order because an item becomes unavailable before production begins, we will contact you and issue a full refund. We may also cancel and refund an order where there is a payment issue, pricing error, stock issue, delivery restriction, or internal processing error."
+          }
+        },
+        {
+          "type": "policy_9",
+          "settings": {
+            "content_0": "Delivery Issues",
+            "content_1": "Lumina orders are made to measure and dispatched after production. Delivery may require a signature. If a courier is unable to complete delivery after repeated attempts, re-delivery charges may apply. Items returned to us by the courier may be held for a limited period before disposal."
+          }
+        },
+        {
+          "type": "policy_10",
+          "settings": {
+            "content_0": "Manufacturer's Guarantee",
+            "content_1": "Lumina blinds include a",
+            "content_2": "1-year manufacturer's guarantee",
+            "content_3": "against confirmed manufacturing faults. This does not cover normal wear and tear, accidental damage, misuse, incorrect installation, alterations, fading from prolonged sunlight exposure, or use in unsuitable conditions."
+          }
+        },
+        {
+          "type": "policy_11",
+          "settings": {
+            "content_0": "Manufacturing Tolerances",
+            "content_1": "As with all made-to-measure blinds, small manufacturing tolerances can occur. Please allow for a variance of",
+            "content_2": "+/- 4mm",
+            "content_3": ". If a blind falls within this tolerance, it is not deemed faulty and will not qualify for replacement or rejection on that basis."
+          }
+        },
+        {
+          "type": "policy_12",
+          "settings": {
+            "content_0": "Contact",
+            "content_1": "For returns, refunds, or product issue queries, email",
+            "content_2": "info@luminablackoutblinds.com",
+            "content_3": ". We aim to respond within 1–3 business days."
+          }
+        }
+      ]
+    }
+  ],
+  "blocks": [
+    {
+      "type": "policy_0",
+      "name": "Damaged or Faulty Orders",
+      "settings": [
+        {
+          "type": "text",
+          "id": "content_0",
+          "label": "Heading",
+          "default": "Damaged or Faulty Orders"
+        },
+        {
+          "type": "textarea",
+          "id": "content_1",
+          "label": "Please check your Lumina blind carefully as s",
+          "default": "Please check your Lumina blind carefully as soon as it is delivered. If you believe your item has been damaged in transit or has a manufacturing fault, contact us within"
+        },
+        {
+          "type": "text",
+          "id": "content_2",
+          "label": "3 business days",
+          "default": "3 business days"
+        },
+        {
+          "type": "text",
+          "id": "content_3",
+          "label": "of delivery so we can resolve it quickly.",
+          "default": "of delivery so we can resolve it quickly."
+        }
+      ]
+    },
+    {
+      "type": "policy_1",
+      "name": "How to Contact UsEmail u",
+      "settings": [
+        {
+          "type": "text",
+          "id": "content_0",
+          "label": "Heading",
+          "default": "How to Contact Us"
+        },
+        {
+          "type": "text",
+          "id": "content_1",
+          "label": "Email us at",
+          "default": "Email us at"
+        },
+        {
+          "type": "text",
+          "id": "content_2",
+          "label": "info@luminablackoutblinds.com",
+          "default": "info@luminablackoutblinds.com"
+        },
+        {
+          "type": "textarea",
+          "id": "content_3",
+          "label": "with your order number, delivery details, and",
+          "default": "with your order number, delivery details, and a clear explanation of the issue. Please include photographs where possible so we can review the problem quickly. We aim to respond within"
+        },
+        {
+          "type": "text",
+          "id": "content_4",
+          "label": "1 business day",
+          "default": "1 business day"
+        },
+        {
+          "type": "text",
+          "id": "content_5",
+          "label": ", and always within",
+          "default": ", and always within"
+        },
+        {
+          "type": "text",
+          "id": "content_6",
+          "label": "3 business days",
+          "default": "3 business days"
+        },
+        {
+          "type": "url",
+          "id": "content_7",
+          "label": "Link destination"
+        }
+      ]
+    },
+    {
+      "type": "policy_2",
+      "name": "Before Installing Your B",
+      "settings": [
+        {
+          "type": "text",
+          "id": "content_0",
+          "label": "Heading",
+          "default": "Before Installing Your Blind"
+        },
+        {
+          "type": "textarea",
+          "id": "content_1",
+          "label": "If you are reporting damage or a possible fau",
+          "default": "If you are reporting damage or a possible fault, please do not fit, alter, or install the blind until we have reviewed your claim. Installation may affect our ability to assess whether the issue was caused during manufacturing, delivery, or fitting."
+        }
+      ]
+    },
+    {
+      "type": "policy_3",
+      "name": "PackagingPlease keep the",
+      "settings": [
+        {
+          "type": "text",
+          "id": "content_0",
+          "label": "Heading",
+          "default": "Packaging"
+        },
+        {
+          "type": "textarea",
+          "id": "content_1",
+          "label": "Please keep the original packaging until you ",
+          "default": "Please keep the original packaging until you have inspected your order. If an item needs to be returned for inspection and the original packaging is no longer available, replacement packaging may be required and additional charges may apply."
+        }
+      ]
+    },
+    {
+      "type": "policy_4",
+      "name": "Inspection and OutcomeWe",
+      "settings": [
+        {
+          "type": "text",
+          "id": "content_0",
+          "label": "Heading",
+          "default": "Inspection and Outcome"
+        },
+        {
+          "type": "textarea",
+          "id": "content_1",
+          "label": "We may ask for photographs, further informati",
+          "default": "We may ask for photographs, further information, or for the product to be returned before confirming the next step. If our review confirms a manufacturing fault or delivery damage, we will arrange a suitable resolution."
+        }
+      ]
+    },
+    {
+      "type": "policy_5",
+      "name": "ReplacementsWhere a repl",
+      "settings": [
+        {
+          "type": "text",
+          "id": "content_0",
+          "label": "Heading",
+          "default": "Replacements"
+        },
+        {
+          "type": "textarea",
+          "id": "content_1",
+          "label": "Where a replacement is approved, we will prov",
+          "default": "Where a replacement is approved, we will provide a like-for-like replacement for the affected made-to-measure blind. Replacement orders must match the original order details, including measurements, colors, fabric, controls, and other selected specifications."
+        }
+      ]
+    },
+    {
+      "type": "policy_6",
+      "name": "Returns of Faulty ItemsI",
+      "settings": [
+        {
+          "type": "text",
+          "id": "content_0",
+          "label": "Heading",
+          "default": "Returns of Faulty Items"
+        },
+        {
+          "type": "text",
+          "id": "content_1",
+          "label": "If we ask you to return an item for inspectio",
+          "default": "If we ask you to return an item for inspection or replacement, it must be returned within"
+        },
+        {
+          "type": "text",
+          "id": "content_2",
+          "label": "30 days",
+          "default": "30 days"
+        },
+        {
+          "type": "text",
+          "id": "content_3",
+          "label": "of return approval and in line with the instr",
+          "default": "of return approval and in line with the instructions we provide."
+        }
+      ]
+    },
+    {
+      "type": "policy_7",
+      "name": "Cancellations and Change",
+      "settings": [
+        {
+          "type": "text",
+          "id": "content_0",
+          "label": "Heading",
+          "default": "Cancellations and Changes"
+        },
+        {
+          "type": "textarea",
+          "id": "content_1",
+          "label": "Because Lumina blinds are made to your chosen",
+          "default": "Because Lumina blinds are made to your chosen measurements and specifications, orders cannot usually be changed or canceled once production has started. Please check all measurements and options carefully before placing your order."
+        }
+      ]
+    },
+    {
+      "type": "policy_8",
+      "name": "RefundsIf we are unable ",
+      "settings": [
+        {
+          "type": "text",
+          "id": "content_0",
+          "label": "Heading",
+          "default": "Refunds"
+        },
+        {
+          "type": "textarea",
+          "id": "content_1",
+          "label": "If we are unable to manufacture your order be",
+          "default": "If we are unable to manufacture your order because an item becomes unavailable before production begins, we will contact you and issue a full refund. We may also cancel and refund an order where there is a payment issue, pricing error, stock issue, delivery restriction, or internal processing error."
+        }
+      ]
+    },
+    {
+      "type": "policy_9",
+      "name": "Delivery IssuesLumina or",
+      "settings": [
+        {
+          "type": "text",
+          "id": "content_0",
+          "label": "Heading",
+          "default": "Delivery Issues"
+        },
+        {
+          "type": "textarea",
+          "id": "content_1",
+          "label": "Lumina orders are made to measure and dispatc",
+          "default": "Lumina orders are made to measure and dispatched after production. Delivery may require a signature. If a courier is unable to complete delivery after repeated attempts, re-delivery charges may apply. Items returned to us by the courier may be held for a limited period before disposal."
+        }
+      ]
+    },
+    {
+      "type": "policy_10",
+      "name": "Manufacturer's Guarantee",
+      "settings": [
+        {
+          "type": "text",
+          "id": "content_0",
+          "label": "Heading",
+          "default": "Manufacturer's Guarantee"
+        },
+        {
+          "type": "text",
+          "id": "content_1",
+          "label": "Lumina blinds include a",
+          "default": "Lumina blinds include a"
+        },
+        {
+          "type": "text",
+          "id": "content_2",
+          "label": "1-year manufacturer's guarantee",
+          "default": "1-year manufacturer's guarantee"
+        },
+        {
+          "type": "textarea",
+          "id": "content_3",
+          "label": "against confirmed manufacturing faults. This ",
+          "default": "against confirmed manufacturing faults. This does not cover normal wear and tear, accidental damage, misuse, incorrect installation, alterations, fading from prolonged sunlight exposure, or use in unsuitable conditions."
+        }
+      ]
+    },
+    {
+      "type": "policy_11",
+      "name": "Manufacturing Tolerances",
+      "settings": [
+        {
+          "type": "text",
+          "id": "content_0",
+          "label": "Heading",
+          "default": "Manufacturing Tolerances"
+        },
+        {
+          "type": "textarea",
+          "id": "content_1",
+          "label": "As with all made-to-measure blinds, small man",
+          "default": "As with all made-to-measure blinds, small manufacturing tolerances can occur. Please allow for a variance of"
+        },
+        {
+          "type": "text",
+          "id": "content_2",
+          "label": "+/- 4mm",
+          "default": "+/- 4mm"
+        },
+        {
+          "type": "textarea",
+          "id": "content_3",
+          "label": ". If a blind falls within this tolerance, it ",
+          "default": ". If a blind falls within this tolerance, it is not deemed faulty and will not qualify for replacement or rejection on that basis."
+        }
+      ]
+    },
+    {
+      "type": "policy_12",
+      "name": "ContactFor returns, refu",
+      "settings": [
+        {
+          "type": "text",
+          "id": "content_0",
+          "label": "Heading",
+          "default": "Contact"
+        },
+        {
+          "type": "text",
+          "id": "content_1",
+          "label": "For returns, refunds, or product issue querie",
+          "default": "For returns, refunds, or product issue queries, email"
+        },
+        {
+          "type": "text",
+          "id": "content_2",
+          "label": "info@luminablackoutblinds.com",
+          "default": "info@luminablackoutblinds.com"
+        },
+        {
+          "type": "text",
+          "id": "content_3",
+          "label": ". We aim to respond within 1–3 business days.",
+          "default": ". We aim to respond within 1–3 business days."
+        },
+        {
+          "type": "url",
+          "id": "content_4",
+          "label": "Link destination"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

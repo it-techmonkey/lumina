@@ -1,0 +1,23 @@
+{% liquid
+ assign minimum_price = block.settings.starting_price | times: 100 | round
+ assign display_price = selected_variant.price
+ assign from_price = false
+ if display_price == 0 and minimum_price > 0
+   assign display_price = minimum_price
+   assign from_price = true
+ endif
+ assign discount_percent = block.settings.discount_percent | default: 0 | plus: 0
+ assign compare_price = selected_variant.compare_at_price | default: 0
+ if discount_percent > 0 and display_price > 0
+   assign retained_percent = 100.0 | minus: discount_percent
+   assign compare_price = display_price | times: 100.0 | divided_by: retained_percent | round
+ endif
+%}
+<div class="lumina-product-price-block" data-price-block data-offer-percent="{{ discount_percent }}" {{ block.shopify_attributes }}>
+ <div class="flex items-end gap-3 flex-wrap">
+  <span class="font-playfair text-[36px] leading-none" data-product-price data-minimum-price="{{ minimum_price }}" data-from-label="{{ block.settings.from_label | escape }}" data-unpriced-label="{{ block.settings.unpriced_label | escape }}">{% if display_price > 0 %}{% if from_price %}<span class="lumina-price-from">{{ block.settings.from_label | escape }}</span> {% endif %}{{ display_price | money }}{% else %}<span class="text-[25px]">{{ block.settings.unpriced_label | escape }}</span>{% endif %}</span>
+  <s class="text-[#8c95a4] text-lg" data-compare-price {% unless compare_price > display_price %}hidden{% endunless %}>{{ compare_price | money }}</s>
+  <span class="rounded-full bg-[#131720] px-3 py-1 text-xs font-semibold text-white" data-discount-percent {% unless compare_price > display_price %}hidden{% endunless %}>{% if compare_price > display_price %}{{ compare_price | minus: display_price | times: 100.0 | divided_by: compare_price | round }}% off{% endif %}</span>
+ </div>
+ <div class="lumina-product-delivery"><div><p>{{ block.settings.shipping | escape }}</p><p><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg><span data-delivery-range data-days-min="{{ block.settings.delivery_min }}" data-days-max="{{ block.settings.delivery_max }}">{{ block.settings.delivery | escape }}</span></p></div>{% if block.settings.show_countdown %}<p class="lumina-sale-countdown"><span aria-hidden="true"></span>{{ block.settings.countdown_label | escape }} <span data-countdown data-countdown-mode="daily"></span></p>{% endif %}</div>
+</div>

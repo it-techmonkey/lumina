@@ -1,0 +1,21 @@
+<section class="lumina-container lumina-content-page">
+  <h1>Your cart</h1>
+  {% if cart.item_count == 0 %}<div class="lumina-cart-empty"><h3>Your cart is empty</h3><p class="mb-6">A better night's sleep starts here.</p><a class="lumina-button" href="{{ settings.featured_product.url | default: '/products/honeycomb-blackout-blind' }}">Shop The Blind</a></div>
+  {% else %}{% form 'cart', cart %}
+    {% for item in cart.items %}<article class="lumina-cart-item">
+      {% if item.image %}{{ item.image | image_url: width: 220 | image_tag: loading: 'lazy' }}{% endif %}
+      <div><h2><a href="{{ item.url }}">{{ item.product.title | escape }}</a></h2><p>{{ item.final_line_price | money }}</p>
+      {% for property in item.properties %}{% assign first_letter = property.first | slice: 0 %}{% unless first_letter == '_' or property.last == blank %}<p>{{ property.first | escape }}: {{ property.last | escape }}</p>{% endunless %}{% endfor %}
+      <label for="Quantity-{{ item.index | plus: 1 }}">Quantity</label><input class="border rounded p-2 w-20" id="Quantity-{{ item.index | plus: 1 }}" name="updates[]" type="number" min="0" value="{{ item.quantity }}"><a href="{{ item.url_to_remove }}" class="underline ml-4">Remove</a></div>
+    </article>{% endfor %}
+    <div class="lumina-cart-totals"><span>Subtotal</span><strong>{{ cart.total_price | money }}</strong></div><p class="mb-6 text-sm text-[#657186]">Taxes and shipping calculated at checkout.</p>
+    <button class="lumina-outline-button" type="submit" name="update">Update cart</button><button class="lumina-button" name="checkout" type="submit" {% unless settings.enable_purchasing %}disabled{% endunless %}>Checkout</button>
+  {% endform %}{% endif %}
+</section>
+
+{% schema %}
+{
+  "name": "Cart",
+  "settings": []
+}
+{% endschema %}

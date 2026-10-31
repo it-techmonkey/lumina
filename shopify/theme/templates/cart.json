@@ -1,0 +1,11 @@
+{
+  "sections": {
+    "main": {
+      "type": "lumina-cart",
+      "settings": {}
+    }
+  },
+  "order": [
+    "main"
+  ]
+}

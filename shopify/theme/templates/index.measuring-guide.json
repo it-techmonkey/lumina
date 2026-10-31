@@ -1,0 +1,14 @@
+{
+  "sections": {
+    "main": {
+      "type": "lumina-guide",
+      "settings": {
+        "heading": "Measuring guide",
+        "filename": "guide-lumina-measuring-guide.png"
+      }
+    }
+  },
+  "order": [
+    "main"
+  ]
+}

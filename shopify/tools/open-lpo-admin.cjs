@@ -1,0 +1,3 @@
+// Dedicated interactive browser. Sign in normally; no credentials are read or copied.
+const {chromium}=require('playwright');const path=require('node:path');
+(async()=>{const context=await chromium.launchPersistentContext(path.resolve(__dirname,'../.local/lpo-admin-browser'),{executablePath:'C:/Program Files/Google/Chrome/Application/chrome.exe',headless:false,args:['--remote-debugging-port=9333'],viewport:null});const page=context.pages()[0]||await context.newPage();await page.goto('https://admin.shopify.com/store/lumina-10621/apps/live-product-options',{waitUntil:'domcontentloaded'});console.log('Dedicated Shopify login window opened.');await new Promise(resolve=>context.on('close',resolve));})().catch(e=>{console.error(e.message);process.exit(1)});

@@ -1,0 +1,422 @@
+{
+  "sections": {
+    "section0": {
+      "type": "lumina-hero",
+      "settings": {}
+    },
+    "section1": {
+      "type": "lumina-quick-answers",
+      "settings": {},
+      "blocks": {
+        "block0": {
+          "type": "fact_0",
+          "settings": {
+            "content_0": "100% blackout guaranteed"
+          }
+        },
+        "block1": {
+          "type": "fact_1",
+          "settings": {
+            "content_0": "Free USA shipping"
+          }
+        },
+        "block2": {
+          "type": "fact_2",
+          "settings": {
+            "content_0": "Delivered in 7–11 days"
+          }
+        },
+        "block3": {
+          "type": "fact_3",
+          "settings": {
+            "content_0": "No-drill install"
+          }
+        }
+      },
+      "block_order": [
+        "block0",
+        "block1",
+        "block2",
+        "block3"
+      ]
+    },
+    "section2": {
+      "type": "lumina-value-props",
+      "settings": {},
+      "blocks": {
+        "block0": {
+          "type": "benefit_0",
+          "settings": {
+            "content_0": "100% Blackout",
+            "content_1": "Our proprietary triple-layer fabric eliminates every trace of light — including edge bleed."
+          }
+        },
+        "block1": {
+          "type": "benefit_1",
+          "settings": {
+            "content_0": "No-Drill Install",
+            "content_1": "Tension-mount technology grips your window frame perfectly. Zero tools, zero damage, zero stress."
+          }
+        },
+        "block2": {
+          "type": "benefit_2",
+          "settings": {
+            "content_0": "Cut to Size",
+            "content_1": "Enter your measurements and we make every blind to fit your window."
+          }
+        },
+        "block3": {
+          "type": "benefit_3",
+          "settings": {
+            "content_0": "Premium Fabric",
+            "content_1": "OEKO-TEX® certified, PVC-free fabric. Soft, durable, and sustainably sourced."
+          }
+        },
+        "block4": {
+          "type": "benefit_4",
+          "settings": {
+            "content_0": "Quick Delivery",
+            "content_1": "Made to order and delivered within 7-11 business days. Straight to your door."
+          }
+        },
+        "block5": {
+          "type": "benefit_5",
+          "settings": {
+            "content_0": "1 Year Guarantee",
+            "content_1": "Every blind is backed by a 1 year manufacturer's guarantee for added peace of mind."
+          }
+        }
+      },
+      "block_order": [
+        "block0",
+        "block1",
+        "block2",
+        "block3",
+        "block4",
+        "block5"
+      ]
+    },
+    "section3": {
+      "type": "lumina-comparison",
+      "settings": {},
+      "blocks": {
+        "block0": {
+          "type": "comparison_0",
+          "settings": {
+            "content_0": "100% Light Blocked",
+            "content_1": "Complete blackout, no edge bleed"
+          }
+        },
+        "block1": {
+          "type": "comparison_1",
+          "settings": {
+            "content_0": "No-Drill Installation",
+            "content_1": "Tension mount, no wall damage"
+          }
+        },
+        "block2": {
+          "type": "comparison_2",
+          "settings": {
+            "content_0": "Custom Made to Your Size",
+            "content_1": "Precision-cut to your measurements"
+          }
+        },
+        "block3": {
+          "type": "comparison_3",
+          "settings": {
+            "content_0": "Child-Safe & Cordless",
+            "content_1": "Spring-roll mechanism, no cords"
+          }
+        },
+        "block4": {
+          "type": "comparison_4",
+          "settings": {
+            "content_0": "Thermal Insulation",
+            "content_1": "Regulates room temperature year-round"
+          }
+        },
+        "block5": {
+          "type": "comparison_5",
+          "settings": {
+            "content_0": "OEKO-TEX® Certified Fabric",
+            "content_1": "Independently tested, safe for all rooms"
+          }
+        },
+        "block6": {
+          "type": "comparison_6",
+          "settings": {
+            "content_0": "Zero Light Gaps at Edges",
+            "content_1": "Side channels eliminate all bleed"
+          }
+        },
+        "block7": {
+          "type": "comparison_7",
+          "settings": {
+            "content_0": "Removable & Reusable",
+            "content_1": "Repositions without tools or adhesive"
+          }
+        },
+        "block8": {
+          "type": "comparison_8",
+          "settings": {
+            "content_0": "Ready in Minutes",
+            "content_1": "No professional installer required"
+          }
+        }
+      },
+      "block_order": [
+        "block0",
+        "block1",
+        "block2",
+        "block3",
+        "block4",
+        "block5",
+        "block6",
+        "block7",
+        "block8"
+      ]
+    },
+    "section4": {
+      "type": "lumina-our-story",
+      "settings": {},
+      "blocks": {
+        "block0": {
+          "type": "statistic_0",
+          "settings": {
+            "content_0": "750+",
+            "content_1": "Homes across USA"
+          }
+        },
+        "block1": {
+          "type": "statistic_1",
+          "settings": {
+            "content_0": "4.8 / 5",
+            "content_1": "Average review score"
+          }
+        },
+        "block2": {
+          "type": "statistic_2",
+          "settings": {
+            "content_0": "±1mm",
+            "content_1": "Cutting precision"
+          }
+        },
+        "block3": {
+          "type": "statistic_3",
+          "settings": {
+            "content_0": "5 min",
+            "content_1": "Average install time"
+          }
+        }
+      },
+      "block_order": [
+        "block0",
+        "block1",
+        "block2",
+        "block3"
+      ]
+    },
+    "section5": {
+      "type": "lumina-measuring",
+      "settings": {},
+      "blocks": {
+        "block0": {
+          "type": "step_0",
+          "settings": {
+            "content_0": "01",
+            "content_1": "Measure the width",
+            "content_2": "Measure the inside width of your window recess at three points — top, middle, and bottom. Use the smallest measurement.",
+            "content_3": "💡 For recess fit: subtract 3mm from smallest width measurement so we have a perfect fit."
+          }
+        },
+        "block1": {
+          "type": "step_1",
+          "settings": {
+            "content_0": "02",
+            "content_1": "Measure the drop",
+            "content_2": "Measure the full height of the window recess from top to sill. Measure on both sides and use the smaller figure.",
+            "content_3": "💡 For exact sill coverage, subtract 3mm from smallest drop measurement so we have a perfect fit."
+          }
+        },
+        "block2": {
+          "type": "step_2",
+          "settings": {
+            "content_0": "03",
+            "content_1": "Enter your dimensions",
+            "content_2": "At checkout, enter your chosen width and drop. We make every blind to your supplied measurements.",
+            "content_3": "💡 We accept measurements in both cm and mm."
+          }
+        }
+      },
+      "block_order": [
+        "block0",
+        "block1",
+        "block2"
+      ]
+    },
+    "section6": {
+      "type": "lumina-installation",
+      "settings": {},
+      "blocks": {
+        "block0": {
+          "type": "step_0",
+          "settings": {
+            "content_0": "1",
+            "content_1": "Unbox & unroll",
+            "content_2": "Remove the blind from its tube. It unrolls flat in seconds.",
+            "content_3": "1"
+          }
+        },
+        "block1": {
+          "type": "step_1",
+          "settings": {
+            "content_0": "2",
+            "content_1": "Extend the tension bar",
+            "content_2": "Twist and pull both end caps outward until the bar spans your window width.",
+            "content_3": "2"
+          }
+        },
+        "block2": {
+          "type": "step_2",
+          "settings": {
+            "content_0": "3",
+            "content_1": "Press & click",
+            "content_2": "Push both ends firmly into the window recess until you feel them click into place. The spring tension holds it secure.",
+            "content_3": "3"
+          }
+        },
+        "block3": {
+          "type": "step_3",
+          "settings": {
+            "content_0": "4",
+            "content_1": "Done",
+            "content_2": "Pull down to close, push back up to let light in. That's it — no instructions booklet required.",
+            "content_3": "4"
+          }
+        }
+      },
+      "block_order": [
+        "block0",
+        "block1",
+        "block2",
+        "block3"
+      ]
+    },
+    "section7": {
+      "type": "lumina-reviews",
+      "settings": {}
+    },
+    "section8": {
+      "type": "lumina-newsletter",
+      "settings": {}
+    },
+    "section9": {
+      "type": "lumina-faq",
+      "settings": {},
+      "blocks": {
+        "question0": {
+          "type": "question",
+          "settings": {
+            "question": "Is the blackout really 100%?",
+            "answer": "<p>Yes. Our triple-layer fabric is certified to block 100% of light. Unlike cheap alternatives that leak light at the edges, the Lumina blind sits flush against your recess walls, eliminating side bleed entirely. If you don't get total blackout in your window, we'll replace it free.</p>"
+          }
+        },
+        "question1": {
+          "type": "question",
+          "settings": {
+            "question": "How does the no-drill installation work?",
+            "answer": "<p>The blind uses a spring tension bar. You extend the bar until it matches your window width, then press both ends firmly into the recess walls. The spring tension holds it securely without any fixings. It works in any recess between 5mm and 80mm deep.</p>"
+          }
+        },
+        "question2": {
+          "type": "question",
+          "settings": {
+            "question": "How do I clean it?",
+            "answer": "<p>Spot clean with a damp cloth and mild soap. The fabric is wipe-clean and resistant to mould and mildew. Do not machine wash or submerge in water.</p>"
+          }
+        },
+        "question3": {
+          "type": "question",
+          "settings": {
+            "question": "Do you offer custom sizes beyond the listed options?",
+            "answer": "<p>Absolutely. Select &quot;Custom&quot; at checkout and enter your exact dimensions. We cut to any size from 20cm up to 250cm wide, and any drop from 30cm to 300cm. Custom orders are priced based on area — you'll see the price update as you type.</p>"
+          }
+        },
+        "question4": {
+          "type": "question",
+          "settings": {
+            "question": "How long does delivery take?",
+            "answer": "<p>Every Lumina blind is made to order. From the time you place your order, you can expect delivery within 7–11 business days. That window covers production, quality check, and shipping to your door. Once your blind ships, you'll receive a tracking number by email.</p>"
+          }
+        },
+        "question5": {
+          "type": "question",
+          "settings": {
+            "question": "How much does shipping cost?",
+            "answer": "<p>Nothing. Lumina offers free shipping on every order with no minimum spend. We currently ship within the United States only. We're unable to deliver to PO boxes, military addresses, or international addresses at this time.</p>"
+          }
+        },
+        "question6": {
+          "type": "question",
+          "settings": {
+            "question": "What if my blind arrives damaged or faulty?",
+            "answer": "<p>Contact us at info@luminablackoutblinds.com within 3 business days of delivery. Include your order number, a description of the issue, and photos if possible. Do not install the blind until we've reviewed your claim, as installation can affect our ability to assess the fault. We aim to respond within 1 business day and will arrange a replacement if a manufacturing fault or transit damage is confirmed.</p>"
+          }
+        },
+        "question7": {
+          "type": "question",
+          "settings": {
+            "question": "Can I cancel or change my order after placing it?",
+            "answer": "<p>Because every blind is cut to your exact measurements and goes into production shortly after your order is confirmed, we're usually unable to make changes or cancel once production has started. Please double-check your measurements and selections carefully before ordering. If you spot an error immediately after placing your order, email us as soon as possible and we'll do our best to catch it before production begins.</p>"
+          }
+        },
+        "question8": {
+          "type": "question",
+          "settings": {
+            "question": "What does the warranty cover?",
+            "answer": "<p>Every Lumina blind comes with a 1-year manufacturer's guarantee against confirmed manufacturing faults. It does not cover normal wear and tear, accidental damage, incorrect installation, alterations, or fading from prolonged sunlight exposure. As with all made-to-measure blinds, a manufacturing tolerance of +/- 4mm is standard and does not constitute a fault.</p>"
+          }
+        },
+        "question9": {
+          "type": "question",
+          "settings": {
+            "question": "What colors and frame options are available?",
+            "answer": "<p>The blind fabric comes in four colors: White, Cream, Graphite, and Sky Blue. Frames are available in White or Graphite. All combinations can be selected on the product page before adding to cart.</p>"
+          }
+        },
+        "question10": {
+          "type": "question",
+          "settings": {
+            "question": "Does the blind work on any window type?",
+            "answer": "<p>The Lumina blind is designed specifically for recessed windows — windows with a recess depth of at least 5mm and up to 80mm. The tension bar sits inside the recess, which is what gives the flush, edge-to-edge blackout. It is not suitable for flat-wall mounting or non-recessed frames.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "question0",
+        "question1",
+        "question2",
+        "question3",
+        "question4",
+        "question5",
+        "question6",
+        "question7",
+        "question8",
+        "question9",
+        "question10"
+      ]
+    }
+  },
+  "order": [
+    "section0",
+    "section1",
+    "section2",
+    "section3",
+    "section4",
+    "section5",
+    "section6",
+    "section7",
+    "section8",
+    "section9"
+  ]
+}

@@ -1,0 +1,220 @@
+<div class="lumina-editable-section {% if section.settings.background != blank %}lumina-background-override{% endif %} lumina-width-{{ section.settings.content_width }}" style="--section-background:{{ section.settings.background }};padding-top:{{ section.settings.spacing_top }}px;padding-bottom:{{ section.settings.spacing_bottom }}px"><section class="bg-[#eaedf0] w-full flex flex-col items-center py-16 lg:py-[96px] px-6"><div class="w-full max-w-[1280px] grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-[96px] items-center"><div class="flex flex-col items-start w-full lg:hidden order-1 lg:order-none"><span class="font-sans font-medium text-[#4051b5] text-[12px] tracking-[1.2px] uppercase leading-[16px] mb-4">{{ section.settings.content_0 | escape }}</span><h2 class="font-playfair font-medium text-[#131720] text-4xl leading-tight flex flex-col mb-2">{{ section.settings.heading_0 }}</h2></div><div class="relative w-full h-[500px] lg:h-[710px] order-2 lg:order-1"><div class="relative w-full h-full rounded-[24px] overflow-hidden bg-zinc-200">{% if section.settings.content_5 != blank %}<img width="1600" height="1200" class="object-cover" src="{{ section.settings.content_5 | image_url: width: 2000 }}" alt="{{ section.settings.content_6 | escape }}" loading="lazy" style="position:absolute;inset:0;width:100%;height:100%">{% else %}<img width="1600" height="1200" class="object-cover" src="{{ 'home-ourstory-img1.png' | asset_url }}" alt="{{ section.settings.content_6 | escape }}" loading="lazy" style="position:absolute;inset:0;width:100%;height:100%">{% endif %}</div></div><div class="flex flex-col items-start order-3 lg:order-2 w-full max-w-[600px] justify-self-center lg:justify-self-start"><span class="hidden lg:block font-sans font-medium text-[#4051b5] text-[12px] tracking-[1.2px] uppercase leading-[16px] mb-8">{{ section.settings.content_1 | escape }}</span><h2 class="hidden lg:flex font-playfair font-medium text-[#131720] text-4xl lg:text-[48px] leading-tight lg:leading-[48px] flex-col mb-8">{{ section.settings.heading_0 }}</h2><div class="font-sans font-normal text-[#657186] text-base lg:text-[16px] leading-[26px] flex flex-col gap-[26px] mb-10"><p>{{ section.settings.content_2 | escape }}</p><p>{{ section.settings.content_3 | escape }}</p></div><a href="{% if section.settings.content_7 != blank %}{{ section.settings.content_7 }}{% else %}{{ settings.featured_product.url | default: '/products/honeycomb-blackout-blind' }}{% endif %}" class="flex items-center gap-2 bg-[#131720] text-[#f9fafb] font-sans font-medium text-[14px] leading-[20px] px-[28px] py-[14px] rounded-full hover:bg-black transition-colors mb-12 lg:mb-16">{{ section.settings.content_4 | escape }}<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-white"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></a><div class="w-full pt-8 border-t border-[#dbe0e6] grid grid-cols-2 gap-y-8 gap-x-5">{% for block in section.blocks %}{% case block.type %}{% when 'statistic_0' %}<div class="flex flex-col gap-0.5" {{ block.shopify_attributes }}><span class="font-playfair font-semibold text-[#131720] text-2xl lg:text-[30px] leading-none lg:leading-[36px]">{{ block.settings.content_0 | escape }}</span><span class="font-sans font-normal text-[#657186] text-[14px] leading-[20px]">{{ block.settings.content_1 | escape }}</span></div>{% when 'statistic_1' %}<div class="flex flex-col gap-0.5" {{ block.shopify_attributes }}><span class="font-playfair font-semibold text-[#131720] text-2xl lg:text-[30px] leading-none lg:leading-[36px]">{{ block.settings.content_0 | escape }}</span><span class="font-sans font-normal text-[#657186] text-[14px] leading-[20px]">{{ block.settings.content_1 | escape }}</span></div>{% when 'statistic_2' %}<div class="flex flex-col gap-0.5" {{ block.shopify_attributes }}><span class="font-playfair font-semibold text-[#131720] text-2xl lg:text-[30px] leading-none lg:leading-[36px]">{{ block.settings.content_0 | escape }}</span><span class="font-sans font-normal text-[#657186] text-[14px] leading-[20px]">{{ block.settings.content_1 | escape }}</span></div>{% when 'statistic_3' %}<div class="flex flex-col gap-0.5" {{ block.shopify_attributes }}><span class="font-playfair font-semibold text-[#131720] text-2xl lg:text-[30px] leading-none lg:leading-[36px]">{{ block.settings.content_0 | escape }}</span><span class="font-sans font-normal text-[#657186] text-[14px] leading-[20px]">{{ block.settings.content_1 | escape }}</span></div>{% endcase %}{% endfor %}</div></div></div></section>
+</div>
+
+{% schema %}
+{
+  "name": "Our story",
+  "settings": [
+    {
+      "type": "html",
+      "id": "heading_0",
+      "label": "Heading 1",
+      "default": "<span>Built for people who</span><span class=\"font-normal italic\">take sleep seriously</span>"
+    },
+    {
+      "type": "text",
+      "id": "content_0",
+      "label": "Our Story",
+      "default": "Our Story"
+    },
+    {
+      "type": "text",
+      "id": "content_1",
+      "label": "Our Story",
+      "default": "Our Story"
+    },
+    {
+      "type": "textarea",
+      "id": "content_2",
+      "label": "Lumina started with a simple frustration: eve",
+      "default": "Lumina started with a simple frustration: every blackout blind on the market either leaked light, looked cheap, or required drilling into rented walls. We spent three years building something better."
+    },
+    {
+      "type": "textarea",
+      "id": "content_3",
+      "label": "Today, our blinds are trusted in over 750 hom",
+      "default": "Today, our blinds are trusted in over 750 homes — Every blind is made to your exact measurements, is delivered within 7-11 working days, and installs without a single drill hole."
+    },
+    {
+      "type": "text",
+      "id": "content_4",
+      "label": "See the Blind",
+      "default": "See the Blind"
+    },
+    {
+      "type": "image_picker",
+      "id": "content_5",
+      "label": "Image"
+    },
+    {
+      "type": "text",
+      "id": "content_6",
+      "label": "Image description",
+      "default": "Lumina blind in a calm bedroom"
+    },
+    {
+      "type": "url",
+      "id": "content_7",
+      "label": "Link destination"
+    },
+    {
+      "type": "header",
+      "content": "Layout"
+    },
+    {
+      "type": "range",
+      "id": "spacing_top",
+      "label": "Extra top spacing",
+      "min": 0,
+      "max": 120,
+      "step": 4,
+      "unit": "px",
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "spacing_bottom",
+      "label": "Extra bottom spacing",
+      "min": 0,
+      "max": 120,
+      "step": 4,
+      "unit": "px",
+      "default": 0
+    },
+    {
+      "type": "color",
+      "id": "background",
+      "label": "Section background override"
+    },
+    {
+      "type": "select",
+      "id": "content_width",
+      "label": "Content width",
+      "default": "original",
+      "options": [
+        {
+          "value": "original",
+          "label": "Original design"
+        },
+        {
+          "value": "narrow",
+          "label": "Narrow"
+        },
+        {
+          "value": "wide",
+          "label": "Wide"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Our story",
+      "blocks": [
+        {
+          "type": "statistic_0",
+          "settings": {
+            "content_0": "750+",
+            "content_1": "Homes across USA"
+          }
+        },
+        {
+          "type": "statistic_1",
+          "settings": {
+            "content_0": "4.8 / 5",
+            "content_1": "Average review score"
+          }
+        },
+        {
+          "type": "statistic_2",
+          "settings": {
+            "content_0": "±1mm",
+            "content_1": "Cutting precision"
+          }
+        },
+        {
+          "type": "statistic_3",
+          "settings": {
+            "content_0": "5 min",
+            "content_1": "Average install time"
+          }
+        }
+      ]
+    }
+  ],
+  "blocks": [
+    {
+      "type": "statistic_0",
+      "name": "750+Homes across USA",
+      "settings": [
+        {
+          "type": "text",
+          "id": "content_0",
+          "label": "750+",
+          "default": "750+"
+        },
+        {
+          "type": "text",
+          "id": "content_1",
+          "label": "Homes across USA",
+          "default": "Homes across USA"
+        }
+      ]
+    },
+    {
+      "type": "statistic_1",
+      "name": "4.8 / 5Average review sc",
+      "settings": [
+        {
+          "type": "text",
+          "id": "content_0",
+          "label": "4.8 / 5",
+          "default": "4.8 / 5"
+        },
+        {
+          "type": "text",
+          "id": "content_1",
+          "label": "Average review score",
+          "default": "Average review score"
+        }
+      ]
+    },
+    {
+      "type": "statistic_2",
+      "name": "±1mmCutting precision",
+      "settings": [
+        {
+          "type": "text",
+          "id": "content_0",
+          "label": "±1mm",
+          "default": "±1mm"
+        },
+        {
+          "type": "text",
+          "id": "content_1",
+          "label": "Cutting precision",
+          "default": "Cutting precision"
+        }
+      ]
+    },
+    {
+      "type": "statistic_3",
+      "name": "5 minAverage install tim",
+      "settings": [
+        {
+          "type": "text",
+          "id": "content_0",
+          "label": "5 min",
+          "default": "5 min"
+        },
+        {
+          "type": "text",
+          "id": "content_1",
+          "label": "Average install time",
+          "default": "Average install time"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

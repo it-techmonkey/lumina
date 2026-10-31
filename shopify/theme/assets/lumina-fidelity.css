@@ -1,0 +1,60 @@
+/* The existing storefront is the visual reference; settings and app data stay native. */
+[class~="text-[#657186]"]{color:#657186}[class~="text-[#8c95a4]"]{color:#8c95a4}[class~="text-[#c8cdd6]"]{color:#c8cdd6}[class~="text-[#9aa3af]"]{color:#9aa3af}[class~="text-white/40"]{color:rgb(255 255 255/.4)}
+.lumina-stars{display:inline-flex;gap:2px;color:#b7791f;flex-shrink:0;align-items:center}
+.lumina-stars svg{width:var(--star-size);height:var(--star-size);flex-shrink:0}
+.lumina-reviews-original{display:grid;grid-template-columns:300px minmax(0,1fr);gap:56px;max-width:1180px;margin:auto}
+.lumina-review-summary{display:flex;flex-direction:column;gap:28px;position:sticky;top:112px;align-self:start}
+.lumina-review-summary-heading{display:flex;flex-direction:column;gap:12px}
+.lumina-review-summary h2{font:600 24px/1.25 var(--font-manrope);color:var(--lumina-ink)}
+.lumina-review-score{display:flex;align-items:center;gap:12px;font-size:15px}
+.lumina-review-summary p,.lumina-review-heading p{font-size:13px;color:#657186}
+.lumina-rating-breakdown{display:flex;flex-direction:column;gap:8px}
+.lumina-rating-breakdown>div{display:grid;grid-template-columns:46px 1fr 38px;align-items:center;gap:8px;font-size:13px;color:#2563a8}
+.lumina-rating-breakdown>div>span:last-child{text-align:right}
+.lumina-rating-track{height:20px;border-radius:4px;overflow:hidden;border:1px solid #d5d9d9;background:#f0f2f2}
+.lumina-rating-track>div{height:100%;background:#b7791f}
+.lumina-review-feed{display:flex;flex-direction:column;gap:28px;min-width:0}
+.lumina-review-heading{border:1px solid #dbe0e6;background:#f9fafb;border-radius:8px;padding:20px;display:flex;justify-content:space-between;gap:12px;align-items:center}
+.lumina-review-heading h3{font-size:20px;font-weight:600}.lumina-review-heading p{margin-top:4px}
+.lumina-review-photos{display:flex;gap:8px;overflow:auto;padding-bottom:4px;margin-bottom:24px}
+.lumina-review-photos button{width:88px;height:88px;flex-shrink:0;border:1px solid #dbe0e6;border-radius:8px;overflow:hidden;background:#f0f2f2}
+.lumina-review-photos img{width:100%;height:100%;object-fit:cover}
+.lumina-review-cards article{padding:24px 0;border-bottom:1px solid #eaedf0}.lumina-review-cards article:first-child{padding-top:0}.lumina-review-cards article:last-child{border:0}
+.lumina-review-author{display:flex;align-items:center;gap:12px;font-size:13px}.lumina-review-author>span{display:grid;place-items:center;width:36px;height:36px;background:#dbe0e6;border-radius:50%;font-weight:600}
+.lumina-review-title{display:flex;gap:8px;align-items:center;margin-top:12px}.lumina-review-title h4{font-size:14px;font-weight:600}
+.lumina-review-body{margin-top:12px;max-width:720px;font-size:14px;line-height:24px;color:#384152}
+.lumina-review-card-media{margin-top:16px;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px;max-width:720px}
+.lumina-review-card-media a{aspect-ratio:1;border:1px solid #dbe0e6;border-radius:8px;overflow:hidden;background:#f0f2f2}.lumina-review-card-media img{width:100%;height:100%;object-fit:cover}
+.lumina-review-more{display:inline-flex;margin-top:28px;border-radius:999px;border:1px solid #b8bec7;padding:10px 20px;background:#fff;font-size:14px;box-shadow:0 1px 2px #0000000d}
+.lumina-reviews-original [data-native-review-panel]{min-width:0}.lumina-reviews-original .jdgm-widget{--jm-review-widget-star-and-histogram-color:#b7791f;--jm-review-widget-button-color:var(--lumina-ink)}
+.lumina-hero-rating{gap:10px;padding:8px 16px;background:#ffffff14;border-color:#ffffff1f;line-height:16px}
+.lumina-hero-rating .lumina-stars{--star-size:11px!important;color:#fbbf24}.lumina-hero-rating>span:last-child{font-size:12px;letter-spacing:.025em;color:#ffffffb3}
+.lumina-nav-link{line-height:20px}header>a,header [aria-label="Home"]>span{letter-spacing:-.5px}
+.lumina-judgeme-section:has(.lumina-reviews-original){padding-inline:32px}
+@media(max-width:1023px){.lumina-reviews-original{grid-template-columns:minmax(0,1fr);gap:40px}.lumina-review-summary{position:static}}
+@media(max-width:767px){.lumina-judgeme-section:has(.lumina-reviews-original){padding:56px 16px!important}.lumina-review-title{align-items:flex-start;flex-direction:column;gap:4px}.lumina-review-heading{align-items:flex-start;flex-direction:column}.lumina-review-card-media{grid-template-columns:repeat(2,minmax(0,1fr))}}
+dialog.lumina-welcome{position:fixed;inset:0;padding:0;margin:0;border:0;width:100vw;height:100dvh;max-width:100vw;max-height:100dvh;background:#000;color:#fff;overflow:auto}
+.lumina-welcome-grid{display:grid;grid-template-columns:55% 45%;min-height:100dvh}.lumina-welcome-visual{position:relative;min-height:100dvh}
+.lumina-welcome-image,.lumina-welcome-shade{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}.lumina-welcome-shade{background:linear-gradient(90deg,#0009,#0005),#0004}
+.lumina-welcome-visual-content{position:relative;display:flex;flex-direction:column;justify-content:space-between;padding:48px;height:100%;min-height:100dvh;gap:40px}
+.lumina-welcome-brand{text-transform:uppercase;font-size:20px;font-weight:600;letter-spacing:.25em;color:#fffc}.lumina-welcome-story{display:flex;flex-direction:column;gap:24px}
+.lumina-welcome-pill{display:inline-flex;align-items:center;gap:8px;width:fit-content;border:1px solid #ffffff26;background:#ffffff14;padding:4px 12px;border-radius:999px;font-size:10px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:#ffffff80}
+.lumina-welcome-pill>span,.lumina-welcome-benefits>div>span{width:6px;height:6px;flex-shrink:0;border-radius:50%;background:#34d399}
+.lumina-welcome-story h2{font:500 40px/1.1 var(--font-lora);margin-top:12px}.lumina-welcome-story h2 em{opacity:.6}.lumina-welcome-story-copy{font-size:13px;line-height:24px;color:#fff6;max-width:320px;margin-top:12px}
+.lumina-welcome-guarantees .lumina-guarantee-badges{display:flex;gap:16px;padding:0}.lumina-welcome-guarantees svg{width:80px;height:80px;color:white}
+.lumina-welcome-benefits{border-top:1px solid #ffffff1a;padding-top:24px;display:grid;grid-template-columns:1fr 1fr;gap:16px 24px}.lumina-welcome-benefits>div{display:flex;align-items:flex-start;gap:10px}.lumina-welcome-benefits>div>span{margin-top:4px}.lumina-welcome-benefits h3{font-size:12px;font-weight:600;line-height:20px;color:#fffc}.lumina-welcome-benefits p{font-size:11px;line-height:16px;color:#ffffff59;margin-top:2px}
+.lumina-welcome-right{display:flex;flex-direction:column;background:#000}.lumina-welcome-close-row{display:flex;justify-content:flex-end;padding:24px}.lumina-welcome-close-row button{width:40px;height:40px;display:grid;place-items:center;border:1px solid #ffffff66;border-radius:50%;color:#fff;background:#ffffff1a;transition:background .2s,border-color .2s}.lumina-welcome-close-row button:hover{border-color:#fff;background:#fff3}.lumina-welcome-close-row button svg{width:16px;height:16px}
+.lumina-welcome-form-wrap{flex:1;display:flex;flex-direction:column;justify-content:center;padding:0 56px 56px}.lumina-welcome-form-content{display:flex;flex-direction:column;gap:32px;max-width:360px}
+.lumina-welcome-eyebrow{font-size:10px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:#ffffff80}.lumina-welcome-form-content h2{display:flex;align-items:flex-end;gap:12px;margin-top:8px;font:500 64px/1 var(--font-lora)}.lumina-welcome-form-content h2>span+span{font-size:32px;padding-bottom:8px;color:#fff9}.lumina-welcome-subheading{font-size:13px;color:#ffffffb3;margin-top:8px}
+.lumina-welcome-rule{height:1px;background:#ffffff1a}.lumina-welcome-description{font-size:14px;line-height:24px;color:#ffffffb3}
+.lumina-welcome form{display:flex;flex-direction:column;gap:12px}.lumina-welcome input{width:100%;border-radius:12px;border:1px solid #ffffff1a;background:#ffffff0d;padding:14px 16px;font-size:14px;color:#fff}.lumina-welcome input::placeholder{color:#ffffff59}.lumina-welcome button[type=submit]{width:100%;border-radius:12px;background:#fff;color:#000;padding:14px;font-size:14px;font-weight:600}.lumina-welcome-consent{font-size:11px;color:#ffffff66;margin-top:-16px}.lumina-welcome-mobile-guarantees{display:none}.lumina-welcome-success h3{font:500 30px/1.2 var(--font-lora)}.lumina-welcome-success p{font-size:14px;margin-block:16px}.lumina-welcome-success button{padding:12px 16px;border:1px dashed #ffffff80;width:100%;display:flex;justify-content:space-between}
+@media(max-width:1023px){.lumina-welcome-form-wrap{padding-inline:40px}}
+@media(max-width:767px){.lumina-welcome-grid{grid-template-columns:1fr}.lumina-welcome-visual{display:none}.lumina-welcome-mobile-guarantees{display:block;margin-top:-8px}.lumina-welcome-mobile-guarantees .lumina-guarantee-badges{display:flex;gap:16px;padding:0}.lumina-welcome-mobile-guarantees svg{width:56px;height:56px;color:white}}
+.lumina-faq-inner .lumina-accordion summary{padding-block:24px;line-height:24px;min-height:76px}.lumina-faq-inner .lumina-accordion summary>span{display:grid;place-items:center;width:28px;height:28px;flex-shrink:0;font-size:24px;line-height:1}
+.lumina-gallery-prev,.lumina-gallery-next{width:36px;height:36px;transform:translateY(-50%);box-shadow:0 1px 2px #0000000d}
+.lumina-gallery-zoom{inset:0;width:100%;height:100%;border-radius:0;background:transparent;color:transparent;z-index:1}
+.lumina-gallery-dots{display:flex;justify-content:center;gap:6px;margin-top:-40px;margin-bottom:20px;position:relative;z-index:2;pointer-events:none}.lumina-gallery-dots button{width:6px;height:6px;border-radius:50%;background:#ffffff80;pointer-events:auto}.lumina-gallery-dots button[aria-pressed=true]{background:#fff;width:20px;border-radius:999px}.lumina-gallery-thumbs [data-gallery-more]>span{position:absolute;inset:0;background:#0008;color:white;display:grid;place-items:center;font-size:24px;font-weight:600}
+.lumina-faq-inner .lumina-accordion summary{gap:16px}
+.lumina-native-product-form>.lumina-accordion+.lumina-accordion{margin-top:-24px}.lumina-native-product-form>.lumina-accordion summary{padding-block:20px;line-height:24px}.lumina-native-product-form>.lumina-accordion summary>span:last-child{font-size:20px;line-height:24px}.lumina-price-from{font:400 16px var(--font-manrope);color:#657186}
+@media(max-width:1023px){.lumina-editable-section section[class~="min-h-screen"] svg[width="84"]{width:84px;height:84px}}
+.lumina-native-product-form .lumina-product-description{max-width:560px;margin-top:-16px}.lumina-native-product-form .lumina-product-description li{margin-bottom:4px;padding-left:4px}.lumina-native-product-form .lumina-product-description ul{margin-left:20px;padding-left:0}.lumina-native-product-form .lumina-rating-link{display:flex;align-items:center;gap:8px;margin-top:-16px;font-size:13px;color:#657186}.lumina-native-product-form .lumina-rating-link .lumina-stars{color:#b7791f}

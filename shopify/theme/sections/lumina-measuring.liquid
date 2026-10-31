@@ -1,0 +1,244 @@
+<div class="lumina-editable-section {% if section.settings.background != blank %}lumina-background-override{% endif %} lumina-width-{{ section.settings.content_width }}" style="--section-background:{{ section.settings.background }};padding-top:{{ section.settings.spacing_top }}px;padding-bottom:{{ section.settings.spacing_bottom }}px"><section class="bg-[#f9fafb] w-full flex flex-col items-center py-16 lg:py-[96px] px-6"><div class="w-full max-w-[1280px] grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-[64px] items-center"><div class="flex flex-col items-start gap-4 max-w-[550px] w-full lg:hidden order-1"><span class="font-sans font-medium text-[#4051b5] text-[12px] tracking-[1.2px] uppercase leading-[16px]">{{ section.settings.content_0 | escape }}</span><h2 class="font-playfair font-medium text-[#131720] text-4xl leading-tight flex flex-col mb-0">{{ section.settings.heading_0 }}</h2></div><div class="flex flex-col items-start gap-4 max-w-[550px] justify-self-center lg:justify-self-start order-3 lg:order-1"><span class="hidden lg:block font-sans font-medium text-[#4051b5] text-[12px] tracking-[1.2px] uppercase leading-[16px]">{{ section.settings.content_1 | escape }}</span><h2 class="hidden lg:flex font-playfair font-medium text-[#131720] text-[48px] leading-[48px] flex-col mb-1">{{ section.settings.heading_1 }}</h2><p class="font-sans font-normal text-[#657186] text-base lg:text-[16px] leading-[26px]">{{ section.settings.content_2 | escape }}</p><div class="flex flex-col gap-8 mt-6">{% for block in section.blocks %}{% case block.type %}{% when 'step_0' %}<div class="flex gap-5 items-start" {{ block.shopify_attributes }}><div class="bg-[#eaedf0] rounded-full w-12 h-12 flex items-center justify-center shrink-0"><span class="font-playfair font-semibold text-[#657186] text-[14px] leading-[20px]">{{ block.settings.content_0 | escape }}</span></div><div class="flex flex-col gap-[3.4px] pt-1"><h3 class="font-playfair font-medium text-[#131720] text-[18px] leading-[28px]">{{ block.settings.content_1 | escape }}</h3><p class="font-sans font-normal text-[#657186] text-[14px] leading-[22.75px]">{{ block.settings.content_2 | escape }}</p><p class="font-sans font-medium text-[#4051b5] text-[12px] leading-[16px] mt-1">{{ block.settings.content_3 | escape }}</p></div></div>{% when 'step_1' %}<div class="flex gap-5 items-start" {{ block.shopify_attributes }}><div class="bg-[#eaedf0] rounded-full w-12 h-12 flex items-center justify-center shrink-0"><span class="font-playfair font-semibold text-[#657186] text-[14px] leading-[20px]">{{ block.settings.content_0 | escape }}</span></div><div class="flex flex-col gap-[3.4px] pt-1"><h3 class="font-playfair font-medium text-[#131720] text-[18px] leading-[28px]">{{ block.settings.content_1 | escape }}</h3><p class="font-sans font-normal text-[#657186] text-[14px] leading-[22.75px]">{{ block.settings.content_2 | escape }}</p><p class="font-sans font-medium text-[#4051b5] text-[12px] leading-[16px] mt-1">{{ block.settings.content_3 | escape }}</p></div></div>{% when 'step_2' %}<div class="flex gap-5 items-start" {{ block.shopify_attributes }}><div class="bg-[#eaedf0] rounded-full w-12 h-12 flex items-center justify-center shrink-0"><span class="font-playfair font-semibold text-[#657186] text-[14px] leading-[20px]">{{ block.settings.content_0 | escape }}</span></div><div class="flex flex-col gap-[3.4px] pt-1"><h3 class="font-playfair font-medium text-[#131720] text-[18px] leading-[28px]">{{ block.settings.content_1 | escape }}</h3><p class="font-sans font-normal text-[#657186] text-[14px] leading-[22.75px]">{{ block.settings.content_2 | escape }}</p><p class="font-sans font-medium text-[#4051b5] text-[12px] leading-[16px] mt-1">{{ block.settings.content_3 | escape }}</p></div></div>{% endcase %}{% endfor %}</div></div><div class="relative w-full h-[500px] lg:h-[730px] order-2 lg:order-2"><div class="relative w-full h-full rounded-[24px] overflow-hidden shadow-[0_20px_25px_-5px_rgba(0,0,0,0.1),0_8px_10px_-6px_rgba(0,0,0,0.1)] bg-zinc-200">{% if section.settings.content_6 != blank %}<img width="1600" height="1200" class="object-cover" src="{{ section.settings.content_6 | image_url: width: 2000 }}" alt="{{ section.settings.content_7 | escape }}" loading="lazy" style="position:absolute;inset:0;width:100%;height:100%">{% else %}<img width="1600" height="1200" class="object-cover" src="{{ 'home-measuring-guide-img.webp' | asset_url }}" alt="{{ section.settings.content_7 | escape }}" loading="lazy" style="position:absolute;inset:0;width:100%;height:100%">{% endif %}</div><div class="absolute top-6 right-0 lg:-right-8 bg-[#f9fafb] border border-[#dbe0e6] rounded-[16px] p-[21px] w-[150px] lg:w-[176px] shadow-[0_10px_15px_-3px_rgba(0,0,0,0.1),0_4px_6px_-4px_rgba(0,0,0,0.1)] z-10 flex flex-col gap-1"><span class="font-sans font-normal text-[#657186] text-[12px] leading-[16px]">{{ section.settings.content_3 | escape }}</span><span class="font-playfair font-semibold text-[#131720] text-[24px] leading-[32px]">{{ section.settings.content_4 | escape }}</span><span class="font-sans font-normal text-[#657186] text-[12px] leading-[16px]">{{ section.settings.content_5 | escape }}</span></div></div></div></section>
+</div>
+
+{% schema %}
+{
+  "name": "Measuring guide",
+  "settings": [
+    {
+      "type": "html",
+      "id": "heading_0",
+      "label": "Heading 1",
+      "default": "<span>Measure once,</span><span class=\"font-normal italic\">fit perfectly</span>"
+    },
+    {
+      "type": "html",
+      "id": "heading_1",
+      "label": "Heading 2",
+      "default": "<span>Measure once,</span><span class=\"font-normal italic\">fit perfectly</span>"
+    },
+    {
+      "type": "text",
+      "id": "content_0",
+      "label": "Measuring Guide",
+      "default": "Measuring Guide"
+    },
+    {
+      "type": "text",
+      "id": "content_1",
+      "label": "Measuring Guide",
+      "default": "Measuring Guide"
+    },
+    {
+      "type": "textarea",
+      "id": "content_2",
+      "label": "Our blinds are made to your exact measurement",
+      "default": "Our blinds are made to your exact measurements. Follow these three simple steps and your blind will fit your window flawlessly — first time, every time."
+    },
+    {
+      "type": "text",
+      "id": "content_3",
+      "label": "Custom",
+      "default": "Custom"
+    },
+    {
+      "type": "text",
+      "id": "content_4",
+      "label": "Made",
+      "default": "Made"
+    },
+    {
+      "type": "text",
+      "id": "content_5",
+      "label": "to measure",
+      "default": "to measure"
+    },
+    {
+      "type": "image_picker",
+      "id": "content_6",
+      "label": "Image"
+    },
+    {
+      "type": "text",
+      "id": "content_7",
+      "label": "Image description",
+      "default": "Measuring a window"
+    },
+    {
+      "type": "header",
+      "content": "Layout"
+    },
+    {
+      "type": "range",
+      "id": "spacing_top",
+      "label": "Extra top spacing",
+      "min": 0,
+      "max": 120,
+      "step": 4,
+      "unit": "px",
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "spacing_bottom",
+      "label": "Extra bottom spacing",
+      "min": 0,
+      "max": 120,
+      "step": 4,
+      "unit": "px",
+      "default": 0
+    },
+    {
+      "type": "color",
+      "id": "background",
+      "label": "Section background override"
+    },
+    {
+      "type": "select",
+      "id": "content_width",
+      "label": "Content width",
+      "default": "original",
+      "options": [
+        {
+          "value": "original",
+          "label": "Original design"
+        },
+        {
+          "value": "narrow",
+          "label": "Narrow"
+        },
+        {
+          "value": "wide",
+          "label": "Wide"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Measuring guide",
+      "blocks": [
+        {
+          "type": "step_0",
+          "settings": {
+            "content_0": "01",
+            "content_1": "Measure the width",
+            "content_2": "Measure the inside width of your window recess at three points — top, middle, and bottom. Use the smallest measurement.",
+            "content_3": "💡 For recess fit: subtract 3mm from smallest width measurement so we have a perfect fit."
+          }
+        },
+        {
+          "type": "step_1",
+          "settings": {
+            "content_0": "02",
+            "content_1": "Measure the drop",
+            "content_2": "Measure the full height of the window recess from top to sill. Measure on both sides and use the smaller figure.",
+            "content_3": "💡 For exact sill coverage, subtract 3mm from smallest drop measurement so we have a perfect fit."
+          }
+        },
+        {
+          "type": "step_2",
+          "settings": {
+            "content_0": "03",
+            "content_1": "Enter your dimensions",
+            "content_2": "At checkout, enter your chosen width and drop. We make every blind to your supplied measurements.",
+            "content_3": "💡 We accept measurements in both cm and mm."
+          }
+        }
+      ]
+    }
+  ],
+  "blocks": [
+    {
+      "type": "step_0",
+      "name": "Measure the width",
+      "settings": [
+        {
+          "type": "text",
+          "id": "content_0",
+          "label": "01",
+          "default": "01"
+        },
+        {
+          "type": "text",
+          "id": "content_1",
+          "label": "Heading",
+          "default": "Measure the width"
+        },
+        {
+          "type": "textarea",
+          "id": "content_2",
+          "label": "Measure the inside width of your window reces",
+          "default": "Measure the inside width of your window recess at three points — top, middle, and bottom. Use the smallest measurement."
+        },
+        {
+          "type": "text",
+          "id": "content_3",
+          "label": "💡 For recess fit: subtract 3mm from smallest",
+          "default": "💡 For recess fit: subtract 3mm from smallest width measurement so we have a perfect fit."
+        }
+      ]
+    },
+    {
+      "type": "step_1",
+      "name": "Measure the drop",
+      "settings": [
+        {
+          "type": "text",
+          "id": "content_0",
+          "label": "02",
+          "default": "02"
+        },
+        {
+          "type": "text",
+          "id": "content_1",
+          "label": "Heading",
+          "default": "Measure the drop"
+        },
+        {
+          "type": "textarea",
+          "id": "content_2",
+          "label": "Measure the full height of the window recess ",
+          "default": "Measure the full height of the window recess from top to sill. Measure on both sides and use the smaller figure."
+        },
+        {
+          "type": "text",
+          "id": "content_3",
+          "label": "💡 For exact sill coverage, subtract 3mm from",
+          "default": "💡 For exact sill coverage, subtract 3mm from smallest drop measurement so we have a perfect fit."
+        }
+      ]
+    },
+    {
+      "type": "step_2",
+      "name": "Enter your dimensions",
+      "settings": [
+        {
+          "type": "text",
+          "id": "content_0",
+          "label": "03",
+          "default": "03"
+        },
+        {
+          "type": "text",
+          "id": "content_1",
+          "label": "Heading",
+          "default": "Enter your dimensions"
+        },
+        {
+          "type": "text",
+          "id": "content_2",
+          "label": "At checkout, enter your chosen width and drop",
+          "default": "At checkout, enter your chosen width and drop. We make every blind to your supplied measurements."
+        },
+        {
+          "type": "text",
+          "id": "content_3",
+          "label": "💡 We accept measurements in both cm and mm.",
+          "default": "💡 We accept measurements in both cm and mm."
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

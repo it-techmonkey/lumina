@@ -1,0 +1,14 @@
+{
+  "sections": {
+    "main": {
+      "type": "lumina-guide",
+      "settings": {
+        "heading": "Fitting guide",
+        "filename": "guide-lumina_honeycomb_fitting_guide.pdf"
+      }
+    }
+  },
+  "order": [
+    "main"
+  ]
+}

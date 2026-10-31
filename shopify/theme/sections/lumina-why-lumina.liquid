@@ -1,0 +1,259 @@
+<div class="lumina-editable-section {% if section.settings.background != blank %}lumina-background-override{% endif %} lumina-width-{{ section.settings.content_width }}" style="--section-background:{{ section.settings.background }};padding-top:{{ section.settings.spacing_top }}px;padding-bottom:{{ section.settings.spacing_bottom }}px"><section class="bg-[#f9fafb] w-full py-16 md:py-24 px-4 md:px-6 relative"><div class="max-w-[1248px] mx-auto flex flex-col gap-10 md:gap-14"><div class="flex flex-col gap-4"><span class="text-[#4051b5] font-sans font-medium text-[12px] tracking-[1.2px] uppercase">{{ section.settings.content_0 | escape }}</span><h2 class="text-[#131720] text-4xl lg:text-[48px] font-playfair font-medium leading-tight">{{ section.settings.content_1 | escape }} <span class="italic"><br>{{ section.settings.content_2 | escape }}</span></h2></div><div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">{% for block in section.blocks %}{% case block.type %}{% when 'benefit_0' %}<div class="bg-[#eaedf0] rounded-[16px] p-6 flex flex-col gap-5 sm:flex-row sm:items-start" {{ block.shopify_attributes }}><div class="bg-[#f9fafb] rounded-xl w-12 h-12 shrink-0 flex items-center justify-center"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-[#131720]"><path d="M21.3 15.3l-3.6-3.6"/><path d="M14 8l-6-6"/><path d="M4 14l-2 2"/><path d="M22 22l-2-2"/><path d="M14.7 14.7l-9.4-9.4"/><path d="M4 4l16 16"/></svg></div><div class="flex flex-col gap-1.5"><h3 class="font-playfair font-medium text-[#131720] text-[16px]">{{ block.settings.content_0 | escape }}</h3><p class="font-sans text-[14px] text-[#657186] leading-relaxed">{{ block.settings.content_1 | escape }}</p></div></div>{% when 'benefit_1' %}<div class="bg-[#eaedf0] rounded-[16px] p-6 flex flex-col gap-5 sm:flex-row sm:items-start" {{ block.shopify_attributes }}><div class="bg-[#f9fafb] rounded-xl w-12 h-12 shrink-0 flex items-center justify-center"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-[#131720]"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div><div class="flex flex-col gap-1.5"><h3 class="font-playfair font-medium text-[#131720] text-[16px]">{{ block.settings.content_0 | escape }}</h3><p class="font-sans text-[14px] text-[#657186] leading-relaxed">{{ block.settings.content_1 | escape }}</p></div></div>{% when 'benefit_2' %}<div class="bg-[#eaedf0] rounded-[16px] p-6 flex flex-col gap-5 sm:flex-row sm:items-start" {{ block.shopify_attributes }}><div class="bg-[#f9fafb] rounded-xl w-12 h-12 shrink-0 flex items-center justify-center"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-[#131720]"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></div><div class="flex flex-col gap-1.5"><h3 class="font-playfair font-medium text-[#131720] text-[16px]">{{ block.settings.content_0 | escape }}</h3><p class="font-sans text-[14px] text-[#657186] leading-relaxed">{{ block.settings.content_1 | escape }}</p></div></div>{% when 'benefit_3' %}<div class="bg-[#eaedf0] rounded-[16px] p-6 flex flex-col gap-5 sm:flex-row sm:items-start" {{ block.shopify_attributes }}><div class="bg-[#f9fafb] rounded-xl w-12 h-12 shrink-0 flex items-center justify-center"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-[#131720]"><polyline points="15 14 20 9 15 4"/><path d="M4 20v-7a4 4 0 0 1 4-4h12"/></svg></div><div class="flex flex-col gap-1.5"><h3 class="font-playfair font-medium text-[#131720] text-[16px]">{{ block.settings.content_0 | escape }}</h3><p class="font-sans text-[14px] text-[#657186] leading-relaxed">{{ block.settings.content_1 | escape }}</p></div></div>{% when 'benefit_4' %}<div class="bg-[#eaedf0] rounded-[16px] p-6 flex flex-col gap-5 sm:flex-row sm:items-start" {{ block.shopify_attributes }}><div class="bg-[#f9fafb] rounded-xl w-12 h-12 shrink-0 flex items-center justify-center"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-[#131720]"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg></div><div class="flex flex-col gap-1.5"><h3 class="font-playfair font-medium text-[#131720] text-[16px]">{{ block.settings.content_0 | escape }}</h3><p class="font-sans text-[14px] text-[#657186] leading-relaxed">{{ block.settings.content_1 | escape }}</p></div></div>{% when 'benefit_5' %}<div class="bg-[#eaedf0] rounded-[16px] p-6 flex flex-col gap-5 sm:flex-row sm:items-start" {{ block.shopify_attributes }}><div class="bg-[#f9fafb] rounded-xl w-12 h-12 shrink-0 flex items-center justify-center"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-[#131720]"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></div><div class="flex flex-col gap-1.5"><h3 class="font-playfair font-medium text-[#131720] text-[16px]">{{ block.settings.content_0 | escape }}</h3><p class="font-sans text-[14px] text-[#657186] leading-relaxed">{{ block.settings.content_1 | escape }}</p></div></div>{% endcase %}{% endfor %}</div><div class="relative w-full h-[360px] rounded-[24px] overflow-hidden mt-6">{% if section.settings.content_5 != blank %}<img width="1600" height="1200" class="object-cover" src="{{ section.settings.content_5 | image_url: width: 2000 }}" alt="{{ section.settings.content_6 | escape }}" loading="lazy" style="position:absolute;inset:0;width:100%;height:100%">{% else %}<img width="1600" height="1200" class="object-cover" src="{{ 'home-craftsmanship-bg.webp' | asset_url }}" alt="{{ section.settings.content_6 | escape }}" loading="lazy" style="position:absolute;inset:0;width:100%;height:100%">{% endif %}<div class="absolute inset-0 bg-[#131720]/55"></div><div class="absolute inset-0 flex flex-col justify-center items-center p-6 text-center z-10"><h3 class="font-playfair font-medium text-white text-[32px] md:text-[36px] mb-2 leading-tight">{{ section.settings.content_3 | escape }}</h3><p class="font-sans text-[14px] text-white/70 max-w-md leading-relaxed">{{ section.settings.content_4 | escape }}</p></div></div></div></section>
+</div>
+
+{% schema %}
+{
+  "name": "Why Lumina",
+  "settings": [
+    {
+      "type": "text",
+      "id": "content_0",
+      "label": "Why Lumina",
+      "default": "Why Lumina"
+    },
+    {
+      "type": "text",
+      "id": "content_1",
+      "label": "Heading",
+      "default": "Why choose"
+    },
+    {
+      "type": "text",
+      "id": "content_2",
+      "label": "Lumina?",
+      "default": "Lumina?"
+    },
+    {
+      "type": "text",
+      "id": "content_3",
+      "label": "Heading",
+      "default": "Proudly made in Texas"
+    },
+    {
+      "type": "text",
+      "id": "content_4",
+      "label": "Designed and manufactured with care, quality,",
+      "default": "Designed and manufactured with care, quality, and sustainability. Every blind built to last."
+    },
+    {
+      "type": "image_picker",
+      "id": "content_5",
+      "label": "Image"
+    },
+    {
+      "type": "text",
+      "id": "content_6",
+      "label": "Image description",
+      "default": "Premium craftsmanship banner"
+    },
+    {
+      "type": "header",
+      "content": "Layout"
+    },
+    {
+      "type": "range",
+      "id": "spacing_top",
+      "label": "Extra top spacing",
+      "min": 0,
+      "max": 120,
+      "step": 4,
+      "unit": "px",
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "spacing_bottom",
+      "label": "Extra bottom spacing",
+      "min": 0,
+      "max": 120,
+      "step": 4,
+      "unit": "px",
+      "default": 0
+    },
+    {
+      "type": "color",
+      "id": "background",
+      "label": "Section background override"
+    },
+    {
+      "type": "select",
+      "id": "content_width",
+      "label": "Content width",
+      "default": "original",
+      "options": [
+        {
+          "value": "original",
+          "label": "Original design"
+        },
+        {
+          "value": "narrow",
+          "label": "Narrow"
+        },
+        {
+          "value": "wide",
+          "label": "Wide"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Why Lumina",
+      "blocks": [
+        {
+          "type": "benefit_0",
+          "settings": {
+            "content_0": "Cut to Your Exact Size",
+            "content_1": "Enter your dimensions and we make every blind to fit your window."
+          }
+        },
+        {
+          "type": "benefit_1",
+          "settings": {
+            "content_0": "Built to Last",
+            "content_1": "Premium materials engineered for durability and long-term performance."
+          }
+        },
+        {
+          "type": "benefit_2",
+          "settings": {
+            "content_0": "Minimal Aesthetic",
+            "content_1": "Clean Scandinavian-influenced design that complements any interior."
+          }
+        },
+        {
+          "type": "benefit_3",
+          "settings": {
+            "content_0": "Easy No-Drill Install",
+            "content_1": "Spring tension mount — fits in seconds, leaves no marks."
+          }
+        },
+        {
+          "type": "benefit_4",
+          "settings": {
+            "content_0": "Total Light Control",
+            "content_1": "Block 100% of light or let it all in. Complete control, zero compromise."
+          }
+        },
+        {
+          "type": "benefit_5",
+          "settings": {
+            "content_0": "Dedicated Support",
+            "content_1": "Real humans, fast replies. We're here before, during, and after."
+          }
+        }
+      ]
+    }
+  ],
+  "blocks": [
+    {
+      "type": "benefit_0",
+      "name": "Cut to Your Exact Size",
+      "settings": [
+        {
+          "type": "text",
+          "id": "content_0",
+          "label": "Heading",
+          "default": "Cut to Your Exact Size"
+        },
+        {
+          "type": "text",
+          "id": "content_1",
+          "label": "Enter your dimensions and we make every blind",
+          "default": "Enter your dimensions and we make every blind to fit your window."
+        }
+      ]
+    },
+    {
+      "type": "benefit_1",
+      "name": "Built to Last",
+      "settings": [
+        {
+          "type": "text",
+          "id": "content_0",
+          "label": "Heading",
+          "default": "Built to Last"
+        },
+        {
+          "type": "text",
+          "id": "content_1",
+          "label": "Premium materials engineered for durability a",
+          "default": "Premium materials engineered for durability and long-term performance."
+        }
+      ]
+    },
+    {
+      "type": "benefit_2",
+      "name": "Minimal Aesthetic",
+      "settings": [
+        {
+          "type": "text",
+          "id": "content_0",
+          "label": "Heading",
+          "default": "Minimal Aesthetic"
+        },
+        {
+          "type": "text",
+          "id": "content_1",
+          "label": "Clean Scandinavian-influenced design that com",
+          "default": "Clean Scandinavian-influenced design that complements any interior."
+        }
+      ]
+    },
+    {
+      "type": "benefit_3",
+      "name": "Easy No-Drill Install",
+      "settings": [
+        {
+          "type": "text",
+          "id": "content_0",
+          "label": "Heading",
+          "default": "Easy No-Drill Install"
+        },
+        {
+          "type": "text",
+          "id": "content_1",
+          "label": "Spring tension mount — fits in seconds, leave",
+          "default": "Spring tension mount — fits in seconds, leaves no marks."
+        }
+      ]
+    },
+    {
+      "type": "benefit_4",
+      "name": "Total Light Control",
+      "settings": [
+        {
+          "type": "text",
+          "id": "content_0",
+          "label": "Heading",
+          "default": "Total Light Control"
+        },
+        {
+          "type": "text",
+          "id": "content_1",
+          "label": "Block 100% of light or let it all in. Complet",
+          "default": "Block 100% of light or let it all in. Complete control, zero compromise."
+        }
+      ]
+    },
+    {
+      "type": "benefit_5",
+      "name": "Dedicated Support",
+      "settings": [
+        {
+          "type": "text",
+          "id": "content_0",
+          "label": "Heading",
+          "default": "Dedicated Support"
+        },
+        {
+          "type": "text",
+          "id": "content_1",
+          "label": "Real humans, fast replies. We're here before,",
+          "default": "Real humans, fast replies. We're here before, during, and after."
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

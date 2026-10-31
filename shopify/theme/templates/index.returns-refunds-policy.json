@@ -1,0 +1,134 @@
+{
+  "sections": {
+    "main": {
+      "type": "lumina-returns-refunds-policy",
+      "settings": {},
+      "blocks": {
+        "block0": {
+          "type": "policy_0",
+          "settings": {
+            "content_0": "Damaged or Faulty Orders",
+            "content_1": "Please check your Lumina blind carefully as soon as it is delivered. If you believe your item has been damaged in transit or has a manufacturing fault, contact us within",
+            "content_2": "3 business days",
+            "content_3": "of delivery so we can resolve it quickly."
+          }
+        },
+        "block1": {
+          "type": "policy_1",
+          "settings": {
+            "content_0": "How to Contact Us",
+            "content_1": "Email us at",
+            "content_2": "info@luminablackoutblinds.com",
+            "content_3": "with your order number, delivery details, and a clear explanation of the issue. Please include photographs where possible so we can review the problem quickly. We aim to respond within",
+            "content_4": "1 business day",
+            "content_5": ", and always within",
+            "content_6": "3 business days"
+          }
+        },
+        "block2": {
+          "type": "policy_2",
+          "settings": {
+            "content_0": "Before Installing Your Blind",
+            "content_1": "If you are reporting damage or a possible fault, please do not fit, alter, or install the blind until we have reviewed your claim. Installation may affect our ability to assess whether the issue was caused during manufacturing, delivery, or fitting."
+          }
+        },
+        "block3": {
+          "type": "policy_3",
+          "settings": {
+            "content_0": "Packaging",
+            "content_1": "Please keep the original packaging until you have inspected your order. If an item needs to be returned for inspection and the original packaging is no longer available, replacement packaging may be required and additional charges may apply."
+          }
+        },
+        "block4": {
+          "type": "policy_4",
+          "settings": {
+            "content_0": "Inspection and Outcome",
+            "content_1": "We may ask for photographs, further information, or for the product to be returned before confirming the next step. If our review confirms a manufacturing fault or delivery damage, we will arrange a suitable resolution."
+          }
+        },
+        "block5": {
+          "type": "policy_5",
+          "settings": {
+            "content_0": "Replacements",
+            "content_1": "Where a replacement is approved, we will provide a like-for-like replacement for the affected made-to-measure blind. Replacement orders must match the original order details, including measurements, colors, fabric, controls, and other selected specifications."
+          }
+        },
+        "block6": {
+          "type": "policy_6",
+          "settings": {
+            "content_0": "Returns of Faulty Items",
+            "content_1": "If we ask you to return an item for inspection or replacement, it must be returned within",
+            "content_2": "30 days",
+            "content_3": "of return approval and in line with the instructions we provide."
+          }
+        },
+        "block7": {
+          "type": "policy_7",
+          "settings": {
+            "content_0": "Cancellations and Changes",
+            "content_1": "Because Lumina blinds are made to your chosen measurements and specifications, orders cannot usually be changed or canceled once production has started. Please check all measurements and options carefully before placing your order."
+          }
+        },
+        "block8": {
+          "type": "policy_8",
+          "settings": {
+            "content_0": "Refunds",
+            "content_1": "If we are unable to manufacture your order because an item becomes unavailable before production begins, we will contact you and issue a full refund. We may also cancel and refund an order where there is a payment issue, pricing error, stock issue, delivery restriction, or internal processing error."
+          }
+        },
+        "block9": {
+          "type": "policy_9",
+          "settings": {
+            "content_0": "Delivery Issues",
+            "content_1": "Lumina orders are made to measure and dispatched after production. Delivery may require a signature. If a courier is unable to complete delivery after repeated attempts, re-delivery charges may apply. Items returned to us by the courier may be held for a limited period before disposal."
+          }
+        },
+        "block10": {
+          "type": "policy_10",
+          "settings": {
+            "content_0": "Manufacturer's Guarantee",
+            "content_1": "Lumina blinds include a",
+            "content_2": "1-year manufacturer's guarantee",
+            "content_3": "against confirmed manufacturing faults. This does not cover normal wear and tear, accidental damage, misuse, incorrect installation, alterations, fading from prolonged sunlight exposure, or use in unsuitable conditions."
+          }
+        },
+        "block11": {
+          "type": "policy_11",
+          "settings": {
+            "content_0": "Manufacturing Tolerances",
+            "content_1": "As with all made-to-measure blinds, small manufacturing tolerances can occur. Please allow for a variance of",
+            "content_2": "+/- 4mm",
+            "content_3": ". If a blind falls within this tolerance, it is not deemed faulty and will not qualify for replacement or rejection on that basis."
+          }
+        },
+        "block12": {
+          "type": "policy_12",
+          "settings": {
+            "content_0": "Contact",
+            "content_1": "For returns, refunds, or product issue queries, email",
+            "content_2": "info@luminablackoutblinds.com",
+            "content_3": ". We aim to respond within 1–3 business days."
+          }
+        }
+      },
+      "block_order": [
+        "block0",
+        "block1",
+        "block2",
+        "block3",
+        "block4",
+        "block5",
+        "block6",
+        "block7",
+        "block8",
+        "block9",
+        "block10",
+        "block11",
+        "block12"
+      ]
+    }
+  },
+  "order": [
+    "main"
+  ]
+}

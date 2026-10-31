@@ -1,0 +1,29 @@
+<section class="lumina-container" style="padding-block:{{ section.settings.padding }}px">{% for block in section.blocks %}{% render block %}{% endfor %}</section>
+
+{% schema %}
+{
+  "name": "Apps",
+  "settings": [
+    {
+      "type": "range",
+      "id": "padding",
+      "label": "Vertical spacing",
+      "min": 0,
+      "max": 120,
+      "step": 4,
+      "default": 40,
+      "unit": "px"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "@app"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Apps"
+    }
+  ]
+}
+{% endschema %}

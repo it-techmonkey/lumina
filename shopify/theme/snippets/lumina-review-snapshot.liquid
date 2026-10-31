@@ -1,0 +1,20 @@
+{% assign review_data = review_product.metafields.judgeme.review_widget_data.value %}
+{% assign average = review_data.average_rating | plus: 0 %}
+<aside class="lumina-review-summary">
+ <div class="lumina-review-summary-heading"><h2>{{ section.settings.snapshot_heading | escape }}</h2><div class="lumina-review-score">{% render 'lumina-rating-stars', rating: average, size: 20 %}<span>{{ average | round: 1 }} out of 5</span></div><p>{{ review_data.number_of_reviews }} global ratings</p></div>
+ <div class="lumina-rating-breakdown">{% for item in review_data.histogram %}<div><span>{{ item.rating }} star</span><div class="lumina-rating-track"><div style="width:{{ item.percentage }}%"></div></div><span>{{ item.percentage }}%</span></div>{% endfor %}</div>
+</aside>
+<div class="lumina-review-feed">
+ <div class="lumina-review-heading"><div><h3>{{ section.settings.customer_heading | escape }}</h3><p>{{ section.settings.intro | escape }}</p></div>{% if request.page_type == 'product' %}<button type="button" class="lumina-button" data-open-review-form>Write a review</button>{% endif %}</div>
+ <div data-review-preview>
+  <div class="lumina-review-photos">{% assign photo_count = 0 %}{% for review in review_data.photo_gallery %}{% for picture in review.pictures_urls %}{% if photo_count < 8 %}<button type="button" data-review-image="{{ picture.original | escape }}" aria-label="Open photo from {{ review.reviewer_name | escape }}"><img src="{{ picture.small | escape }}" width="88" height="88" loading="lazy" alt="{{ review.reviewer_name | escape }} review photo"></button>{% assign photo_count = photo_count | plus: 1 %}{% endif %}{% endfor %}{% endfor %}</div>
+  <div class="lumina-review-cards">{% for review in review_data.reviews limit: 4 %}
+   <article><div class="lumina-review-author"><span aria-hidden="true">{{ review.reviewer_initial | escape }}</span><p>{{ review.reviewer_name | escape }}</p></div><div class="lumina-review-title">{% assign rating = review.rating | plus: 0 %}{% render 'lumina-rating-stars', rating: rating %}<h4>{{ review.title | escape }}</h4></div><p class="lumina-review-body">{{ review.body | escape }}</p>
+    {% if review.pictures_urls.size > 0 %}<div class="lumina-review-card-media">{% for picture in review.pictures_urls limit: 6 %}<a href="{{ picture.original | escape }}" target="_blank" rel="noopener" aria-label="Open photo from {{ review.reviewer_name | escape }}"><img src="{{ picture.original | escape }}" alt="{{ review.reviewer_name | escape }} review photo" width="240" height="240" loading="lazy"></a>{% endfor %}</div>{% endif %}
+   </article>{% endfor %}</div>
+  <button type="button" class="lumina-review-more" data-all-reviews>{{ section.settings.more_label | escape }}</button>
+ </div>
+ <div data-native-review-panel hidden tabindex="-1">
+  {% if section.blocks.size > 0 %}{% for block in section.blocks %}{% render block %}{% endfor %}{% else %}{% render 'lumina-judgeme-widget', product: review_product %}{% endif %}
+ </div>
+</div>

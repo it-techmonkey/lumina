@@ -1,0 +1,13 @@
+{
+  "type": "footer",
+  "name": "Footer",
+  "sections": {
+    "footer": {
+      "type": "lumina-footer",
+      "settings": {}
+    }
+  },
+  "order": [
+    "footer"
+  ]
+}

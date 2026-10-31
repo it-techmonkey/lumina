@@ -1,0 +1,130 @@
+<header class="w-full flex justify-center sticky top-0 z-50 bg-black border-b border-white/8 px-4 md:px-6"><div class="w-full max-w-[1280px] flex items-center justify-between py-4 relative"><button type="button" aria-label="Toggle menu" aria-expanded="false" class="lg:hidden inline-flex items-center justify-center w-9 h-9 rounded-lg text-white/80 hover:bg-white/10 transition-colors duration-200" data-menu-toggle aria-controls="LuminaMobileMenu"><span class="relative w-5 h-5"><span class="absolute left-0 top-[4px] w-5 h-[1.75px] rounded-full bg-current transition-transform duration-300 ease-out "></span><span class="absolute left-0 top-[10px] w-5 h-[1.75px] rounded-full bg-current transition-all duration-250 ease-out opacity-100 scale-x-100"></span><span class="absolute left-0 top-[16px] w-5 h-[1.75px] rounded-full bg-current transition-transform duration-300 ease-out "></span></span></button><a href="{{ routes.root_url }}" class="flex flex-col items-start leading-none shrink-0" aria-label="Home">{% if section.settings.logo %}{{ section.settings.logo | image_url: width: 360 | image_tag: class: 'lumina-logo', width: section.settings.logo_width, loading: 'eager' }}{% else %}<span class="font-playfair text-white text-[20px]">{{ section.settings.brand | escape }}</span>{% endif %}</a><nav class="hidden lg:flex items-center gap-8 shrink-0">{% if section.settings.menu != blank %}{% for link in section.settings.menu.links %}<a class="lumina-nav-link" href="{{ link.url }}">{{ link.title | escape }}</a>{% if link.links.size > 0 %}<details class="lumina-submenu"><summary aria-label="More {{ link.title | escape }} links">&#x2304;</summary><div>{% for child in link.links %}<a href="{{ child.url }}">{{ child.title | escape }}</a>{% endfor %}</div></details>{% endif %}{% endfor %}{% else %}{% for block in section.blocks %}<a class="lumina-nav-link" href="{% render 'lumina-link', destination: block.settings.destination, custom_url: block.settings.url %}" {{ block.shopify_attributes }}>{{ block.settings.label | escape }}</a>{% endfor %}{% endif %}</nav><div class="flex shrink-0 items-center justify-end gap-5 text-white/80"><button type="button" aria-label="Open cart" class="hover:text-white transition-colors relative" data-cart-open><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg><span class="lumina-cart-count" data-cart-count>{% if cart.item_count > 0 %}{{ cart.item_count }}{% endif %}</span></button><a href="{{ routes.account_url }}" aria-label="Account" class="hover:text-white transition-colors"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg></a></div><div class="absolute top-full left-0 right-0 lg:hidden z-50 origin-top transition-all duration-300 ease-out opacity-100" id="LuminaMobileMenu" hidden><nav class="mt-2 bg-[#0a0c10] border border-white/10 rounded-2xl shadow-[0_14px_34px_rgba(0,0,0,0.5)] py-3 px-2 overflow-hidden"><div class="flex flex-col">{% if section.settings.menu != blank %}{% for link in section.settings.menu.links %}<a class="lumina-nav-link" href="{{ link.url }}">{{ link.title | escape }}</a>{% if link.links.size > 0 %}<details class="lumina-submenu"><summary aria-label="More {{ link.title | escape }} links">&#x2304;</summary><div>{% for child in link.links %}<a href="{{ child.url }}">{{ child.title | escape }}</a>{% endfor %}</div></details>{% endif %}{% endfor %}{% else %}{% for block in section.blocks %}<a class="lumina-nav-link" href="{% render 'lumina-link', destination: block.settings.destination, custom_url: block.settings.url %}" {{ block.shopify_attributes }}>{{ block.settings.label | escape }}</a>{% endfor %}{% endif %}</div></nav></div></div></header>
+
+
+{% schema %}
+{
+  "name": "Header",
+  "settings": [
+    {
+      "type": "text",
+      "id": "brand",
+      "label": "Brand name",
+      "default": "Lumina"
+    },
+    {
+      "type": "image_picker",
+      "id": "logo",
+      "label": "Logo"
+    },
+    {
+      "type": "range",
+      "id": "logo_width",
+      "label": "Logo width",
+      "min": 60,
+      "max": 240,
+      "step": 10,
+      "default": 120
+    },
+    {
+      "type": "link_list",
+      "id": "menu",
+      "label": "Shopify navigation menu",
+      "info": "Leave blank to use the theme-local link blocks below."
+    }
+  ],
+  "class": "lumina-header-section",
+  "presets": [
+    {
+      "name": "Header",
+      "blocks": [
+        {
+          "type": "link",
+          "settings": {
+            "label": "The Blind",
+            "destination": "product"
+          }
+        },
+        {
+          "type": "link",
+          "settings": {
+            "label": "Measuring",
+            "destination": "measuring"
+          }
+        },
+        {
+          "type": "link",
+          "settings": {
+            "label": "Fitting",
+            "destination": "fitting"
+          }
+        },
+        {
+          "type": "link",
+          "settings": {
+            "label": "Reviews",
+            "destination": "reviews"
+          }
+        },
+        {
+          "type": "link",
+          "settings": {
+            "label": "FAQ",
+            "destination": "faq"
+          }
+        }
+      ]
+    }
+  ],
+  "blocks": [
+    {
+      "type": "link",
+      "name": "Navigation link",
+      "settings": [
+        {
+          "type": "text",
+          "id": "label",
+          "label": "Label",
+          "default": "Link"
+        },
+        {
+          "type": "select",
+          "id": "destination",
+          "label": "Destination",
+          "options": [
+            {
+              "value": "product",
+              "label": "Featured product"
+            },
+            {
+              "value": "measuring",
+              "label": "Measuring guide"
+            },
+            {
+              "value": "fitting",
+              "label": "Fitting guide"
+            },
+            {
+              "value": "reviews",
+              "label": "Reviews"
+            },
+            {
+              "value": "faq",
+              "label": "FAQ"
+            },
+            {
+              "value": "custom",
+              "label": "Custom URL"
+            }
+          ],
+          "default": "custom"
+        },
+        {
+          "type": "url",
+          "id": "url",
+          "label": "Custom URL"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,15 @@
+{% liquid
+ assign price_block = section.blocks | where: 'type', 'price' | first
+ assign amount = selected_variant.price
+ if amount == 0
+   assign amount = price_block.settings.starting_price | times: 100 | round
+ endif
+ assign percent = price_block.settings.discount_percent | default: 0 | plus: 0
+ assign remainder = 100.0 | minus: percent
+ assign compare = amount | times: 100.0 | divided_by: remainder | round
+ assign saving = compare | minus: amount
+%}
+<div class="lumina-product-promotion" {{ block.shopify_attributes }}>
+ {% if percent > 0 %}<div class="lumina-savings-row"><span><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#4ade80" stroke-width="2" aria-hidden="true"><path d="m20 6-11 11-5-5"/></svg>{{ block.settings.savings_prefix | escape }} <strong data-product-saving>{{ saving | money }}</strong> {{ block.settings.savings_suffix | escape }}</span><b data-savings-percent>{{ percent }}% OFF</b></div>{% endif %}
+ <div class="lumina-code-row"><span>{{ block.settings.text | escape }}</span><button type="button" data-copy-code="{{ block.settings.code | escape }}" aria-label="Copy code {{ block.settings.code | escape }}">{{ block.settings.code | escape }} <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg></button></div>
+</div>

@@ -1,0 +1,8 @@
+<section class="lumina-container lumina-content-page"><h1>Search</h1><form action="{{ routes.search_url }}" method="get" role="search" class="flex gap-3 mb-10"><label for="Search" class="sr-only">Search products</label><input id="Search" class="border rounded-xl px-4 py-3 flex-1" type="search" name="q" value="{{ search.terms | escape }}" placeholder="Search Lumina"><button class="lumina-button" type="submit">Search</button></form>{% if search.performed %}{% paginate search.results by 24 %}<div class="lumina-grid">{% for result in search.results %}<a class="lumina-card" href="{{ result.url }}">{% if result.featured_image %}{{ result.featured_image | image_url: width: 900 | image_tag: loading: 'lazy' }}{% endif %}<h2>{{ result.title | escape }}</h2></a>{% else %}<p>No results found.</p>{% endfor %}</div>{{ paginate | default_pagination }}{% endpaginate %}{% endif %}</section>
+
+{% schema %}
+{
+  "name": "Search",
+  "settings": []
+}
+{% endschema %}

@@ -1,0 +1,6 @@
+{% assign purchase_block = section.blocks | where: 'type', 'buy_buttons' | first %}
+{% if purchase_block %}
+<div class="lumina-sticky-purchase" data-sticky-purchase hidden>
+ <div><div class="lumina-sticky-price"><strong data-sticky-price></strong><s data-sticky-compare hidden></s><span data-sticky-discount hidden></span></div><div class="lumina-sticky-actions"><button type="submit" form="{{ product_form_id }}" name="add" data-add-to-cart class="lumina-outline-button" {% unless can_purchase %}disabled{% endunless %}>{{ purchase_block.settings.add_label | escape }}</button><button type="submit" form="{{ product_form_id }}" name="checkout" value="checkout" data-buy-now class="lumina-button" {% unless can_purchase %}disabled{% endunless %}>{{ purchase_block.settings.buy_label | escape }}</button></div></div>
+</div>
+{% endif %}

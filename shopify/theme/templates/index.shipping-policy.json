@@ -1,0 +1,77 @@
+{
+  "sections": {
+    "main": {
+      "type": "lumina-shipping-policy",
+      "settings": {},
+      "blocks": {
+        "block0": {
+          "type": "policy_0",
+          "settings": {
+            "content_0": "Order Processing Time",
+            "content_1": "Every Lumina blind is made to order, so your product enters production after your order is confirmed. Unless a different estimate is shown on the product page or in your order communications, orders are usually delivered within",
+            "content_2": "7-11 business days",
+            "content_3": ". Once your blind has been completed and handed to the courier, we will send a shipping confirmation email with tracking details."
+          }
+        },
+        "block1": {
+          "type": "policy_1",
+          "settings": {
+            "content_0": "Shipping Times",
+            "content_1": "Lumina currently ships within the United States only. The 7-11 working day estimate includes the time needed to make your blind, dispatch it, and deliver it to your address."
+          }
+        },
+        "block2": {
+          "type": "policy_2",
+          "settings": {
+            "content_0": "Free Shipping",
+            "content_1": "Lumina offers free shipping on all orders, with no minimum spend required."
+          }
+        },
+        "block3": {
+          "type": "policy_3",
+          "settings": {
+            "content_0": "US-Only Shipping",
+            "content_1": "Because Lumina only operates in the USA, all orders must be placed with a valid US shipping address. We do not support international freight forwarding, cross-border delivery, or non-US billing-to-shipping arrangements at this time."
+          }
+        },
+        "block4": {
+          "type": "policy_4",
+          "settings": {
+            "content_0": "Tracking Your Order",
+            "content_1": "As soon as your order ships, we will email your tracking number so you can follow the delivery progress. If you believe your order should already have shipped and you have not received a confirmation email, please contact us at",
+            "content_2": "info@luminablackoutblinds.com",
+            "content_3": ". Including your order number will help us look into it faster."
+          }
+        },
+        "block5": {
+          "type": "policy_5",
+          "settings": {
+            "content_0": "Shipping Restrictions",
+            "content_1": "We are currently unable to ship to PO boxes, military addresses, or addresses outside the United States. Please use a valid US residential or business address at checkout."
+          }
+        },
+        "block6": {
+          "type": "policy_6",
+          "settings": {
+            "content_0": "Need Help?",
+            "content_1": "If you have any questions about shipping or an order in progress, email us at",
+            "content_2": "info@luminablackoutblinds.com",
+            "content_3": ". Our team will be happy to help."
+          }
+        }
+      },
+      "block_order": [
+        "block0",
+        "block1",
+        "block2",
+        "block3",
+        "block4",
+        "block5",
+        "block6"
+      ]
+    }
+  },
+  "order": [
+    "main"
+  ]
+}
