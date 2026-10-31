@@ -1,0 +1,236 @@
+<div class="lumina-editable-section {% if section.settings.background != blank %}lumina-background-override{% endif %} lumina-width-{{ section.settings.content_width }}" style="--section-background:{{ section.settings.background }};padding-top:{{ section.settings.spacing_top }}px;padding-bottom:{{ section.settings.spacing_bottom }}px"><section class="lumina-product-features w-full bg-[#eaedf0] py-16 md:py-24 object-cover px-4 md:px-6"><div class="max-w-[1280px] mx-auto flex flex-col gap-10 md:gap-14"><div class="bg-[#131720] rounded-[24px] w-full overflow-hidden flex flex-col md:grid md:grid-cols-2 relative min-h-[431px]"><div class="flex flex-col items-start justify-center p-8 md:p-14 z-10 order-2 md:order-1"><div class="text-[#f9fafb] text-[40px] md:text-[48px] leading-tight font-playfair font-medium mb-6">{{ section.settings.content_0 | escape }} <br>{{ section.settings.content_1 | escape }} <span class="font-playfair font-normal italic">{{ section.settings.content_2 | escape }} <br> {{ section.settings.content_3 | escape }}</span></div><p class="text-[14px] text-[rgba(255,255,255,0.7)] font-sans leading-[1.6] max-w-md mb-8">{{ section.settings.content_4 | escape }}</p><a href="{% if section.settings.content_10 != blank %}{{ section.settings.content_10 }}{% else %}#fix-sleep{% endif %}" class="bg-white text-[#131720] font-sans font-medium text-[14px] px-6 py-3 rounded-full hover:bg-gray-100 transition-colors">{{ section.settings.content_5 | escape }}</a></div><div class="relative w-full h-[300px] md:h-full opacity-60 order-1 md:order-2">{% if section.settings.content_8 != blank %}<img width="1600" height="1200" class="object-cover object-right" src="{{ section.settings.content_8 | image_url: width: 2000 }}" alt="{{ section.settings.content_9 | escape }}" loading="lazy" style="position:absolute;inset:0;width:100%;height:100%">{% else %}<img width="1600" height="1200" class="object-cover object-right" src="{{ 'product-sleep-struggle.webp' | asset_url }}" alt="{{ section.settings.content_9 | escape }}" loading="lazy" style="position:absolute;inset:0;width:100%;height:100%">{% endif %}<div class="absolute inset-0 bg-gradient-to-r from-[#131720] via-transparent to-transparent hidden md:block"></div><div class="absolute inset-0 bg-gradient-to-t from-[#131720] via-transparent to-transparent block md:hidden"></div></div></div><div class="flex flex-col items-center gap-2 mt-4 text-center"><h2 class="text-[#131720] text-[36px] font-playfair font-medium leading-tight">{{ section.settings.content_6 | escape }}</h2><p class="text-[#657186] text-[14px] font-sans">{{ section.settings.content_7 | escape }}</p></div><div class="grid grid-cols-1 md:grid-cols-3 gap-5">{% for block in section.blocks %}{% case block.type %}{% when 'benefit_0' %}<div class="bg-[#f9fafb] rounded-[16px] overflow-hidden flex flex-col" {{ block.shopify_attributes }}><div class="relative w-full aspect-[4/3] md:h-[298px]">{% if block.settings.content_2 != blank %}{{ block.settings.content_2 | video_tag: autoplay: true, loop: true, muted: true, controls: true, class: 'object-cover w-full h-full' }}{% else %}<video src="{{ 'product-blackout.mp4' | asset_url }}" poster="{{ 'product-gallery-2.webp' | asset_url }}" aria-label="Blackout blind fully covering a bedroom window" class="object-cover w-full h-full" autoplay muted loop playsinline controls preload="metadata"></video>{% endif %}</div><div class="p-6 flex flex-col gap-2"><h3 class="font-playfair font-medium text-[20px] text-[#131720]">{{ block.settings.content_0 | escape }}</h3><p class="font-sans text-[14px] text-[#657186] leading-relaxed">{{ block.settings.content_1 | escape }}</p></div></div>{% when 'benefit_1' %}<div class="bg-[#f9fafb] rounded-[16px] overflow-hidden flex flex-col" {{ block.shopify_attributes }}><div class="relative w-full aspect-[4/3] md:h-[298px]">{% if block.settings.content_2 != blank %}<img width="1600" height="1200" class="object-cover" src="{{ block.settings.content_2 | image_url: width: 2000 }}" alt="{{ block.settings.content_3 | escape }}" loading="lazy" style="position:absolute;inset:0;width:100%;height:100%">{% else %}<img width="1600" height="1200" class="object-cover" src="{{ 'home-measuring-guide-img.webp' | asset_url }}" alt="{{ block.settings.content_3 | escape }}" loading="lazy" style="position:absolute;inset:0;width:100%;height:100%">{% endif %}</div><div class="p-6 flex flex-col gap-2"><h3 class="font-playfair font-medium text-[20px] text-[#131720]">{{ block.settings.content_0 | escape }}</h3><p class="font-sans text-[14px] text-[#657186] leading-relaxed">{{ block.settings.content_1 | escape }}</p></div></div>{% when 'benefit_2' %}<div class="bg-[#f9fafb] rounded-[16px] overflow-hidden flex flex-col" {{ block.shopify_attributes }}><div class="relative w-full aspect-[4/3] md:h-[298px]">{% if block.settings.content_2 != blank %}<img width="1600" height="1200" class="object-cover" src="{{ block.settings.content_2 | image_url: width: 2000 }}" alt="{{ block.settings.content_3 | escape }}" loading="lazy" style="position:absolute;inset:0;width:100%;height:100%">{% else %}<img width="1600" height="1200" class="object-cover" src="{{ 'product-energy-efficient.webp' | asset_url }}" alt="{{ block.settings.content_3 | escape }}" loading="lazy" style="position:absolute;inset:0;width:100%;height:100%">{% endif %}</div><div class="p-6 flex flex-col gap-2"><h3 class="font-playfair font-medium text-[20px] text-[#131720]">{{ block.settings.content_0 | escape }}</h3><p class="font-sans text-[14px] text-[#657186] leading-relaxed">{{ block.settings.content_1 | escape }}</p></div></div>{% endcase %}{% endfor %}</div></div></section>
+</div>
+
+{% schema %}
+{
+  "name": "Blackout benefits",
+  "settings": [
+    {
+      "type": "text",
+      "id": "content_0",
+      "label": "90% of adults say light",
+      "default": "90% of adults say light"
+    },
+    {
+      "type": "text",
+      "id": "content_1",
+      "label": "exposure",
+      "default": "exposure"
+    },
+    {
+      "type": "text",
+      "id": "content_2",
+      "label": "ruins their",
+      "default": "ruins their"
+    },
+    {
+      "type": "text",
+      "id": "content_3",
+      "label": "sleep",
+      "default": "sleep"
+    },
+    {
+      "type": "textarea",
+      "id": "content_4",
+      "label": "When sunlight and street-lamp glare sneak int",
+      "default": "When sunlight and street-lamp glare sneak into your bedroom, it disrupts your circadian rhythm, spikes cortisol, and fragments your deep sleep cycles. The result? You wake up exhausted, irritable, and fog-brained — even after 8 hours in bed."
+    },
+    {
+      "type": "text",
+      "id": "content_5",
+      "label": "Fix Your Sleep →",
+      "default": "Fix Your Sleep →"
+    },
+    {
+      "type": "text",
+      "id": "content_6",
+      "label": "Heading",
+      "default": "A 3-in-1 solution"
+    },
+    {
+      "type": "text",
+      "id": "content_7",
+      "label": "One blind. Three measurable improvements to y",
+      "default": "One blind. Three measurable improvements to your home."
+    },
+    {
+      "type": "image_picker",
+      "id": "content_8",
+      "label": "Image"
+    },
+    {
+      "type": "text",
+      "id": "content_9",
+      "label": "Image description",
+      "default": "Person struggling to sleep with light"
+    },
+    {
+      "type": "url",
+      "id": "content_10",
+      "label": "Link destination"
+    },
+    {
+      "type": "header",
+      "content": "Layout"
+    },
+    {
+      "type": "range",
+      "id": "spacing_top",
+      "label": "Extra top spacing",
+      "min": 0,
+      "max": 120,
+      "step": 4,
+      "unit": "px",
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "spacing_bottom",
+      "label": "Extra bottom spacing",
+      "min": 0,
+      "max": 120,
+      "step": 4,
+      "unit": "px",
+      "default": 0
+    },
+    {
+      "type": "color",
+      "id": "background",
+      "label": "Section background override"
+    },
+    {
+      "type": "select",
+      "id": "content_width",
+      "label": "Content width",
+      "default": "original",
+      "options": [
+        {
+          "value": "original",
+          "label": "Original design"
+        },
+        {
+          "value": "narrow",
+          "label": "Narrow"
+        },
+        {
+          "value": "wide",
+          "label": "Wide"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Blackout benefits",
+      "blocks": [
+        {
+          "type": "benefit_0",
+          "settings": {
+            "content_0": "100% Blackout",
+            "content_1": "Unlike traditional curtains, our triple-layer fabric ensures complete darkness at any time of day — noon or midnight."
+          }
+        },
+        {
+          "type": "benefit_1",
+          "settings": {
+            "content_0": "No-Drill Install",
+            "content_1": "A 4-step tension-fit setup with no tools or DIY expertise required. Damage-free — perfect for renters.",
+            "content_3": "No-Drill Install"
+          }
+        },
+        {
+          "type": "benefit_2",
+          "settings": {
+            "content_0": "Energy Efficient",
+            "content_1": "Our honeycomb fabric structure traps air, insulating your room. Warmer in winter, cooler in summer — lower energy bills.",
+            "content_3": "Energy Efficient"
+          }
+        }
+      ]
+    }
+  ],
+  "blocks": [
+    {
+      "type": "benefit_0",
+      "name": "100% Blackout",
+      "settings": [
+        {
+          "type": "text",
+          "id": "content_0",
+          "label": "Heading",
+          "default": "100% Blackout"
+        },
+        {
+          "type": "textarea",
+          "id": "content_1",
+          "label": "Unlike traditional curtains, our triple-layer",
+          "default": "Unlike traditional curtains, our triple-layer fabric ensures complete darkness at any time of day — noon or midnight."
+        },
+        {
+          "type": "video",
+          "id": "content_2",
+          "label": "Video"
+        }
+      ]
+    },
+    {
+      "type": "benefit_1",
+      "name": "No-Drill Install",
+      "settings": [
+        {
+          "type": "text",
+          "id": "content_0",
+          "label": "Heading",
+          "default": "No-Drill Install"
+        },
+        {
+          "type": "textarea",
+          "id": "content_1",
+          "label": "A 4-step tension-fit setup with no tools or D",
+          "default": "A 4-step tension-fit setup with no tools or DIY expertise required. Damage-free — perfect for renters."
+        },
+        {
+          "type": "image_picker",
+          "id": "content_2",
+          "label": "Image"
+        },
+        {
+          "type": "text",
+          "id": "content_3",
+          "label": "Image description",
+          "default": "No-Drill Install"
+        }
+      ]
+    },
+    {
+      "type": "benefit_2",
+      "name": "Energy Efficient",
+      "settings": [
+        {
+          "type": "text",
+          "id": "content_0",
+          "label": "Heading",
+          "default": "Energy Efficient"
+        },
+        {
+          "type": "textarea",
+          "id": "content_1",
+          "label": "Our honeycomb fabric structure traps air, ins",
+          "default": "Our honeycomb fabric structure traps air, insulating your room. Warmer in winter, cooler in summer — lower energy bills."
+        },
+        {
+          "type": "image_picker",
+          "id": "content_2",
+          "label": "Image"
+        },
+        {
+          "type": "text",
+          "id": "content_3",
+          "label": "Image description",
+          "default": "Energy Efficient"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

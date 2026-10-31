@@ -1,0 +1,13 @@
+<section class="lumina-container lumina-content-page"><h1>{{ page.title | escape }}</h1><div class="lumina-richtext">{{ page.content }}</div>{% for block in section.blocks %}{% render block %}{% endfor %}</section>
+
+{% schema %}
+{
+  "name": "Page",
+  "settings": [],
+  "blocks": [
+    {
+      "type": "@app"
+    }
+  ]
+}
+{% endschema %}

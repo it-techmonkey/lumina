@@ -1,0 +1,634 @@
+<div class="lumina-editable-section {% if section.settings.background != blank %}lumina-background-override{% endif %} lumina-width-{{ section.settings.content_width }}" style="--section-background:{{ section.settings.background }};padding-top:{{ section.settings.spacing_top }}px;padding-bottom:{{ section.settings.spacing_bottom }}px"><div class="w-full bg-white text-black"><div class="max-w-4xl mx-auto px-6 py-16"><div class="mb-10"><p class="text-sm text-gray-500 mb-2">{{ section.settings.content_0 | escape }}</p><h1 class="text-4xl font-semibold font-playfair mb-6">{{ section.settings.content_1 | escape }}</h1><p class="text-gray-700 leading-relaxed">{{ section.settings.content_2 | escape }}</p><p class="text-gray-700 leading-relaxed mt-4">{{ section.settings.content_3 | escape }}</p></div><div class="space-y-10">{% for block in section.blocks %}{% case block.type %}{% when 'policy_0' %}<section {{ block.shopify_attributes }}><h2 class="text-xl font-semibold mb-3">{{ block.settings.content_0 | escape }}</h2><p class="text-gray-700 leading-relaxed mb-3">{{ block.settings.content_1 | escape }}</p><ul class="list-disc pl-6 space-y-2 mt-2 text-gray-700"><li class="leading-relaxed">{{ block.settings.content_2 | escape }}</li><li class="leading-relaxed">{{ block.settings.content_3 | escape }}</li><li class="leading-relaxed">{{ block.settings.content_4 | escape }}</li><li class="leading-relaxed">{{ block.settings.content_5 | escape }}</li><li class="leading-relaxed">{{ block.settings.content_6 | escape }}</li><li class="leading-relaxed">{{ block.settings.content_7 | escape }}</li><li class="leading-relaxed">{{ block.settings.content_8 | escape }}</li></ul></section>{% when 'policy_1' %}<section {{ block.shopify_attributes }}><h2 class="text-xl font-semibold mb-3">{{ block.settings.content_0 | escape }}</h2><p class="text-gray-700 leading-relaxed mb-3">{{ block.settings.content_1 | escape }}</p><ul class="list-disc pl-6 space-y-2 mt-2 text-gray-700"><li class="leading-relaxed">{{ block.settings.content_2 | escape }}</li><li class="leading-relaxed">{{ block.settings.content_3 | escape }}</li><li class="leading-relaxed">{{ block.settings.content_4 | escape }}</li><li class="leading-relaxed">{{ block.settings.content_5 | escape }}</li></ul></section>{% when 'policy_2' %}<section {{ block.shopify_attributes }}><h2 class="text-xl font-semibold mb-3">{{ block.settings.content_0 | escape }}</h2><p class="text-gray-700 leading-relaxed mb-3">{{ block.settings.content_1 | escape }}</p><ul class="list-disc pl-6 space-y-2 mt-2 text-gray-700"><li class="leading-relaxed">{{ block.settings.content_2 | escape }}</li><li class="leading-relaxed">{{ block.settings.content_3 | escape }}</li><li class="leading-relaxed">{{ block.settings.content_4 | escape }}</li><li class="leading-relaxed">{{ block.settings.content_5 | escape }}</li><li class="leading-relaxed">{{ block.settings.content_6 | escape }}</li></ul></section>{% when 'policy_3' %}<section {{ block.shopify_attributes }}><h2 class="text-xl font-semibold mb-3">{{ block.settings.content_0 | escape }}</h2><p class="text-gray-700 leading-relaxed mb-3">{{ block.settings.content_1 | escape }}</p><ul class="list-disc pl-6 space-y-2 mt-2 text-gray-700"><li class="leading-relaxed">{{ block.settings.content_2 | escape }}</li><li class="leading-relaxed">{{ block.settings.content_3 | escape }}</li><li class="leading-relaxed">{{ block.settings.content_4 | escape }}</li><li class="leading-relaxed">{{ block.settings.content_5 | escape }}</li><li class="leading-relaxed">{{ block.settings.content_6 | escape }}</li></ul></section>{% when 'policy_4' %}<section {{ block.shopify_attributes }}><h2 class="text-xl font-semibold mb-3">{{ block.settings.content_0 | escape }}</h2><p class="text-gray-700 leading-relaxed mb-3">{{ block.settings.content_1 | escape }}</p></section>{% when 'policy_5' %}<section {{ block.shopify_attributes }}><h2 class="text-xl font-semibold mb-3">{{ block.settings.content_0 | escape }}</h2><p class="text-gray-700 leading-relaxed mb-3">{{ block.settings.content_1 | escape }}</p></section>{% when 'policy_6' %}<section {{ block.shopify_attributes }}><h2 class="text-xl font-semibold mb-3">{{ block.settings.content_0 | escape }}</h2><p class="text-gray-700 leading-relaxed mb-3">{{ block.settings.content_1 | escape }}</p></section>{% when 'policy_7' %}<section {{ block.shopify_attributes }}><h2 class="text-xl font-semibold mb-3">{{ block.settings.content_0 | escape }}</h2><p class="text-gray-700 leading-relaxed mb-3">{{ block.settings.content_1 | escape }}</p><p class="text-gray-700 leading-relaxed mb-3">{{ block.settings.content_2 | escape }}</p></section>{% when 'policy_8' %}<section {{ block.shopify_attributes }}><h2 class="text-xl font-semibold mb-3">{{ block.settings.content_0 | escape }}</h2><p class="text-gray-700 leading-relaxed mb-3">{{ block.settings.content_1 | escape }}</p><ul class="list-disc pl-6 space-y-2 mt-2 text-gray-700"><li class="leading-relaxed">{{ block.settings.content_2 | escape }}</li><li class="leading-relaxed">{{ block.settings.content_3 | escape }}</li><li class="leading-relaxed">{{ block.settings.content_4 | escape }}</li><li class="leading-relaxed">{{ block.settings.content_5 | escape }}</li><li class="leading-relaxed">{{ block.settings.content_6 | escape }}</li><li class="leading-relaxed">{{ block.settings.content_7 | escape }}</li></ul><div class="mt-4 space-y-3"><p class="text-gray-700 leading-relaxed">{{ block.settings.content_8 | escape }}</p><p class="text-gray-700 leading-relaxed">{{ block.settings.content_9 | escape }}</p></div></section>{% when 'policy_9' %}<section {{ block.shopify_attributes }}><h2 class="text-xl font-semibold mb-3">{{ block.settings.content_0 | escape }}</h2><p class="text-gray-700 leading-relaxed mb-3">{{ block.settings.content_1 | escape }}</p></section>{% when 'policy_10' %}<section {{ block.shopify_attributes }}><h2 class="text-xl font-semibold mb-3">{{ block.settings.content_0 | escape }}</h2><p class="text-gray-700 leading-relaxed mb-3">{{ block.settings.content_1 | escape }}</p><p class="text-gray-700 leading-relaxed mb-3">{{ block.settings.content_2 | escape }}</p></section>{% when 'policy_11' %}<section {{ block.shopify_attributes }}><h2 class="text-xl font-semibold mb-3">{{ block.settings.content_0 | escape }}</h2><p class="text-gray-700 leading-relaxed mb-3">{{ block.settings.content_1 | escape }}</p></section>{% when 'policy_12' %}<section {{ block.shopify_attributes }}><h2 class="text-xl font-semibold mb-3">{{ block.settings.content_0 | escape }}</h2><p class="text-gray-700 leading-relaxed mb-3">{{ block.settings.content_1 | escape }}</p></section>{% endcase %}{% endfor %}</div></div></div>
+</div>
+
+{% schema %}
+{
+  "name": "Privacy Policy",
+  "settings": [
+    {
+      "type": "text",
+      "id": "content_0",
+      "label": "Last updated: April 22, 2026",
+      "default": "Last updated: April 22, 2026"
+    },
+    {
+      "type": "text",
+      "id": "content_1",
+      "label": "Heading",
+      "default": "Privacy Policy"
+    },
+    {
+      "type": "textarea",
+      "id": "content_2",
+      "label": "Lumina operates this store and website, inclu",
+      "default": "Lumina operates this store and website, including all related information, content, features, tools, products and services, in order to provide you, the customer, with a curated shopping experience (the “Services”). This Privacy Policy describes how we collect, use, and disclose your personal information when you visit, use, or make a purchase or other transaction using the Services or otherwise communicate with us. If there is a conflict between our Terms of Service and this Privacy Policy, this Privacy Policy controls with respect to the collection, processing, and disclosure of your personal information."
+    },
+    {
+      "type": "textarea",
+      "id": "content_3",
+      "label": "Please read this Privacy Policy carefully. By",
+      "default": "Please read this Privacy Policy carefully. By using and accessing any of the Services, you acknowledge that you have read this Privacy Policy and understand the collection, use, and disclosure of your information as described in this Privacy Policy."
+    },
+    {
+      "type": "header",
+      "content": "Layout"
+    },
+    {
+      "type": "range",
+      "id": "spacing_top",
+      "label": "Extra top spacing",
+      "min": 0,
+      "max": 120,
+      "step": 4,
+      "unit": "px",
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "spacing_bottom",
+      "label": "Extra bottom spacing",
+      "min": 0,
+      "max": 120,
+      "step": 4,
+      "unit": "px",
+      "default": 0
+    },
+    {
+      "type": "color",
+      "id": "background",
+      "label": "Section background override"
+    },
+    {
+      "type": "select",
+      "id": "content_width",
+      "label": "Content width",
+      "default": "original",
+      "options": [
+        {
+          "value": "original",
+          "label": "Original design"
+        },
+        {
+          "value": "narrow",
+          "label": "Narrow"
+        },
+        {
+          "value": "wide",
+          "label": "Wide"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Privacy Policy",
+      "blocks": [
+        {
+          "type": "policy_0",
+          "settings": {
+            "content_0": "Personal Information We Collect or Process",
+            "content_1": "When we use the term \"personal information,\" we are referring to information that identifies or can reasonably be linked to you or another person. Personal information does not include information that is collected anonymously or that has been de-identified, so that it cannot identify or be reasonably linked to you. We may collect or process the following categories of personal information, including inferences drawn from this personal information, depending on how you interact with the Services, where you live, and as permitted or required by applicable law:",
+            "content_2": "Contact details including your name, address, billing address, shipping address, phone number, and email address.",
+            "content_3": "Financial information including credit card, debit card, and financial account numbers, payment card information, financial account information, transaction details, form of payment, payment confirmation and other payment details.",
+            "content_4": "Account information including your username, password, security questions, preferences and settings.",
+            "content_5": "Transaction information including the items you view, put in your cart, add to your wishlist, or purchase, return, exchange or cancel and your past transactions.",
+            "content_6": "Communications with us including the information you include in communications with us, for example, when sending a customer support inquiry.",
+            "content_7": "Device information including information about your device, browser, or network connection, your IP address, and other unique identifiers.",
+            "content_8": "Usage information including information regarding your interaction with the Services, including how and when you interact with or navigate the Services."
+          }
+        },
+        {
+          "type": "policy_1",
+          "settings": {
+            "content_0": "Personal Information Sources",
+            "content_1": "We may collect personal information from the following sources:",
+            "content_2": "Directly from you including when you create an account, visit or use the Services, communicate with us, or otherwise provide us with your personal information;",
+            "content_3": "Automatically through the Services including from your device when you use our products or services or visit our websites, and through the use of cookies and similar technologies;",
+            "content_4": "From our service providers including when we engage them to enable certain technology and when they collect or process your personal information on our behalf;",
+            "content_5": "From our partners or other third parties."
+          }
+        },
+        {
+          "type": "policy_2",
+          "settings": {
+            "content_0": "How We Use Your Personal Information",
+            "content_1": "Depending on how you interact with us or which of the Services you use, we may use personal information for the following purposes:",
+            "content_2": "Provide, Tailor, and Improve the Services. We use your personal information to provide you with the Services, including to perform our contract with you, to process your payments, to fulfill your orders, to remember your preferences and items you are interested in, to send notifications to you related to your account, to process purchases, returns, exchanges or other transactions, to create, maintain and otherwise manage your account, to arrange for shipping, to facilitate any returns and exchanges, to enable you to post reviews, and to create a customized shopping experience for you, such as recommending products related to your purchases. This may include using your personal information to better tailor and improve the Services.",
+            "content_3": "Marketing and Advertising. We use your personal information for marketing and promotional purposes, such as to send marketing, advertising and promotional communications by email, text message or postal mail, and to show you online advertisements for products or services on the Services or other websites, including based on items you previously have purchased or added to your cart and other activity on the Services.",
+            "content_4": "Security and Fraud Prevention. We use your personal information to authenticate your account, to provide a secure payment and shopping experience, detect, investigate or take action regarding possible fraudulent, illegal, unsafe, or malicious activity, protect public safety, and to secure our services. If you choose to use the Services and register an account, you are responsible for keeping your account credentials safe. We highly recommend that you do not share your username, password or other access details with anyone else.",
+            "content_5": "Communicating with You. We use your personal information to provide you with customer support, to be responsive to you, to provide effective services to you and to maintain our business relationship with you.",
+            "content_6": "Legal Reasons. We use your personal information to comply with applicable law or respond to valid legal process, including requests from law enforcement or government agencies, to investigate or participate in civil discovery, potential or actual litigation, or other adversarial legal proceedings, and to enforce or investigate potential violations of our terms or policies."
+          }
+        },
+        {
+          "type": "policy_3",
+          "settings": {
+            "content_0": "How We Disclose Personal Information",
+            "content_1": "In certain circumstances, we may disclose your personal information to third parties for legitimate purposes subject to this Privacy Policy. Such circumstances may include:",
+            "content_2": "With Shopify, vendors and other third parties who perform services on our behalf (e.g. IT management, payment processing, data analytics, customer support, cloud storage, fulfillment and shipping).",
+            "content_3": "With business and marketing partners to provide marketing services and advertise to you. For example, we use Shopify to support personalized advertising with third-party services based on your online activity with different merchants and websites. Our business and marketing partners will use your information in accordance with their own privacy notices. Depending on where you reside, you may have a right to direct us not to share information about you to show you targeted advertisements and marketing based on your online activity with different merchants and websites.",
+            "content_4": "When you direct, request us or otherwise consent to our disclosure of certain information to third parties, such as to ship you products or through your use of social media widgets or login integrations.",
+            "content_5": "With our affiliates or otherwise within our corporate group.",
+            "content_6": "In connection with a business transaction such as a merger or bankruptcy, to comply with any applicable legal obligations (including to respond to subpoenas, search warrants and similar requests), to enforce any applicable terms of service or policies, and to protect or defend the Services, our rights, and the rights of our users or others."
+          }
+        },
+        {
+          "type": "policy_4",
+          "settings": {
+            "content_0": "Relationship with Shopify",
+            "content_1": "The Services are hosted by Shopify, which collects and processes personal information about your access to and use of the Services in order to provide and improve the Services for you. Information you submit to the Services will be transmitted to and shared with Shopify as well as third parties that may be located in countries other than where you reside, in order to provide and improve the Services for you. In addition, to help protect, grow, and improve our business, we use certain Shopify enhanced features that incorporate data and information obtained from your interactions with our Store, along with other merchants and with Shopify. To provide these enhanced features, Shopify may make use of personal information collected about your interactions with our store, along with other merchants, and with Shopify. In these circumstances, Shopify is responsible for the processing of your personal information, including for responding to your requests to exercise your rights over use of your personal information for these purposes. To learn more about how Shopify uses your personal information and any rights you may have, you can visit the Shopify Consumer Privacy Policy. Depending on where you live, you may exercise certain rights with respect to your personal information via the Shopify Privacy Portal."
+          }
+        },
+        {
+          "type": "policy_5",
+          "settings": {
+            "content_0": "Third Party Websites and Links",
+            "content_1": "The Services may provide links to websites or other online platforms operated by third parties. If you follow links to sites not affiliated or controlled by us, you should review their privacy and security policies and other terms and conditions. We do not guarantee and are not responsible for the privacy or security of such sites, including the accuracy, completeness, or reliability of information found on these sites. Information you provide on public or semi-public venues, including information you share on third-party social networking platforms may also be viewable by other users of the Services and/or users of those third-party platforms without limitation as to its use by us or by a third party. Our inclusion of such links does not, by itself, imply any endorsement of the content on such platforms or of their owners or operators, except as disclosed on the Services."
+          }
+        },
+        {
+          "type": "policy_6",
+          "settings": {
+            "content_0": "Children's Data",
+            "content_1": "The Services are not intended to be used by children, and we do not knowingly collect any personal information about children under the age of majority in your jurisdiction. If you are the parent or guardian of a child who has provided us with their personal information, you may contact us using the contact details set out below to request that it be deleted. As of the Effective Date of this Privacy Policy, we do not have actual knowledge that we \"share\" or \"sell\" (as those terms are defined in applicable law) personal information of individuals under 16 years of age."
+          }
+        },
+        {
+          "type": "policy_7",
+          "settings": {
+            "content_0": "Security and Retention of Your Information",
+            "content_1": "Please be aware that no security measures are perfect or impenetrable, and we cannot guarantee \"perfect security.\" In addition, any information you send to us may not be secure while in transit. We recommend that you do not use unsecure channels to communicate sensitive or confidential information to us.",
+            "content_2": "How long we retain your personal information depends on different factors, such as whether we need the information to maintain your account, to provide you with Services, comply with legal obligations, resolve disputes or enforce other applicable contracts and policies."
+          }
+        },
+        {
+          "type": "policy_8",
+          "settings": {
+            "content_0": "Your Rights and Choices",
+            "content_1": "Depending on where you live, you may have some or all of the rights listed below in relation to your personal information. However, these rights are not absolute, may apply only in certain circumstances and, in certain cases, we may decline your request as permitted by law.",
+            "content_2": "Right to Access / Know. You may have a right to request access to personal information that we hold about you.",
+            "content_3": "Right to Delete. You may have a right to request that we delete personal information we maintain about you.",
+            "content_4": "Right to Correct. You may have a right to request that we correct inaccurate personal information we maintain about you.",
+            "content_5": "Right of Portability. You may have a right to receive a copy of the personal information we hold about you and to request that we transfer it to a third party, in certain circumstances and with certain exceptions.",
+            "content_6": "Right to Opt out of Sale or Sharing for Targeted Advertising. Depending on where you reside, you may have a right to opt out of the \"sale\" or \"share\" of your personal information or to opt out of the processing of your personal information for purposes considered to be \"targeted advertising\", as defined in applicable privacy laws. Please note that if you visit our website with the Global Privacy Control opt-out preference signal enabled, depending on where you are, we will automatically treat this as a request to opt-out for the device and browser that you use to visit the website. To learn more about Global Privacy Control, you can visit https://globalprivacycontrol.org/. Other than the Global Privacy Control, we do not recognize other \"Do Not Track\" signals that may be sent from your web browser or device.",
+            "content_7": "Managing Communication Preferences. We may send you promotional emails, and you may opt out of receiving these at any time by using the unsubscribe option displayed in our emails to you. If you opt out, we may still send you non-promotional emails, such as those about your account or orders that you have made.",
+            "content_8": "You may exercise any of these rights where indicated on the Services or by contacting us using the contact details provided below. To learn more about how Shopify uses your personal information and any rights you may have, including rights related to data processed by Shopify, you can visit https://privacy.shopify.com/en.",
+            "content_9": "We will not discriminate against you for exercising any of these rights. We may need to verify your identity before we can process your requests, as permitted or required under applicable law. In accordance with applicable laws, you may designate an authorized agent to make requests on your behalf to exercise your rights. Before accepting such a request from an agent, we will require that the agent provide proof you have authorized them to act on your behalf, and we may need you to verify your identity directly with us. We will respond to your request in a timely manner as required under applicable law."
+          }
+        },
+        {
+          "type": "policy_9",
+          "settings": {
+            "content_0": "Complaints",
+            "content_1": "If you have complaints about how we process your personal information, please contact us using the contact details provided below. Depending on where you live, you may have the right to appeal our decision by contacting us using the contact details set out below, or lodge your complaint with your local data protection authority."
+          }
+        },
+        {
+          "type": "policy_10",
+          "settings": {
+            "content_0": "International Transfers",
+            "content_1": "Please note that we may transfer, store and process your personal information outside the country you live in.",
+            "content_2": "If we transfer your personal information out of the European Economic Area or the United Kingdom, we will rely on recognized transfer mechanisms like the European Commission's Standard Contractual Clauses, or any equivalent contracts issued by the relevant competent authority of the UK, as relevant, unless the data transfer is to a country that has been determined to provide an adequate level of protection."
+          }
+        },
+        {
+          "type": "policy_11",
+          "settings": {
+            "content_0": "Changes to This Privacy Policy",
+            "content_1": "We may update this Privacy Policy from time to time, including to reflect changes to our practices or for other operational, legal, or regulatory reasons. We will post the revised Privacy Policy on this website, update the \"Last updated\" date and provide notice as required by applicable law."
+          }
+        },
+        {
+          "type": "policy_12",
+          "settings": {
+            "content_0": "Contact",
+            "content_1": "Should you have any questions about our privacy practices or this Privacy Policy, or if you would like to exercise any of the rights available to you, please call or email us at info@luminablackoutblinds.com or contact us at Carlinghow Mills, UNIT C2, Batley, ENG, WF17 8LL, GB."
+          }
+        }
+      ]
+    }
+  ],
+  "blocks": [
+    {
+      "type": "policy_0",
+      "name": "Personal Information We ",
+      "settings": [
+        {
+          "type": "text",
+          "id": "content_0",
+          "label": "Heading",
+          "default": "Personal Information We Collect or Process"
+        },
+        {
+          "type": "textarea",
+          "id": "content_1",
+          "label": "When we use the term \"personal information,\" ",
+          "default": "When we use the term \"personal information,\" we are referring to information that identifies or can reasonably be linked to you or another person. Personal information does not include information that is collected anonymously or that has been de-identified, so that it cannot identify or be reasonably linked to you. We may collect or process the following categories of personal information, including inferences drawn from this personal information, depending on how you interact with the Services, where you live, and as permitted or required by applicable law:"
+        },
+        {
+          "type": "textarea",
+          "id": "content_2",
+          "label": "Contact details including your name, address,",
+          "default": "Contact details including your name, address, billing address, shipping address, phone number, and email address."
+        },
+        {
+          "type": "textarea",
+          "id": "content_3",
+          "label": "Financial information including credit card, ",
+          "default": "Financial information including credit card, debit card, and financial account numbers, payment card information, financial account information, transaction details, form of payment, payment confirmation and other payment details."
+        },
+        {
+          "type": "text",
+          "id": "content_4",
+          "label": "Account information including your username, ",
+          "default": "Account information including your username, password, security questions, preferences and settings."
+        },
+        {
+          "type": "textarea",
+          "id": "content_5",
+          "label": "Transaction information including the items y",
+          "default": "Transaction information including the items you view, put in your cart, add to your wishlist, or purchase, return, exchange or cancel and your past transactions."
+        },
+        {
+          "type": "textarea",
+          "id": "content_6",
+          "label": "Communications with us including the informat",
+          "default": "Communications with us including the information you include in communications with us, for example, when sending a customer support inquiry."
+        },
+        {
+          "type": "textarea",
+          "id": "content_7",
+          "label": "Device information including information abou",
+          "default": "Device information including information about your device, browser, or network connection, your IP address, and other unique identifiers."
+        },
+        {
+          "type": "textarea",
+          "id": "content_8",
+          "label": "Usage information including information regar",
+          "default": "Usage information including information regarding your interaction with the Services, including how and when you interact with or navigate the Services."
+        }
+      ]
+    },
+    {
+      "type": "policy_1",
+      "name": "Personal Information Sou",
+      "settings": [
+        {
+          "type": "text",
+          "id": "content_0",
+          "label": "Heading",
+          "default": "Personal Information Sources"
+        },
+        {
+          "type": "text",
+          "id": "content_1",
+          "label": "We may collect personal information from the ",
+          "default": "We may collect personal information from the following sources:"
+        },
+        {
+          "type": "textarea",
+          "id": "content_2",
+          "label": "Directly from you including when you create a",
+          "default": "Directly from you including when you create an account, visit or use the Services, communicate with us, or otherwise provide us with your personal information;"
+        },
+        {
+          "type": "textarea",
+          "id": "content_3",
+          "label": "Automatically through the Services including ",
+          "default": "Automatically through the Services including from your device when you use our products or services or visit our websites, and through the use of cookies and similar technologies;"
+        },
+        {
+          "type": "textarea",
+          "id": "content_4",
+          "label": "From our service providers including when we ",
+          "default": "From our service providers including when we engage them to enable certain technology and when they collect or process your personal information on our behalf;"
+        },
+        {
+          "type": "text",
+          "id": "content_5",
+          "label": "From our partners or other third parties.",
+          "default": "From our partners or other third parties."
+        }
+      ]
+    },
+    {
+      "type": "policy_2",
+      "name": "How We Use Your Personal",
+      "settings": [
+        {
+          "type": "text",
+          "id": "content_0",
+          "label": "Heading",
+          "default": "How We Use Your Personal Information"
+        },
+        {
+          "type": "textarea",
+          "id": "content_1",
+          "label": "Depending on how you interact with us or whic",
+          "default": "Depending on how you interact with us or which of the Services you use, we may use personal information for the following purposes:"
+        },
+        {
+          "type": "textarea",
+          "id": "content_2",
+          "label": "Provide, Tailor, and Improve the Services. We",
+          "default": "Provide, Tailor, and Improve the Services. We use your personal information to provide you with the Services, including to perform our contract with you, to process your payments, to fulfill your orders, to remember your preferences and items you are interested in, to send notifications to you related to your account, to process purchases, returns, exchanges or other transactions, to create, maintain and otherwise manage your account, to arrange for shipping, to facilitate any returns and exchanges, to enable you to post reviews, and to create a customized shopping experience for you, such as recommending products related to your purchases. This may include using your personal information to better tailor and improve the Services."
+        },
+        {
+          "type": "textarea",
+          "id": "content_3",
+          "label": "Marketing and Advertising. We use your person",
+          "default": "Marketing and Advertising. We use your personal information for marketing and promotional purposes, such as to send marketing, advertising and promotional communications by email, text message or postal mail, and to show you online advertisements for products or services on the Services or other websites, including based on items you previously have purchased or added to your cart and other activity on the Services."
+        },
+        {
+          "type": "textarea",
+          "id": "content_4",
+          "label": "Security and Fraud Prevention. We use your pe",
+          "default": "Security and Fraud Prevention. We use your personal information to authenticate your account, to provide a secure payment and shopping experience, detect, investigate or take action regarding possible fraudulent, illegal, unsafe, or malicious activity, protect public safety, and to secure our services. If you choose to use the Services and register an account, you are responsible for keeping your account credentials safe. We highly recommend that you do not share your username, password or other access details with anyone else."
+        },
+        {
+          "type": "textarea",
+          "id": "content_5",
+          "label": "Communicating with You. We use your personal ",
+          "default": "Communicating with You. We use your personal information to provide you with customer support, to be responsive to you, to provide effective services to you and to maintain our business relationship with you."
+        },
+        {
+          "type": "textarea",
+          "id": "content_6",
+          "label": "Legal Reasons. We use your personal informati",
+          "default": "Legal Reasons. We use your personal information to comply with applicable law or respond to valid legal process, including requests from law enforcement or government agencies, to investigate or participate in civil discovery, potential or actual litigation, or other adversarial legal proceedings, and to enforce or investigate potential violations of our terms or policies."
+        }
+      ]
+    },
+    {
+      "type": "policy_3",
+      "name": "How We Disclose Personal",
+      "settings": [
+        {
+          "type": "text",
+          "id": "content_0",
+          "label": "Heading",
+          "default": "How We Disclose Personal Information"
+        },
+        {
+          "type": "textarea",
+          "id": "content_1",
+          "label": "In certain circumstances, we may disclose you",
+          "default": "In certain circumstances, we may disclose your personal information to third parties for legitimate purposes subject to this Privacy Policy. Such circumstances may include:"
+        },
+        {
+          "type": "textarea",
+          "id": "content_2",
+          "label": "With Shopify, vendors and other third parties",
+          "default": "With Shopify, vendors and other third parties who perform services on our behalf (e.g. IT management, payment processing, data analytics, customer support, cloud storage, fulfillment and shipping)."
+        },
+        {
+          "type": "textarea",
+          "id": "content_3",
+          "label": "With business and marketing partners to provi",
+          "default": "With business and marketing partners to provide marketing services and advertise to you. For example, we use Shopify to support personalized advertising with third-party services based on your online activity with different merchants and websites. Our business and marketing partners will use your information in accordance with their own privacy notices. Depending on where you reside, you may have a right to direct us not to share information about you to show you targeted advertisements and marketing based on your online activity with different merchants and websites."
+        },
+        {
+          "type": "textarea",
+          "id": "content_4",
+          "label": "When you direct, request us or otherwise cons",
+          "default": "When you direct, request us or otherwise consent to our disclosure of certain information to third parties, such as to ship you products or through your use of social media widgets or login integrations."
+        },
+        {
+          "type": "text",
+          "id": "content_5",
+          "label": "With our affiliates or otherwise within our c",
+          "default": "With our affiliates or otherwise within our corporate group."
+        },
+        {
+          "type": "textarea",
+          "id": "content_6",
+          "label": "In connection with a business transaction suc",
+          "default": "In connection with a business transaction such as a merger or bankruptcy, to comply with any applicable legal obligations (including to respond to subpoenas, search warrants and similar requests), to enforce any applicable terms of service or policies, and to protect or defend the Services, our rights, and the rights of our users or others."
+        }
+      ]
+    },
+    {
+      "type": "policy_4",
+      "name": "Relationship with Shopif",
+      "settings": [
+        {
+          "type": "text",
+          "id": "content_0",
+          "label": "Heading",
+          "default": "Relationship with Shopify"
+        },
+        {
+          "type": "textarea",
+          "id": "content_1",
+          "label": "The Services are hosted by Shopify, which col",
+          "default": "The Services are hosted by Shopify, which collects and processes personal information about your access to and use of the Services in order to provide and improve the Services for you. Information you submit to the Services will be transmitted to and shared with Shopify as well as third parties that may be located in countries other than where you reside, in order to provide and improve the Services for you. In addition, to help protect, grow, and improve our business, we use certain Shopify enhanced features that incorporate data and information obtained from your interactions with our Store, along with other merchants and with Shopify. To provide these enhanced features, Shopify may make use of personal information collected about your interactions with our store, along with other merchants, and with Shopify. In these circumstances, Shopify is responsible for the processing of your personal information, including for responding to your requests to exercise your rights over use of your personal information for these purposes. To learn more about how Shopify uses your personal information and any rights you may have, you can visit the Shopify Consumer Privacy Policy. Depending on where you live, you may exercise certain rights with respect to your personal information via the Shopify Privacy Portal."
+        }
+      ]
+    },
+    {
+      "type": "policy_5",
+      "name": "Third Party Websites and",
+      "settings": [
+        {
+          "type": "text",
+          "id": "content_0",
+          "label": "Heading",
+          "default": "Third Party Websites and Links"
+        },
+        {
+          "type": "textarea",
+          "id": "content_1",
+          "label": "The Services may provide links to websites or",
+          "default": "The Services may provide links to websites or other online platforms operated by third parties. If you follow links to sites not affiliated or controlled by us, you should review their privacy and security policies and other terms and conditions. We do not guarantee and are not responsible for the privacy or security of such sites, including the accuracy, completeness, or reliability of information found on these sites. Information you provide on public or semi-public venues, including information you share on third-party social networking platforms may also be viewable by other users of the Services and/or users of those third-party platforms without limitation as to its use by us or by a third party. Our inclusion of such links does not, by itself, imply any endorsement of the content on such platforms or of their owners or operators, except as disclosed on the Services."
+        }
+      ]
+    },
+    {
+      "type": "policy_6",
+      "name": "Children's DataThe Servi",
+      "settings": [
+        {
+          "type": "text",
+          "id": "content_0",
+          "label": "Heading",
+          "default": "Children's Data"
+        },
+        {
+          "type": "textarea",
+          "id": "content_1",
+          "label": "The Services are not intended to be used by c",
+          "default": "The Services are not intended to be used by children, and we do not knowingly collect any personal information about children under the age of majority in your jurisdiction. If you are the parent or guardian of a child who has provided us with their personal information, you may contact us using the contact details set out below to request that it be deleted. As of the Effective Date of this Privacy Policy, we do not have actual knowledge that we \"share\" or \"sell\" (as those terms are defined in applicable law) personal information of individuals under 16 years of age."
+        }
+      ]
+    },
+    {
+      "type": "policy_7",
+      "name": "Security and Retention o",
+      "settings": [
+        {
+          "type": "text",
+          "id": "content_0",
+          "label": "Heading",
+          "default": "Security and Retention of Your Information"
+        },
+        {
+          "type": "textarea",
+          "id": "content_1",
+          "label": "Please be aware that no security measures are",
+          "default": "Please be aware that no security measures are perfect or impenetrable, and we cannot guarantee \"perfect security.\" In addition, any information you send to us may not be secure while in transit. We recommend that you do not use unsecure channels to communicate sensitive or confidential information to us."
+        },
+        {
+          "type": "textarea",
+          "id": "content_2",
+          "label": "How long we retain your personal information ",
+          "default": "How long we retain your personal information depends on different factors, such as whether we need the information to maintain your account, to provide you with Services, comply with legal obligations, resolve disputes or enforce other applicable contracts and policies."
+        }
+      ]
+    },
+    {
+      "type": "policy_8",
+      "name": "Your Rights and ChoicesD",
+      "settings": [
+        {
+          "type": "text",
+          "id": "content_0",
+          "label": "Heading",
+          "default": "Your Rights and Choices"
+        },
+        {
+          "type": "textarea",
+          "id": "content_1",
+          "label": "Depending on where you live, you may have som",
+          "default": "Depending on where you live, you may have some or all of the rights listed below in relation to your personal information. However, these rights are not absolute, may apply only in certain circumstances and, in certain cases, we may decline your request as permitted by law."
+        },
+        {
+          "type": "textarea",
+          "id": "content_2",
+          "label": "Right to Access / Know. You may have a right ",
+          "default": "Right to Access / Know. You may have a right to request access to personal information that we hold about you."
+        },
+        {
+          "type": "textarea",
+          "id": "content_3",
+          "label": "Right to Delete. You may have a right to requ",
+          "default": "Right to Delete. You may have a right to request that we delete personal information we maintain about you."
+        },
+        {
+          "type": "textarea",
+          "id": "content_4",
+          "label": "Right to Correct. You may have a right to req",
+          "default": "Right to Correct. You may have a right to request that we correct inaccurate personal information we maintain about you."
+        },
+        {
+          "type": "textarea",
+          "id": "content_5",
+          "label": "Right of Portability. You may have a right to",
+          "default": "Right of Portability. You may have a right to receive a copy of the personal information we hold about you and to request that we transfer it to a third party, in certain circumstances and with certain exceptions."
+        },
+        {
+          "type": "textarea",
+          "id": "content_6",
+          "label": "Right to Opt out of Sale or Sharing for Targe",
+          "default": "Right to Opt out of Sale or Sharing for Targeted Advertising. Depending on where you reside, you may have a right to opt out of the \"sale\" or \"share\" of your personal information or to opt out of the processing of your personal information for purposes considered to be \"targeted advertising\", as defined in applicable privacy laws. Please note that if you visit our website with the Global Privacy Control opt-out preference signal enabled, depending on where you are, we will automatically treat this as a request to opt-out for the device and browser that you use to visit the website. To learn more about Global Privacy Control, you can visit https://globalprivacycontrol.org/. Other than the Global Privacy Control, we do not recognize other \"Do Not Track\" signals that may be sent from your web browser or device."
+        },
+        {
+          "type": "textarea",
+          "id": "content_7",
+          "label": "Managing Communication Preferences. We may se",
+          "default": "Managing Communication Preferences. We may send you promotional emails, and you may opt out of receiving these at any time by using the unsubscribe option displayed in our emails to you. If you opt out, we may still send you non-promotional emails, such as those about your account or orders that you have made."
+        },
+        {
+          "type": "textarea",
+          "id": "content_8",
+          "label": "You may exercise any of these rights where in",
+          "default": "You may exercise any of these rights where indicated on the Services or by contacting us using the contact details provided below. To learn more about how Shopify uses your personal information and any rights you may have, including rights related to data processed by Shopify, you can visit https://privacy.shopify.com/en."
+        },
+        {
+          "type": "textarea",
+          "id": "content_9",
+          "label": "We will not discriminate against you for exer",
+          "default": "We will not discriminate against you for exercising any of these rights. We may need to verify your identity before we can process your requests, as permitted or required under applicable law. In accordance with applicable laws, you may designate an authorized agent to make requests on your behalf to exercise your rights. Before accepting such a request from an agent, we will require that the agent provide proof you have authorized them to act on your behalf, and we may need you to verify your identity directly with us. We will respond to your request in a timely manner as required under applicable law."
+        }
+      ]
+    },
+    {
+      "type": "policy_9",
+      "name": "ComplaintsIf you have co",
+      "settings": [
+        {
+          "type": "text",
+          "id": "content_0",
+          "label": "Heading",
+          "default": "Complaints"
+        },
+        {
+          "type": "textarea",
+          "id": "content_1",
+          "label": "If you have complaints about how we process y",
+          "default": "If you have complaints about how we process your personal information, please contact us using the contact details provided below. Depending on where you live, you may have the right to appeal our decision by contacting us using the contact details set out below, or lodge your complaint with your local data protection authority."
+        }
+      ]
+    },
+    {
+      "type": "policy_10",
+      "name": "International TransfersP",
+      "settings": [
+        {
+          "type": "text",
+          "id": "content_0",
+          "label": "Heading",
+          "default": "International Transfers"
+        },
+        {
+          "type": "textarea",
+          "id": "content_1",
+          "label": "Please note that we may transfer, store and p",
+          "default": "Please note that we may transfer, store and process your personal information outside the country you live in."
+        },
+        {
+          "type": "textarea",
+          "id": "content_2",
+          "label": "If we transfer your personal information out ",
+          "default": "If we transfer your personal information out of the European Economic Area or the United Kingdom, we will rely on recognized transfer mechanisms like the European Commission's Standard Contractual Clauses, or any equivalent contracts issued by the relevant competent authority of the UK, as relevant, unless the data transfer is to a country that has been determined to provide an adequate level of protection."
+        }
+      ]
+    },
+    {
+      "type": "policy_11",
+      "name": "Changes to This Privacy ",
+      "settings": [
+        {
+          "type": "text",
+          "id": "content_0",
+          "label": "Heading",
+          "default": "Changes to This Privacy Policy"
+        },
+        {
+          "type": "textarea",
+          "id": "content_1",
+          "label": "We may update this Privacy Policy from time t",
+          "default": "We may update this Privacy Policy from time to time, including to reflect changes to our practices or for other operational, legal, or regulatory reasons. We will post the revised Privacy Policy on this website, update the \"Last updated\" date and provide notice as required by applicable law."
+        }
+      ]
+    },
+    {
+      "type": "policy_12",
+      "name": "ContactShould you have a",
+      "settings": [
+        {
+          "type": "text",
+          "id": "content_0",
+          "label": "Heading",
+          "default": "Contact"
+        },
+        {
+          "type": "textarea",
+          "id": "content_1",
+          "label": "Should you have any questions about our priva",
+          "default": "Should you have any questions about our privacy practices or this Privacy Policy, or if you would like to exercise any of the rights available to you, please call or email us at info@luminablackoutblinds.com or contact us at Carlinghow Mills, UNIT C2, Batley, ENG, WF17 8LL, GB."
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

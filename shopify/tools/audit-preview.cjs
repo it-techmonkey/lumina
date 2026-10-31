@@ -1,0 +1,10 @@
+const {chromium}=require('playwright');const fs=require('fs');const path=require('path');
+const out=path.resolve(__dirname,'../.local');
+(async()=>{const browser=await chromium.launch({executablePath:'C:/Program Files/Google/Chrome/Application/chrome.exe',headless:true});const page=await browser.newPage({viewport:{width:1440,height:1000}});await page.goto('https://orders.luminablackoutblinds.com/?preview_theme_id=157534552221',{waitUntil:'networkidle'});
+const report=await page.evaluate(()=>({fonts:[...document.fonts].map(f=>({family:f.family,status:f.status})),badImages:[...document.images].filter(i=>i.complete&&!i.naturalWidth).map(i=>i.outerHTML),sections:[...document.querySelectorAll('main>.shopify-section')].map(el=>({id:el.id,height:el.clientHeight,text:el.innerText.slice(0,170)})),scripts:[...document.scripts].map(s=>s.src).filter(Boolean),judgeKeys:window.jdgm?Object.keys(window.jdgm):[]}));
+await page.screenshot({path:path.join(out,'home-full.png'),fullPage:true});
+for(const [name,selector]of [['benefits','main .shopify-section:nth-child(3)'],['comparison','main .shopify-section:nth-child(4)'],['story','main .shopify-section:nth-child(5)'],['reviews','#reviews']]){const el=page.locator(selector).first();if(await el.count())await el.screenshot({path:path.join(out,name+'.png')});}
+await page.goto('https://orders.luminablackoutblinds.com/products/honeycomb-blackout-blind?preview_theme_id=157534552221',{waitUntil:'networkidle'});
+report.review=await page.locator('#judgeme_product_reviews').evaluate(el=>({html:el.innerHTML.slice(0,1800),attributes:[...el.attributes].map(a=>[a.name,a.value])}));report.judgeData=await page.evaluate(()=>({dataKeys:Object.keys(window.jdgm?.data||{}),reviewKeys:Object.keys(window.jdgm?.data?.reviewWidget||{})}));
+await page.screenshot({path:path.join(out,'product-full.png'),fullPage:true});
+fs.writeFileSync(path.join(out,'audit.json'),JSON.stringify(report,null,2));console.log(JSON.stringify(report,null,2));await browser.close();})().catch(e=>{console.error(e.message);process.exit(1)});

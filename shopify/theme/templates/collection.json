@@ -1,0 +1,11 @@
+{
+  "sections": {
+    "main": {
+      "type": "lumina-collection",
+      "settings": {}
+    }
+  },
+  "order": [
+    "main"
+  ]
+}

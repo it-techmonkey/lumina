@@ -160,10 +160,10 @@ export default function EmailCaptureModal() {
           <button
             type="button"
             onClick={dismiss}
-            className="flex h-8 w-8 items-center justify-center rounded-full border border-white/10 text-white/30 transition-colors hover:border-white/20 hover:text-white/60"
+            className="flex h-10 w-10 items-center justify-center rounded-full border border-white/40 bg-white/10 text-white transition-colors hover:border-white hover:bg-white/20"
             aria-label="Close"
           >
-            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
               <path d="M18 6 6 18M6 6l12 12" />
             </svg>
           </button>

@@ -1,0 +1,422 @@
+{
+  "sections": {
+    "main": {
+      "type": "lumina-product",
+      "blocks": {
+        "block0": {
+          "type": "image",
+          "settings": {
+            "alt": "Lumina blackout blind image 1",
+            "original": "1"
+          }
+        },
+        "block1": {
+          "type": "image",
+          "settings": {
+            "alt": "Lumina blackout blind image 2",
+            "original": "2"
+          }
+        },
+        "block2": {
+          "type": "image",
+          "settings": {
+            "alt": "Lumina blackout blind image 3",
+            "original": "3"
+          }
+        },
+        "block3": {
+          "type": "image",
+          "settings": {
+            "alt": "Lumina blackout blind image 4",
+            "original": "4"
+          }
+        },
+        "block4": {
+          "type": "image",
+          "settings": {
+            "alt": "Lumina blackout blind image 5",
+            "original": "5"
+          }
+        },
+        "block5": {
+          "type": "image",
+          "settings": {
+            "alt": "Lumina blackout blind image 6",
+            "original": "6"
+          }
+        },
+        "block6": {
+          "type": "image",
+          "settings": {
+            "alt": "Lumina blackout blind image 7",
+            "original": "7"
+          }
+        },
+        "block7": {
+          "type": "image",
+          "settings": {
+            "alt": "Lumina blackout blind image 8",
+            "original": "8"
+          }
+        },
+        "block8": {
+          "type": "image",
+          "settings": {
+            "alt": "Lumina blackout blind image 9",
+            "original": "9"
+          }
+        },
+        "block9": {
+          "type": "image",
+          "settings": {
+            "alt": "Lumina blackout blind image 10",
+            "original": "10"
+          }
+        },
+        "block10": {
+          "type": "title",
+          "settings": {
+            "heading": ""
+          }
+        },
+        "block11": {
+          "type": "description",
+          "settings": {
+            "text": ""
+          }
+        },
+        "block12": {
+          "type": "rating",
+          "settings": {}
+        },
+        "block13": {
+          "type": "price",
+          "settings": {
+            "shipping": "Sale price · free shipping",
+            "delivery": "Delivered in 7–11 business days",
+            "unpriced_label": "Made to your measurements"
+          }
+        },
+        "block14": {
+          "type": "guarantees",
+          "settings": {}
+        },
+        "block15": {
+          "type": "promotion",
+          "settings": {
+            "text": "Extra 15% off with code",
+            "code": "FINAL15"
+          }
+        },
+        "block16": {
+          "type": "variant_picker",
+          "settings": {
+            "label": "Choose your option"
+          }
+        },
+        "block17": {
+          "type": "options_preview",
+          "settings": {
+            "show": true
+          }
+        },
+        "block18": {
+          "type": "buy_buttons",
+          "settings": {
+            "promise": "The Lumina Fit Promise",
+            "add_label": "Add to Cart",
+            "buy_label": "Buy Now",
+            "show_payments": true
+          }
+        },
+        "block19": {
+          "type": "trust",
+          "settings": {
+            "heading": "The Perfect-Fit Promise",
+            "title_1": "Free USA Shipping",
+            "text_1": "On every order, always",
+            "title_2": "1-Year Warranty",
+            "text_2": "Manufacturer backed",
+            "title_3": "Made to Measure",
+            "text_3": "Cut to your exact size"
+          }
+        },
+        "block20": {
+          "type": "accordion",
+          "settings": {
+            "heading": "Details",
+            "content": "<ul>\n        <li><strong>Fabric:</strong> Triple-layer blackout &#x2014; certified 100% light block</li>\n        <li><strong>Installation:</strong> No-drill spring tension bar &#x2014; no fixings, no damage</li>\n        <li><strong>Sizing:</strong> Made to order from 20 cm up to 250 cm wide, 30 cm to 300 cm drop</li>\n        <li><strong>Colors:</strong> White, Cream, Graphite, Sky Blue</li>\n        <li><strong>Frame colors:</strong> White or Graphite</li>\n        <li><strong>Opening direction:</strong> Left or right</li>\n        <li><strong>Care:</strong> Spot clean with a damp cloth and mild soap &#x2014; do not machine wash</li>\n        <li><strong>Tolerance:</strong> +/&#x2212; 4 mm manufacturing tolerance is standard for made-to-measure blinds</li>\n      </ul>"
+          }
+        },
+        "block21": {
+          "type": "accordion",
+          "settings": {
+            "heading": "Guarantees",
+            "content": "<p>30-Night Home Trial</p>\n      <p>Install your Lumina blind and live with it for up to 30 nights. If it&apos;s not right for your space, you can start a return &#x2014; even though it was made to your exact measurements, color, and opening direction. Email <em>info@luminablackoutblinds.com</em> within 30 nights of delivery and we&apos;ll walk you through the next steps.</p>\n      <p>1-Year Manufacturer&apos;s Guarantee</p>\n      <p>Every blind is covered against manufacturing faults for a full year from delivery. If a fault is confirmed, we&apos;ll repair or replace it at no extra cost.</p>\n      <p>Fault Protection on Delivery</p>\n      <p>If your blind arrives damaged or with a manufacturing fault, contact us within <em>3 business days</em> of delivery with your order number and photos. We aim to respond within 1 business day and will arrange a free replacement once the fault is confirmed.</p>"
+          }
+        },
+        "block22": {
+          "type": "accordion",
+          "settings": {
+            "heading": "Window Compatibility",
+            "content": "<p>The Lumina blackout blind is designed specifically for <strong>recessed windows</strong> &#x2014; windows that sit inside a recess (reveal) rather than flush with the wall.</p>\n      <ul>\n        <li><strong>Minimum recess depth:</strong> 5 mm</li>\n        <li><strong>Maximum recess depth:</strong> 80 mm</li>\n        <li>The tension bar sits inside the recess, giving edge-to-edge coverage with no light bleed</li>\n        <li>Not suitable for flat-wall mounting or non-recessed frames</li>\n        <li>Works on uPVC, wood, and aluminium window frames</li>\n      </ul>\n      <p>If you&apos;re unsure whether your window is compatible, email us a photo at <strong>info@luminablackoutblinds.com</strong> and we&apos;ll confirm before you order.</p>"
+          }
+        },
+        "block23": {
+          "type": "accordion",
+          "settings": {
+            "heading": "How to measure",
+            "content": "<p>Measure the <strong>inside of your window recess</strong> &#x2014; not the frame or the glass.</p>\n      <ul>\n        <li><strong>Width:</strong> Measure across the recess at the top, middle, and bottom. Use the <em>smallest</em> measurement.</li>\n        <li><strong>Drop:</strong> Measure from the top of the recess to the window sill. Measure on the left, center, and right and use the <em>largest</em> measurement.</li>\n        <li>Enter your exact dimensions at checkout &#x2014; we cut every blind to order.</li>\n        <li>A +/&#x2212; 4 mm manufacturing tolerance is standard and does not affect blackout performance.</li>\n      </ul>\n      <p>Tip: measure twice before ordering. Because every blind is cut to your measurements, we&apos;re unable to accept returns on correctly made-to-measure items.</p>\n      <p><a href=\"/?view=measuring-guide\" target=\"_blank\" rel=\"noopener noreferrer\">View full measuring guide &#x2192;</a></p>"
+          }
+        },
+        "block24": {
+          "type": "accordion",
+          "settings": {
+            "heading": "How to install",
+            "content": "<ol>\n        <li>Unbox the blind and extend the tension bar to match your window width.</li>\n        <li>Hold the bar horizontally inside the recess at your desired height.</li>\n        <li>Press both ends firmly against the recess walls until the spring locks into position.</li>\n        <li>Release &#x2014; the tension holds the blind securely without any fixings or damage.</li>\n        <li>Pull the blind down to your preferred drop. The cassette stays in place as you adjust.</li>\n      </ol>\n      <p>No drilling, no screws, no tools required. The blind can be removed and repositioned without leaving any marks &#x2014; ideal for rentals.</p>\n      <p><a href=\"/?view=fitting-guide\" target=\"_blank\" rel=\"noopener noreferrer\">View full installation guide &#x2192;</a></p>"
+          }
+        },
+        "block25": {
+          "type": "accordion",
+          "settings": {
+            "heading": "Shipping & Returns",
+            "content": "<p>Shipping</p>\n      <ul>\n        <li>Free shipping on every order &#x2014; no minimum spend</li>\n        <li>Ships within the United States only</li>\n        <li>Every blind is made to order and dispatched within 3&#x2013;5 business days</li>\n        <li>Estimated delivery: <em>7&#x2013;11 business days</em> from order date</li>\n        <li>A tracking number is emailed once your blind ships</li>\n        <li>We are unable to deliver to PO boxes, military addresses, or international addresses</li>\n      </ul>\n      <p>Returns</p>\n      <ul>\n        <li>Because every blind is cut to your exact measurements, we do not accept returns on correctly made-to-measure items</li>\n        <li>If your blind arrives damaged or has a confirmed manufacturing fault, contact us within <strong>3 business days</strong> of delivery</li>\n        <li>Email <strong>info@luminablackoutblinds.com</strong> with your order number, a description, and photos</li>\n        <li>Do not install the blind until we&apos;ve reviewed your claim</li>\n        <li>We aim to respond within 1 business day and will arrange a free replacement if a fault is confirmed</li>\n      </ul>"
+          }
+        },
+        "live_product_options_app_block_4RbrVU": {
+          "type": "shopify://apps/live-product-options/blocks/app-block/88bfdf40-5e27-4962-a966-70c8d1e87757",
+          "settings": {
+            "product": "{{product}}"
+          }
+        }
+      },
+      "block_order": [
+        "block0",
+        "block1",
+        "block2",
+        "block3",
+        "block4",
+        "block5",
+        "block6",
+        "block7",
+        "block8",
+        "block9",
+        "block10",
+        "block11",
+        "block12",
+        "block13",
+        "block14",
+        "block15",
+        "block16",
+        "live_product_options_app_block_4RbrVU",
+        "block17",
+        "block18",
+        "block19",
+        "block20",
+        "block21",
+        "block22",
+        "block23",
+        "block24",
+        "block25"
+      ],
+      "settings": {
+        "product": "",
+        "media_source": "product",
+        "require_options_app": true,
+        "empty_title": "Blackout Blind"
+      }
+    },
+    "features": {
+      "type": "lumina-key-features",
+      "blocks": {
+        "block0": {
+          "type": "feature_0",
+          "settings": {
+            "content_0": "Total Blackout",
+            "content_1": "Enjoy complete darkness anytime with total blackout fabric that blocks all external light."
+          }
+        },
+        "block1": {
+          "type": "feature_1",
+          "settings": {
+            "content_0": "Cordless & Safe",
+            "content_1": "Designed with safety in mind, featuring a sleek cordless system with no cords or chains."
+          }
+        },
+        "block2": {
+          "type": "feature_2",
+          "settings": {
+            "content_0": "Energy Efficient",
+            "content_1": "Thermal pleated fabric helps keep rooms cooler in summer and warmer in winter."
+          }
+        }
+      },
+      "block_order": [
+        "block0",
+        "block1",
+        "block2"
+      ],
+      "settings": {
+        "content_0": "Key Features",
+        "content_1": "Built for comfort",
+        "content_2": ", made for you",
+        "spacing_top": 0,
+        "spacing_bottom": 0,
+        "background": "",
+        "content_width": "original"
+      }
+    },
+    "benefits": {
+      "type": "lumina-product-features",
+      "blocks": {
+        "block0": {
+          "type": "benefit_0",
+          "settings": {
+            "content_0": "100% Blackout",
+            "content_1": "Unlike traditional curtains, our triple-layer fabric ensures complete darkness at any time of day — noon or midnight."
+          }
+        },
+        "block1": {
+          "type": "benefit_1",
+          "settings": {
+            "content_0": "No-Drill Install",
+            "content_1": "A 4-step tension-fit setup with no tools or DIY expertise required. Damage-free — perfect for renters.",
+            "content_3": "No-Drill Install"
+          }
+        },
+        "block2": {
+          "type": "benefit_2",
+          "settings": {
+            "content_0": "Energy Efficient",
+            "content_1": "Our honeycomb fabric structure traps air, insulating your room. Warmer in winter, cooler in summer — lower energy bills.",
+            "content_3": "Energy Efficient"
+          }
+        }
+      },
+      "block_order": [
+        "block0",
+        "block1",
+        "block2"
+      ],
+      "settings": {
+        "content_0": "90% of adults say light",
+        "content_1": "exposure",
+        "content_2": "ruins their",
+        "content_3": "sleep",
+        "content_4": "When sunlight and street-lamp glare sneak into your bedroom, it disrupts your circadian rhythm, spikes cortisol, and fragments your deep sleep cycles. The result? You wake up exhausted, irritable, and fog-brained — even after 8 hours in bed.",
+        "content_5": "Fix Your Sleep →",
+        "content_6": "A 3-in-1 solution",
+        "content_7": "One blind. Three measurable improvements to your home.",
+        "content_9": "Person struggling to sleep with light",
+        "content_10": "",
+        "spacing_top": 0,
+        "spacing_bottom": 0,
+        "background": "",
+        "content_width": "original"
+      }
+    },
+    "why": {
+      "type": "lumina-why-lumina",
+      "blocks": {
+        "block0": {
+          "type": "benefit_0",
+          "settings": {
+            "content_0": "Cut to Your Exact Size",
+            "content_1": "Enter your dimensions and we make every blind to fit your window."
+          }
+        },
+        "block1": {
+          "type": "benefit_1",
+          "settings": {
+            "content_0": "Built to Last",
+            "content_1": "Premium materials engineered for durability and long-term performance."
+          }
+        },
+        "block2": {
+          "type": "benefit_2",
+          "settings": {
+            "content_0": "Minimal Aesthetic",
+            "content_1": "Clean Scandinavian-influenced design that complements any interior."
+          }
+        },
+        "block3": {
+          "type": "benefit_3",
+          "settings": {
+            "content_0": "Easy No-Drill Install",
+            "content_1": "Spring tension mount — fits in seconds, leaves no marks."
+          }
+        },
+        "block4": {
+          "type": "benefit_4",
+          "settings": {
+            "content_0": "Total Light Control",
+            "content_1": "Block 100% of light or let it all in. Complete control, zero compromise."
+          }
+        },
+        "block5": {
+          "type": "benefit_5",
+          "settings": {
+            "content_0": "Dedicated Support",
+            "content_1": "Real humans, fast replies. We're here before, during, and after."
+          }
+        }
+      },
+      "block_order": [
+        "block0",
+        "block1",
+        "block2",
+        "block3",
+        "block4",
+        "block5"
+      ],
+      "settings": {
+        "content_0": "Why Lumina",
+        "content_1": "Why choose",
+        "content_2": "Lumina?",
+        "content_3": "Proudly made in Texas",
+        "content_4": "Designed and manufactured with care, quality, and sustainability. Every blind built to last.",
+        "content_6": "Premium craftsmanship banner",
+        "spacing_top": 0,
+        "spacing_bottom": 0,
+        "background": "",
+        "content_width": "original"
+      }
+    },
+    "reviews": {
+      "type": "lumina-reviews",
+      "blocks": {
+        "judgeme_widget": {
+          "type": "shopify://apps/judge-me-reviews/blocks/review_widget/61ccd3b1-a9f2-4160-9fe9-4fec8413e5d8",
+          "settings": {
+            "review_data": "real_data",
+            "max_width": 1200,
+            "show_shop_reviews": false,
+            "empty_state": "empty_widget"
+          }
+        }
+      },
+      "block_order": [
+        "judgeme_widget"
+      ],
+      "settings": {
+        "layout": "original",
+        "snapshot_heading": "Rating snapshot",
+        "customer_heading": "Customer reviews",
+        "intro": "Read feedback from customers.",
+        "more_label": "View more reviews",
+        "heading": "What our customers say",
+        "product": "",
+        "widget": "product",
+        "background": "#ffffff",
+        "padding": 80
+      }
+    }
+  },
+  "order": [
+    "main",
+    "features",
+    "benefits",
+    "why",
+    "reviews"
+  ]
+}

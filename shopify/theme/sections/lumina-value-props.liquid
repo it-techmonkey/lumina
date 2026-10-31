@@ -1,0 +1,230 @@
+<div class="lumina-editable-section {% if section.settings.background != blank %}lumina-background-override{% endif %} lumina-width-{{ section.settings.content_width }}" style="--section-background:{{ section.settings.background }};padding-top:{{ section.settings.spacing_top }}px;padding-bottom:{{ section.settings.spacing_bottom }}px"><section class="bg-[#f9fafb] w-full flex flex-col items-center py-24 lg:py-[96px] px-6"><div class="w-full max-w-[1280px] flex flex-col gap-12 lg:gap-[48px]"><div class="flex flex-col items-center justify-center w-full gap-4 text-center"><h2 class="font-playfair font-medium text-[#131720] text-4xl lg:text-[48px] leading-tight lg:leading-[48px] flex flex-col items-center sm:flex-row sm:gap-2">{{ section.settings.heading_0 }}</h2><p class="font-sans font-normal text-[#657186] text-base lg:text-[16px] leading-[24px] max-w-[448px]">{{ section.settings.content_0 | escape }}</p></div><div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">{% for block in section.blocks %}{% case block.type %}{% when 'benefit_0' %}<div class="bg-[#eaedf0] rounded-[16px] flex flex-col items-start p-8 pb-10" {{ block.shopify_attributes }}><div class="bg-[#f9fafb] rounded-[12px] w-[44px] h-[44px] flex items-center justify-center mb-5 shrink-0"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-[#131720]"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg></div><h3 class="font-playfair font-medium text-[#131720] text-[20px] leading-[28px] mb-2 shrink-0">{{ block.settings.content_0 | escape }}</h3><p class="font-sans font-normal opacity-70 text-[#131720] text-[14px] leading-[22.75px]">{{ block.settings.content_1 | escape }}</p></div>{% when 'benefit_1' %}<div class="bg-[#eaedf0] rounded-[16px] flex flex-col items-start p-8 pb-10" {{ block.shopify_attributes }}><div class="bg-[#f9fafb] rounded-[12px] w-[44px] h-[44px] flex items-center justify-center mb-5 shrink-0"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M12.5 10L5.52253 16.9775C5.19101 17.309 4.74137 17.4953 4.27253 17.4953C3.80369 17.4953 3.35405 17.309 3.02253 16.9775C2.69101 16.646 2.50476 16.1963 2.50476 15.7275C2.50476 15.2587 2.69101 14.809 3.02253 14.4775L10 7.5" stroke="#131720" stroke-width="1.66667" stroke-linecap="round" stroke-linejoin="round"/><path d="M15 12.5L18.3333 9.16663" stroke="#131720" stroke-width="1.66667" stroke-linecap="round" stroke-linejoin="round"/><path d="M17.9167 9.58334L16.3217 7.98834C16.0091 7.67585 15.8334 7.252 15.8333 6.81001V5.83334L13.95 3.95001C13.0204 3.021 11.7625 2.49531 10.4483 2.48667L7.5 2.46667L8.26667 3.15001C8.81121 3.63283 9.24724 4.22559 9.54602 4.88921C9.84479 5.55283 9.99952 6.27224 10 7.00001V8.33334L11.6667 10H12.6433C13.0853 10.0001 13.5092 10.1758 13.8217 10.4883L15.4167 12.0833" stroke="#131720" stroke-width="1.66667" stroke-linecap="round" stroke-linejoin="round"/></svg></div><h3 class="font-playfair font-medium text-[#131720] text-[20px] leading-[28px] mb-2 shrink-0">{{ block.settings.content_0 | escape }}</h3><p class="font-sans font-normal opacity-70 text-[#131720] text-[14px] leading-[22.75px]">{{ block.settings.content_1 | escape }}</p></div>{% when 'benefit_2' %}<div class="bg-[#eaedf0] rounded-[16px] flex flex-col items-start p-8 pb-10" {{ block.shopify_attributes }}><div class="bg-[#f9fafb] rounded-[12px] w-[44px] h-[44px] flex items-center justify-center mb-5 shrink-0"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M17.75 12.75C17.9365 12.9358 18.0844 13.1565 18.1854 13.3997C18.2863 13.6428 18.3383 13.9034 18.3383 14.1666C18.3383 14.4299 18.2863 14.6905 18.1854 14.9336C18.0844 15.1767 17.9365 15.3975 17.75 15.5833L15.5834 17.75C15.3975 17.9364 15.1768 18.0843 14.9337 18.1853C14.6906 18.2862 14.4299 18.3382 14.1667 18.3382C13.9035 18.3382 13.6428 18.2862 13.3997 18.1853C13.1566 18.0843 12.9358 17.9364 12.75 17.75L2.25002 7.24996C1.87548 6.8736 1.66522 6.36425 1.66522 5.83329C1.66522 5.30233 1.87548 4.79298 2.25002 4.41662L4.41668 2.24996C4.79304 1.87542 5.30239 1.66516 5.83335 1.66516C6.36431 1.66516 6.87367 1.87542 7.25002 2.24996L17.75 12.75Z" stroke="#131720" stroke-width="1.66667" stroke-linecap="round" stroke-linejoin="round"/><path d="M12.0833 10.4167L13.75 8.75" stroke="#131720" stroke-width="1.66667" stroke-linecap="round" stroke-linejoin="round"/><path d="M9.58331 7.91667L11.25 6.25" stroke="#131720" stroke-width="1.66667" stroke-linecap="round" stroke-linejoin="round"/><path d="M7.08331 5.41667L8.74998 3.75" stroke="#131720" stroke-width="1.66667" stroke-linecap="round" stroke-linejoin="round"/><path d="M14.5833 12.9167L16.25 11.25" stroke="#131720" stroke-width="1.66667" stroke-linecap="round" stroke-linejoin="round"/></svg></div><h3 class="font-playfair font-medium text-[#131720] text-[20px] leading-[28px] mb-2 shrink-0">{{ block.settings.content_0 | escape }}</h3><p class="font-sans font-normal opacity-70 text-[#131720] text-[14px] leading-[22.75px]">{{ block.settings.content_1 | escape }}</p></div>{% when 'benefit_3' %}<div class="bg-[#eaedf0] rounded-[16px] flex flex-col items-start p-8 pb-10" {{ block.shopify_attributes }}><div class="bg-[#f9fafb] rounded-[12px] w-[44px] h-[44px] flex items-center justify-center mb-5 shrink-0"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M9.16669 16.6666C7.70341 16.6711 6.2919 16.1254 5.21212 15.1378C4.13234 14.1502 3.46316 12.7929 3.3373 11.335C3.21144 9.87718 3.6381 8.42526 4.53265 7.26724C5.4272 6.10923 6.7243 5.32971 8.16669 5.08329C12.9167 4.16663 14.1667 3.73329 15.8334 1.66663C16.6667 3.33329 17.5 5.14996 17.5 8.33329C17.5 12.9166 13.5167 16.6666 9.16669 16.6666Z" stroke="#131720" stroke-width="1.66667" stroke-linecap="round" stroke-linejoin="round"/><path d="M1.66663 17.5C1.66663 15 3.20829 13.0333 5.89996 12.5C7.91663 12.1 9.99996 10.8333 10.8333 10" stroke="#131720" stroke-width="1.66667" stroke-linecap="round" stroke-linejoin="round"/></svg></div><h3 class="font-playfair font-medium text-[#131720] text-[20px] leading-[28px] mb-2 shrink-0">{{ block.settings.content_0 | escape }}</h3><p class="font-sans font-normal opacity-70 text-[#131720] text-[14px] leading-[22.75px]">{{ block.settings.content_1 | escape }}</p></div>{% when 'benefit_4' %}<div class="bg-[#eaedf0] rounded-[16px] flex flex-col items-start p-8 pb-10" {{ block.shopify_attributes }}><div class="bg-[#f9fafb] rounded-[12px] w-[44px] h-[44px] flex items-center justify-center mb-5 shrink-0"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-[#131720]"><rect x="1" y="3" width="15" height="13"/><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg></div><h3 class="font-playfair font-medium text-[#131720] text-[20px] leading-[28px] mb-2 shrink-0">{{ block.settings.content_0 | escape }}</h3><p class="font-sans font-normal opacity-70 text-[#131720] text-[14px] leading-[22.75px]">{{ block.settings.content_1 | escape }}</p></div>{% when 'benefit_5' %}<div class="bg-[#eaedf0] rounded-[16px] flex flex-col items-start p-8 pb-10" {{ block.shopify_attributes }}><div class="bg-[#f9fafb] rounded-[12px] w-[44px] h-[44px] flex items-center justify-center mb-5 shrink-0"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-[#131720]"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div><h3 class="font-playfair font-medium text-[#131720] text-[20px] leading-[28px] mb-2 shrink-0">{{ block.settings.content_0 | escape }}</h3><p class="font-sans font-normal opacity-70 text-[#131720] text-[14px] leading-[22.75px]">{{ block.settings.content_1 | escape }}</p></div>{% endcase %}{% endfor %}</div></div></section>
+</div>
+
+{% schema %}
+{
+  "name": "Benefits",
+  "settings": [
+    {
+      "type": "html",
+      "id": "heading_0",
+      "label": "Heading 1",
+      "default": "<span>Engineered for</span><span class=\"font-normal italic\">perfect sleep</span>"
+    },
+    {
+      "type": "text",
+      "id": "content_0",
+      "label": "Six years of R&D distilled into one blind. Ev",
+      "default": "Six years of R&D distilled into one blind. Every detail serves a purpose."
+    },
+    {
+      "type": "header",
+      "content": "Layout"
+    },
+    {
+      "type": "range",
+      "id": "spacing_top",
+      "label": "Extra top spacing",
+      "min": 0,
+      "max": 120,
+      "step": 4,
+      "unit": "px",
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "spacing_bottom",
+      "label": "Extra bottom spacing",
+      "min": 0,
+      "max": 120,
+      "step": 4,
+      "unit": "px",
+      "default": 0
+    },
+    {
+      "type": "color",
+      "id": "background",
+      "label": "Section background override"
+    },
+    {
+      "type": "select",
+      "id": "content_width",
+      "label": "Content width",
+      "default": "original",
+      "options": [
+        {
+          "value": "original",
+          "label": "Original design"
+        },
+        {
+          "value": "narrow",
+          "label": "Narrow"
+        },
+        {
+          "value": "wide",
+          "label": "Wide"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Benefits",
+      "blocks": [
+        {
+          "type": "benefit_0",
+          "settings": {
+            "content_0": "100% Blackout",
+            "content_1": "Our proprietary triple-layer fabric eliminates every trace of light — including edge bleed."
+          }
+        },
+        {
+          "type": "benefit_1",
+          "settings": {
+            "content_0": "No-Drill Install",
+            "content_1": "Tension-mount technology grips your window frame perfectly. Zero tools, zero damage, zero stress."
+          }
+        },
+        {
+          "type": "benefit_2",
+          "settings": {
+            "content_0": "Cut to Size",
+            "content_1": "Enter your measurements and we make every blind to fit your window."
+          }
+        },
+        {
+          "type": "benefit_3",
+          "settings": {
+            "content_0": "Premium Fabric",
+            "content_1": "OEKO-TEX® certified, PVC-free fabric. Soft, durable, and sustainably sourced."
+          }
+        },
+        {
+          "type": "benefit_4",
+          "settings": {
+            "content_0": "Quick Delivery",
+            "content_1": "Made to order and delivered within 7-11 business days. Straight to your door."
+          }
+        },
+        {
+          "type": "benefit_5",
+          "settings": {
+            "content_0": "1 Year Guarantee",
+            "content_1": "Every blind is backed by a 1 year manufacturer's guarantee for added peace of mind."
+          }
+        }
+      ]
+    }
+  ],
+  "blocks": [
+    {
+      "type": "benefit_0",
+      "name": "100% Blackout",
+      "settings": [
+        {
+          "type": "text",
+          "id": "content_0",
+          "label": "Heading",
+          "default": "100% Blackout"
+        },
+        {
+          "type": "text",
+          "id": "content_1",
+          "label": "Our proprietary triple-layer fabric eliminate",
+          "default": "Our proprietary triple-layer fabric eliminates every trace of light — including edge bleed."
+        }
+      ]
+    },
+    {
+      "type": "benefit_1",
+      "name": "No-Drill Install",
+      "settings": [
+        {
+          "type": "text",
+          "id": "content_0",
+          "label": "Heading",
+          "default": "No-Drill Install"
+        },
+        {
+          "type": "text",
+          "id": "content_1",
+          "label": "Tension-mount technology grips your window fr",
+          "default": "Tension-mount technology grips your window frame perfectly. Zero tools, zero damage, zero stress."
+        }
+      ]
+    },
+    {
+      "type": "benefit_2",
+      "name": "Cut to Size",
+      "settings": [
+        {
+          "type": "text",
+          "id": "content_0",
+          "label": "Heading",
+          "default": "Cut to Size"
+        },
+        {
+          "type": "text",
+          "id": "content_1",
+          "label": "Enter your measurements and we make every bli",
+          "default": "Enter your measurements and we make every blind to fit your window."
+        }
+      ]
+    },
+    {
+      "type": "benefit_3",
+      "name": "Premium Fabric",
+      "settings": [
+        {
+          "type": "text",
+          "id": "content_0",
+          "label": "Heading",
+          "default": "Premium Fabric"
+        },
+        {
+          "type": "text",
+          "id": "content_1",
+          "label": "OEKO-TEX® certified, PVC-free fabric. Soft, d",
+          "default": "OEKO-TEX® certified, PVC-free fabric. Soft, durable, and sustainably sourced."
+        }
+      ]
+    },
+    {
+      "type": "benefit_4",
+      "name": "Quick Delivery",
+      "settings": [
+        {
+          "type": "text",
+          "id": "content_0",
+          "label": "Heading",
+          "default": "Quick Delivery"
+        },
+        {
+          "type": "text",
+          "id": "content_1",
+          "label": "Made to order and delivered within 7-11 busin",
+          "default": "Made to order and delivered within 7-11 business days. Straight to your door."
+        }
+      ]
+    },
+    {
+      "type": "benefit_5",
+      "name": "1 Year Guarantee",
+      "settings": [
+        {
+          "type": "text",
+          "id": "content_0",
+          "label": "Heading",
+          "default": "1 Year Guarantee"
+        },
+        {
+          "type": "text",
+          "id": "content_1",
+          "label": "Every blind is backed by a 1 year manufacture",
+          "default": "Every blind is backed by a 1 year manufacturer's guarantee for added peace of mind."
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

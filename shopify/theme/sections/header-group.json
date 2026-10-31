@@ -1,0 +1,62 @@
+{
+  "type": "header",
+  "name": "Header",
+  "sections": {
+    "announcement": {
+      "type": "lumina-announcement",
+      "settings": {}
+    },
+    "header": {
+      "type": "lumina-header",
+      "settings": {},
+      "blocks": {
+        "link0": {
+          "type": "link",
+          "settings": {
+            "label": "The Blind",
+            "destination": "product"
+          }
+        },
+        "link1": {
+          "type": "link",
+          "settings": {
+            "label": "Measuring",
+            "destination": "measuring"
+          }
+        },
+        "link2": {
+          "type": "link",
+          "settings": {
+            "label": "Fitting",
+            "destination": "fitting"
+          }
+        },
+        "link3": {
+          "type": "link",
+          "settings": {
+            "label": "Reviews",
+            "destination": "reviews"
+          }
+        },
+        "link4": {
+          "type": "link",
+          "settings": {
+            "label": "FAQ",
+            "destination": "faq"
+          }
+        }
+      },
+      "block_order": [
+        "link0",
+        "link1",
+        "link2",
+        "link3",
+        "link4"
+      ]
+    }
+  },
+  "order": [
+    "announcement",
+    "header"
+  ]
+}

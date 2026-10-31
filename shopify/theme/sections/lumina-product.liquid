@@ -1,0 +1,673 @@
+{% liquid
+ assign product = product | default: section.settings.product | default: settings.featured_product
+ if product == blank
+   assign product = all_products['honeycomb-blackout-blind']
+ endif
+ assign selected_variant = product.selected_or_first_available_variant
+ assign option_apps = section.blocks | where: 'type', '@app'
+ assign product_form_id = 'LuminaProductForm-' | append: section.id
+ assign purchase_enabled = false
+ if settings.enable_purchasing
+   if option_apps.size > 0 or section.settings.require_options_app == false
+     assign purchase_enabled = true
+   endif
+ endif
+ assign can_purchase = false
+ if purchase_enabled and selected_variant.available
+   assign can_purchase = true
+ endif
+%}
+<section id="fix-sleep" class="w-full bg-white pt-10 md:pt-15 pb-12 md:pb-20" data-lumina-product data-section-id="{{ section.id }}" data-can-purchase="{{ can_purchase }}" data-purchase-enabled="{{ purchase_enabled }}">
+ <div class="max-w-[1248px] mx-auto px-4 md:px-8 xl:px-0 grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-[64px]">
+  <div class="relative w-full self-start lg:sticky lg:top-24">{% render 'lumina-product-gallery', product: product, section: section %}</div>
+  <div class="w-full pt-2">
+   {% if product != blank %}
+   {% form 'product', product, id: product_form_id, class: 'lumina-native-product-form', data-product-form: product.id %}
+    <input type="hidden" name="id" value="{{ selected_variant.id }}" data-variant-id>
+    <input type="hidden" name="quantity" value="1">
+    {% for block in section.blocks %}
+     {% case block.type %}
+      {% when 'title' %}<div {{ block.shopify_attributes }}><h1 class="font-playfair font-medium text-[#131720] text-[32px] leading-tight lg:text-[40px]">{{ block.settings.heading | default: product.title | escape }}</h1></div>
+      {% when 'description' %}<div class="lumina-product-description text-[#657186] text-[15px] leading-6" {{ block.shopify_attributes }}>{% if block.settings.text != blank %}{{ block.settings.text }}{% else %}{{ product.description }}{% endif %}</div>
+      {% when 'rating' %}<div class="lumina-product-rating" {{ block.shopify_attributes }}><a href="#reviews" class="lumina-rating-link">{% assign rating = product.metafields.reviews.rating.value.rating | default: 0 | plus: 0 %}{% render 'lumina-rating-stars', rating: rating, size: 14 %}<span>{{ rating | round: 1 }} ({{ product.metafields.reviews.rating_count.value | default: 0 }})</span></a></div>
+      {% when 'price' %}{% render 'lumina-product-price', block: block, selected_variant: selected_variant %}
+      {% when 'promotion' %}{% render 'lumina-product-promotion', section: section, block: block, selected_variant: selected_variant %}
+      {% when 'guarantees' %}<div class="lumina-product-guarantees" {{ block.shopify_attributes }}>{% render 'lumina-guarantee-badges' %}</div>
+      {% when 'options_preview' %}{% if option_apps.size == 0 and block.settings.show %}<div {{ block.shopify_attributes }}>{% render 'lumina-design-options' %}</div>{% endif %}
+      {% when '@app' %}{% render block %}
+      {% when 'variant_picker' %}{% unless product.has_only_default_variant %}<div {{ block.shopify_attributes }}><label for="Variant-{{ section.id }}" class="block text-sm font-semibold mb-2">{{ block.settings.label | escape }}</label><select id="Variant-{{ section.id }}" data-variant-selector class="w-full rounded-xl border border-[#dbe0e6] bg-[#f9fafb] p-3">{% for variant in product.variants %}<option value="{{ variant.id }}" {% if variant.id == selected_variant.id %}selected{% endif %} {% unless variant.available %}disabled{% endunless %}>{{ variant.title | escape }} — {{ variant.price | money }}{% unless variant.available %} (Sold out){% endunless %}</option>{% endfor %}</select></div>{% endunless %}
+      {% when 'buy_buttons' %}<div class="lumina-product-purchase" {{ block.shopify_attributes }}><button type="button" data-dialog-open="LuminaFitPromise" class="lumina-fit-button"><span>{{ block.settings.promise | escape }}</span><span>Learn More</span></button><div class="lumina-product-buy-buttons"><button type="submit" name="add" data-add-to-cart class="lumina-outline-button" {% unless can_purchase %}disabled{% endunless %}>{{ block.settings.add_label | escape }}</button><button type="submit" name="checkout" value="checkout" data-buy-now class="lumina-button" {% unless can_purchase %}disabled{% endunless %}>{{ block.settings.buy_label | escape }}</button></div>{% if block.settings.show_payments %}<div class="lumina-payments">{% if block.settings.payment_style == 'native' and shop.enabled_payment_types.size > 0 %}{% for type in shop.enabled_payment_types %}{{ type | payment_type_svg_tag }}{% endfor %}{% else %}<img src="{{ 'payment-badge.png' | asset_url }}" width="400" height="60" alt="Accepted payment methods" loading="lazy">{% endif %}</div>{% endif %}<p data-product-message role="status" class="text-sm text-[#657186] mt-3"></p></div>
+      {% when 'trust' %}{% render 'lumina-product-trust', block: block, product: product %}
+      {% when 'accordion' %}<details class="lumina-accordion" {{ block.shopify_attributes }}><summary><span class="font-playfair text-base">{{ block.settings.heading | escape }}</span><span aria-hidden="true">+</span></summary><div class="lumina-richtext">{{ block.settings.content }}</div></details>
+      {% when 'text' %}<div class="lumina-richtext" {{ block.shopify_attributes }}>{{ block.settings.text }}</div>
+      {% when 'custom_liquid' %}<div {{ block.shopify_attributes }}>{{ block.settings.code }}</div>
+     {% endcase %}
+    {% endfor %}
+   {% endform %}
+   <script type="application/json" data-product-variants>{{ product.variants | json }}</script>
+   <script type="application/json" data-product-currency>{{ cart.currency.iso_code | default: shop.currency | json }}</script>
+   {% else %}<h1 class="font-playfair text-4xl">{{ section.settings.empty_title | escape }}</h1>{% if request.design_mode %}<p>Select a product in this section or Theme settings.</p>{% endif %}{% endif %}
+  </div>
+ </div>
+ {% if section.settings.sticky_purchase %}{% render 'lumina-sticky-purchase', product_form_id: product_form_id, can_purchase: can_purchase, section: section %}{% endif %}
+</section>
+
+{% schema %}
+{
+  "name": "Product",
+  "settings": [
+    {
+      "type": "product",
+      "id": "product",
+      "label": "Product (featured preview)"
+    },
+    {
+      "type": "select",
+      "id": "media_source",
+      "label": "Gallery source",
+      "default": "theme",
+      "options": [
+        {
+          "value": "theme",
+          "label": "Theme image blocks"
+        },
+        {
+          "value": "product",
+          "label": "Shopify product media"
+        }
+      ]
+    },
+    {
+      "type": "checkbox",
+      "id": "require_options_app",
+      "label": "Require LPO before enabling purchases",
+      "default": true
+    },
+    {
+      "type": "text",
+      "id": "empty_title",
+      "label": "Empty product title",
+      "default": "Blackout Blind"
+    },
+    {
+      "type": "checkbox",
+      "id": "sticky_purchase",
+      "label": "Show sticky purchase bar",
+      "default": true
+    },
+    {
+      "type": "range",
+      "id": "max_media",
+      "label": "Maximum product media items",
+      "min": 5,
+      "max": 50,
+      "step": 1,
+      "default": 20
+    }
+  ],
+  "blocks": [
+    {
+      "type": "image",
+      "name": "Gallery image",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image"
+        },
+        {
+          "type": "text",
+          "id": "alt",
+          "label": "Image description",
+          "default": "Lumina blackout blind"
+        },
+        {
+          "type": "select",
+          "id": "original",
+          "label": "Original design image",
+          "options": [
+            {
+              "value": "1",
+              "label": "Image 1"
+            },
+            {
+              "value": "2",
+              "label": "Image 2"
+            },
+            {
+              "value": "3",
+              "label": "Image 3"
+            },
+            {
+              "value": "4",
+              "label": "Image 4"
+            },
+            {
+              "value": "5",
+              "label": "Image 5"
+            },
+            {
+              "value": "6",
+              "label": "Image 6"
+            },
+            {
+              "value": "7",
+              "label": "Image 7"
+            },
+            {
+              "value": "8",
+              "label": "Image 8"
+            },
+            {
+              "value": "9",
+              "label": "Image 9"
+            },
+            {
+              "value": "10",
+              "label": "Image 10"
+            }
+          ],
+          "default": "1"
+        }
+      ]
+    },
+    {
+      "type": "title",
+      "name": "Title",
+      "limit": 1,
+      "settings": [
+        {
+          "type": "text",
+          "id": "heading",
+          "label": "Title override"
+        }
+      ]
+    },
+    {
+      "type": "description",
+      "name": "Description",
+      "limit": 1,
+      "settings": [
+        {
+          "type": "richtext",
+          "id": "text",
+          "label": "Description override",
+          "info": "Leave blank to use the product description."
+        }
+      ]
+    },
+    {
+      "type": "rating",
+      "name": "Judge.me star rating",
+      "limit": 1,
+      "settings": []
+    },
+    {
+      "type": "price",
+      "name": "Price and delivery",
+      "limit": 1,
+      "settings": [
+        {
+          "type": "text",
+          "id": "shipping",
+          "label": "Shipping note",
+          "default": "Sale price · free shipping"
+        },
+        {
+          "type": "text",
+          "id": "delivery",
+          "label": "Delivery note",
+          "default": "Delivered in 7–11 business days"
+        },
+        {
+          "type": "text",
+          "id": "unpriced_label",
+          "label": "Label when base price is zero",
+          "default": "Made to your measurements"
+        },
+        {
+          "type": "text",
+          "id": "starting_price",
+          "label": "Starting price from LPO matrix",
+          "default": "148.57",
+          "info": "Display only. Must match the lowest price in LPO. Does not change the Shopify product price."
+        },
+        {
+          "type": "text",
+          "id": "from_label",
+          "label": "Starting price prefix",
+          "default": "From"
+        },
+        {
+          "type": "range",
+          "id": "discount_percent",
+          "label": "Published sale percentage",
+          "min": 0,
+          "max": 90,
+          "step": 5,
+          "unit": "%",
+          "default": 60,
+          "info": "Matches the existing storefront offer. Display only; LPO supplies the actual selling price."
+        },
+        {
+          "type": "checkbox",
+          "id": "show_countdown",
+          "label": "Show daily sale countdown",
+          "default": true
+        },
+        {
+          "type": "text",
+          "id": "countdown_label",
+          "label": "Countdown label",
+          "default": "Sale ends in"
+        },
+        {
+          "type": "range",
+          "id": "delivery_min",
+          "label": "Earliest delivery (calendar days)",
+          "min": 0,
+          "max": 30,
+          "step": 1,
+          "default": 7
+        },
+        {
+          "type": "range",
+          "id": "delivery_max",
+          "label": "Latest delivery (calendar days)",
+          "min": 0,
+          "max": 60,
+          "step": 1,
+          "default": 11
+        }
+      ]
+    },
+    {
+      "type": "guarantees",
+      "name": "Guarantee stamps",
+      "limit": 1,
+      "settings": []
+    },
+    {
+      "type": "promotion",
+      "name": "Promotion",
+      "settings": [
+        {
+          "type": "text",
+          "id": "text",
+          "label": "Offer text",
+          "default": "Extra 15% off with code"
+        },
+        {
+          "type": "text",
+          "id": "code",
+          "label": "Discount code",
+          "default": "FINAL15"
+        },
+        {
+          "type": "text",
+          "id": "savings_prefix",
+          "label": "Savings prefix",
+          "default": "You save"
+        },
+        {
+          "type": "text",
+          "id": "savings_suffix",
+          "label": "Savings suffix",
+          "default": "on this order"
+        }
+      ]
+    },
+    {
+      "type": "options_preview",
+      "name": "Options design preview",
+      "limit": 1,
+      "settings": [
+        {
+          "type": "checkbox",
+          "id": "show",
+          "label": "Show design controls until LPO is added",
+          "default": true
+        },
+        {
+          "type": "paragraph",
+          "content": "These controls preview the design only. Add an LPO app block to replace them with priced product options."
+        },
+        {
+          "type": "paragraph",
+          "content": "Do not enable purchasing with these design controls. LPO must supply validated option pricing first."
+        }
+      ]
+    },
+    {
+      "type": "variant_picker",
+      "name": "Variant selector",
+      "limit": 1,
+      "settings": [
+        {
+          "type": "text",
+          "id": "label",
+          "label": "Label",
+          "default": "Choose your option"
+        }
+      ]
+    },
+    {
+      "type": "@app"
+    },
+    {
+      "type": "buy_buttons",
+      "name": "Purchase buttons",
+      "limit": 1,
+      "settings": [
+        {
+          "type": "text",
+          "id": "promise",
+          "label": "Fit promise label",
+          "default": "The Lumina Fit Promise"
+        },
+        {
+          "type": "text",
+          "id": "add_label",
+          "label": "Add to cart label",
+          "default": "Add to Cart"
+        },
+        {
+          "type": "text",
+          "id": "buy_label",
+          "label": "Buy now label",
+          "default": "Buy Now"
+        },
+        {
+          "type": "checkbox",
+          "id": "show_payments",
+          "label": "Show payment methods",
+          "default": true
+        },
+        {
+          "type": "select",
+          "id": "payment_style",
+          "label": "Payment badges",
+          "default": "original",
+          "options": [
+            {
+              "value": "original",
+              "label": "Original design"
+            },
+            {
+              "value": "native",
+              "label": "Enabled Shopify methods"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "trust",
+      "name": "Trust points",
+      "limit": 1,
+      "settings": [
+        {
+          "type": "text",
+          "id": "heading",
+          "label": "Heading",
+          "default": "The Perfect-Fit Promise"
+        },
+        {
+          "type": "text",
+          "id": "title_1",
+          "label": "First title",
+          "default": "Free USA Shipping"
+        },
+        {
+          "type": "text",
+          "id": "text_1",
+          "label": "First description",
+          "default": "On every order, always"
+        },
+        {
+          "type": "text",
+          "id": "title_2",
+          "label": "Second title",
+          "default": "1-Year Warranty"
+        },
+        {
+          "type": "text",
+          "id": "text_2",
+          "label": "Second description",
+          "default": "Manufacturer backed"
+        },
+        {
+          "type": "text",
+          "id": "title_3",
+          "label": "Third title",
+          "default": "Made to Measure"
+        },
+        {
+          "type": "text",
+          "id": "text_3",
+          "label": "Third description",
+          "default": "Cut to your exact size"
+        },
+        {
+          "type": "checkbox",
+          "id": "use_review_rating",
+          "label": "Use Judge.me rating for third item",
+          "default": true
+        },
+        {
+          "type": "text",
+          "id": "stars_label",
+          "label": "Stars label",
+          "default": "Stars"
+        },
+        {
+          "type": "text",
+          "id": "reviews_label",
+          "label": "Review count label",
+          "default": "verified reviews"
+        }
+      ]
+    },
+    {
+      "type": "accordion",
+      "name": "Collapsible row",
+      "settings": [
+        {
+          "type": "text",
+          "id": "heading",
+          "label": "Heading",
+          "default": "Product details"
+        },
+        {
+          "type": "richtext",
+          "id": "content",
+          "label": "Content",
+          "default": "<p>Add product information.</p>"
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "name": "Rich text",
+      "settings": [
+        {
+          "type": "richtext",
+          "id": "text",
+          "label": "Text",
+          "default": "<p>Add your text.</p>"
+        }
+      ]
+    },
+    {
+      "type": "custom_liquid",
+      "name": "Custom Liquid",
+      "settings": [
+        {
+          "type": "liquid",
+          "id": "code",
+          "label": "Liquid"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Product",
+      "blocks": [
+        {
+          "type": "image",
+          "settings": {
+            "original": "1",
+            "alt": "Lumina blackout blind image 1"
+          }
+        },
+        {
+          "type": "image",
+          "settings": {
+            "original": "2",
+            "alt": "Lumina blackout blind image 2"
+          }
+        },
+        {
+          "type": "image",
+          "settings": {
+            "original": "3",
+            "alt": "Lumina blackout blind image 3"
+          }
+        },
+        {
+          "type": "image",
+          "settings": {
+            "original": "4",
+            "alt": "Lumina blackout blind image 4"
+          }
+        },
+        {
+          "type": "image",
+          "settings": {
+            "original": "5",
+            "alt": "Lumina blackout blind image 5"
+          }
+        },
+        {
+          "type": "image",
+          "settings": {
+            "original": "6",
+            "alt": "Lumina blackout blind image 6"
+          }
+        },
+        {
+          "type": "image",
+          "settings": {
+            "original": "7",
+            "alt": "Lumina blackout blind image 7"
+          }
+        },
+        {
+          "type": "image",
+          "settings": {
+            "original": "8",
+            "alt": "Lumina blackout blind image 8"
+          }
+        },
+        {
+          "type": "image",
+          "settings": {
+            "original": "9",
+            "alt": "Lumina blackout blind image 9"
+          }
+        },
+        {
+          "type": "image",
+          "settings": {
+            "original": "10",
+            "alt": "Lumina blackout blind image 10"
+          }
+        },
+        {
+          "type": "title",
+          "settings": {}
+        },
+        {
+          "type": "description",
+          "settings": {}
+        },
+        {
+          "type": "rating",
+          "settings": {}
+        },
+        {
+          "type": "price",
+          "settings": {}
+        },
+        {
+          "type": "guarantees",
+          "settings": {}
+        },
+        {
+          "type": "promotion",
+          "settings": {}
+        },
+        {
+          "type": "variant_picker",
+          "settings": {}
+        },
+        {
+          "type": "options_preview",
+          "settings": {}
+        },
+        {
+          "type": "buy_buttons",
+          "settings": {}
+        },
+        {
+          "type": "trust",
+          "settings": {}
+        },
+        {
+          "type": "accordion",
+          "settings": {
+            "heading": "Details",
+            "content": "<ul>\n        <li><strong>Fabric:</strong> Triple-layer blackout &#x2014; certified 100% light block</li>\n        <li><strong>Installation:</strong> No-drill spring tension bar &#x2014; no fixings, no damage</li>\n        <li><strong>Sizing:</strong> Made to order from 20 cm up to 250 cm wide, 30 cm to 300 cm drop</li>\n        <li><strong>Colors:</strong> White, Cream, Graphite, Sky Blue</li>\n        <li><strong>Frame colors:</strong> White or Graphite</li>\n        <li><strong>Opening direction:</strong> Left or right</li>\n        <li><strong>Care:</strong> Spot clean with a damp cloth and mild soap &#x2014; do not machine wash</li>\n        <li><strong>Tolerance:</strong> +/&#x2212; 4 mm manufacturing tolerance is standard for made-to-measure blinds</li>\n      </ul>"
+          }
+        },
+        {
+          "type": "accordion",
+          "settings": {
+            "heading": "Guarantees",
+            "content": "<p>30-Night Home Trial</p>\n      <p>Install your Lumina blind and live with it for up to 30 nights. If it&apos;s not right for your space, you can start a return &#x2014; even though it was made to your exact measurements, color, and opening direction. Email <em>info@luminablackoutblinds.com</em> within 30 nights of delivery and we&apos;ll walk you through the next steps.</p>\n      <p>1-Year Manufacturer&apos;s Guarantee</p>\n      <p>Every blind is covered against manufacturing faults for a full year from delivery. If a fault is confirmed, we&apos;ll repair or replace it at no extra cost.</p>\n      <p>Fault Protection on Delivery</p>\n      <p>If your blind arrives damaged or with a manufacturing fault, contact us within <em>3 business days</em> of delivery with your order number and photos. We aim to respond within 1 business day and will arrange a free replacement once the fault is confirmed.</p>"
+          }
+        },
+        {
+          "type": "accordion",
+          "settings": {
+            "heading": "Window Compatibility",
+            "content": "<p>The Lumina blackout blind is designed specifically for <strong>recessed windows</strong> &#x2014; windows that sit inside a recess (reveal) rather than flush with the wall.</p>\n      <ul>\n        <li><strong>Minimum recess depth:</strong> 5 mm</li>\n        <li><strong>Maximum recess depth:</strong> 80 mm</li>\n        <li>The tension bar sits inside the recess, giving edge-to-edge coverage with no light bleed</li>\n        <li>Not suitable for flat-wall mounting or non-recessed frames</li>\n        <li>Works on uPVC, wood, and aluminium window frames</li>\n      </ul>\n      <p>If you&apos;re unsure whether your window is compatible, email us a photo at <strong>info@luminablackoutblinds.com</strong> and we&apos;ll confirm before you order.</p>"
+          }
+        },
+        {
+          "type": "accordion",
+          "settings": {
+            "heading": "How to measure",
+            "content": "<p>Measure the <strong>inside of your window recess</strong> &#x2014; not the frame or the glass.</p>\n      <ul>\n        <li><strong>Width:</strong> Measure across the recess at the top, middle, and bottom. Use the <em>smallest</em> measurement.</li>\n        <li><strong>Drop:</strong> Measure from the top of the recess to the window sill. Measure on the left, center, and right and use the <em>largest</em> measurement.</li>\n        <li>Enter your exact dimensions at checkout &#x2014; we cut every blind to order.</li>\n        <li>A +/&#x2212; 4 mm manufacturing tolerance is standard and does not affect blackout performance.</li>\n      </ul>\n      <p>Tip: measure twice before ordering. Because every blind is cut to your measurements, we&apos;re unable to accept returns on correctly made-to-measure items.</p>\n      <p><a href=\"/?view=measuring-guide\" target=\"_blank\" rel=\"noopener noreferrer\">View full measuring guide &#x2192;</a></p>"
+          }
+        },
+        {
+          "type": "accordion",
+          "settings": {
+            "heading": "How to install",
+            "content": "<ol>\n        <li>Unbox the blind and extend the tension bar to match your window width.</li>\n        <li>Hold the bar horizontally inside the recess at your desired height.</li>\n        <li>Press both ends firmly against the recess walls until the spring locks into position.</li>\n        <li>Release &#x2014; the tension holds the blind securely without any fixings or damage.</li>\n        <li>Pull the blind down to your preferred drop. The cassette stays in place as you adjust.</li>\n      </ol>\n      <p>No drilling, no screws, no tools required. The blind can be removed and repositioned without leaving any marks &#x2014; ideal for rentals.</p>\n      <p><a href=\"/?view=fitting-guide\" target=\"_blank\" rel=\"noopener noreferrer\">View full installation guide &#x2192;</a></p>"
+          }
+        },
+        {
+          "type": "accordion",
+          "settings": {
+            "heading": "Shipping & Returns",
+            "content": "<p>Shipping</p>\n      <ul>\n        <li>Free shipping on every order &#x2014; no minimum spend</li>\n        <li>Ships within the United States only</li>\n        <li>Every blind is made to order and dispatched within 3&#x2013;5 business days</li>\n        <li>Estimated delivery: <em>7&#x2013;11 business days</em> from order date</li>\n        <li>A tracking number is emailed once your blind ships</li>\n        <li>We are unable to deliver to PO boxes, military addresses, or international addresses</li>\n      </ul>\n      <p>Returns</p>\n      <ul>\n        <li>Because every blind is cut to your exact measurements, we do not accept returns on correctly made-to-measure items</li>\n        <li>If your blind arrives damaged or has a confirmed manufacturing fault, contact us within <strong>3 business days</strong> of delivery</li>\n        <li>Email <strong>info@luminablackoutblinds.com</strong> with your order number, a description, and photos</li>\n        <li>Do not install the blind until we&apos;ve reviewed your claim</li>\n        <li>We aim to respond within 1 business day and will arrange a free replacement if a fault is confirmed</li>\n      </ul>"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

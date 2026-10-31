@@ -1,0 +1,182 @@
+<footer class="bg-[#000] flex flex-col items-center w-full mt-auto"><div class="w-full border-b border-white/10 flex flex-col items-center pt-20 pb-10 px-6"><h2 class="font-playfair text-[#f9fafb] text-[48px] leading-none text-center flex flex-col sm:flex-row sm:gap-2 mb-4"><span class="font-medium">{{ section.settings.content_0 | escape }}</span><span class="font-normal italic">{{ section.settings.content_1 | escape }}</span></h2><p class="font-sans text-[14px] leading-[20px] text-white/60 text-center max-w-[384px] mb-8">{{ section.settings.content_2 | escape }}<br class="hidden sm:block">{{ section.settings.content_3 | escape }}</p><a href="{% if section.settings.content_17 != blank %}{{ section.settings.content_17 }}{% else %}{{ settings.featured_product.url | default: '/products/honeycomb-blackout-blind' }}{% endif %}" class="bg-white text-[#131720] font-sans font-medium text-[14px] leading-[20px] px-8 py-4 rounded-full hover:bg-gray-100 transition-colors">{{ section.settings.content_4 | escape }}</a><div class="mt-8 flex flex-col items-center gap-2 text-center"><span class="font-sans text-[10px] font-medium uppercase tracking-[0.18em] text-white/55">{{ section.settings.content_5 | escape }}</span></div></div><div class="w-full max-w-[1280px] flex flex-col sm:flex-row items-center justify-between py-10 px-6 gap-8"><div class="flex shrink-0"><a href="{% if section.settings.content_18 != blank %}{{ section.settings.content_18 }}{% else %}{{ routes.root_url }}{% endif %}" class="font-playfair font-medium text-[#f9fafb] text-[20px] leading-[28px]">{{ section.settings.content_6 | escape }}</a></div><nav class="flex flex-wrap justify-center gap-x-6 gap-y-2"><a href="{% if section.settings.content_19 != blank %}{{ section.settings.content_19 }}{% else %}{{ settings.featured_product.url | default: '/products/honeycomb-blackout-blind' }}{% endif %}" class="font-sans text-[14px] leading-[20px] text-white/60 hover:text-white transition-colors">{{ section.settings.content_7 | escape }}</a><a href="{% if section.settings.content_20 != blank %}{{ section.settings.content_20 }}{% else %}{{ 'guide-lumina-measuring-guide.png' | asset_url }}{% endif %}" class="font-sans text-[14px] leading-[20px] text-white/60 hover:text-white transition-colors">{{ section.settings.content_8 | escape }}</a><a href="{% if section.settings.content_21 != blank %}{{ section.settings.content_21 }}{% else %}{{ 'guide-lumina_honeycomb_fitting_guide.pdf' | asset_url }}{% endif %}" class="font-sans text-[14px] leading-[20px] text-white/60 hover:text-white transition-colors">{{ section.settings.content_9 | escape }}</a><a href="{% if section.settings.content_22 != blank %}{{ section.settings.content_22 }}{% else %}{{ routes.root_url }}#reviews{% endif %}" class="font-sans text-[14px] leading-[20px] text-white/60 hover:text-white transition-colors">{{ section.settings.content_10 | escape }}</a><a href="{% if section.settings.content_23 != blank %}{{ section.settings.content_23 }}{% else %}{{ routes.root_url }}#faq{% endif %}" class="font-sans text-[14px] leading-[20px] text-white/60 hover:text-white transition-colors">{{ section.settings.content_11 | escape }}</a></nav><div class="flex items-center gap-4 shrink-0"><a href="{% if section.settings.content_24 != blank %}{{ section.settings.content_24 }}{% else %}https://www.instagram.com/luminablackoutblinds/{% endif %}" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-white/60 hover:text-white transition-colors"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></a><a href="{% if section.settings.content_25 != blank %}{{ section.settings.content_25 }}{% else %}https://www.facebook.com/profile.php?id=61568979181893{% endif %}" target="_blank" rel="noopener noreferrer" aria-label="Facebook"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-white/60 hover:text-white transition-colors"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a></div></div><div class="w-full border-t border-white/10 py-5 px-6 flex flex-col items-center gap-2"><div class="flex items-center gap-4 text-[12px] leading-4"><a href="{% if section.settings.content_26 != blank %}{{ section.settings.content_26 }}{% else %}{{ routes.root_url }}?view=privacy-policy{% endif %}" class="font-sans text-white/50 hover:text-white transition-colors">{{ section.settings.content_12 | escape }}</a><span class="text-white/25">|</span><a href="{% if section.settings.content_27 != blank %}{{ section.settings.content_27 }}{% else %}{{ routes.root_url }}?view=terms-of-service{% endif %}" class="font-sans text-white/50 hover:text-white transition-colors">{{ section.settings.content_13 | escape }}</a><span class="text-white/25">|</span><a href="{% if section.settings.content_28 != blank %}{{ section.settings.content_28 }}{% else %}{{ routes.root_url }}?view=shipping-policy{% endif %}" class="font-sans text-white/50 hover:text-white transition-colors">{{ section.settings.content_14 | escape }}</a><span class="text-white/25">|</span><a href="{% if section.settings.content_29 != blank %}{{ section.settings.content_29 }}{% else %}{{ routes.root_url }}?view=returns-refunds-policy{% endif %}" class="font-sans text-white/50 hover:text-white transition-colors">{{ section.settings.content_15 | escape }}</a></div><p class="font-sans text-[12px] leading-[16px] text-white/40 text-center">{{ section.settings.content_16 | escape }}</p></div></footer>
+
+
+{% schema %}
+{
+  "name": "Footer",
+  "settings": [
+    {
+      "type": "text",
+      "id": "content_0",
+      "label": "Ready to sleep in",
+      "default": "Ready to sleep in"
+    },
+    {
+      "type": "text",
+      "id": "content_1",
+      "label": "total darkness?",
+      "default": "total darkness?"
+    },
+    {
+      "type": "text",
+      "id": "content_2",
+      "label": "Join 750+ customers who trust Lumina",
+      "default": "Join 750+ customers who trust Lumina"
+    },
+    {
+      "type": "text",
+      "id": "content_3",
+      "label": "for the perfect night's sleep.",
+      "default": "for the perfect night's sleep."
+    },
+    {
+      "type": "text",
+      "id": "content_4",
+      "label": "Shop The Blind →",
+      "default": "Shop The Blind →"
+    },
+    {
+      "type": "text",
+      "id": "content_5",
+      "label": "Manufactured in Texas, USA",
+      "default": "Manufactured in Texas, USA"
+    },
+    {
+      "type": "text",
+      "id": "content_6",
+      "label": "Lumina",
+      "default": "Lumina"
+    },
+    {
+      "type": "text",
+      "id": "content_7",
+      "label": "The Blind",
+      "default": "The Blind"
+    },
+    {
+      "type": "text",
+      "id": "content_8",
+      "label": "Measuring",
+      "default": "Measuring"
+    },
+    {
+      "type": "text",
+      "id": "content_9",
+      "label": "Fitting",
+      "default": "Fitting"
+    },
+    {
+      "type": "text",
+      "id": "content_10",
+      "label": "Reviews",
+      "default": "Reviews"
+    },
+    {
+      "type": "text",
+      "id": "content_11",
+      "label": "FAQ",
+      "default": "FAQ"
+    },
+    {
+      "type": "text",
+      "id": "content_12",
+      "label": "Privacy Policy",
+      "default": "Privacy Policy"
+    },
+    {
+      "type": "text",
+      "id": "content_13",
+      "label": "Terms of Service",
+      "default": "Terms of Service"
+    },
+    {
+      "type": "text",
+      "id": "content_14",
+      "label": "Shipping Policy",
+      "default": "Shipping Policy"
+    },
+    {
+      "type": "text",
+      "id": "content_15",
+      "label": "Returns & Refunds",
+      "default": "Returns & Refunds"
+    },
+    {
+      "type": "text",
+      "id": "content_16",
+      "label": "© 2026 Lumina. All rights reserved.",
+      "default": "© 2026 Lumina. All rights reserved."
+    },
+    {
+      "type": "url",
+      "id": "content_17",
+      "label": "Link destination"
+    },
+    {
+      "type": "url",
+      "id": "content_18",
+      "label": "Link destination"
+    },
+    {
+      "type": "url",
+      "id": "content_19",
+      "label": "Link destination"
+    },
+    {
+      "type": "url",
+      "id": "content_20",
+      "label": "Link destination"
+    },
+    {
+      "type": "url",
+      "id": "content_21",
+      "label": "Link destination"
+    },
+    {
+      "type": "url",
+      "id": "content_22",
+      "label": "Link destination"
+    },
+    {
+      "type": "url",
+      "id": "content_23",
+      "label": "Link destination"
+    },
+    {
+      "type": "url",
+      "id": "content_24",
+      "label": "Link destination"
+    },
+    {
+      "type": "url",
+      "id": "content_25",
+      "label": "Link destination"
+    },
+    {
+      "type": "url",
+      "id": "content_26",
+      "label": "Link destination"
+    },
+    {
+      "type": "url",
+      "id": "content_27",
+      "label": "Link destination"
+    },
+    {
+      "type": "url",
+      "id": "content_28",
+      "label": "Link destination"
+    },
+    {
+      "type": "url",
+      "id": "content_29",
+      "label": "Link destination"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Footer"
+    }
+  ]
+}
+{% endschema %}

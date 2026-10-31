@@ -1,0 +1,229 @@
+[
+  {
+    "name": "theme_info",
+    "theme_name": "Lumina Design Preview",
+    "theme_version": "1.0.0",
+    "theme_author": "Lumina",
+    "theme_documentation_url": "https://shopify.dev/docs/storefronts/themes",
+    "theme_support_url": "https://www.luminablackoutblinds.com"
+  },
+  {
+    "name": "Storefront",
+    "settings": [
+      {
+        "type": "product",
+        "id": "featured_product",
+        "label": "Featured blind"
+      },
+      {
+        "type": "checkbox",
+        "id": "enable_purchasing",
+        "label": "Enable purchasing after LPO configuration",
+        "default": false,
+        "info": "Keep off during design review. Product section also requires an app block."
+      },
+      {
+        "type": "checkbox",
+        "id": "enable_newsletter_popup",
+        "label": "Show newsletter popup",
+        "default": false
+      },
+      {
+        "type": "header",
+        "content": "Design preview"
+      },
+      {
+        "type": "paragraph",
+        "content": "This theme is separate from the existing site. Product options shown without an app block are visual examples only. Configure LPO and review pricing before enabling purchasing."
+      },
+      {
+        "type": "url",
+        "id": "measuring_guide_url",
+        "label": "Measuring guide URL override"
+      },
+      {
+        "type": "url",
+        "id": "fitting_guide_url",
+        "label": "Fitting guide URL override"
+      }
+    ]
+  },
+  {
+    "name": "Colors and typography",
+    "settings": [
+      {
+        "type": "color",
+        "id": "accent_color",
+        "label": "Accent color",
+        "default": "#4051b5"
+      },
+      {
+        "type": "color",
+        "id": "ink_color",
+        "label": "Primary dark color",
+        "default": "#131720"
+      },
+      {
+        "type": "font_picker",
+        "id": "heading_font",
+        "label": "Heading font",
+        "default": "lora_n4"
+      },
+      {
+        "type": "font_picker",
+        "id": "body_font",
+        "label": "Body font",
+        "default": "manrope_n4"
+      },
+      {
+        "type": "checkbox",
+        "id": "custom_fonts",
+        "label": "Use selected Shopify fonts",
+        "default": false
+      }
+    ]
+  },
+  {
+    "name": "Guarantee stamps",
+    "settings": [
+      {
+        "type": "text",
+        "id": "guarantee_1_centertop",
+        "label": "30",
+        "default": "30"
+      },
+      {
+        "type": "text",
+        "id": "guarantee_0_toplabel",
+        "label": "FIT GUARANTEE",
+        "default": "FIT GUARANTEE"
+      },
+      {
+        "type": "text",
+        "id": "guarantee_0_centertop",
+        "label": "FIT",
+        "default": "FIT"
+      },
+      {
+        "type": "text",
+        "id": "guarantee_0_centerbottom",
+        "label": "GUARANTEE",
+        "default": "GUARANTEE"
+      },
+      {
+        "type": "text",
+        "id": "guarantee_1_toplabel",
+        "label": "HOME TRIAL",
+        "default": "HOME TRIAL"
+      },
+      {
+        "type": "text",
+        "id": "guarantee_1_centerbottom",
+        "label": "NIGHTS",
+        "default": "NIGHTS"
+      },
+      {
+        "type": "text",
+        "id": "guarantee_2_toplabel",
+        "label": "FREE RETURNS",
+        "default": "FREE RETURNS"
+      },
+      {
+        "type": "text",
+        "id": "guarantee_2_centertop",
+        "label": "FREE",
+        "default": "FREE"
+      },
+      {
+        "type": "text",
+        "id": "guarantee_2_centerbottom",
+        "label": "RETURNS",
+        "default": "RETURNS"
+      },
+      {
+        "type": "text",
+        "id": "guarantee_3_centerbottom",
+        "label": "WARRANTY",
+        "default": "WARRANTY"
+      },
+      {
+        "type": "text",
+        "id": "guarantee_3_centertop",
+        "label": "1 YEAR",
+        "default": "1 YEAR"
+      }
+    ]
+  },
+  {
+    "name": "Judge.me",
+    "settings": [
+      {
+        "type": "checkbox",
+        "id": "judgeme_legacy_loader",
+        "label": "Use Judge.me metafield loader",
+        "default": true,
+        "info": "Loads the existing Judge.me installation when available. Turn off if using the Judge.me app embed to avoid loading it twice."
+      }
+    ]
+  },
+  {
+    "name": "Welcome popup",
+    "settings": [
+      {
+        "type": "text",
+        "id": "popup_eyebrow",
+        "label": "Eyebrow",
+        "default": "EXCLUSIVE WELCOME OFFER"
+      },
+      {
+        "type": "text",
+        "id": "popup_heading",
+        "label": "Heading",
+        "default": "10% off"
+      },
+      {
+        "type": "text",
+        "id": "popup_subheading",
+        "label": "Subheading",
+        "default": "your first order"
+      },
+      {
+        "type": "textarea",
+        "id": "popup_text",
+        "label": "Description",
+        "default": "Subscribe for product updates, measuring guidance, and a welcome offer."
+      },
+      {
+        "type": "text",
+        "id": "popup_button",
+        "label": "Button label",
+        "default": "Subscribe"
+      },
+      {
+        "type": "textarea",
+        "id": "popup_consent",
+        "label": "Consent text",
+        "default": "By subscribing, you agree to receive email updates from Lumina."
+      },
+      {
+        "type": "image_picker",
+        "id": "popup_image",
+        "label": "Image"
+      },
+      {
+        "type": "range",
+        "id": "popup_delay",
+        "label": "Delay before opening",
+        "min": 1,
+        "max": 60,
+        "step": 1,
+        "unit": "s",
+        "default": 3
+      },
+      {
+        "type": "paragraph",
+        "content": "Enable the popup under Storefront. Set up the welcome discount/email automation separately in Shopify."
+      }
+    ]
+  }
+]

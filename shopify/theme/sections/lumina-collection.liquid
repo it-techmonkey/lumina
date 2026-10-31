@@ -1,0 +1,8 @@
+<section class="lumina-container lumina-content-page"><h1>{{ collection.title | default: 'The Lumina Collection' | escape }}</h1><div class="lumina-richtext">{{ collection.description }}</div>{% paginate collection.products by 24 %}<div class="lumina-grid">{% for product in collection.products %}<a class="lumina-card" href="{{ product.url }}">{% if product.featured_image %}{{ product.featured_image | image_url: width: 900 | image_tag: loading: 'lazy' }}{% endif %}<h2>{{ product.title | escape }}</h2><p>{{ product.price | money }}</p></a>{% else %}<p>No products to display.</p>{% endfor %}</div>{{ paginate | default_pagination }}{% endpaginate %}</section>
+
+{% schema %}
+{
+  "name": "Collection",
+  "settings": []
+}
+{% endschema %}

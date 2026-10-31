@@ -1,0 +1,33 @@
+<div class="w-full bg-[#000] border-b border-white/10"><div class="mx-auto flex min-h-10 max-w-[1280px] flex-col items-center justify-center gap-2 px-4 py-2 text-center sm:flex-row sm:gap-3"><p class="font-sans text-[11px] font-medium uppercase tracking-[0.08em] text-white sm:text-[12px] md:text-[13px] flex items-center gap-2 flex-wrap justify-center"><span>{{ section.settings.message | escape }}{% unless section.settings.countdown_mode == 'none' %} | Ends in{% endunless %}</span><span data-countdown data-countdown-mode="{{ section.settings.countdown_mode }}" class="font-sans font-semibold text-[11px] sm:text-[12px] tabular-nums text-amber-300" data-ends-at="{{ section.settings.ends_at | escape }}">Limited time</span></p><button type="button" class="inline-flex h-8 shrink-0 items-center gap-2 rounded-full border border-white/18 bg-white/8 px-3 text-white transition-colors hover:bg-white/14" aria-label="Copy discount code {{ section.settings.code | escape }}" title="Copy {{ section.settings.code | escape }}" data-copy-code="{{ section.settings.code | escape }}"><span class="font-sans text-[11px] font-semibold uppercase tracking-[0.08em] text-white sm:text-[12px]">{{ section.settings.code | escape }}</span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg></button></div></div>
+
+{% schema %}
+{
+  "name": "Announcement",
+  "settings": [
+ {"type":"select","id": "countdown_mode","label":"Countdown","default":"daily","options":[{"value":"daily","label":"End of day (existing site)"},{"value":"fixed","label":"Fixed end date"},{"value":"none","label":"Hidden"}]},
+    {
+      "type": "text",
+      "id": "message",
+      "label": "Message",
+      "default": "Our Biggest Sale | Up to 60% Off + Extra 15% with Code FINAL15"
+    },
+    {
+      "type": "text",
+      "id": "code",
+      "label": "Discount code",
+      "default": "FINAL15"
+    },
+    {
+      "type": "text",
+      "id": "ends_at",
+      "label": "Offer end (ISO date and time)",
+      "info": "Leave blank to hide the timer. Example: 2026-12-31T23:59:59-06:00"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Announcement"
+    }
+  ]
+}
+{% endschema %}

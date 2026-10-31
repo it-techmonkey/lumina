@@ -1,0 +1,161 @@
+<div class="lumina-editable-section {% if section.settings.background != blank %}lumina-background-override{% endif %} lumina-width-{{ section.settings.content_width }}" style="--section-background:{{ section.settings.background }};padding-top:{{ section.settings.spacing_top }}px;padding-bottom:{{ section.settings.spacing_bottom }}px"><section class="bg-white w-full py-16 md:py-20 px-4 md:px-6"><div class="max-w-[1248px] mx-auto flex flex-col gap-10"><div class="flex flex-col gap-4 text-center items-center"><span class="text-[#4051b5] font-sans font-medium text-[12px] tracking-[1.2px] uppercase">{{ section.settings.content_0 | escape }}</span><h2 class="text-[#131720] text-4xl lg:text-[48px] font-playfair font-medium leading-tight">{{ section.settings.content_1 | escape }}<span class="italic">{{ section.settings.content_2 | escape }}</span></h2></div><div class="grid grid-cols-1 md:grid-cols-3 gap-6">{% for block in section.blocks %}{% case block.type %}{% when 'feature_0' %}<div class="bg-[#eaedf0] rounded-[16px] p-6 flex flex-col gap-5 sm:flex-row sm:items-start" {{ block.shopify_attributes }}><div class="bg-[#f9fafb] rounded-xl w-12 h-12 shrink-0 flex items-center justify-center"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-[#131720]"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9z"/></svg></div><div class="flex flex-col gap-1.5"><h3 class="font-playfair font-medium text-[#131720] text-[16px]">{{ block.settings.content_0 | escape }}</h3><p class="font-sans text-[14px] text-[#657186] leading-relaxed">{{ block.settings.content_1 | escape }}</p></div></div>{% when 'feature_1' %}<div class="bg-[#eaedf0] rounded-[16px] p-6 flex flex-col gap-5 sm:flex-row sm:items-start" {{ block.shopify_attributes }}><div class="bg-[#f9fafb] rounded-xl w-12 h-12 shrink-0 flex items-center justify-center"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-[#131720]"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M9 12l2 2 4-4"/></svg></div><div class="flex flex-col gap-1.5"><h3 class="font-playfair font-medium text-[#131720] text-[16px]">{{ block.settings.content_0 | escape }}</h3><p class="font-sans text-[14px] text-[#657186] leading-relaxed">{{ block.settings.content_1 | escape }}</p></div></div>{% when 'feature_2' %}<div class="bg-[#eaedf0] rounded-[16px] p-6 flex flex-col gap-5 sm:flex-row sm:items-start" {{ block.shopify_attributes }}><div class="bg-[#f9fafb] rounded-xl w-12 h-12 shrink-0 flex items-center justify-center"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-[#131720]"><path d="M12 2v20"/><path d="M2 12h20"/><path d="M4.93 4.93l14.14 14.14"/><path d="M19.07 4.93L4.93 19.07"/></svg></div><div class="flex flex-col gap-1.5"><h3 class="font-playfair font-medium text-[#131720] text-[16px]">{{ block.settings.content_0 | escape }}</h3><p class="font-sans text-[14px] text-[#657186] leading-relaxed">{{ block.settings.content_1 | escape }}</p></div></div>{% endcase %}{% endfor %}</div></div></section>
+</div>
+
+{% schema %}
+{
+  "name": "Key features",
+  "settings": [
+    {
+      "type": "text",
+      "id": "content_0",
+      "label": "Key Features",
+      "default": "Key Features"
+    },
+    {
+      "type": "text",
+      "id": "content_1",
+      "label": "Heading",
+      "default": "Built for comfort"
+    },
+    {
+      "type": "text",
+      "id": "content_2",
+      "label": ", made for you",
+      "default": ", made for you"
+    },
+    {
+      "type": "header",
+      "content": "Layout"
+    },
+    {
+      "type": "range",
+      "id": "spacing_top",
+      "label": "Extra top spacing",
+      "min": 0,
+      "max": 120,
+      "step": 4,
+      "unit": "px",
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "spacing_bottom",
+      "label": "Extra bottom spacing",
+      "min": 0,
+      "max": 120,
+      "step": 4,
+      "unit": "px",
+      "default": 0
+    },
+    {
+      "type": "color",
+      "id": "background",
+      "label": "Section background override"
+    },
+    {
+      "type": "select",
+      "id": "content_width",
+      "label": "Content width",
+      "default": "original",
+      "options": [
+        {
+          "value": "original",
+          "label": "Original design"
+        },
+        {
+          "value": "narrow",
+          "label": "Narrow"
+        },
+        {
+          "value": "wide",
+          "label": "Wide"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Key features",
+      "blocks": [
+        {
+          "type": "feature_0",
+          "settings": {
+            "content_0": "Total Blackout",
+            "content_1": "Enjoy complete darkness anytime with total blackout fabric that blocks all external light."
+          }
+        },
+        {
+          "type": "feature_1",
+          "settings": {
+            "content_0": "Cordless & Safe",
+            "content_1": "Designed with safety in mind, featuring a sleek cordless system with no cords or chains."
+          }
+        },
+        {
+          "type": "feature_2",
+          "settings": {
+            "content_0": "Energy Efficient",
+            "content_1": "Thermal pleated fabric helps keep rooms cooler in summer and warmer in winter."
+          }
+        }
+      ]
+    }
+  ],
+  "blocks": [
+    {
+      "type": "feature_0",
+      "name": "Total Blackout",
+      "settings": [
+        {
+          "type": "text",
+          "id": "content_0",
+          "label": "Heading",
+          "default": "Total Blackout"
+        },
+        {
+          "type": "text",
+          "id": "content_1",
+          "label": "Enjoy complete darkness anytime with total bl",
+          "default": "Enjoy complete darkness anytime with total blackout fabric that blocks all external light."
+        }
+      ]
+    },
+    {
+      "type": "feature_1",
+      "name": "Cordless & Safe",
+      "settings": [
+        {
+          "type": "text",
+          "id": "content_0",
+          "label": "Heading",
+          "default": "Cordless & Safe"
+        },
+        {
+          "type": "text",
+          "id": "content_1",
+          "label": "Designed with safety in mind, featuring a sle",
+          "default": "Designed with safety in mind, featuring a sleek cordless system with no cords or chains."
+        }
+      ]
+    },
+    {
+      "type": "feature_2",
+      "name": "Energy Efficient",
+      "settings": [
+        {
+          "type": "text",
+          "id": "content_0",
+          "label": "Heading",
+          "default": "Energy Efficient"
+        },
+        {
+          "type": "text",
+          "id": "content_1",
+          "label": "Thermal pleated fabric helps keep rooms coole",
+          "default": "Thermal pleated fabric helps keep rooms cooler in summer and warmer in winter."
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

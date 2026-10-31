@@ -1,0 +1,140 @@
+<div class="lumina-editable-section {% if section.settings.background != blank %}lumina-background-override{% endif %} lumina-width-{{ section.settings.content_width }}" style="--section-background:{{ section.settings.background }};padding-top:{{ section.settings.spacing_top }}px;padding-bottom:{{ section.settings.spacing_bottom }}px"><div class="w-full bg-[#131720] px-6 py-4"><div class="max-w-[1280px] mx-auto flex flex-wrap items-center justify-center gap-x-8 gap-y-3">{% for block in section.blocks %}{% case block.type %}{% when 'fact_0' %}<div class="flex items-center gap-2 text-white/80" {{ block.shopify_attributes }}><span class="text-[#4ade80]"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg></span><span class="font-sans text-[13px]">{{ block.settings.content_0 | escape }}</span><span class="hidden sm:block text-white/20 ml-8 select-none">|</span></div>{% when 'fact_1' %}<div class="flex items-center gap-2 text-white/80" {{ block.shopify_attributes }}><span class="text-[#4ade80]"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="3" width="15" height="13"/><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg></span><span class="font-sans text-[13px]">{{ block.settings.content_0 | escape }}</span><span class="hidden sm:block text-white/20 ml-8 select-none">|</span></div>{% when 'fact_2' %}<div class="flex items-center gap-2 text-white/80" {{ block.shopify_attributes }}><span class="text-[#4ade80]"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></span><span class="font-sans text-[13px]">{{ block.settings.content_0 | escape }}</span><span class="hidden sm:block text-white/20 ml-8 select-none">|</span></div>{% when 'fact_3' %}<div class="flex items-center gap-2 text-white/80" {{ block.shopify_attributes }}><span class="text-[#4ade80]"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span><span class="font-sans text-[13px]">{{ block.settings.content_0 | escape }}</span></div>{% endcase %}{% endfor %}</div></div>
+</div>
+
+{% schema %}
+{
+  "name": "Quick answers",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Layout"
+    },
+    {
+      "type": "range",
+      "id": "spacing_top",
+      "label": "Extra top spacing",
+      "min": 0,
+      "max": 120,
+      "step": 4,
+      "unit": "px",
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "spacing_bottom",
+      "label": "Extra bottom spacing",
+      "min": 0,
+      "max": 120,
+      "step": 4,
+      "unit": "px",
+      "default": 0
+    },
+    {
+      "type": "color",
+      "id": "background",
+      "label": "Section background override"
+    },
+    {
+      "type": "select",
+      "id": "content_width",
+      "label": "Content width",
+      "default": "original",
+      "options": [
+        {
+          "value": "original",
+          "label": "Original design"
+        },
+        {
+          "value": "narrow",
+          "label": "Narrow"
+        },
+        {
+          "value": "wide",
+          "label": "Wide"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Quick answers",
+      "blocks": [
+        {
+          "type": "fact_0",
+          "settings": {
+            "content_0": "100% blackout guaranteed"
+          }
+        },
+        {
+          "type": "fact_1",
+          "settings": {
+            "content_0": "Free USA shipping"
+          }
+        },
+        {
+          "type": "fact_2",
+          "settings": {
+            "content_0": "Delivered in 7–11 days"
+          }
+        },
+        {
+          "type": "fact_3",
+          "settings": {
+            "content_0": "No-drill install"
+          }
+        }
+      ]
+    }
+  ],
+  "blocks": [
+    {
+      "type": "fact_0",
+      "name": "100% blackout guaranteed",
+      "settings": [
+        {
+          "type": "text",
+          "id": "content_0",
+          "label": "100% blackout guaranteed",
+          "default": "100% blackout guaranteed"
+        }
+      ]
+    },
+    {
+      "type": "fact_1",
+      "name": "Free USA shipping|",
+      "settings": [
+        {
+          "type": "text",
+          "id": "content_0",
+          "label": "Free USA shipping",
+          "default": "Free USA shipping"
+        }
+      ]
+    },
+    {
+      "type": "fact_2",
+      "name": "Delivered in 7–11 days|",
+      "settings": [
+        {
+          "type": "text",
+          "id": "content_0",
+          "label": "Delivered in 7–11 days",
+          "default": "Delivered in 7–11 days"
+        }
+      ]
+    },
+    {
+      "type": "fact_3",
+      "name": "No-drill install",
+      "settings": [
+        {
+          "type": "text",
+          "id": "content_0",
+          "label": "No-drill install",
+          "default": "No-drill install"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

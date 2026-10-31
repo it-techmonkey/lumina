@@ -1,0 +1,376 @@
+<div class="lumina-editable-section {% if section.settings.background != blank %}lumina-background-override{% endif %} lumina-width-{{ section.settings.content_width }}" style="--section-background:{{ section.settings.background }};padding-top:{{ section.settings.spacing_top }}px;padding-bottom:{{ section.settings.spacing_bottom }}px"><section class="bg-white w-full py-20 lg:py-24 px-4 sm:px-6 border-t border-[#eaedf0]"><div class="max-w-[1100px] mx-auto flex flex-col gap-14"><div class="flex flex-col items-center text-center gap-4"><h2 class="font-playfair font-medium text-[#131720] text-4xl lg:text-[48px] leading-tight lg:leading-13">{{ section.settings.heading_0 }}</h2><p class="font-sans font-light text-[#657186] text-base lg:text-[16px] leading-relaxed max-w-100">{{ section.settings.content_0 | escape }}</p></div><div class="w-full overflow-x-auto"><table class="w-full min-w-155 border-collapse"><thead><tr><th class="w-[36%] pb-5"></th><th class="pb-5 px-3 text-center align-bottom"><div class="flex flex-col items-center gap-1"><span class="inline-block rounded-full bg-[#131720] px-3 py-0.5 font-sans text-[10px] font-semibold uppercase tracking-[0.12em] text-white mb-1">{{ section.settings.content_1 | escape }}</span><span class="font-playfair font-medium text-[16px] text-[#131720] leading-tight">{{ section.settings.content_2 | escape }}</span><span class="font-sans text-[11px] text-[#8c95a4]">{{ section.settings.content_3 | escape }}</span></div></th><th class="pb-5 px-3 text-center align-bottom"><div class="flex flex-col items-center gap-1"><span class="font-sans font-medium text-[13px] text-[#657186] leading-tight">{{ section.settings.content_4 | escape }}</span><span class="font-sans text-[11px] text-[#c8cdd6]">{{ section.settings.content_5 | escape }}</span></div></th><th class="pb-5 px-3 text-center align-bottom"><div class="flex flex-col items-center gap-1"><span class="font-sans font-medium text-[13px] text-[#657186] leading-tight">{{ section.settings.content_6 | escape }}</span><span class="font-sans text-[11px] text-[#c8cdd6]">{{ section.settings.content_7 | escape }}</span></div></th><th class="pb-5 px-3 text-center align-bottom"><div class="flex flex-col items-center gap-1"><span class="font-sans font-medium text-[13px] text-[#657186] leading-tight">{{ section.settings.content_8 | escape }}</span><span class="font-sans text-[11px] text-[#c8cdd6]">{{ section.settings.content_9 | escape }}</span></div></th></tr><tr><td colspan="5" class="p-0"><div class="h-px bg-[#eaedf0]"></div></td></tr></thead><tbody>{% for block in section.blocks %}{% case block.type %}{% when 'comparison_0' %}<tr class="group" {{ block.shopify_attributes }}><td class="py-4 pr-6 border-b border-[#f4f5f7]"><div class="flex flex-col gap-0.5"><span class="font-sans font-medium text-[13px] text-[#131720]">{{ block.settings.content_0 | escape }}</span><span class="font-sans text-[12px] text-[#9aa3af] leading-4.5">{{ block.settings.content_1 | escape }}</span></div></td><td class="py-4 px-3 text-center border-b border-[#f4f5f7] bg-[#131720]/3"><span class="flex justify-center"><span class="inline-flex items-center justify-center w-6 h-6 rounded-full bg-[#131720] text-white"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span></span></td><td class="py-4 px-3 text-center border-b border-[#f4f5f7] "><span class="flex justify-center"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#dbe0e6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></span></td><td class="py-4 px-3 text-center border-b border-[#f4f5f7] "><span class="flex justify-center"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#dbe0e6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></span></td><td class="py-4 px-3 text-center border-b border-[#f4f5f7] "><span class="flex justify-center"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#dbe0e6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></span></td></tr>{% when 'comparison_1' %}<tr class="group" {{ block.shopify_attributes }}><td class="py-4 pr-6 border-b border-[#f4f5f7]"><div class="flex flex-col gap-0.5"><span class="font-sans font-medium text-[13px] text-[#131720]">{{ block.settings.content_0 | escape }}</span><span class="font-sans text-[12px] text-[#9aa3af] leading-4.5">{{ block.settings.content_1 | escape }}</span></div></td><td class="py-4 px-3 text-center border-b border-[#f4f5f7] bg-[#131720]/3"><span class="flex justify-center"><span class="inline-flex items-center justify-center w-6 h-6 rounded-full bg-[#131720] text-white"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span></span></td><td class="py-4 px-3 text-center border-b border-[#f4f5f7] "><span class="flex justify-center"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#dbe0e6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></span></td><td class="py-4 px-3 text-center border-b border-[#f4f5f7] "><span class="flex justify-center"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#dbe0e6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></span></td><td class="py-4 px-3 text-center border-b border-[#f4f5f7] "><span class="flex justify-center"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#131720" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span></td></tr>{% when 'comparison_2' %}<tr class="group" {{ block.shopify_attributes }}><td class="py-4 pr-6 border-b border-[#f4f5f7]"><div class="flex flex-col gap-0.5"><span class="font-sans font-medium text-[13px] text-[#131720]">{{ block.settings.content_0 | escape }}</span><span class="font-sans text-[12px] text-[#9aa3af] leading-4.5">{{ block.settings.content_1 | escape }}</span></div></td><td class="py-4 px-3 text-center border-b border-[#f4f5f7] bg-[#131720]/3"><span class="flex justify-center"><span class="inline-flex items-center justify-center w-6 h-6 rounded-full bg-[#131720] text-white"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span></span></td><td class="py-4 px-3 text-center border-b border-[#f4f5f7] "><span class="flex justify-center"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#9aa3af" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/></svg></span></td><td class="py-4 px-3 text-center border-b border-[#f4f5f7] "><span class="flex justify-center"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#dbe0e6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></span></td><td class="py-4 px-3 text-center border-b border-[#f4f5f7] "><span class="flex justify-center"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#dbe0e6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></span></td></tr>{% when 'comparison_3' %}<tr class="group" {{ block.shopify_attributes }}><td class="py-4 pr-6 border-b border-[#f4f5f7]"><div class="flex flex-col gap-0.5"><span class="font-sans font-medium text-[13px] text-[#131720]">{{ block.settings.content_0 | escape }}</span><span class="font-sans text-[12px] text-[#9aa3af] leading-4.5">{{ block.settings.content_1 | escape }}</span></div></td><td class="py-4 px-3 text-center border-b border-[#f4f5f7] bg-[#131720]/3"><span class="flex justify-center"><span class="inline-flex items-center justify-center w-6 h-6 rounded-full bg-[#131720] text-white"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span></span></td><td class="py-4 px-3 text-center border-b border-[#f4f5f7] "><span class="flex justify-center"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#dbe0e6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></span></td><td class="py-4 px-3 text-center border-b border-[#f4f5f7] "><span class="flex justify-center"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#131720" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span></td><td class="py-4 px-3 text-center border-b border-[#f4f5f7] "><span class="flex justify-center"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#131720" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span></td></tr>{% when 'comparison_4' %}<tr class="group" {{ block.shopify_attributes }}><td class="py-4 pr-6 border-b border-[#f4f5f7]"><div class="flex flex-col gap-0.5"><span class="font-sans font-medium text-[13px] text-[#131720]">{{ block.settings.content_0 | escape }}</span><span class="font-sans text-[12px] text-[#9aa3af] leading-4.5">{{ block.settings.content_1 | escape }}</span></div></td><td class="py-4 px-3 text-center border-b border-[#f4f5f7] bg-[#131720]/3"><span class="flex justify-center"><span class="inline-flex items-center justify-center w-6 h-6 rounded-full bg-[#131720] text-white"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span></span></td><td class="py-4 px-3 text-center border-b border-[#f4f5f7] "><span class="flex justify-center"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#dbe0e6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></span></td><td class="py-4 px-3 text-center border-b border-[#f4f5f7] "><span class="flex justify-center"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#9aa3af" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/></svg></span></td><td class="py-4 px-3 text-center border-b border-[#f4f5f7] "><span class="flex justify-center"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#dbe0e6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></span></td></tr>{% when 'comparison_5' %}<tr class="group" {{ block.shopify_attributes }}><td class="py-4 pr-6 border-b border-[#f4f5f7]"><div class="flex flex-col gap-0.5"><span class="font-sans font-medium text-[13px] text-[#131720]">{{ block.settings.content_0 | escape }}</span><span class="font-sans text-[12px] text-[#9aa3af] leading-4.5">{{ block.settings.content_1 | escape }}</span></div></td><td class="py-4 px-3 text-center border-b border-[#f4f5f7] bg-[#131720]/3"><span class="flex justify-center"><span class="inline-flex items-center justify-center w-6 h-6 rounded-full bg-[#131720] text-white"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span></span></td><td class="py-4 px-3 text-center border-b border-[#f4f5f7] "><span class="flex justify-center"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#dbe0e6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></span></td><td class="py-4 px-3 text-center border-b border-[#f4f5f7] "><span class="flex justify-center"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#dbe0e6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></span></td><td class="py-4 px-3 text-center border-b border-[#f4f5f7] "><span class="flex justify-center"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#dbe0e6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></span></td></tr>{% when 'comparison_6' %}<tr class="group" {{ block.shopify_attributes }}><td class="py-4 pr-6 border-b border-[#f4f5f7]"><div class="flex flex-col gap-0.5"><span class="font-sans font-medium text-[13px] text-[#131720]">{{ block.settings.content_0 | escape }}</span><span class="font-sans text-[12px] text-[#9aa3af] leading-4.5">{{ block.settings.content_1 | escape }}</span></div></td><td class="py-4 px-3 text-center border-b border-[#f4f5f7] bg-[#131720]/3"><span class="flex justify-center"><span class="inline-flex items-center justify-center w-6 h-6 rounded-full bg-[#131720] text-white"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span></span></td><td class="py-4 px-3 text-center border-b border-[#f4f5f7] "><span class="flex justify-center"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#dbe0e6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></span></td><td class="py-4 px-3 text-center border-b border-[#f4f5f7] "><span class="flex justify-center"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#dbe0e6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></span></td><td class="py-4 px-3 text-center border-b border-[#f4f5f7] "><span class="flex justify-center"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#9aa3af" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/></svg></span></td></tr>{% when 'comparison_7' %}<tr class="group" {{ block.shopify_attributes }}><td class="py-4 pr-6 border-b border-[#f4f5f7]"><div class="flex flex-col gap-0.5"><span class="font-sans font-medium text-[13px] text-[#131720]">{{ block.settings.content_0 | escape }}</span><span class="font-sans text-[12px] text-[#9aa3af] leading-4.5">{{ block.settings.content_1 | escape }}</span></div></td><td class="py-4 px-3 text-center border-b border-[#f4f5f7] bg-[#131720]/3"><span class="flex justify-center"><span class="inline-flex items-center justify-center w-6 h-6 rounded-full bg-[#131720] text-white"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span></span></td><td class="py-4 px-3 text-center border-b border-[#f4f5f7] "><span class="flex justify-center"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#dbe0e6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></span></td><td class="py-4 px-3 text-center border-b border-[#f4f5f7] "><span class="flex justify-center"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#131720" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span></td><td class="py-4 px-3 text-center border-b border-[#f4f5f7] "><span class="flex justify-center"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#dbe0e6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></span></td></tr>{% when 'comparison_8' %}<tr class="group" {{ block.shopify_attributes }}><td class="py-4 pr-6 "><div class="flex flex-col gap-0.5"><span class="font-sans font-medium text-[13px] text-[#131720]">{{ block.settings.content_0 | escape }}</span><span class="font-sans text-[12px] text-[#9aa3af] leading-4.5">{{ block.settings.content_1 | escape }}</span></div></td><td class="py-4 px-3 text-center  bg-[#131720]/3"><span class="flex justify-center"><span class="inline-flex items-center justify-center w-6 h-6 rounded-full bg-[#131720] text-white"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span></span></td><td class="py-4 px-3 text-center  "><span class="flex justify-center"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#dbe0e6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></span></td><td class="py-4 px-3 text-center  "><span class="flex justify-center"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#131720" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span></td><td class="py-4 px-3 text-center  "><span class="flex justify-center"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#131720" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span></td></tr>{% endcase %}{% endfor %}</tbody><tfoot><tr><td colspan="5" class="p-0 pt-px"><div class="h-px bg-[#eaedf0]"></div></td></tr><tr><td class="pt-6 pr-6"><p class="font-sans text-[12px] text-[#9aa3af]">{{ section.settings.content_10 | escape }}</p></td><td class="pt-6 px-3 text-center bg-[#131720]/3"><a href="{% if section.settings.content_12 != blank %}{{ section.settings.content_12 }}{% else %}{{ settings.featured_product.url | default: '/products/honeycomb-blackout-blind' }}{% endif %}" class="inline-flex items-center gap-1.5 rounded-full bg-[#131720] px-5 py-2.5 font-sans text-[12px] font-medium text-white transition-colors hover:bg-black whitespace-nowrap">{{ section.settings.content_11 | escape }}<svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a></td><td class="pt-6 px-3"></td><td class="pt-6 px-3"></td><td class="pt-6 px-3"></td></tr></tfoot></table></div></div></section>
+</div>
+
+{% schema %}
+{
+  "name": "Compare Lumina",
+  "settings": [
+    {
+      "type": "html",
+      "id": "heading_0",
+      "label": "Heading 1",
+      "default": "See how we <span class=\"font-normal italic\">compare</span>"
+    },
+    {
+      "type": "text",
+      "id": "content_0",
+      "label": "An honest side-by-side against the most commo",
+      "default": "An honest side-by-side against the most common alternatives."
+    },
+    {
+      "type": "text",
+      "id": "content_1",
+      "label": "Our pick",
+      "default": "Our pick"
+    },
+    {
+      "type": "text",
+      "id": "content_2",
+      "label": "Lumina",
+      "default": "Lumina"
+    },
+    {
+      "type": "text",
+      "id": "content_3",
+      "label": "Blackout Blind",
+      "default": "Blackout Blind"
+    },
+    {
+      "type": "text",
+      "id": "content_4",
+      "label": "Standard Blinds",
+      "default": "Standard Blinds"
+    },
+    {
+      "type": "text",
+      "id": "content_5",
+      "label": "Off-the-shelf",
+      "default": "Off-the-shelf"
+    },
+    {
+      "type": "text",
+      "id": "content_6",
+      "label": "Blackout Curtains",
+      "default": "Blackout Curtains"
+    },
+    {
+      "type": "text",
+      "id": "content_7",
+      "label": "Fabric panels",
+      "default": "Fabric panels"
+    },
+    {
+      "type": "text",
+      "id": "content_8",
+      "label": "Window Film",
+      "default": "Window Film"
+    },
+    {
+      "type": "text",
+      "id": "content_9",
+      "label": "Adhesive tint",
+      "default": "Adhesive tint"
+    },
+    {
+      "type": "text",
+      "id": "content_10",
+      "label": "Based on typical product characteristics. “—”",
+      "default": "Based on typical product characteristics. “—” indicates partial support depending on variant."
+    },
+    {
+      "type": "text",
+      "id": "content_11",
+      "label": "Shop the Blind",
+      "default": "Shop the Blind"
+    },
+    {
+      "type": "url",
+      "id": "content_12",
+      "label": "Link destination"
+    },
+    {
+      "type": "header",
+      "content": "Layout"
+    },
+    {
+      "type": "range",
+      "id": "spacing_top",
+      "label": "Extra top spacing",
+      "min": 0,
+      "max": 120,
+      "step": 4,
+      "unit": "px",
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "spacing_bottom",
+      "label": "Extra bottom spacing",
+      "min": 0,
+      "max": 120,
+      "step": 4,
+      "unit": "px",
+      "default": 0
+    },
+    {
+      "type": "color",
+      "id": "background",
+      "label": "Section background override"
+    },
+    {
+      "type": "select",
+      "id": "content_width",
+      "label": "Content width",
+      "default": "original",
+      "options": [
+        {
+          "value": "original",
+          "label": "Original design"
+        },
+        {
+          "value": "narrow",
+          "label": "Narrow"
+        },
+        {
+          "value": "wide",
+          "label": "Wide"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Compare Lumina",
+      "blocks": [
+        {
+          "type": "comparison_0",
+          "settings": {
+            "content_0": "100% Light Blocked",
+            "content_1": "Complete blackout, no edge bleed"
+          }
+        },
+        {
+          "type": "comparison_1",
+          "settings": {
+            "content_0": "No-Drill Installation",
+            "content_1": "Tension mount, no wall damage"
+          }
+        },
+        {
+          "type": "comparison_2",
+          "settings": {
+            "content_0": "Custom Made to Your Size",
+            "content_1": "Precision-cut to your measurements"
+          }
+        },
+        {
+          "type": "comparison_3",
+          "settings": {
+            "content_0": "Child-Safe & Cordless",
+            "content_1": "Spring-roll mechanism, no cords"
+          }
+        },
+        {
+          "type": "comparison_4",
+          "settings": {
+            "content_0": "Thermal Insulation",
+            "content_1": "Regulates room temperature year-round"
+          }
+        },
+        {
+          "type": "comparison_5",
+          "settings": {
+            "content_0": "OEKO-TEX® Certified Fabric",
+            "content_1": "Independently tested, safe for all rooms"
+          }
+        },
+        {
+          "type": "comparison_6",
+          "settings": {
+            "content_0": "Zero Light Gaps at Edges",
+            "content_1": "Side channels eliminate all bleed"
+          }
+        },
+        {
+          "type": "comparison_7",
+          "settings": {
+            "content_0": "Removable & Reusable",
+            "content_1": "Repositions without tools or adhesive"
+          }
+        },
+        {
+          "type": "comparison_8",
+          "settings": {
+            "content_0": "Ready in Minutes",
+            "content_1": "No professional installer required"
+          }
+        }
+      ]
+    }
+  ],
+  "blocks": [
+    {
+      "type": "comparison_0",
+      "name": "100% Light BlockedComple",
+      "settings": [
+        {
+          "type": "text",
+          "id": "content_0",
+          "label": "100% Light Blocked",
+          "default": "100% Light Blocked"
+        },
+        {
+          "type": "text",
+          "id": "content_1",
+          "label": "Complete blackout, no edge bleed",
+          "default": "Complete blackout, no edge bleed"
+        }
+      ]
+    },
+    {
+      "type": "comparison_1",
+      "name": "No-Drill InstallationTen",
+      "settings": [
+        {
+          "type": "text",
+          "id": "content_0",
+          "label": "No-Drill Installation",
+          "default": "No-Drill Installation"
+        },
+        {
+          "type": "text",
+          "id": "content_1",
+          "label": "Tension mount, no wall damage",
+          "default": "Tension mount, no wall damage"
+        }
+      ]
+    },
+    {
+      "type": "comparison_2",
+      "name": "Custom Made to Your Size",
+      "settings": [
+        {
+          "type": "text",
+          "id": "content_0",
+          "label": "Custom Made to Your Size",
+          "default": "Custom Made to Your Size"
+        },
+        {
+          "type": "text",
+          "id": "content_1",
+          "label": "Precision-cut to your measurements",
+          "default": "Precision-cut to your measurements"
+        }
+      ]
+    },
+    {
+      "type": "comparison_3",
+      "name": "Child-Safe & CordlessSpr",
+      "settings": [
+        {
+          "type": "text",
+          "id": "content_0",
+          "label": "Child-Safe & Cordless",
+          "default": "Child-Safe & Cordless"
+        },
+        {
+          "type": "text",
+          "id": "content_1",
+          "label": "Spring-roll mechanism, no cords",
+          "default": "Spring-roll mechanism, no cords"
+        }
+      ]
+    },
+    {
+      "type": "comparison_4",
+      "name": "Thermal InsulationRegula",
+      "settings": [
+        {
+          "type": "text",
+          "id": "content_0",
+          "label": "Thermal Insulation",
+          "default": "Thermal Insulation"
+        },
+        {
+          "type": "text",
+          "id": "content_1",
+          "label": "Regulates room temperature year-round",
+          "default": "Regulates room temperature year-round"
+        }
+      ]
+    },
+    {
+      "type": "comparison_5",
+      "name": "OEKO-TEX® Certified Fabr",
+      "settings": [
+        {
+          "type": "text",
+          "id": "content_0",
+          "label": "OEKO-TEX® Certified Fabric",
+          "default": "OEKO-TEX® Certified Fabric"
+        },
+        {
+          "type": "text",
+          "id": "content_1",
+          "label": "Independently tested, safe for all rooms",
+          "default": "Independently tested, safe for all rooms"
+        }
+      ]
+    },
+    {
+      "type": "comparison_6",
+      "name": "Zero Light Gaps at Edges",
+      "settings": [
+        {
+          "type": "text",
+          "id": "content_0",
+          "label": "Zero Light Gaps at Edges",
+          "default": "Zero Light Gaps at Edges"
+        },
+        {
+          "type": "text",
+          "id": "content_1",
+          "label": "Side channels eliminate all bleed",
+          "default": "Side channels eliminate all bleed"
+        }
+      ]
+    },
+    {
+      "type": "comparison_7",
+      "name": "Removable & ReusableRepo",
+      "settings": [
+        {
+          "type": "text",
+          "id": "content_0",
+          "label": "Removable & Reusable",
+          "default": "Removable & Reusable"
+        },
+        {
+          "type": "text",
+          "id": "content_1",
+          "label": "Repositions without tools or adhesive",
+          "default": "Repositions without tools or adhesive"
+        }
+      ]
+    },
+    {
+      "type": "comparison_8",
+      "name": "Ready in MinutesNo profe",
+      "settings": [
+        {
+          "type": "text",
+          "id": "content_0",
+          "label": "Ready in Minutes",
+          "default": "Ready in Minutes"
+        },
+        {
+          "type": "text",
+          "id": "content_1",
+          "label": "No professional installer required",
+          "default": "No professional installer required"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,13 @@
+// Historical migration only. Do not rerun on the current theme.
+if(!process.argv.includes('--run-historical-migration'))throw new Error('Historical migration disabled; edit theme files directly.');
+// Apply focused, repeatable configuration changes for the reference design.
+const fs=require('fs');const path=require('path');const theme=path.resolve(__dirname,'../theme');
+const read=p=>fs.readFileSync(path.join(theme,p),'utf8');const write=(p,s)=>fs.writeFileSync(path.join(theme,p),s);
+let layout=read('layout/theme.liquid');if(!layout.includes('lumina-fidelity.css'))layout=layout.replace("{{ 'lumina-theme.css' | asset_url | stylesheet_tag }}","{{ 'lumina-theme.css' | asset_url | stylesheet_tag }}\n    {{ 'lumina-fidelity.css' | asset_url | stylesheet_tag }}");
+layout=layout.replace("{% if settings.enable_newsletter_popup %}{% render 'lumina-newsletter-popup' %}{% endif %}","{% section 'lumina-welcome-popup' %}");write('layout/theme.liquid',layout);
+let hero=read('sections/lumina-hero.liquid');hero=hero.replace("{% render 'lumina-judgeme-badge', product: rating_product %}","{% assign rating = rating_product.metafields.reviews.rating.value.rating | default: 4.8 | plus: 0 %}{% render 'lumina-rating-stars', rating: rating, size: 11 %}<span>{{ rating | round: 1 }} · {{ rating_product.metafields.reviews.rating_count.value | default: 0 }} reviews</span>");write('sections/lumina-hero.liquid',hero);
+let badges=read('snippets/lumina-guarantee-badges.liquid');if(!badges.includes('{{ instance }}'))badges=badges.replaceAll('{{ section.id }}','{{ section.id }}-{{ instance }}');write('snippets/lumina-guarantee-badges.liquid',badges);
+const schema=JSON.parse(read('config/settings_schema.json'));const popup=schema.find(g=>g.name==='Welcome popup');const delay=popup.settings.find(s=>s.id==='popup_delay');delay.min=1;delay.max=60;delay.step=1;delay.default=3;write('config/settings_schema.json',JSON.stringify(schema,null,2)+'\n');
+const latest=JSON.parse(fs.readFileSync(path.resolve(__dirname,'../.local/before-fidelity/config/settings_data.json'),'utf8').replace(/^\s*\/\*[\s\S]*?\*\//,''));Object.assign(latest.current,{enable_newsletter_popup:true,popup_delay:3,popup_button:'Claim My 10% Off',popup_text:'Enter your email for product updates, measuring guidance, and your first-order welcome offer.',popup_consent:'By continuing you agree to receive email updates. Unsubscribe anytime.'});write('config/settings_data.json',JSON.stringify(latest,null,2)+'\n');
+// Retain Shopify's latest normalized product block settings.
+const latestProduct=fs.readFileSync(path.resolve(__dirname,'../.local/before-fidelity/templates/product.json'),'utf8');write('templates/product.json',latestProduct);

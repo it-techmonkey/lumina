@@ -1,0 +1,174 @@
+<div class="lumina-editable-section {% if section.settings.background != blank %}lumina-background-override{% endif %} lumina-width-{{ section.settings.content_width }}" style="--section-background:{{ section.settings.background }};padding-top:{{ section.settings.spacing_top }}px;padding-bottom:{{ section.settings.spacing_bottom }}px"><section class="relative w-full bg-[#0a0c10] min-h-screen flex items-center justify-center overflow-hidden"><div class="absolute inset-0 z-0">{% if section.settings.content_13 != blank %}<img width="1600" height="1200" class="object-cover opacity-80" src="{{ section.settings.content_13 | image_url: width: 2000 }}" alt="{{ section.settings.content_14 | escape }}" loading="eager" style="position:absolute;inset:0;width:100%;height:100%">{% else %}<img width="1600" height="1200" class="object-cover opacity-80" src="{{ 'home-lumina-hero.webp' | asset_url }}" alt="{{ section.settings.content_14 | escape }}" loading="eager" style="position:absolute;inset:0;width:100%;height:100%">{% endif %}<div class="absolute inset-0 bg-gradient-to-r from-black/90 via-black/50 to-black/5"></div><div class="absolute inset-0 bg-gradient-to-b from-black/40 via-transparent to-black/50"></div></div><div class="relative z-10 w-full max-w-[1280px] px-6 mx-auto grid lg:grid-cols-[1fr_auto_1fr] gap-10 lg:gap-12 items-center py-28 lg:py-36"><div class="flex flex-col items-start gap-7"><a href="#reviews" class="lumina-hero-rating">{% assign rating_product = settings.featured_product | default: all_products['honeycomb-blackout-blind'] %}{% assign rating = rating_product.metafields.reviews.rating.value.rating | default: 4.8 | plus: 0 %}{% render 'lumina-rating-stars', rating: rating, size: 11 %}<span>{{ rating | round: 1 }} · {{ rating_product.metafields.reviews.rating_count.value | default: 0 }} reviews</span></a><h1 class="font-playfair font-medium text-white text-[56px] lg:text-[80px] leading-[1.0] tracking-tight">{{ section.settings.heading }}</h1><p class="font-sans font-light text-white/55 text-[17px] leading-relaxed max-w-[420px]">{{ section.settings.content_1 | escape }}</p><div class="flex flex-col sm:flex-row gap-3 pt-1"><a href="{% if section.settings.content_16 != blank %}{{ section.settings.content_16 }}{% else %}{{ settings.featured_product.url | default: '/products/honeycomb-blackout-blind' }}{% endif %}" class="bg-white text-[#0a0c10] font-sans font-semibold text-[14px] text-center px-8 py-4 rounded-full hover:bg-white/90 transition-colors">{{ section.settings.button_label }}</a><a href="{% if section.settings.content_17 != blank %}{{ section.settings.content_17 }}{% else %}{{ 'guide-lumina-measuring-guide.png' | asset_url }}{% endif %}" class="border border-white/25 text-white/80 font-sans font-medium text-[14px] text-center px-8 py-4 rounded-full hover:bg-white/8 hover:text-white transition-colors">{{ section.settings.content_2 | escape }}</a></div><div class="flex items-center gap-0 pt-3 border-t border-white/8 w-full max-w-[420px]"><div class="flex items-center"><div class="flex flex-col gap-1 px-5 first:pl-0"><span class="font-playfair font-semibold text-white text-[26px] leading-none">{{ section.settings.content_3 | escape }}</span><span class="font-sans text-white/40 text-[11px] uppercase tracking-wider">{{ section.settings.content_4 | escape }}</span></div><div class="w-px h-8 bg-white/10"></div></div><div class="flex items-center"><div class="flex flex-col gap-1 px-5 first:pl-0"><span class="font-playfair font-semibold text-white text-[26px] leading-none">{{ section.settings.content_5 | escape }}</span><span class="font-sans text-white/40 text-[11px] uppercase tracking-wider">{{ section.settings.content_6 | escape }}</span></div><div class="w-px h-8 bg-white/10"></div></div><div class="flex items-center"><div class="flex flex-col gap-1 px-5 first:pl-0"><span class="font-playfair font-semibold text-white text-[26px] leading-none">{{ section.settings.content_7 | escape }}</span><span class="font-sans text-white/40 text-[11px] uppercase tracking-wider">{{ section.settings.content_8 | escape }}</span></div></div></div><div class="flex items-center gap-2 text-white/35 -mt-2"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="3" width="15" height="13"/><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg><span class="font-sans text-[12px] tracking-wide">{{ section.settings.content_9 | escape }}</span></div><div class="lg:hidden w-full overflow-x-auto"><div class="flex flex-row flex-nowrap gap-4 py-2"><div class="flex flex-col items-center gap-1.5 text-center shrink-0"><svg width="84" height="84" viewBox="0 0 100 100" class="text-white"><path d="M 50.00 7.00 Q 56.13 3.40 61.13 8.47 Q 67.99 6.58 71.50 12.76 Q 78.61 12.71 80.41 19.59 Q 87.29 21.39 87.24 28.50 Q 93.42 32.01 91.53 38.87 Q 96.60 43.87 93.00 50.00 Q 96.60 56.13 91.53 61.13 Q 93.42 67.99 87.24 71.50 Q 87.29 78.61 80.41 80.41 Q 78.61 87.29 71.50 87.24 Q 67.99 93.42 61.13 91.53 Q 56.13 96.60 50.00 93.00 Q 43.87 96.60 38.87 91.53 Q 32.01 93.42 28.50 87.24 Q 21.39 87.29 19.59 80.41 Q 12.71 78.61 12.76 71.50 Q 6.58 67.99 8.47 61.13 Q 3.40 56.13 7.00 50.00 Q 3.40 43.87 8.47 38.87 Q 6.58 32.01 12.76 28.50 Q 12.71 21.39 19.59 19.59 Q 21.39 12.71 28.50 12.76 Q 32.01 6.58 38.87 8.47 Q 43.87 3.40 50.00 7.00 Z" fill="none" stroke="currentColor" stroke-width="1.1"/><circle cx="50" cy="50" r="30" fill="none" stroke="currentColor" stroke-width="0.6"/><defs><path id="top-arc-light-wrong-measurement-{{ section.id }}-1" d="M 16 50 A 34 34 0 0 1 84 50"/></defs><text font-size="7" font-weight="600" letter-spacing="0.6" fill="currentColor"><textPath href="#top-arc-light-wrong-measurement-{{ section.id }}-1" startOffset="50%" text-anchor="middle">{{ settings.guarantee_0_toplabel | escape }}</textPath></text><text x="50" y="54" text-anchor="middle" font-size="15" font-weight="700" fill="currentColor" font-family="var(--font-playfair)">{{ settings.guarantee_0_centertop | escape }}</text><text x="50" y="66" text-anchor="middle" font-size="8" font-weight="600" letter-spacing="0.8" fill="currentColor">{{ settings.guarantee_0_centerbottom | escape }}</text></svg></div><div class="flex flex-col items-center gap-1.5 text-center shrink-0"><svg width="84" height="84" viewBox="0 0 100 100" class="text-white"><path d="M 50.00 7.00 Q 56.13 3.40 61.13 8.47 Q 67.99 6.58 71.50 12.76 Q 78.61 12.71 80.41 19.59 Q 87.29 21.39 87.24 28.50 Q 93.42 32.01 91.53 38.87 Q 96.60 43.87 93.00 50.00 Q 96.60 56.13 91.53 61.13 Q 93.42 67.99 87.24 71.50 Q 87.29 78.61 80.41 80.41 Q 78.61 87.29 71.50 87.24 Q 67.99 93.42 61.13 91.53 Q 56.13 96.60 50.00 93.00 Q 43.87 96.60 38.87 91.53 Q 32.01 93.42 28.50 87.24 Q 21.39 87.29 19.59 80.41 Q 12.71 78.61 12.76 71.50 Q 6.58 67.99 8.47 61.13 Q 3.40 56.13 7.00 50.00 Q 3.40 43.87 8.47 38.87 Q 6.58 32.01 12.76 28.50 Q 12.71 21.39 19.59 19.59 Q 21.39 12.71 28.50 12.76 Q 32.01 6.58 38.87 8.47 Q 43.87 3.40 50.00 7.00 Z" fill="none" stroke="currentColor" stroke-width="1.1"/><circle cx="50" cy="50" r="30" fill="none" stroke="currentColor" stroke-width="0.6"/><defs><path id="top-arc-light-home-trial-{{ section.id }}-1" d="M 16 50 A 34 34 0 0 1 84 50"/></defs><text font-size="7" font-weight="600" letter-spacing="0.6" fill="currentColor"><textPath href="#top-arc-light-home-trial-{{ section.id }}-1" startOffset="50%" text-anchor="middle">{{ settings.guarantee_1_toplabel | escape }}</textPath></text><text x="50" y="54" text-anchor="middle" font-size="15" font-weight="700" fill="currentColor" font-family="var(--font-playfair)">{{ settings.guarantee_1_centertop | escape }}</text><text x="50" y="66" text-anchor="middle" font-size="8" font-weight="600" letter-spacing="0.8" fill="currentColor">{{ settings.guarantee_1_centerbottom | escape }}</text></svg></div><div class="flex flex-col items-center gap-1.5 text-center shrink-0"><svg width="84" height="84" viewBox="0 0 100 100" class="text-white"><path d="M 50.00 7.00 Q 56.13 3.40 61.13 8.47 Q 67.99 6.58 71.50 12.76 Q 78.61 12.71 80.41 19.59 Q 87.29 21.39 87.24 28.50 Q 93.42 32.01 91.53 38.87 Q 96.60 43.87 93.00 50.00 Q 96.60 56.13 91.53 61.13 Q 93.42 67.99 87.24 71.50 Q 87.29 78.61 80.41 80.41 Q 78.61 87.29 71.50 87.24 Q 67.99 93.42 61.13 91.53 Q 56.13 96.60 50.00 93.00 Q 43.87 96.60 38.87 91.53 Q 32.01 93.42 28.50 87.24 Q 21.39 87.29 19.59 80.41 Q 12.71 78.61 12.76 71.50 Q 6.58 67.99 8.47 61.13 Q 3.40 56.13 7.00 50.00 Q 3.40 43.87 8.47 38.87 Q 6.58 32.01 12.76 28.50 Q 12.71 21.39 19.59 19.59 Q 21.39 12.71 28.50 12.76 Q 32.01 6.58 38.87 8.47 Q 43.87 3.40 50.00 7.00 Z" fill="none" stroke="currentColor" stroke-width="1.1"/><circle cx="50" cy="50" r="30" fill="none" stroke="currentColor" stroke-width="0.6"/><defs><path id="top-arc-light-free-return-{{ section.id }}-1" d="M 16 50 A 34 34 0 0 1 84 50"/></defs><text font-size="7" font-weight="600" letter-spacing="0.6" fill="currentColor"><textPath href="#top-arc-light-free-return-{{ section.id }}-1" startOffset="50%" text-anchor="middle">{{ settings.guarantee_2_toplabel | escape }}</textPath></text><text x="50" y="54" text-anchor="middle" font-size="15" font-weight="700" fill="currentColor" font-family="var(--font-playfair)">{{ settings.guarantee_2_centertop | escape }}</text><text x="50" y="66" text-anchor="middle" font-size="8" font-weight="600" letter-spacing="0.8" fill="currentColor">{{ settings.guarantee_2_centerbottom | escape }}</text></svg></div><div class="flex flex-col items-center gap-1.5 text-center shrink-0"><svg width="84" height="84" viewBox="0 0 100 100" class="text-white"><path d="M 50.00 7.00 Q 56.13 3.40 61.13 8.47 Q 67.99 6.58 71.50 12.76 Q 78.61 12.71 80.41 19.59 Q 87.29 21.39 87.24 28.50 Q 93.42 32.01 91.53 38.87 Q 96.60 43.87 93.00 50.00 Q 96.60 56.13 91.53 61.13 Q 93.42 67.99 87.24 71.50 Q 87.29 78.61 80.41 80.41 Q 78.61 87.29 71.50 87.24 Q 67.99 93.42 61.13 91.53 Q 56.13 96.60 50.00 93.00 Q 43.87 96.60 38.87 91.53 Q 32.01 93.42 28.50 87.24 Q 21.39 87.29 19.59 80.41 Q 12.71 78.61 12.76 71.50 Q 6.58 67.99 8.47 61.13 Q 3.40 56.13 7.00 50.00 Q 3.40 43.87 8.47 38.87 Q 6.58 32.01 12.76 28.50 Q 12.71 21.39 19.59 19.59 Q 21.39 12.71 28.50 12.76 Q 32.01 6.58 38.87 8.47 Q 43.87 3.40 50.00 7.00 Z" fill="none" stroke="currentColor" stroke-width="1.1"/><circle cx="50" cy="50" r="30" fill="none" stroke="currentColor" stroke-width="0.6"/><defs><path id="top-arc-light-manufacturer-{{ section.id }}-1" d="M 16 50 A 34 34 0 0 1 84 50"/></defs><text font-size="7" font-weight="600" letter-spacing="0.6" fill="currentColor"><textPath href="#top-arc-light-manufacturer-{{ section.id }}-1" startOffset="50%" text-anchor="middle">{{ settings.guarantee_3_centerbottom | escape }}</textPath></text><text x="50" y="54" text-anchor="middle" font-size="15" font-weight="700" fill="currentColor" font-family="var(--font-playfair)">{{ settings.guarantee_3_centertop | escape }}</text><text x="50" y="66" text-anchor="middle" font-size="8" font-weight="600" letter-spacing="0.8" fill="currentColor">{{ settings.guarantee_3_centerbottom | escape }}</text></svg></div></div></div></div><div class="hidden lg:flex"><div class="flex flex-col gap-4"><div class="flex flex-col items-center gap-1.5 text-center shrink-0"><svg width="96" height="96" viewBox="0 0 100 100" class="text-white"><path d="M 50.00 7.00 Q 56.13 3.40 61.13 8.47 Q 67.99 6.58 71.50 12.76 Q 78.61 12.71 80.41 19.59 Q 87.29 21.39 87.24 28.50 Q 93.42 32.01 91.53 38.87 Q 96.60 43.87 93.00 50.00 Q 96.60 56.13 91.53 61.13 Q 93.42 67.99 87.24 71.50 Q 87.29 78.61 80.41 80.41 Q 78.61 87.29 71.50 87.24 Q 67.99 93.42 61.13 91.53 Q 56.13 96.60 50.00 93.00 Q 43.87 96.60 38.87 91.53 Q 32.01 93.42 28.50 87.24 Q 21.39 87.29 19.59 80.41 Q 12.71 78.61 12.76 71.50 Q 6.58 67.99 8.47 61.13 Q 3.40 56.13 7.00 50.00 Q 3.40 43.87 8.47 38.87 Q 6.58 32.01 12.76 28.50 Q 12.71 21.39 19.59 19.59 Q 21.39 12.71 28.50 12.76 Q 32.01 6.58 38.87 8.47 Q 43.87 3.40 50.00 7.00 Z" fill="none" stroke="currentColor" stroke-width="1.1"/><circle cx="50" cy="50" r="30" fill="none" stroke="currentColor" stroke-width="0.6"/><defs><path id="top-arc-light-wrong-measurement-{{ section.id }}-2" d="M 16 50 A 34 34 0 0 1 84 50"/></defs><text font-size="7" font-weight="600" letter-spacing="0.6" fill="currentColor"><textPath href="#top-arc-light-wrong-measurement-{{ section.id }}-2" startOffset="50%" text-anchor="middle">{{ settings.guarantee_0_toplabel | escape }}</textPath></text><text x="50" y="54" text-anchor="middle" font-size="15" font-weight="700" fill="currentColor" font-family="var(--font-playfair)">{{ settings.guarantee_0_centertop | escape }}</text><text x="50" y="66" text-anchor="middle" font-size="8" font-weight="600" letter-spacing="0.8" fill="currentColor">{{ settings.guarantee_0_centerbottom | escape }}</text></svg></div><div class="flex flex-col items-center gap-1.5 text-center shrink-0"><svg width="96" height="96" viewBox="0 0 100 100" class="text-white"><path d="M 50.00 7.00 Q 56.13 3.40 61.13 8.47 Q 67.99 6.58 71.50 12.76 Q 78.61 12.71 80.41 19.59 Q 87.29 21.39 87.24 28.50 Q 93.42 32.01 91.53 38.87 Q 96.60 43.87 93.00 50.00 Q 96.60 56.13 91.53 61.13 Q 93.42 67.99 87.24 71.50 Q 87.29 78.61 80.41 80.41 Q 78.61 87.29 71.50 87.24 Q 67.99 93.42 61.13 91.53 Q 56.13 96.60 50.00 93.00 Q 43.87 96.60 38.87 91.53 Q 32.01 93.42 28.50 87.24 Q 21.39 87.29 19.59 80.41 Q 12.71 78.61 12.76 71.50 Q 6.58 67.99 8.47 61.13 Q 3.40 56.13 7.00 50.00 Q 3.40 43.87 8.47 38.87 Q 6.58 32.01 12.76 28.50 Q 12.71 21.39 19.59 19.59 Q 21.39 12.71 28.50 12.76 Q 32.01 6.58 38.87 8.47 Q 43.87 3.40 50.00 7.00 Z" fill="none" stroke="currentColor" stroke-width="1.1"/><circle cx="50" cy="50" r="30" fill="none" stroke="currentColor" stroke-width="0.6"/><defs><path id="top-arc-light-home-trial-{{ section.id }}-2" d="M 16 50 A 34 34 0 0 1 84 50"/></defs><text font-size="7" font-weight="600" letter-spacing="0.6" fill="currentColor"><textPath href="#top-arc-light-home-trial-{{ section.id }}-2" startOffset="50%" text-anchor="middle">{{ settings.guarantee_1_toplabel | escape }}</textPath></text><text x="50" y="54" text-anchor="middle" font-size="15" font-weight="700" fill="currentColor" font-family="var(--font-playfair)">{{ settings.guarantee_1_centertop | escape }}</text><text x="50" y="66" text-anchor="middle" font-size="8" font-weight="600" letter-spacing="0.8" fill="currentColor">{{ settings.guarantee_1_centerbottom | escape }}</text></svg></div><div class="flex flex-col items-center gap-1.5 text-center shrink-0"><svg width="96" height="96" viewBox="0 0 100 100" class="text-white"><path d="M 50.00 7.00 Q 56.13 3.40 61.13 8.47 Q 67.99 6.58 71.50 12.76 Q 78.61 12.71 80.41 19.59 Q 87.29 21.39 87.24 28.50 Q 93.42 32.01 91.53 38.87 Q 96.60 43.87 93.00 50.00 Q 96.60 56.13 91.53 61.13 Q 93.42 67.99 87.24 71.50 Q 87.29 78.61 80.41 80.41 Q 78.61 87.29 71.50 87.24 Q 67.99 93.42 61.13 91.53 Q 56.13 96.60 50.00 93.00 Q 43.87 96.60 38.87 91.53 Q 32.01 93.42 28.50 87.24 Q 21.39 87.29 19.59 80.41 Q 12.71 78.61 12.76 71.50 Q 6.58 67.99 8.47 61.13 Q 3.40 56.13 7.00 50.00 Q 3.40 43.87 8.47 38.87 Q 6.58 32.01 12.76 28.50 Q 12.71 21.39 19.59 19.59 Q 21.39 12.71 28.50 12.76 Q 32.01 6.58 38.87 8.47 Q 43.87 3.40 50.00 7.00 Z" fill="none" stroke="currentColor" stroke-width="1.1"/><circle cx="50" cy="50" r="30" fill="none" stroke="currentColor" stroke-width="0.6"/><defs><path id="top-arc-light-free-return-{{ section.id }}-2" d="M 16 50 A 34 34 0 0 1 84 50"/></defs><text font-size="7" font-weight="600" letter-spacing="0.6" fill="currentColor"><textPath href="#top-arc-light-free-return-{{ section.id }}-2" startOffset="50%" text-anchor="middle">{{ settings.guarantee_2_toplabel | escape }}</textPath></text><text x="50" y="54" text-anchor="middle" font-size="15" font-weight="700" fill="currentColor" font-family="var(--font-playfair)">{{ settings.guarantee_2_centertop | escape }}</text><text x="50" y="66" text-anchor="middle" font-size="8" font-weight="600" letter-spacing="0.8" fill="currentColor">{{ settings.guarantee_2_centerbottom | escape }}</text></svg></div><div class="flex flex-col items-center gap-1.5 text-center shrink-0"><svg width="96" height="96" viewBox="0 0 100 100" class="text-white"><path d="M 50.00 7.00 Q 56.13 3.40 61.13 8.47 Q 67.99 6.58 71.50 12.76 Q 78.61 12.71 80.41 19.59 Q 87.29 21.39 87.24 28.50 Q 93.42 32.01 91.53 38.87 Q 96.60 43.87 93.00 50.00 Q 96.60 56.13 91.53 61.13 Q 93.42 67.99 87.24 71.50 Q 87.29 78.61 80.41 80.41 Q 78.61 87.29 71.50 87.24 Q 67.99 93.42 61.13 91.53 Q 56.13 96.60 50.00 93.00 Q 43.87 96.60 38.87 91.53 Q 32.01 93.42 28.50 87.24 Q 21.39 87.29 19.59 80.41 Q 12.71 78.61 12.76 71.50 Q 6.58 67.99 8.47 61.13 Q 3.40 56.13 7.00 50.00 Q 3.40 43.87 8.47 38.87 Q 6.58 32.01 12.76 28.50 Q 12.71 21.39 19.59 19.59 Q 21.39 12.71 28.50 12.76 Q 32.01 6.58 38.87 8.47 Q 43.87 3.40 50.00 7.00 Z" fill="none" stroke="currentColor" stroke-width="1.1"/><circle cx="50" cy="50" r="30" fill="none" stroke="currentColor" stroke-width="0.6"/><defs><path id="top-arc-light-manufacturer-{{ section.id }}-2" d="M 16 50 A 34 34 0 0 1 84 50"/></defs><text font-size="7" font-weight="600" letter-spacing="0.6" fill="currentColor"><textPath href="#top-arc-light-manufacturer-{{ section.id }}-2" startOffset="50%" text-anchor="middle">{{ settings.guarantee_3_centerbottom | escape }}</textPath></text><text x="50" y="54" text-anchor="middle" font-size="15" font-weight="700" fill="currentColor" font-family="var(--font-playfair)">{{ settings.guarantee_3_centertop | escape }}</text><text x="50" y="66" text-anchor="middle" font-size="8" font-weight="600" letter-spacing="0.8" fill="currentColor">{{ settings.guarantee_3_centerbottom | escape }}</text></svg></div></div></div><div class="relative w-full aspect-square max-w-[520px] mx-auto lg:ml-auto"><div class="relative w-full h-full rounded-3xl overflow-hidden shadow-[0_32px_80px_-12px_rgba(0,0,0,0.8)] ring-1 ring-white/8">{% if section.settings.content_15 != blank %}{{ section.settings.content_15 | video_tag: autoplay: true, loop: true, muted: true, controls: true, class: 'object-cover w-full h-full' }}{% else %}<video src="{{ 'home-blackout-hero.webm' | asset_url }}" poster="{{ 'product-gallery-1.webp' | asset_url }}" aria-label="Blackout blind over a bedroom window" class="object-cover w-full h-full" autoplay muted loop playsinline controls preload="metadata"></video>{% endif %}</div><div class="absolute -bottom-5 left-4 lg:-left-6 bg-white/8 backdrop-blur-xl border border-white/15 rounded-2xl py-4 px-5 shadow-xl flex items-center gap-3"><div class="bg-white/10 rounded-xl w-9 h-9 flex items-center justify-center shrink-0"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div><div class="flex flex-col gap-0.5"><span class="font-sans text-white/50 text-[10px] uppercase tracking-widest leading-none">{{ section.settings.content_10 | escape }}</span><span class="font-sans font-semibold text-white text-[13px] leading-none mt-1">{{ section.settings.content_11 | escape }}</span></div></div></div></div><div class="absolute bottom-8 left-1/2 -translate-x-1/2 hidden lg:flex flex-col items-center gap-2 z-10"><span class="font-sans text-white/30 text-[10px] uppercase tracking-[2px]">{{ section.settings.content_12 | escape }}</span><div class="w-px h-10 bg-gradient-to-b from-white/30 to-transparent"></div></div></section>
+</div>
+
+{% schema %}
+{
+  "name": "Hero",
+  "settings": [
+    {
+      "type": "html",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Sleep in<br><em>total</em><br>darkness."
+    },
+    {
+      "type": "text",
+      "id": "button_label",
+      "label": "Button label",
+      "default": "Shop The Blind"
+    },
+    {
+      "type": "textarea",
+      "id": "content_1",
+      "label": "Wake up on your schedule, not the sun's. Lumi",
+      "default": "Wake up on your schedule, not the sun's. Lumina blocks 100% of light — no gaps, no glare. Precision-made for your window. No drills. No fuss."
+    },
+    {
+      "type": "text",
+      "id": "content_2",
+      "label": "How to Measure",
+      "default": "How to Measure"
+    },
+    {
+      "type": "text",
+      "id": "content_3",
+      "label": "100%",
+      "default": "100%"
+    },
+    {
+      "type": "text",
+      "id": "content_4",
+      "label": "Light Blocked",
+      "default": "Light Blocked"
+    },
+    {
+      "type": "text",
+      "id": "content_5",
+      "label": "12+",
+      "default": "12+"
+    },
+    {
+      "type": "text",
+      "id": "content_6",
+      "label": "Size Options",
+      "default": "Size Options"
+    },
+    {
+      "type": "text",
+      "id": "content_7",
+      "label": "5 min",
+      "default": "5 min"
+    },
+    {
+      "type": "text",
+      "id": "content_8",
+      "label": "Install Time",
+      "default": "Install Time"
+    },
+    {
+      "type": "text",
+      "id": "content_9",
+      "label": "Free shipping across the USA on every order",
+      "default": "Free shipping across the USA on every order"
+    },
+    {
+      "type": "text",
+      "id": "content_10",
+      "label": "Certified by",
+      "default": "Certified by"
+    },
+    {
+      "type": "text",
+      "id": "content_11",
+      "label": "OEKO-TEX® Standard 100",
+      "default": "OEKO-TEX® Standard 100"
+    },
+    {
+      "type": "text",
+      "id": "content_12",
+      "label": "Scroll",
+      "default": "Scroll"
+    },
+    {
+      "type": "image_picker",
+      "id": "content_13",
+      "label": "Image"
+    },
+    {
+      "type": "text",
+      "id": "content_14",
+      "label": "Image description",
+      "default": "Lumina blackout blind lifestyle"
+    },
+    {
+      "type": "video",
+      "id": "content_15",
+      "label": "Video"
+    },
+    {
+      "type": "url",
+      "id": "content_16",
+      "label": "Link destination"
+    },
+    {
+      "type": "url",
+      "id": "content_17",
+      "label": "Link destination"
+    },
+    {
+      "type": "header",
+      "content": "Layout"
+    },
+    {
+      "type": "range",
+      "id": "spacing_top",
+      "label": "Extra top spacing",
+      "min": 0,
+      "max": 120,
+      "step": 4,
+      "unit": "px",
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "spacing_bottom",
+      "label": "Extra bottom spacing",
+      "min": 0,
+      "max": 120,
+      "step": 4,
+      "unit": "px",
+      "default": 0
+    },
+    {
+      "type": "color",
+      "id": "background",
+      "label": "Section background override"
+    },
+    {
+      "type": "select",
+      "id": "content_width",
+      "label": "Content width",
+      "default": "original",
+      "options": [
+        {
+          "value": "original",
+          "label": "Original design"
+        },
+        {
+          "value": "narrow",
+          "label": "Narrow"
+        },
+        {
+          "value": "wide",
+          "label": "Wide"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Hero"
+    }
+  ]
+}
+{% endschema %}

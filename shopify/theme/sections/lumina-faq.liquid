@@ -1,0 +1,86 @@
+<section id="faq" class="bg-[#eaedf0] py-16 md:py-24 px-6 w-full"><div class="lumina-faq-inner max-w-[768px] mx-auto flex flex-col gap-8 md:gap-12 w-full">
+ <div class="flex flex-col gap-4 items-center text-center"><p class="font-medium text-[#4051b5] text-xs tracking-[1.2px] uppercase">{{ section.settings.content_0 | escape }}</p><h2 class="font-playfair font-medium text-[#131720] text-4xl md:text-[48px] leading-tight md:leading-[48px]">{{ section.settings.content_1 | escape }} <br class="hidden md:block"><em class="font-normal">{{ section.settings.content_2 | escape }}</em></h2></div>
+ <div class="lumina-faq-list">{% for block in section.blocks %}<details class="lumina-accordion" name="faq-{{ section.id }}" {% if forloop.index > 5 %}data-extra-faq hidden{% endif %} {{ block.shopify_attributes }}><summary>{{ block.settings.question | escape }}<span aria-hidden="true">+</span></summary><div class="lumina-richtext">{{ block.settings.answer }}</div></details>{% endfor %}</div>
+ <button class="self-center mt-2 rounded-full border border-[#b8bec7] bg-white px-6 py-2.5 text-[14px] text-[#131720] shadow-sm" type="button" data-faq-more>{{ section.settings.content_3 | escape }}</button>
+ <div class="bg-[#f9fafb] flex flex-col gap-2 items-center p-8 rounded-2xl text-center"><h3 class="font-playfair font-medium text-xl leading-7">{{ section.settings.content_4 | escape }}</h3><p class="text-sm text-[#657186] leading-5 pb-3">{{ section.settings.content_5 | escape }}</p><a class="bg-[#131720] text-[#f9fafb] font-medium text-sm leading-5 px-6 py-3 rounded-full" href="{% if section.settings.content_7 != blank %}{{ section.settings.content_7 }}{% else %}mailto:info@luminablackoutblinds.com{% endif %}">{{ section.settings.content_6 | escape }}</a></div>
+</div></section>
+
+{% schema %}
+{
+  "name": "FAQ",
+  "settings": [
+    {
+      "type": "text",
+      "id": "content_0",
+      "label": "FAQ",
+      "default": "FAQ"
+    },
+    {
+      "type": "text",
+      "id": "content_1",
+      "label": "Heading",
+      "default": "Questions &"
+    },
+    {
+      "type": "text",
+      "id": "content_2",
+      "label": "answers",
+      "default": "answers"
+    },
+    {
+      "type": "text",
+      "id": "content_3",
+      "label": "View more",
+      "default": "View more"
+    },
+    {
+      "type": "text",
+      "id": "content_4",
+      "label": "Heading",
+      "default": "Still have questions?"
+    },
+    {
+      "type": "text",
+      "id": "content_5",
+      "label": "Our team replies within a few hours, Monday t",
+      "default": "Our team replies within a few hours, Monday to Friday."
+    },
+    {
+      "type": "text",
+      "id": "content_6",
+      "label": "info@luminablackoutblinds.com",
+      "default": "info@luminablackoutblinds.com"
+    },
+    {
+      "type": "url",
+      "id": "content_7",
+      "label": "Link destination"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "question",
+      "name": "Question",
+      "settings": [
+        {
+          "type": "text",
+          "id": "question",
+          "label": "Question",
+          "default": "Your question"
+        },
+        {
+          "type": "richtext",
+          "id": "answer",
+          "label": "Answer",
+          "default": "<p>Your answer</p>"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "FAQ"
+    }
+  ]
+}
+{% endschema %}

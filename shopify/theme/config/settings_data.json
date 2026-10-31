@@ -1,0 +1,25 @@
+{
+  "current": {
+    "featured_product": "honeycomb-blackout-blind",
+    "enable_purchasing": false,
+    "enable_newsletter_popup": true,
+    "judgeme_legacy_loader": false,
+    "popup_text": "Enter your email for product updates, measuring guidance, and your first-order welcome offer.",
+    "popup_button": "Claim My 10% Off",
+    "popup_consent": "By continuing you agree to receive email updates. Unsubscribe anytime.",
+    "popup_delay": 3,
+    "content_for_index": [],
+    "blocks": {
+      "lumina_judgeme_core": {
+        "type": "shopify://apps/judge-me-reviews/blocks/judgeme_core/61ccd3b1-a9f2-4160-9fe9-4fec8413e5d8",
+        "disabled": false,
+        "settings": {}
+      },
+      "1787840288555608609": {
+        "type": "shopify://apps/live-product-options/blocks/app-embed/88bfdf40-5e27-4962-a966-70c8d1e87757",
+        "disabled": false,
+        "settings": {}
+      }
+    }
+  }
+}

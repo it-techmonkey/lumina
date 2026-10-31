@@ -1,0 +1,56 @@
+{% if settings.enable_newsletter_popup and request.page_type == 'index' and template.suffix == blank %}
+<dialog id="LuminaNewsletterPopup" class="lumina-welcome" aria-labelledby="LuminaPopupTitle" data-popup-delay="{{ settings.popup_delay }}" data-popup-cooldown="{{ section.settings.cooldown }}" data-editor-dialog>
+ <div class="lumina-welcome-grid">
+  <div class="lumina-welcome-visual">
+   {% if settings.popup_image %}{{ settings.popup_image | image_url: width: 1600 | image_tag: class: 'lumina-welcome-image', loading: 'eager' }}{% else %}<img class="lumina-welcome-image" src="{{ 'product-gallery-1.webp' | asset_url }}" width="1200" height="1500" alt="Lumina blind in a bedroom" loading="eager">{% endif %}
+   <div class="lumina-welcome-shade"></div>
+   <div class="lumina-welcome-visual-content"><p class="lumina-welcome-brand">{{ section.settings.brand | escape }}</p><div class="lumina-welcome-story">
+    <div><p class="lumina-welcome-pill"><span></span>{{ section.settings.offer_label | escape }}</p><h2>{{ section.settings.story_heading | escape }}<br><em>{{ section.settings.story_emphasis | escape }}</em></h2><p class="lumina-welcome-story-copy">{{ section.settings.story_copy | escape }}</p></div>
+    <div class="lumina-welcome-guarantees">{% render 'lumina-guarantee-badges' %}</div>
+    <div class="lumina-welcome-benefits">{% for block in section.blocks %}<div {{ block.shopify_attributes }}><span aria-hidden="true"></span><div><h3>{{ block.settings.heading | escape }}</h3><p>{{ block.settings.text | escape }}</p></div></div>{% endfor %}</div>
+   </div></div>
+  </div>
+  <div class="lumina-welcome-right">
+   <div class="lumina-welcome-close-row"><button type="button" data-dialog-close aria-label="Close welcome offer"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 6 6 18M6 6l12 12"/></svg></button></div>
+   <div class="lumina-welcome-form-wrap"><div class="lumina-welcome-form-content">
+    <div><p class="lumina-welcome-eyebrow">{{ settings.popup_eyebrow | escape }}</p><h2 id="LuminaPopupTitle"><span>{{ section.settings.discount | escape }}</span><span>{{ section.settings.discount_suffix | escape }}</span></h2><p class="lumina-welcome-subheading">{{ settings.popup_subheading | escape }}</p></div>
+    <div class="lumina-welcome-rule"></div><p class="lumina-welcome-description">{{ settings.popup_text | escape }}</p>
+    {% form 'customer', id: 'LuminaPopupForm' %}
+     <input type="hidden" name="contact[tags]" value="newsletter,lumina-welcome">
+     {% if form.posted_successfully? %}<div class="lumina-welcome-success" role="status" data-newsletter-success><h3>{{ section.settings.success_heading | escape }}</h3><p>{{ section.settings.success_text | escape }}</p>{% if section.settings.discount_code != blank %}<button type="button" data-copy-code="{{ section.settings.discount_code | escape }}">{{ section.settings.discount_code | escape }} <span>Copy code</span></button>{% endif %}</div>
+     {% else %}<label class="sr-only" for="PopupEmail">Email address</label><input id="PopupEmail" type="email" name="contact[email]" value="{{ form.email | escape }}" placeholder="Your email address" autocomplete="email" required><button type="submit">{{ settings.popup_button | escape }}</button>{% endif %}
+     {% if form.errors %}<div role="alert" data-newsletter-errors>{{ form.errors | default_errors }}</div>{% endif %}
+    {% endform %}
+    <div class="lumina-welcome-mobile-guarantees">{% render 'lumina-guarantee-badges', instance: 'mobile' %}</div>
+    <p class="lumina-welcome-consent">{{ settings.popup_consent | escape }}</p>
+   </div></div>
+  </div>
+ </div>
+</dialog>
+{% endif %}
+{% schema %}
+{
+ "name":"Homepage welcome popup",
+ "settings":[
+  {"type":"paragraph","content":"Enable under Theme settings → Storefront. Welcome popup settings control the form copy, image and delay. Select this section to preview it in the editor."},
+  {"type":"text","id":"brand","label":"Brand","default":"Lumina"},
+  {"type":"text","id":"offer_label","label":"Offer label","default":"Limited Offer"},
+  {"type":"text","id":"story_heading","label":"Image heading","default":"Sleep better."},
+  {"type":"text","id":"story_emphasis","label":"Image heading emphasis","default":"Starting tonight."},
+  {"type":"textarea","id":"story_copy","label":"Image description","default":"Join thousands who transformed their sleep with Lumina blackout blinds."},
+  {"type":"text","id":"discount","label":"Offer amount","default":"10%"},
+  {"type":"text","id":"discount_suffix","label":"Offer suffix","default":"off"},
+  {"type":"range","id":"cooldown","label":"Wait after dismissal","min":5,"max":120,"step":5,"unit":"min","default":15},
+  {"type":"text","id":"success_heading","label":"Success heading","default":"You're on the list."},
+  {"type":"text","id":"success_text","label":"Success message","default":"Use this code at checkout with your subscribed email address for 10% off. One use per customer."},
+  {"type":"text","id":"discount_code","label":"Welcome discount code","default":"SUBSCRIBE10","info":"An existing Shopify discount for email subscribers. Displayed after a successful signup; this form does not send a discount email."}
+ ],
+ "blocks":[{"type":"benefit","name":"Benefit","settings":[{"type":"text","id":"heading","label":"Heading"},{"type":"textarea","id":"text","label":"Description"}]}],
+ "default":{"blocks":[
+  {"type":"benefit","settings":{"heading":"100% Blackout","text":"Triple-layer fabric — complete darkness, noon or midnight."}},
+  {"type":"benefit","settings":{"heading":"No-Drill Install","text":"Spring tension mount. Fits in seconds, leaves no marks."}},
+  {"type":"benefit","settings":{"heading":"Made to Your Exact Size","text":"Enter your dimensions and every blind is cut to fit."}},
+  {"type":"benefit","settings":{"heading":"Energy Efficient","text":"Honeycomb insulation — cooler summers, warmer winters."}}
+ ]}
+}
+{% endschema %}
